@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Allo étudiants</string>
+    <string name="toolbar_recherche">Rechercher</string>
+    <string name="toolbar_publier">Publication</string>
+    <string name="toolbar_annonce">Vos annonces</string>
+    <string name="toolbar_home">Alloétudiants</string>
+</resources>

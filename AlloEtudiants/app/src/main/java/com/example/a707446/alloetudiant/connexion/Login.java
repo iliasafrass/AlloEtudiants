@@ -11,6 +11,7 @@ import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionContract;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionPresenter;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.inscription.Inscription;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +49,11 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     public void  onForgetPasswordClick(){mPresenter.startForgetPassword();}
 
     @Override
-    public void signup(){Toast.makeText(getApplication(), "Inscription", Toast.LENGTH_SHORT).show();}
+    public void signup(){
+        Toast.makeText(getApplication(), "Inscription", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getApplicationContext(),Inscription.class);
+        startActivity(i);
+    }
 
     @Override
     public void forgetPassword() {

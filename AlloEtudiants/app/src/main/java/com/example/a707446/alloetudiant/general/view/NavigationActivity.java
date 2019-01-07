@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
 import com.example.a707446.alloetudiant.home.HomeFragment;
+import com.example.a707446.alloetudiant.notifications.NotificationFragment;
 import com.example.a707446.alloetudiant.publication.PublierFragment;
 import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 
@@ -53,11 +54,17 @@ public class NavigationActivity extends AppCompatActivity {
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
+                AbstractFragment selectedFragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.notification:
-
                         Toast.makeText(getApplication(), "notification", Toast.LENGTH_SHORT).show();
+                        selectedFragment = NotificationFragment.newInstance();
+                        break;
                 }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.navigationActivity_fragmentContainer, selectedFragment);
+                fragmentTransaction.commit();
                 return true;
             }
         });

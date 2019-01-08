@@ -1,5 +1,7 @@
 package com.example.a707446.alloetudiant.general.view;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,11 +9,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
@@ -35,7 +39,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     // Globals
     private Unbinder mUnbinder;
-
+    private boolean inHome = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,7 @@ public class NavigationActivity extends AppCompatActivity {
                     case R.id.notification:
                         Toast.makeText(getApplication(), "notification", Toast.LENGTH_SHORT).show();
                         selectedFragment = NotificationFragment.newInstance();
+                        inHome = false;
                         break;
                 }
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -77,12 +82,15 @@ public class NavigationActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case R.id.action_rechercher:
                                 selectedFragment = RechercheFragment.newInstance();
+                                inHome = false;
                                 break;
                             case R.id.action_annonce:
                                 selectedFragment = AnnonceFragment.newInstance();
+                                inHome = false;
                                 break;
                             case R.id.action_publier:
                                 selectedFragment = PublierFragment.newInstance();
+                                inHome = false;
                                 break;
                         }
                         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -116,16 +124,85 @@ public class NavigationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void mydialog1(){
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                //set icon
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                //set title
+                .setTitle("")
+                //set message
+                .setMessage("Souhaitez-vous revenir à l'accueil ou quitter l'application ?")
+                //set positive button
+                .setPositiveButton("Accueil", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what would happen when positive button is clicked
+                        // displaying the first fragment
+                        inHome = true;
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
+                        transaction.commit();
+                    }
+                })
+                //set negative button
+                .setNegativeButton("Quitter", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what should happen when negative button is clicked
+                        Toast.makeText(getApplicationContext(),"Au revoir!",Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                })
+                .show();
+    }
+
+    private void mydialog2() {
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                //set icon
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                //set title
+                .setTitle("Attention!")
+                //set message
+                .setMessage("Etes-vous sûr de vouloir quitter l'application ?")
+                //set positive button
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what would happen when positive button is clicked
+                        Toast.makeText(getApplicationContext(),"Au revoir!",Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                })
+                //set negative button
+                .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what should happen when negative button is clicked
+                        Toast.makeText(getApplicationContext()," :) ",Toast.LENGTH_LONG).show();
+                    }
+                })
+                .show();
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK :
-                // displaying the first fragment
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
-                transaction.commit();
-                return true;
+                if(inHome) {
+                    mydialog2();
+                }else{
+                    mydialog1();
+                }
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+
+    }
+
 }

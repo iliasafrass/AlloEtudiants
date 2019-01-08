@@ -1,8 +1,11 @@
 package com.example.a707446.alloetudiant.connexion;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -62,9 +65,50 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public void login(){
-        Toast.makeText(getApplication(), "Login", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplication(), "Bienvenu :)", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
         startActivity(i);
     }
 
+    private void mydialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                //set icon
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                //set title
+                .setTitle("Attention!")
+                //set message
+                .setMessage("Etes-vous sûr de vouloir quitter l'application ?")
+                //set positive button
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what would happen when positive button is clicked
+                        Toast.makeText(getApplicationContext(),"Au revoir!",Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                })
+                //set negative button
+                .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what should happen when negative button is clicked
+                        Toast.makeText(getApplicationContext()," :) ",Toast.LENGTH_LONG).show();
+                    }
+                })
+                .show();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch(keyCode){
+            case KeyEvent.KEYCODE_BACK :
+                mydialog();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }

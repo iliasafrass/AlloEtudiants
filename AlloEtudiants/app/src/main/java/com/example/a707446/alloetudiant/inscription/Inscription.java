@@ -3,6 +3,7 @@ package com.example.a707446.alloetudiant.inscription;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -74,5 +75,21 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
                     // Ninjas rule
                     break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch(keyCode){
+            case KeyEvent.KEYCODE_BACK :
+                Intent i = new Intent(getApplicationContext(),Login.class);
+                startActivity(i);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    protected void onPause() {
+        super.onPause();
+        finish();
+
     }
 }

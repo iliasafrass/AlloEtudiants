@@ -26,7 +26,6 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
     @BindView(R.id.femme)
     public RadioButton radioFemme;
 
-
     // Globals
     private InscriptionContract.Presenter mPresenter;
     private Unbinder mUnbinder;
@@ -72,7 +71,6 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
             case R.id.femme:
                 if (checked)
                     radioHomme.setChecked(false);
-                    // Ninjas rule
                     break;
         }
     }

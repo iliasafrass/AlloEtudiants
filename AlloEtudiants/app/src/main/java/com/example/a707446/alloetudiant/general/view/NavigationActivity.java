@@ -1,6 +1,5 @@
 package com.example.a707446.alloetudiant.general.view;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
@@ -125,39 +123,7 @@ public class NavigationActivity extends AppCompatActivity {
     }
 
 
-    public void mydialog1(){
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
-                //set icon
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                //set title
-                .setTitle("")
-                //set message
-                .setMessage("Souhaitez-vous revenir à l'accueil ou quitter l'application ?")
-                //set positive button
-                .setPositiveButton("Accueil", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //set what would happen when positive button is clicked
-                        // displaying the first fragment
-                        inHome = true;
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
-                        transaction.commit();
-                    }
-                })
-                //set negative button
-                .setNegativeButton("Quitter", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //set what should happen when negative button is clicked
-                        Toast.makeText(getApplicationContext(),"Au revoir!",Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                })
-                .show();
-    }
-
-    private void mydialog2() {
+    private void mydialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 //set icon
                 .setIcon(android.R.drawable.ic_dialog_alert)
@@ -190,9 +156,12 @@ public class NavigationActivity extends AppCompatActivity {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK :
                 if(inHome) {
-                    mydialog2();
+                    mydialog();
                 }else{
-                    mydialog1();
+                    inHome = true;
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
+                    transaction.commit();
                 }
         }
         return super.onKeyDown(keyCode, event);

@@ -8,7 +8,6 @@ public interface ConnexionContract {
     }
 
     interface Presenter  {
-
         void startLogin();
         void startSignup();
         void startForgetPassword();

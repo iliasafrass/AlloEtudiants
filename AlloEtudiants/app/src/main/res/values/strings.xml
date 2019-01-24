@@ -3,6 +3,6 @@
     <string name="toolbar_recherche">Rechercher</string>
     <string name="toolbar_publier">Publication</string>
     <string name="toolbar_annonce">Vos annonces</string>
-    <string name="toolbar_home">Alloétudiants</string>
+    <string name="toolbar_home">alloétudiants</string>
     <string name="toolbar_notifications">Notifications</string>
 </resources>

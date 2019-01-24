@@ -38,6 +38,7 @@ public class NavigationActivity extends AppCompatActivity {
     // Globals
     private Unbinder mUnbinder;
     private boolean inHome = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +47,12 @@ public class NavigationActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
-
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_account_circle_black_24dp);
 
+        getSupportActionBar().setElevation(0);
 
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -107,7 +108,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.navigation_top,menu);
+        getMenuInflater().inflate(R.menu.navigation_top, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -136,7 +137,7 @@ public class NavigationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what would happen when positive button is clicked
-                        Toast.makeText(getApplicationContext(),"Au revoir!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Au revoir!", Toast.LENGTH_LONG).show();
                         finish();
                     }
                 })
@@ -145,7 +146,7 @@ public class NavigationActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what should happen when negative button is clicked
-                        Toast.makeText(getApplicationContext()," :) ",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), " :) ", Toast.LENGTH_LONG).show();
                     }
                 })
                 .show();
@@ -153,15 +154,16 @@ public class NavigationActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch(keyCode){
-            case KeyEvent.KEYCODE_BACK :
-                if(inHome) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if (inHome) {
                     mydialog();
-                }else{
-                    inHome = true;
+                } else {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
                     transaction.commit();
+                    inHome = true;
+                    return true;
                 }
         }
         return super.onKeyDown(keyCode, event);

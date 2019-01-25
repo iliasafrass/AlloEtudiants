@@ -64,6 +64,17 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                switch(tab.getPosition()){
+                    case 0:
+                        getActivity().setTitle(R.string.toolbar_recherche_demande);
+                        break;
+                    case 1:
+                        getActivity().setTitle(R.string.toolbar_recherche_proposition);
+                        break;
+                    case 2:
+                        getActivity().setTitle(R.string.toolbar_recherche_evenement);
+                        break;
+                }
             }
 
             @Override

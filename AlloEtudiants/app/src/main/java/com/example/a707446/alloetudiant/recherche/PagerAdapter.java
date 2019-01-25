@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.RechercheDemandeFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.RechercheEvenementFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.RecherchePropositionFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
@@ -21,11 +24,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                return new AnnonceFragment();
+                return new RechercheDemandeFragment();
             case 1:
-                return new AnnonceFragment();
+                return new RecherchePropositionFragment();
             case 2:
-                return new AnnonceFragment();
+                return new RechercheEvenementFragment();
 
             default:
                 return null;

@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.connexion;
 
+import android.arch.lifecycle.LiveData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
@@ -15,6 +17,9 @@ import com.example.a707446.alloetudiant.connexion.presenter.ConnexionContract;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionPresenter;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.inscription.Inscription;
+import com.example.a707446.alloetudiant.model.pojo.Event;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,11 +47,17 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
         mPresenter = new ConnexionPresenter(this);
     }
 
+    @BindView(R.id.Email)
+    EditText edtEmail;
+
+    @BindView(R.id.password)
+    EditText edtPassword;
+
     @OnClick(R.id.signup)
     public void onSignupClick(){mPresenter.startSignup();}
 
     @OnClick(R.id.login)
-    public void onLoginClick(){mPresenter.startLogin();}
+    public void onLoginClick(){mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());}
 
     @OnClick(R.id.forgetPassword)
     public void  onForgetPasswordClick(){mPresenter.startForgetPassword();}
@@ -64,10 +75,11 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     }
 
     @Override
-    public void login(){
-        Toast.makeText(getApplication(), "Bienvenu :)", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
-        startActivity(i);
+    public void login(String message){
+        Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplication(), "Bienvenu :)", Toast.LENGTH_SHORT).show();
+//        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
+//        startActivity(i);
     }
 
     private void mydialog() {

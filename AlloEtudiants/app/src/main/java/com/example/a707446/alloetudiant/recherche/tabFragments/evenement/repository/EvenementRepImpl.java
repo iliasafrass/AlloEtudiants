@@ -4,6 +4,7 @@ import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.services.AlloEtudiantRestClient;
 import com.example.a707446.alloetudiant.general.services.RetrofitClientInstance;
 import com.example.a707446.alloetudiant.recherche.presenter.RechercheContract;
+import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter.EvenementContract;
 
 import java.util.List;
 
@@ -11,11 +12,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RechercheRepImpl implements RechercheRepo {
+public class EvenementRepImpl implements EvenementRepo {
 
-    private RechercheContract.Presenter mPresenter;
+    private EvenementContract.Presenter mPresenter;
 
-    public RechercheRepImpl(RechercheContract.Presenter presenter) {
+    public EvenementRepImpl(EvenementContract.Presenter presenter) {
         this.mPresenter = presenter;
     }
     @Override

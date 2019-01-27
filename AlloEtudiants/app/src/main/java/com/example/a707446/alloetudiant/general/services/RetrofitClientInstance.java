@@ -10,16 +10,20 @@ public class RetrofitClientInstance {
 
 
     //the localhost for emulator is 10.0.2.2
-    private static final String BASE_URL ="http://10.0.2.2:8080";
+    private static final String BASE_URL ="https://alloetudiantapi.herokuapp.com";
     private static Retrofit retrofit = null;
 
+    // create an instance of gson to be used when building our service
+    static Gson gson = new GsonBuilder()
+            .setDateFormat("yyyy-MM-dd HH:mm")
+            .create();
+
     public static Retrofit getRetrofitInstance() {
-        // create an instance of gson to be used when building our service
-        Gson gson = new GsonBuilder().create();
+
         if(retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }
         return retrofit;

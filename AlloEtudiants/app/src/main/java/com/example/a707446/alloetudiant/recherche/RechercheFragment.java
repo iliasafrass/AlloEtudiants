@@ -77,7 +77,7 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
                         break;
                     case 2:
                         getActivity().setTitle(R.string.toolbar_recherche_evenement);
-                        mPresenter.sendEventsToView();
+                        //mPresenter.sendEventsToView();
                         break;
                 }
             }
@@ -99,7 +99,7 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
         mPresenter.start();
     }
 
-    //region RechercheContract.View
+    //region EvenementContract.View
 
     @Override
     public void test() {
@@ -108,9 +108,9 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
 
     @Override
     public void receiveEventsFromPresenter(List<Event> events) {
-        mEvents = events;
+/*        mEvents = events;
         Toast.makeText(getActivity(), "Size : "+mEvents.get(0), Toast.LENGTH_SHORT).show();
-        System.out.println(events.get(0));
+        System.out.println(events.get(0));*/
     }
 
 }

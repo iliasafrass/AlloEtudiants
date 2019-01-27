@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.recherche.tabFragments;
+package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
 
 
 import android.os.Bundle;

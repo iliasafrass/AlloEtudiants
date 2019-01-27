@@ -1,8 +1,8 @@
 package com.example.a707446.alloetudiant.general.model.pojo;
 
-import com.example.a707446.alloetudiant.model.enumeration.AnnounceType;
-import com.example.a707446.alloetudiant.model.enumeration.Grade;
-import com.example.a707446.alloetudiant.model.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
+import com.example.a707446.alloetudiant.general.model.enumeration.Grade;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 
 import java.util.Date;
 import java.util.List;

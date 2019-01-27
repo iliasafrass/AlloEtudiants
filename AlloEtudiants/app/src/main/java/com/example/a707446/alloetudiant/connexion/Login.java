@@ -68,7 +68,6 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public void login(){
-        Toast.makeText(getApplication(), "Bienvenu :)", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
         startActivity(i);
     }

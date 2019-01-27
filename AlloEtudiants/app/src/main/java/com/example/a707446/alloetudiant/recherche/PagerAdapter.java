@@ -5,10 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
-import com.example.a707446.alloetudiant.recherche.tabFragments.RechercheDemandeFragment;
-import com.example.a707446.alloetudiant.recherche.tabFragments.RechercheEvenementFragment;
-import com.example.a707446.alloetudiant.recherche.tabFragments.RecherchePropositionFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.demande.RechercheDemandeFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.RechercheEvenementFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.RecherchePropositionFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;

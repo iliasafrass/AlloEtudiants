@@ -11,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.recherche.presenter.RechercheContract;
 import com.example.a707446.alloetudiant.recherche.presenter.RecherchePresenter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +31,8 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
     public ViewPager viewPager;
     // Globals
     private RechercheContract.Presenter mPresenter;
+    public List<Event> mEvents;
+
 
     public RechercheFragment() {
         // Requires empty public constructor
@@ -54,7 +59,6 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
         tabLayout.addTab(tabLayout.newTab());
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        //mRecyclerView.setLayoutManager(mLayoutManager);
         viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setupWithViewPager(viewPager);
@@ -73,24 +77,22 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
                         break;
                     case 2:
                         getActivity().setTitle(R.string.toolbar_recherche_evenement);
+                        mPresenter.sendEventsToView();
                         break;
                 }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
         return view;
     }
-
 
     @OnClick(R.id.test)
     public void onTestClick() {
@@ -101,8 +103,14 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
 
     @Override
     public void test() {
-        Toast.makeText(getActivity(), "TEST", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "TEST :", Toast.LENGTH_SHORT).show();
     }
 
-    //region
+    @Override
+    public void receiveEventsFromPresenter(List<Event> events) {
+        mEvents = events;
+        Toast.makeText(getActivity(), "Size : "+mEvents.get(0), Toast.LENGTH_SHORT).show();
+        System.out.println(events.get(0));
+    }
+
 }

@@ -3,7 +3,6 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presen
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.repository.EvenementRepImpl;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.repository.EvenementRepo;
-
 import java.util.List;
 
 public class EvenementPresenter implements EvenementContract.Presenter{
@@ -15,16 +14,11 @@ public class EvenementPresenter implements EvenementContract.Presenter{
     private EvenementContract.View mView;
     private EvenementRepo mRepo;
 
-
-
     public EvenementPresenter(EvenementContract.View view) {
         mView = view;
         mRepo = new EvenementRepImpl(this);
 
     }
-
-
-
 
     @Override
     public void receiveEventsFromRepo(List<Event> eventList) {
@@ -32,6 +26,7 @@ public class EvenementPresenter implements EvenementContract.Presenter{
             mView.receiveEventsFromPresenter(eventList);
         }
         else{
+            System.out.println("eventList receive from repo is NULL !!");
         }
     }
 
@@ -39,6 +34,5 @@ public class EvenementPresenter implements EvenementContract.Presenter{
     public void sendEventsToView() {
         mRepo.getEvents();
     }
-
 
 }

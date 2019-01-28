@@ -8,21 +8,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.recherche.presenter.RechercheContract;
-import com.example.a707446.alloetudiant.recherche.presenter.RecherchePresenter;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class RechercheFragment extends AbstractFragment implements RechercheContract.View {
+public class RechercheFragment extends AbstractFragment  {
 
     // Views
     @BindView(R.id.tabs)
@@ -30,8 +23,6 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
     @BindView(R.id.viewpager)
     public ViewPager viewPager;
     // Globals
-    private RechercheContract.Presenter mPresenter;
-    public List<Event> mEvents;
 
 
     public RechercheFragment() {
@@ -52,7 +43,6 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
 
 
         getActivity().setTitle(R.string.toolbar_recherche);
-        mPresenter = new RecherchePresenter(this);
 
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
@@ -77,7 +67,6 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
                         break;
                     case 2:
                         getActivity().setTitle(R.string.toolbar_recherche_evenement);
-                        //mPresenter.sendEventsToView();
                         break;
                 }
             }
@@ -92,25 +81,6 @@ public class RechercheFragment extends AbstractFragment implements RechercheCont
         });
 
         return view;
-    }
-
-    @OnClick(R.id.test)
-    public void onTestClick() {
-        mPresenter.start();
-    }
-
-    //region EvenementContract.View
-
-    @Override
-    public void test() {
-        Toast.makeText(getActivity(), "TEST :", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void receiveEventsFromPresenter(List<Event> events) {
-/*        mEvents = events;
-        Toast.makeText(getActivity(), "Size : "+mEvents.get(0), Toast.LENGTH_SHORT).show();
-        System.out.println(events.get(0));*/
     }
 
 }

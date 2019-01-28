@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
+package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,20 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.model.pojo.Event;
+import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 
 import java.util.List;
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
+public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHolder> {
 
-    //Liste des evenements
-    private List<Event> eventsList;
+    //Liste des propositions
+    private List<Offer> offersList;
 
     public Context myContext ;
 
     //construceteur
-    public EventsAdapter(Context context,List<Event> eventsList) {
-        this.eventsList = eventsList;
+    public OffersAdapter(Context context,List<Offer> offersList) {
+        this.offersList = offersList;
         myContext = context;
     }
 
@@ -38,10 +38,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title_event);
-            address = (TextView) view.findViewById(R.id.address_event);
-            description = (TextView) view.findViewById(R.id.description_event);
-            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_event);
+            title = (TextView) view.findViewById(R.id.title_offer);
+            address = (TextView) view.findViewById(R.id.address_offer);
+            description = (TextView) view.findViewById(R.id.description_offer);
+            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_offer);
         }
     }
 
@@ -50,7 +50,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // la methode inflate  prend en entrée un fichier de layout XML et construit les objets View à partir de celui-ci.
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.event_item_layout, parent, false);
+                .inflate(R.layout.offer_item_layout, parent, false);
 
         //retourne une instance du holder
         return new MyViewHolder(itemView);
@@ -59,18 +59,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     // onBindViewHolder ç'est la méthode qui permet d'insérer les données dans chaque item
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        final Event event = eventsList.get(position);
-        holder.title.setText(event.getTitle());
-        holder.address.setText(event.getAddress());
-        holder.description.setText(event.getDescription());
+        final Offer offer = offersList.get(position);
+        holder.title.setText(offer.getTitle());
+        holder.address.setText(offer.getAddress());
+        holder.description.setText(offer.getDescription());
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(myContext,event.getTitle(),Toast.LENGTH_LONG).show();
+                Toast.makeText(myContext,offer.getTitle(),Toast.LENGTH_LONG).show();
                 Log.d("TOAST","########################");
-
-
             }
         });
     }
@@ -78,6 +76,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     // Retourne le nombre total d'éléments dans la liste
     @Override
     public int getItemCount() {
-        return eventsList.size();
+        return offersList.size();
     }
 }

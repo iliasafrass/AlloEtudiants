@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RechercheEvenementFragment extends AbstractFragment implements EvenementContract.View{
+public class RechercheEvenementFragment extends AbstractFragment implements EvenementContract.View {
 
     //Views
     @BindView(R.id.recycler_view_evenement)
@@ -35,7 +35,6 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
     private EvenementContract.Presenter mPresenter;
     private List<Event> eventList = new ArrayList<>();
     private EventsAdapter mAdapter;
-
 
 
     public RechercheEvenementFragment() {
@@ -52,8 +51,8 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.recherche_evenement_fragment,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.recherche_evenement_fragment, null);
+        mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new EvenementPresenter(this);
 
         //creation de l'adapter on lui passant la liste des evenemnts.
@@ -75,7 +74,7 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
 
     @Override
     public void receiveEventsFromPresenter(List<Event> events) {
-        for(Event e : events){
+        for (Event e : events) {
             eventList.add(e);
             mAdapter.notifyDataSetChanged();
         }

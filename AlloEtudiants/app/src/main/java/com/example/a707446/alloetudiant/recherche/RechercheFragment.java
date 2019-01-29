@@ -15,7 +15,7 @@ import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RechercheFragment extends AbstractFragment  {
+public class RechercheFragment extends AbstractFragment {
 
     // Views
     @BindView(R.id.tabs)
@@ -58,7 +58,7 @@ public class RechercheFragment extends AbstractFragment  {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                switch(tab.getPosition()){
+                switch (tab.getPosition()) {
                     case 0:
                         getActivity().setTitle(R.string.toolbar_recherche_demande);
                         break;

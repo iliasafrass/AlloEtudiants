@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
+package com.example.a707446.alloetudiant.recherche.tabFragments.demande;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,19 +11,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.model.pojo.Offer;
+import com.example.a707446.alloetudiant.general.model.pojo.Request;
 
 import java.util.List;
 
-public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHolder> {
+public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyViewHolder> {
 
     public Context myContext;
-    //Liste des propositions
-    private List<Offer> offersList;
+    //Liste des demandes d'aide
+    private List<Request> requestsList;
 
     //construceteur
-    public OffersAdapter(Context context, List<Offer> offersList) {
-        this.offersList = offersList;
+    public RequestsAdapter(Context context, List<Request> requestsList) {
+        this.requestsList = requestsList;
         myContext = context;
     }
 
@@ -31,8 +31,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // la methode inflate  prend en entrée un fichier de layout XML et construit les objets View à partir de celui-ci.
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.offer_item_layout, parent, false);
-
+                .inflate(R.layout.request_item_layout, parent, false);
         //retourne une instance du holder
         return new MyViewHolder(itemView);
     }
@@ -40,15 +39,15 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     // onBindViewHolder ç'est la méthode qui permet d'insérer les données dans chaque item
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        final Offer offer = offersList.get(position);
-        holder.title.setText(offer.getTitle());
-        holder.address.setText(offer.getAddress());
-        holder.description.setText(offer.getDescription());
+        final Request request = requestsList.get(position);
+        holder.title.setText(request.getTitle());
+        holder.address.setText(request.getAddress());
+        holder.description.setText(request.getDescription());
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(myContext, offer.getDescription(), Toast.LENGTH_LONG).show();
+                Toast.makeText(myContext, request.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
             }
         });
@@ -57,7 +56,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     // Retourne le nombre total d'éléments dans la liste
     @Override
     public int getItemCount() {
-        return offersList.size();
+        return requestsList.size();
     }
 
     //cette class permet de fournir une référence directe à chacune des vues dans un élément de données
@@ -70,10 +69,11 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title_offer);
-            address = (TextView) view.findViewById(R.id.address_offer);
-            description = (TextView) view.findViewById(R.id.description_offer);
-            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_offer);
+            title = (TextView) view.findViewById(R.id.title_request);
+            address = (TextView) view.findViewById(R.id.address_request);
+            description = (TextView) view.findViewById(R.id.description_request);
+            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_request);
         }
     }
+
 }

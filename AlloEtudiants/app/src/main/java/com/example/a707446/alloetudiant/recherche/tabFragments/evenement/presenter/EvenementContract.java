@@ -10,8 +10,9 @@ public interface EvenementContract {
         void receiveEventsFromPresenter(List<Event> events);
     }
 
-    interface Presenter  {
+    interface Presenter {
         void receiveEventsFromRepo(List<Event> eventList);
+
         void sendEventsToView();
     }
 

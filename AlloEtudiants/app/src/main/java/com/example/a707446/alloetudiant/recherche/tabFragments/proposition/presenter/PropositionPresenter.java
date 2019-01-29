@@ -7,9 +7,7 @@ import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.repos
 import java.util.List;
 
 
-
-
-public class PropositionPresenter implements  PropositionContract.Presenter {
+public class PropositionPresenter implements PropositionContract.Presenter {
 
 
     // Constants
@@ -27,11 +25,10 @@ public class PropositionPresenter implements  PropositionContract.Presenter {
 
     @Override
     public void receiveOffersFromRepo(List<Offer> offerList) {
-        if(offerList != null && !offerList.isEmpty()) {
+        if (offerList != null && !offerList.isEmpty()) {
             mView.receiveOffersFromPresenter(offerList);
-        }
-        else{
-            System.out.println("eventList receive from repo is NULL !!");
+        } else {
+            System.out.println("offerList receive from repo is NULL !!");
         }
     }
 

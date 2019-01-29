@@ -42,7 +42,6 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     }
 
 
-
     public static RecherchePropositionFragment newInstance() {
         return new RecherchePropositionFragment();
     }
@@ -52,8 +51,8 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.recherche_proposition_fragment,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.recherche_proposition_fragment, null);
+        mUnbinder = ButterKnife.bind(this, view);
 
         mPresenter = new PropositionPresenter(this);
 
@@ -78,7 +77,7 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
 
     @Override
     public void receiveOffersFromPresenter(List<Offer> offers) {
-        for(Offer o : offers){
+        for (Offer o : offers) {
             offerList.add(o);
             mAdapter.notifyDataSetChanged();
         }

@@ -17,34 +17,15 @@ import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
 
+    public Context myContext;
     //Liste des evenements
     private List<Event> eventsList;
 
-    public Context myContext ;
-
     //construceteur
-    public EventsAdapter(Context context,List<Event> eventsList) {
+    public EventsAdapter(Context context, List<Event> eventsList) {
         this.eventsList = eventsList;
         myContext = context;
     }
-
-    //cette class permet de fournir une référence directe à chacune des vues dans un élément de données
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        // Votre holder doit contenir une variable membre
-        // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description;
-        // le layout  de l'item
-        public RelativeLayout parentLayout;
-
-        public MyViewHolder(View view) {
-            super(view);
-            title = (TextView) view.findViewById(R.id.title_event);
-            address = (TextView) view.findViewById(R.id.address_event);
-            description = (TextView) view.findViewById(R.id.description_event);
-            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_event);
-        }
-    }
-
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -67,8 +48,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(myContext,event.getTitle(),Toast.LENGTH_LONG).show();
-                Log.d("TOAST","########################");
+                Toast.makeText(myContext, event.getDescription(), Toast.LENGTH_LONG).show();
+                Log.d("TOAST", "########################");
 
 
             }
@@ -79,5 +60,22 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     @Override
     public int getItemCount() {
         return eventsList.size();
+    }
+
+    //cette class permet de fournir une référence directe à chacune des vues dans un élément de données
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        // Votre holder doit contenir une variable membre
+        // pour toute vue qui sera définie lors du rendu de l'item
+        public TextView title, address, description;
+        // le layout  de l'item
+        public RelativeLayout parentLayout;
+
+        public MyViewHolder(View view) {
+            super(view);
+            title = (TextView) view.findViewById(R.id.title_event);
+            address = (TextView) view.findViewById(R.id.address_event);
+            description = (TextView) view.findViewById(R.id.description_event);
+            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_event);
+        }
     }
 }

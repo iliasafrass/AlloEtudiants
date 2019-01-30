@@ -1,11 +1,13 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +46,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         holder.title.setText(event.getTitle());
         holder.address.setText(event.getAddress());
         holder.description.setText(event.getDescription());
+        holder.icon.setImageResource(R.drawable.ic_events);
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +70,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
         public TextView title, address, description;
+
+        public ImageView icon;
         // le layout  de l'item
         public RelativeLayout parentLayout;
 
@@ -76,6 +81,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
             address = (TextView) view.findViewById(R.id.address_event);
             description = (TextView) view.findViewById(R.id.description_event);
             parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_event);
+            icon = (ImageView) view.findViewById(R.id.event_image);
         }
     }
 }

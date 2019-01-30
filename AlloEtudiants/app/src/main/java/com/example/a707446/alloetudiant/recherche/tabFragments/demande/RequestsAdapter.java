@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
         holder.title.setText(request.getTitle());
         holder.address.setText(request.getAddress());
         holder.description.setText(request.getDescription());
+        holder.icon.setImageResource(R.drawable.ic_requests);
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +66,8 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
         public TextView title, address, description;
+
+        public ImageView icon;
         // le layout  de l'item
         public RelativeLayout parentLayout;
 
@@ -73,6 +77,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
             address = (TextView) view.findViewById(R.id.address_request);
             description = (TextView) view.findViewById(R.id.description_request);
             parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_request);
+            icon = (ImageView) view.findViewById(R.id.request_image);
         }
     }
 

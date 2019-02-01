@@ -3,45 +3,23 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.demande.reposito
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.services.AlloEtudiantRestClient;
 import com.example.a707446.alloetudiant.general.services.RetrofitClientInstance;
-import com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter.RequestContract;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class RequestRepoImpl implements RequestRepo {
 
-    private RequestContract.Presenter mPresenter;
-
-    public RequestRepoImpl(RequestContract.Presenter presenter) {
-        this.mPresenter = presenter;
+    //instance de retrofit builder
+    Retrofit retrofit;
+    //android google simple
+    public RequestRepoImpl() {
+        this.retrofit = RetrofitClientInstance.getRetrofitInstance();
     }
 
     @Override
-    public void getRequests() {
-        RetrofitClientInstance
-                .getRetrofitInstance().create(AlloEtudiantRestClient.class)
-                .getRequests()
-                .enqueue(new Callback<List<Request>>() {
-                    @Override
-                    public void onResponse(Call<List<Request>> call, Response<List<Request>> response) {
-                        System.out.println(response.code());
-                        List<Request> requestList = response.body();
-                        if (requestList != null && !requestList.isEmpty()) {
-                            mPresenter.receiveRequestsFromRepo(requestList);
-                        } else {
-                            System.out.println("#########");
-                            System.out.println("Requests is Empty!");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<Request>> call, Throwable t) {
-                        System.out.println("#########");
-                        System.out.println("Something went wrong!");
-                    }
-                });
+    public Call<List<Request>> getRequests() {
+        return retrofit.create(AlloEtudiantRestClient.class).getRequests();
     }
 }

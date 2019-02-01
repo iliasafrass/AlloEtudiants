@@ -10,7 +10,6 @@ public interface PropositionContract {
     }
 
     interface Presenter  {
-        void receiveOffersFromRepo(List<Offer> offerList);
         void sendOffersToView();
     }
 }

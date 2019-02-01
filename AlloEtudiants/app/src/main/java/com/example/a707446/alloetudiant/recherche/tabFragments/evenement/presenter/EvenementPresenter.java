@@ -6,6 +6,10 @@ import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.reposit
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class EvenementPresenter implements EvenementContract.Presenter {
 
     // Constants
@@ -17,22 +21,29 @@ public class EvenementPresenter implements EvenementContract.Presenter {
 
     public EvenementPresenter(EvenementContract.View view) {
         mView = view;
-        mRepo = new EvenementRepoImpl(this);
+        mRepo = new EvenementRepoImpl();
 
-    }
-
-    @Override
-    public void receiveEventsFromRepo(List<Event> eventList) {
-        if (eventList != null && !eventList.isEmpty()) {
-            mView.receiveEventsFromPresenter(eventList);
-        } else {
-            System.out.println("eventList receive from repo is NULL !!");
-        }
     }
 
     @Override
     public void sendEventsToView() {
-        mRepo.getEvents();
+
+        mRepo.getEvents().enqueue(
+                new Callback<List<Event>>() {
+                    @Override
+                    public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
+                        //view.methode
+                        mView.receiveEventsFromPresenter(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Event>> call, Throwable t) {
+                        System.out.println("#########");
+                        System.out.println("Something went wrong!");
+                    }
+                }
+        );
     }
+
 
 }

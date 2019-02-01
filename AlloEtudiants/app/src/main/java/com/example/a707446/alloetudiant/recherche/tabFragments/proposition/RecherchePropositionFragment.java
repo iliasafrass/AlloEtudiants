@@ -77,9 +77,6 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
 
     @Override
     public void receiveOffersFromPresenter(List<Offer> offers) {
-        for (Offer o : offers) {
-            offerList.add(o);
-            mAdapter.notifyDataSetChanged();
-        }
+        mAdapter.setOffersList(offers);
     }
 }

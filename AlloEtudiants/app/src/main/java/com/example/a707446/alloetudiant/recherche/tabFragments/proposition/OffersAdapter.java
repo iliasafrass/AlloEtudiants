@@ -81,4 +81,8 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
             icon = (ImageView) view.findViewById(R.id.offer_image);
         }
     }
+    public void setOffersList(List<Offer> list){
+        this.offersList=list;
+        notifyDataSetChanged();
+    }
 }

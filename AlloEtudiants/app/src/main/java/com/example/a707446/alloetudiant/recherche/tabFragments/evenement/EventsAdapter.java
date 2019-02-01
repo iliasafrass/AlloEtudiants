@@ -1,7 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,19 +14,23 @@ import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
+import com.example.a707446.alloetudiant.recherche.Details;
 
 import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
 
     public Context myContext;
+    private RechercheEvenementFragment mFragmentParent;
     //Liste des evenements
     private List<Event> eventsList;
+    private String eventId;
 
     //construceteur
     public EventsAdapter(Context context, List<Event> eventsList) {
         this.eventsList = eventsList;
         myContext = context;
+        mFragmentParent = new RechercheEvenementFragment();
     }
 
     @Override
@@ -41,28 +45,42 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 
     // onBindViewHolder ç'est la méthode qui permet d'insérer les données dans chaque item
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+
         final Event event = eventsList.get(position);
         holder.title.setText(event.getTitle());
         holder.address.setText(event.getAddress());
         holder.description.setText(event.getDescription());
         holder.icon.setImageResource(R.drawable.ic_events);
         //on ajoute un OnClickListener sur le layout de l'item
+
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                eventId = event.getId();
+
+                Intent i = new Intent(myContext, Details.class);
+                i.putExtra("id",eventId);
+                view.getContext().startActivity(i);
+
                 Toast.makeText(myContext, event.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
-
 
             }
         });
     }
 
+
+
     // Retourne le nombre total d'éléments dans la liste
     @Override
     public int getItemCount() {
         return eventsList.size();
+    }
+
+    public void setEventsList(List<Event> list){
+        this.eventsList=list;
+        notifyDataSetChanged();
     }
 
     //cette class permet de fournir une référence directe à chacune des vues dans un élément de données
@@ -81,7 +99,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
             address = (TextView) view.findViewById(R.id.address_event);
             description = (TextView) view.findViewById(R.id.description_event);
             parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_event);
-            icon = (ImageView) view.findViewById(R.id.event_image);
+            icon = (ImageView) view.findViewById(R.id.event_image_detail);
         }
     }
+
+
 }

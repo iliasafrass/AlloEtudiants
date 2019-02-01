@@ -6,6 +6,10 @@ import com.example.a707446.alloetudiant.recherche.tabFragments.demande.repositor
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RequestPresenter implements RequestContract.Presenter {
     // Constants
     private static final String TAG = RequestPresenter.class.getSimpleName();
@@ -16,21 +20,26 @@ public class RequestPresenter implements RequestContract.Presenter {
 
     public RequestPresenter(RequestContract.View view) {
         mView = view;
-        mRepo = new RequestRepoImpl(this);
+        mRepo = new RequestRepoImpl();
 
-    }
-
-    @Override
-    public void receiveRequestsFromRepo(List<Request> requestList) {
-        if (requestList != null && !requestList.isEmpty()) {
-            mView.receiveRequestsFromPresenter(requestList);
-        } else {
-            System.out.println("requestList receive from repo is NULL !!");
-        }
     }
 
     @Override
     public void sendRequestsToView() {
-        mRepo.getRequests();
+        mRepo.getRequests().enqueue(
+                new Callback<List<Request>>() {
+                    @Override
+                    public void onResponse(Call<List<Request>> call, Response<List<Request>> response) {
+                        //view.methode
+                        mView.receiveRequestsFromPresenter(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Request>> call, Throwable t) {
+                        System.out.println("#########");
+                        System.out.println("Something went wrong!");
+                    }
+                }
+        );
     }
 }

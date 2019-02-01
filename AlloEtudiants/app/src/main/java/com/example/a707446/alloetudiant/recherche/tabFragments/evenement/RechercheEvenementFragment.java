@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.recherche.Details;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter.EvenementContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter.EvenementPresenter;
 
@@ -74,9 +76,20 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
 
     @Override
     public void receiveEventsFromPresenter(List<Event> events) {
-        for (Event e : events) {
-            eventList.add(e);
-            mAdapter.notifyDataSetChanged();
-        }
+        mAdapter.setEventsList(events);
     }
+
+
+    public void details2(String id){
+
+/*        EventDetailFragment detailFragment = new EventDetailFragment();
+        //Recupération de l’index à afficher dans les arguments d’appel
+        Bundle args = new Bundle();
+        args.putString("id", id);
+        detailFragment.setArguments(args);
+        return detailFragment;*/
+        Intent i = new Intent(getActivity().getApplication(), Details.class);
+        startActivity(i);
+    }
+
 }

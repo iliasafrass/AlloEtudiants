@@ -80,5 +80,9 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
             icon = (ImageView) view.findViewById(R.id.request_image);
         }
     }
+    public void setRequestsList(List<Request> list){
+        this.requestsList = list;
+        notifyDataSetChanged();
+    }
 
 }

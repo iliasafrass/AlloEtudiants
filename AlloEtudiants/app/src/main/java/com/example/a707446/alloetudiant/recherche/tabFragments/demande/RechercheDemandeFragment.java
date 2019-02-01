@@ -71,9 +71,6 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
 
     @Override
     public void receiveRequestsFromPresenter(List<Request> requests) {
-        for (Request e : requests) {
-            requestList.add(e);
-            mAdapter.notifyDataSetChanged();
-        }
+        mAdapter.setRequestsList(requests);
     }
 }

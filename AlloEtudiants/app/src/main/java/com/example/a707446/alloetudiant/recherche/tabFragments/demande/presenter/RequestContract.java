@@ -10,8 +10,6 @@ public interface RequestContract {
     }
 
     interface Presenter {
-        void receiveRequestsFromRepo(List<Request> requestList);
-
         void sendRequestsToView();
     }
 }

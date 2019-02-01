@@ -3,45 +3,22 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.reposi
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.services.AlloEtudiantRestClient;
 import com.example.a707446.alloetudiant.general.services.RetrofitClientInstance;
-import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter.EvenementContract;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class EvenementRepoImpl implements EvenementRepo {
 
-    private EvenementContract.Presenter mPresenter;
 
-    public EvenementRepoImpl(EvenementContract.Presenter presenter) {
-        this.mPresenter = presenter;
+    Retrofit retrofit;
+    public EvenementRepoImpl() {
+        this.retrofit = RetrofitClientInstance.getRetrofitInstance();
     }
 
     @Override
-    public void getEvents() {
-        RetrofitClientInstance
-                .getRetrofitInstance().create(AlloEtudiantRestClient.class)
-                .getEvents()
-                .enqueue(new Callback<List<Event>>() {
-                    @Override
-                    public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
-                        System.out.println(response.code());
-                        List<Event> eventList = response.body();
-                        if (eventList != null && !eventList.isEmpty()) {
-                            mPresenter.receiveEventsFromRepo(eventList);
-                        } else {
-                            System.out.println("#########");
-                            System.out.println("Events is Empty!");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<Event>> call, Throwable t) {
-                        System.out.println("#########");
-                        System.out.println("Something went wrong!");
-                    }
-                });
+    public Call<List<Event>> getEvents() {
+        return retrofit.create(AlloEtudiantRestClient.class).getEvents();
     }
 }

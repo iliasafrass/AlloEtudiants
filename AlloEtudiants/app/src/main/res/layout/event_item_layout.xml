@@ -11,7 +11,8 @@ card_view:cardCornerRadius="12dp"
 card_view:cardElevation="3dp"
 card_view:contentPadding="4dp"
 android:foreground="?selectableItemBackground"
-android:clickable="true" >
+android:clickable="true"
+    >
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -22,7 +23,7 @@ android:clickable="true" >
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/event_image"
+        android:id="@+id/event_image_detail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="16dp"
@@ -34,7 +35,7 @@ android:clickable="true" >
         android:textColor="#000"
         android:textStyle="bold"
         android:id="@+id/title_event"
-        android:layout_toRightOf="@+id/event_image"
+        android:layout_toRightOf="@+id/event_image_detail"
         android:layout_alignParentTop="true"
         android:textSize="16dp"
         />
@@ -46,7 +47,7 @@ android:clickable="true" >
         android:textColor="#929292"
         android:textSize="12dp"
         android:textStyle="bold"
-        android:layout_toRightOf="@+id/event_image"
+        android:layout_toRightOf="@+id/event_image_detail"
         android:layout_below="@+id/title_event"
         />
 
@@ -57,7 +58,7 @@ android:clickable="true" >
         android:id="@+id/description_event"
         android:textColor="#929292"
         android:textStyle="bold"
-        android:layout_toRightOf="@+id/event_image"
+        android:layout_toRightOf="@+id/event_image_detail"
         android:layout_below="@+id/address_event"
         />
 

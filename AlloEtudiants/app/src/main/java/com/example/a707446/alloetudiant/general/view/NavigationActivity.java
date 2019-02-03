@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
@@ -27,17 +28,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class NavigationActivity extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity implements BottomBar.DisableBottomBar , BottomBar.EnableBottomBar{
 
     // Views
     @BindView(R.id.navigationActivity_toolbar)
     public Toolbar mToolbar;
     @BindView(R.id.navigationActivity_bottomNavigationActivity)
-    public BottomNavigationView mBottomNavigationView;
+    public  BottomNavigationView mBottomNavigationView;
+
 
     // Globals
     private Unbinder mUnbinder;
-    private boolean inHome = true;
+    public static boolean inHome;
+    public static boolean firstChildFragment = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,7 @@ public class NavigationActivity extends AppCompatActivity {
         mUnbinder = ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
+        inHome = true;
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
@@ -77,25 +80,32 @@ public class NavigationActivity extends AppCompatActivity {
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         AbstractFragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_rechercher:
+                                fragmentManager.popBackStack();
                                 selectedFragment = RechercheFragment.newInstance();
                                 inHome = false;
+                                firstChildFragment = true;
                                 break;
                             case R.id.action_annonce:
+                                fragmentManager.popBackStack();
                                 selectedFragment = AnnonceFragment.newInstance();
+                                firstChildFragment = true;
                                 inHome = false;
                                 break;
                             case R.id.action_publier:
+                                fragmentManager.popBackStack();
                                 selectedFragment = PublierFragment.newInstance();
+                                firstChildFragment = true;
                                 inHome = false;
                                 break;
                         }
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.navigationActivity_fragmentContainer, selectedFragment);
-                        fragmentTransaction.commit();
+                        fragmentTransaction.addToBackStack(null).commit();
                         return true;
                     }
                 });
@@ -158,11 +168,12 @@ public class NavigationActivity extends AppCompatActivity {
             case KeyEvent.KEYCODE_BACK:
                 if (inHome) {
                     mydialog();
-                } else {
+                } else if(firstChildFragment){
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
                     transaction.commit();
                     inHome = true;
+                    firstChildFragment = false;
                     return true;
                 }
         }
@@ -176,4 +187,14 @@ public class NavigationActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void disableBottomBar() {
+        mBottomNavigationView.setVisibility(View.GONE);
+    }
+
+
+    @Override
+    public void enableBottomBar() {
+        mBottomNavigationView.setVisibility(View.VISIBLE);
+    }
 }

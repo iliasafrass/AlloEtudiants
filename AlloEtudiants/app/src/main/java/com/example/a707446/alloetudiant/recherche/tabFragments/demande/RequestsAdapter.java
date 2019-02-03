@@ -1,7 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.demande;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -12,13 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
+import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.publication.PublierFragment;
-import com.example.a707446.alloetudiant.recherche.RechercheFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.DetailRequestFragment;
 
 import java.util.List;
 
@@ -29,6 +28,8 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
     private List<Request> requestsList;
 
     private String requestId;
+
+    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public RequestsAdapter(Context context, List<Request> requestsList) {
@@ -48,34 +49,41 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
     // onBindViewHolder ç'est la méthode qui permet d'insérer les données dans chaque item
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
+
+
         final Request request = requestsList.get(position);
         holder.title.setText(request.getTitle());
         holder.address.setText(request.getAddress());
         holder.description.setText(request.getDescription());
         holder.icon.setImageResource(R.drawable.ic_requests);
+
+
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requestId = request.getId();
 
-                Fragment demandeFragment = new PublierFragment();
+                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
+                disableBottomBar.disableBottomBar();
 
+                Fragment detailFragment = new DetailRequestFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();
+
+                Bundle args = new Bundle();
+                args.putString("id", requestId);
+                detailFragment.setArguments(args);          //Communicate with Fragment using Bundle
+
                 FragmentTransaction transaction = fm.getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.navigationActivity_fragmentContainer, demandeFragment);
+                transaction.replace(R.id.navigationActivity_fragmentContainer, detailFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-/*              Intent i = new Intent(myContext, DetailsRequests.class);
-                i.putExtra("id",requestId);
-                view.getContext().startActivity(i);*/
                 //Toast.makeText(myContext, request.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
             }
         });
     }
-
 
     // Retourne le nombre total d'éléments dans la liste
     @Override

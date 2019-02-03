@@ -2,6 +2,9 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +17,10 @@ import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
+import com.example.a707446.alloetudiant.general.view.BottomBar;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.DetailEventFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.DetailOfferFragment;
 
 import java.util.List;
 
@@ -23,6 +30,8 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     //Liste des propositions
     private List<Offer> offersList;
     private String offerId;
+
+    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public OffersAdapter(Context context, List<Offer> offersList) {
@@ -54,9 +63,21 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
             public void onClick(View view) {
 
                 offerId = offer.getId();
-                Intent i = new Intent(myContext, DetailsOffers.class);
-                i.putExtra("id",offerId);
-                view.getContext().startActivity(i);
+
+                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
+                disableBottomBar.disableBottomBar();
+
+                Fragment detailFragment = new DetailOfferFragment();
+                NavigationActivity fm = (NavigationActivity) view.getContext();
+
+                Bundle args = new Bundle();
+                args.putString("id", offerId);
+                detailFragment.setArguments(args);          //Communicate with Fragment using Bundle
+
+                FragmentTransaction transaction = fm.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.navigationActivity_fragmentContainer, detailFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
                 //Toast.makeText(myContext, offer.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
             }

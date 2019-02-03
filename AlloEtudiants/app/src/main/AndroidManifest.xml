@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".recherche.tabFragments.proposition.DetailsOffers"></activity>
-        <activity android:name=".recherche.tabFragments.demande.DetailsRequests" />
-        <activity android:name=".recherche.tabFragments.evenement.DetailsEvents" />
         <activity android:name=".general.view.NavigationActivity">
             <intent-filter>
                 <action android:name="com.example.a707446.alloetudiant.NAVIGATIONACTIVITY" />

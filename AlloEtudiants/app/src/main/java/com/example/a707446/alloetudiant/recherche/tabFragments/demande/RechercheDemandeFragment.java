@@ -75,4 +75,5 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         mAdapter.setRequestsList(requests);
     }
 
+
 }

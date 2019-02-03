@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,7 @@ public class RechercheFragment extends AbstractFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
 
         View view = inflater.inflate(R.layout.recherche_fragment, null);
         mUnbinder = ButterKnife.bind(this, view);
@@ -82,5 +84,6 @@ public class RechercheFragment extends AbstractFragment {
 
         return view;
     }
+
 
 }

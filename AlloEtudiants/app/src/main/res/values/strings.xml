@@ -12,4 +12,5 @@
     <string name="toolbar_recherche_proposition">rechercher une proposition</string>
     <string name="toolbar_recherche_evenement">rechercher un evenement</string>
     <string name="detail">details</string>
+    <string name="toolbar_details">details</string>
 </resources>

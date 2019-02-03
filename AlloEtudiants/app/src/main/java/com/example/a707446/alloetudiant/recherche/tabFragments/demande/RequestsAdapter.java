@@ -1,6 +1,9 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.demande;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +16,9 @@ import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.publication.PublierFragment;
+import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 
 import java.util.List;
 
@@ -21,6 +27,8 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
     public Context myContext;
     //Liste des demandes d'aide
     private List<Request> requestsList;
+
+    private String requestId;
 
     //construceteur
     public RequestsAdapter(Context context, List<Request> requestsList) {
@@ -39,7 +47,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
 
     // onBindViewHolder ç'est la méthode qui permet d'insérer les données dans chaque item
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Request request = requestsList.get(position);
         holder.title.setText(request.getTitle());
         holder.address.setText(request.getAddress());
@@ -49,11 +57,25 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(myContext, request.getDescription(), Toast.LENGTH_LONG).show();
+                requestId = request.getId();
+
+                Fragment demandeFragment = new PublierFragment();
+
+                NavigationActivity fm = (NavigationActivity) view.getContext();
+                FragmentTransaction transaction = fm.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.navigationActivity_fragmentContainer, demandeFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+/*              Intent i = new Intent(myContext, DetailsRequests.class);
+                i.putExtra("id",requestId);
+                view.getContext().startActivity(i);*/
+                //Toast.makeText(myContext, request.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
             }
         });
     }
+
 
     // Retourne le nombre total d'éléments dans la liste
     @Override

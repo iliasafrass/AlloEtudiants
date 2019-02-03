@@ -8,7 +8,6 @@ public interface EvenementContract {
 
     interface View {
         void receiveEventsFromPresenter(List<Event> events);
-
     }
 
     interface Presenter {

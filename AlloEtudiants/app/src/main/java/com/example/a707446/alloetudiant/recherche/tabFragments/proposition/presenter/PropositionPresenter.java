@@ -1,8 +1,8 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.proposition.presenter;
 
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
-import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.repository.PropositionRepo;
-import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.repository.PropositionRepoImpl;
+import com.example.a707446.alloetudiant.general.repository.Repo;
+import com.example.a707446.alloetudiant.general.repository.RepoImpl;
 
 import java.util.List;
 
@@ -19,11 +19,11 @@ public class PropositionPresenter implements PropositionContract.Presenter {
 
     // Globals
     private PropositionContract.View mView;
-    private PropositionRepo mRepo;
+    private Repo mRepo;
 
     public PropositionPresenter(PropositionContract.View view) {
         mView = view;
-        mRepo = new PropositionRepoImpl();
+        mRepo = new RepoImpl();
 
     }
 

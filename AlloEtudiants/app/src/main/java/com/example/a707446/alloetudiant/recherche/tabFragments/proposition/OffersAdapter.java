@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     public Context myContext;
     //Liste des propositions
     private List<Offer> offersList;
+    private String offerId;
 
     //construceteur
     public OffersAdapter(Context context, List<Offer> offersList) {
@@ -50,7 +52,12 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(myContext, offer.getDescription(), Toast.LENGTH_LONG).show();
+
+                offerId = offer.getId();
+                Intent i = new Intent(myContext, DetailsOffers.class);
+                i.putExtra("id",offerId);
+                view.getContext().startActivity(i);
+                //Toast.makeText(myContext, offer.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
             }
         });

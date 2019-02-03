@@ -1,8 +1,8 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter;
 
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
-import com.example.a707446.alloetudiant.recherche.tabFragments.demande.repository.RequestRepo;
-import com.example.a707446.alloetudiant.recherche.tabFragments.demande.repository.RequestRepoImpl;
+import com.example.a707446.alloetudiant.general.repository.Repo;
+import com.example.a707446.alloetudiant.general.repository.RepoImpl;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ public class RequestPresenter implements RequestContract.Presenter {
 
     // Globals
     private RequestContract.View mView;
-    private RequestRepo mRepo;
+    private Repo mRepo;
 
     public RequestPresenter(RequestContract.View view) {
         mView = view;
-        mRepo = new RequestRepoImpl();
+        mRepo = new RepoImpl();
 
     }
 

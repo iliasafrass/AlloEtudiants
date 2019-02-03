@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-
     //the localhost for emulator is 10.0.2.2
     private static final String BASE_URL ="https://alloetudiantapi.herokuapp.com";
     private static Retrofit retrofit = null;

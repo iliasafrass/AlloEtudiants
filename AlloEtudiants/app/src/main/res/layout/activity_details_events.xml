@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@drawable/background"
-    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/blueBodyColor"
+        >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blueBarColor"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Details"
+        app:titleTextColor="@color/white" />
+
+
 
     <TextView
         android:id="@+id/title_event_detail"
         android:layout_width="wrap_content"
-        android:text="title"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:text="title"
         android:textColor="#000"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_toolbar" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="#759dbf"
@@ -35,30 +52,31 @@
         tools:layout_editor_absoluteX="7dp" />
 
 
-
     <ImageView
         android:id="@+id/event_image_detail"
         android:layout_width="97dp"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
+
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/ic_events" />
 
     <TextView
         android:id="@+id/date_event_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_toRightOf="@+id/event_image_detail"
+        android:layout_marginTop="24dp"
         android:text="Date"
         android:textColor="#000"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/event_image_detail" />
 
@@ -69,14 +87,14 @@
         android:layout_marginStart="8dp"
         android:text="address"
         android:textColor="#000"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_event_detail" />
 
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginTop="8dp"
         android:background="#759dbf"
         app:layout_constraintTop_toBottomOf="@+id/address_event_detail"
@@ -92,7 +110,7 @@
         android:layout_marginTop="24dp"
         android:text="description"
         android:textColor="#000"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -101,7 +119,7 @@
         style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/background_login"
         android:clickable="true"
         android:padding="16dp"
@@ -110,7 +128,7 @@
         android:textColor="#759dbf"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/annuler"
+        app:layout_constraintTop_toBottomOf="@+id/description_event_detail"
         tools:layout_editor_absoluteX="7dp" />
 
     <Button
@@ -118,7 +136,7 @@
         style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/background_signup"
         android:clickable="true"
         android:padding="16dp"
@@ -127,7 +145,8 @@
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/participer"
         tools:layout_editor_absoluteX="7dp" />
+
 
 </android.support.constraint.ConstraintLayout>

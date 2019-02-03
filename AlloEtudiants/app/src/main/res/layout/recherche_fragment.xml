@@ -30,6 +30,14 @@
             app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:tabTextColor="@color/white" />
 
+        <FrameLayout
+            android:id="@+id/viewPager_fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabs"
+            android:animateLayoutChanges="true"
+            tools:background="@drawable/background">
+
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
@@ -38,7 +46,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
             tools:ignore="MissingConstraints" />
-
+        </FrameLayout>
     </android.support.design.widget.AppBarLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -49,4 +49,10 @@ dependencies {
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.4'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    // JWTDecode
+    implementation 'com.auth0.android:jwtdecode:1.2.0'
+
+    // Snackbar
+    implementation 'com.androidadvance:topsnackbar:1.1.1'
 }

@@ -1,17 +1,12 @@
 package com.example.a707446.alloetudiant.connexion.presenter;
 
-import android.arch.lifecycle.LiveData;
-
-import com.example.a707446.alloetudiant.model.pojo.Event;
-import com.example.a707446.alloetudiant.model.pojo.Profile;
-
-import java.util.List;
-
 public interface ConnexionContract {
     interface View {
-        void login(String message);
+        void login(String token, String profileId);
         void signup();
         void forgetPassword();
+        void toast(String message);
+        void showError(String error);
     }
 
     interface Presenter  {

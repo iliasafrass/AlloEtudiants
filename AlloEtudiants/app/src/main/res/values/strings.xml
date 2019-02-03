@@ -5,4 +5,6 @@
     <string name="toolbar_annonce">Vos annonces</string>
     <string name="toolbar_home">Alloétudiants</string>
     <string name="toolbar_notifications">Notifications</string>
+    <string name="allo">allo</string>
+    <string name="étudiant">étudiants</string>
 </resources>

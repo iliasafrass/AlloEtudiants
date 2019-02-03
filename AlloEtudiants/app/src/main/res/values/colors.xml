@@ -9,4 +9,7 @@
     <color name="login_edit_border">#EFEFF4</color>
     <color name="blueBarColor">#759dbf</color>
     <color name="blueBodyColor">#dce6ef</color>
+
+    <color name="snackBarBackground">#f2cdcd</color>
+    <color name="snackBarText">#b41a1a</color>
 </resources>

@@ -2,8 +2,6 @@ package com.example.a707446.alloetudiant.model.dto;
 
 import com.example.a707446.alloetudiant.model.enumeration.Gender;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProfileDto {
+public class RegisterProfileDto {
 
     private String firstName;
 
@@ -22,8 +20,6 @@ public class ProfileDto {
     private String email;
 
     private String phoneNumber;
-
-    private String bio;
 
     private Gender gender;
 

@@ -1,17 +1,28 @@
 package com.example.a707446.alloetudiant.connexion;
 
 import android.arch.lifecycle.LiveData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidadvance.topsnackbar.TSnackbar;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionContract;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionPresenter;
@@ -38,6 +49,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     // Globals
     private ConnexionContract.Presenter mPresenter;
     private Unbinder mUnbinder;
+    public static SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +57,9 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
         setContentView(R.layout.activity_login);
         mUnbinder = ButterKnife.bind(this);
         mPresenter = new ConnexionPresenter(this);
+
+        preferences = getSharedPreferences("token",MODE_PRIVATE);
+
     }
 
     @BindView(R.id.Email)
@@ -75,11 +90,22 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     }
 
     @Override
-    public void login(String message){
+    public void toast(String message) {
         Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(getApplication(), "Bienvenu :)", Toast.LENGTH_SHORT).show();
-//        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
-//        startActivity(i);
+    }
+
+    @Override
+    public void showError(String error) {
+        errorSnackbar(error);
+    }
+
+    @Override
+    public void login(String token, String profileId){
+        preferences.edit().putString("token",token).apply();
+        preferences.edit().putString("profileId",profileId);
+        Toast.makeText(getApplication(), "Bienvenu "+profileId, Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
+        startActivity(i);
     }
 
     private void mydialog() {
@@ -108,6 +134,22 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
                     }
                 })
                 .show();
+    }
+
+    private void errorSnackbar(String error){
+        TSnackbar errorSnackBar = TSnackbar.make(findViewById(android.R.id.content),error,TSnackbar.LENGTH_LONG);
+        errorSnackBar.setActionTextColor(ContextCompat.getColor(getApplicationContext(),R.color.snackBarText));
+        View snackBarView = errorSnackBar.getView();
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) snackBarView.getLayoutParams();
+        params.height = 80;
+        snackBarView.setPadding(0,-20,0,-15);
+        snackBarView.setLayoutParams(params);
+        snackBarView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.snackBarBackground));
+        TextView textView = (TextView) snackBarView.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.snackBarText));
+        textView.setTextSize(12);
+        textView.setGravity(Gravity.CENTER);
+        errorSnackBar.show();
     }
 
     @Override

@@ -24,7 +24,7 @@
                 android:src="@drawable/ic_perm_identity_blue_24dp"/>
 
             <EditText
-                android:id="@+id/Email"
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -39,13 +39,12 @@
                 android:textColorHint="#c7c7cc"
                 android:textCursorDrawable="@color/blueBarColor"
                 android:textStyle="bold"/>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#759dbf" />
             <EditText
-                android:id="@+id/pseudo"
+                android:id="@+id/nom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -53,7 +52,7 @@
                 android:drawableLeft="@drawable/ic_person_white_24dp"
                 android:drawablePadding="12dp"
                 android:ems="10"
-                android:hint="prenom.nom"
+                android:hint="Nom"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColorHint="#c7c7cc"
@@ -63,6 +62,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#759dbf" />
+            <EditText
+                android:id="@+id/prenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_person_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Prenom"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColorHint="#c7c7cc"
+                android:textCursorDrawable="@color/blueBarColor"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#759dbf" />
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_lock_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Téléphone"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColorHint="#c7c7cc"
+                android:textCursorDrawable="@color/blueBarColor"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#759dbf" />
+
             <EditText
                 android:id="@+id/password1"
                 android:layout_width="match_parent"
@@ -85,30 +126,30 @@
                 android:layout_height="1dp"
                 android:background="#759dbf" />
 
-            <EditText
-                android:id="@+id/password2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_lock_white_24dp"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="confirmez votre mot de passe"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:padding="8dp"
-                android:textColorHint="#c7c7cc"
-                android:textCursorDrawable="@color/blueBarColor"
-                android:textStyle="bold"/>
+            <!--<EditText-->
+                <!--android:id="@+id/password2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="4dp"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:drawableLeft="@drawable/ic_lock_white_24dp"-->
+                <!--android:drawablePadding="12dp"-->
+                <!--android:ems="10"-->
+                <!--android:hint="confirmez votre mot de passe"-->
+                <!--android:inputType="textPassword"-->
+                <!--android:maxLines="1"-->
+                <!--android:padding="8dp"-->
+                <!--android:textColorHint="#c7c7cc"-->
+                <!--android:textCursorDrawable="@color/blueBarColor"-->
+                <!--android:textStyle="bold"/>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#759dbf" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#759dbf" />-->
 
             <RadioGroup
-
+                android:id="@+id/genderRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

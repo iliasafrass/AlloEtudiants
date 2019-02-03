@@ -12,7 +12,7 @@ import retrofit2.Call;
 
 public interface LoginRepository {
 
-    void login(LoginRequest loginRequest);
+    Call<Void> login(LoginRequest loginRequest);
 
-    Call<List<Event>> getEvents();
+    Call<String> getProfileIdByEmail(String email);
 }

@@ -12,6 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface LoginWebService {
 
@@ -20,7 +21,6 @@ public interface LoginWebService {
             @Body LoginRequest loginRequest
     );
 
-    @GET("/events")
-    Call<List<Event>> getEvents();
-
+    @GET("/profiles/id/{email}")
+    Call<String> getProfileIdByEmail(@Path("email") String email);
 }

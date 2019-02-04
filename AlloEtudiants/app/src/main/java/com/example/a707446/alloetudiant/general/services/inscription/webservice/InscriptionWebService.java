@@ -1,9 +1,7 @@
-package com.example.a707446.alloetudiant.inscription.webservice;
+package com.example.a707446.alloetudiant.general.services.inscription.webservice;
 
-import com.example.a707446.alloetudiant.model.dto.ProfileDto;
-import com.example.a707446.alloetudiant.model.dto.RegisterProfileDto;
-import com.example.a707446.alloetudiant.model.payload.LoginRequest;
-import com.example.a707446.alloetudiant.model.payload.RegisterMessage;
+import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
+import com.example.a707446.alloetudiant.general.model.payload.RegisterMessage;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

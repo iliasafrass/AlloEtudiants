@@ -5,4 +5,13 @@
     <string name="toolbar_annonce">Vos annonces</string>
     <string name="toolbar_home">Alloétudiants</string>
     <string name="toolbar_notifications">Notifications</string>
+    <string name="competence">Compétence recherchée</string>
+    <string name="creneau_propose">Créneau proposé</string>
+    <string name="locality_demande">Lieu</string>
+    <string name="Duree_demande">Durée</string>
+    <string name="Niveau_demande">Niveau</string>
+    <string name="jours_proposition">Jours</string>
+    <string name="catégorie_proposition">Catégorie</string>
+    <string name="matiére_proposition">matiére</string>
+
 </resources>

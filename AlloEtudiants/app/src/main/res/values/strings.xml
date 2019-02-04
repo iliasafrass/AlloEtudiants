@@ -5,10 +5,19 @@
     <string name="toolbar_annonce">Vos annonces</string>
     <string name="toolbar_home">alloétudiants</string>
     <string name="toolbar_notifications">Notifications</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="toolbar_recherche_demande">rechercher une demande</string>
     <string name="toolbar_recherche_proposition">rechercher une proposition</string>
     <string name="toolbar_recherche_evenement">rechercher un evenement</string>
+    <string name="allo">allo</string>
+    <string name="étudiant">étudiants</string>
+
+    <string-array name="stepLabels">
+        <item>Step1</item>
+        <item>Step2</item>
+        <item>Step3</item>
+        <item>Confirmation</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

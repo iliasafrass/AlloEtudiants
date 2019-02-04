@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.general.view;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -38,7 +39,7 @@ public class NavigationActivity extends AppCompatActivity {
     // Globals
     private Unbinder mUnbinder;
     private boolean inHome = true;
-
+    private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,8 @@ public class NavigationActivity extends AppCompatActivity {
         mUnbinder = ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        preferences = getSharedPreferences("token",MODE_PRIVATE);
+//        preferences.edit().clear().apply();
 
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();

@@ -53,6 +53,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
         inHome = true;
         preferences = getSharedPreferences("token",MODE_PRIVATE);
 //        preferences.edit().clear().apply();
+
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);

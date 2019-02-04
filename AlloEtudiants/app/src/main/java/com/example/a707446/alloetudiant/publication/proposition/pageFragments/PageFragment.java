@@ -1,7 +1,5 @@
-package com.example.a707446.alloetudiant.publierService.pageFragments;
+package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,10 +36,13 @@ public class PageFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        final int page = getArguments().getInt("page", 0);
-        if (getArguments().containsKey("isLast"))
-            lblPage.setText("You're done!");
-        else
-            lblPage.setText(Integer.toString(page));
+        // TODO : PROBLEM
+        if(getArguments() != null){
+            final int page = getArguments().getInt("page", 0);
+            if (getArguments().containsKey("isLast"))
+                lblPage.setText("You're done!");
+            else
+                lblPage.setText(Integer.toString(page));
+        }
     }
 }

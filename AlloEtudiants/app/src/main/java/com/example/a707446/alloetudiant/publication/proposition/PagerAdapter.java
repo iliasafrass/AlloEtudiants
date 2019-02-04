@@ -1,11 +1,11 @@
-package com.example.a707446.alloetudiant.publierService;
+package com.example.a707446.alloetudiant.publication.proposition;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.a707446.alloetudiant.publierService.pageFragments.PageFragment;
+import com.example.a707446.alloetudiant.publication.proposition.pageFragments.PageFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     Context ctxt = null;

@@ -48,7 +48,7 @@ public class NavigationActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         preferences = getSharedPreferences("token",MODE_PRIVATE);
-        preferences.edit().clear().apply();
+//        preferences.edit().clear().apply();
 
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();

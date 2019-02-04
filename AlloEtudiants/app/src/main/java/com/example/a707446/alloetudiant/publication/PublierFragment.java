@@ -1,15 +1,21 @@
 package com.example.a707446.alloetudiant.publication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.publierService.PublierService;
+import com.example.a707446.alloetudiant.publierService.pageFragments.PageFragment;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PublierFragment extends AbstractFragment {
 
@@ -20,6 +26,20 @@ public class PublierFragment extends AbstractFragment {
     public static PublierFragment newInstance() {
         return new PublierFragment();
     }
+
+    @BindView(R.id.publier_service)
+    public Button btn_service;
+
+    @OnClick(R.id.publier_service)
+    void goToServiceActivity(){
+//        Intent i = new Intent(getActivity().getApplicationContext(), PublierService.class);
+//        startActivity(i);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.navigationActivity_fragmentContainer,new PageFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
 
     @Nullable
     @Override

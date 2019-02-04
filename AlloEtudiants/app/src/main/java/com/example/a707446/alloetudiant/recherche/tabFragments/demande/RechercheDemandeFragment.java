@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
@@ -67,6 +68,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         mPresenter.sendRequestsToView();
 
 
+        Toast.makeText(getContext(), "je suis dans encreateview", Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -75,5 +77,15 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         mAdapter.setRequestsList(requests);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mPresenter.sendRequestsToView();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.sendRequestsToView();
+    }
 }

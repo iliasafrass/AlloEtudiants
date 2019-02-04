@@ -1,7 +1,7 @@
 package com.example.a707446.alloetudiant.connexion.presenter;
 
-import com.example.a707446.alloetudiant.general.repository.connexion.repository.LoginRepository;
-import com.example.a707446.alloetudiant.general.repository.connexion.repository.LoginRepositoryImpl;
+import com.example.a707446.alloetudiant.general.repository.connexion.LoginRepository;
+import com.example.a707446.alloetudiant.general.repository.connexion.LoginRepositoryImpl;
 import com.example.a707446.alloetudiant.general.SharedPreferencesHelper;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 

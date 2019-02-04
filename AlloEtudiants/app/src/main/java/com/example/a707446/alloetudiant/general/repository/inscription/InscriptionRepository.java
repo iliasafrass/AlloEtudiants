@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.general.repository.inscription.repository;
+package com.example.a707446.alloetudiant.general.repository.inscription;
 
 import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
 import com.example.a707446.alloetudiant.general.model.payload.RegisterMessage;

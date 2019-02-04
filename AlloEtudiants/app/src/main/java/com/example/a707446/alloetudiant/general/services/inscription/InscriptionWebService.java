@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.general.services.inscription.webservice;
+package com.example.a707446.alloetudiant.general.services.inscription;
 
 import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
 import com.example.a707446.alloetudiant.general.model.payload.RegisterMessage;

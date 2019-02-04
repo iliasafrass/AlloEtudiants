@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.general.repository.connexion.repository;
+package com.example.a707446.alloetudiant.general.repository.connexion;
 
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 

@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.general.services.connexion.webservice;
+package com.example.a707446.alloetudiant.general.services.connexion;
 
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 

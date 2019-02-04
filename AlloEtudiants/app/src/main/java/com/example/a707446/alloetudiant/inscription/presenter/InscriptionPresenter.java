@@ -1,7 +1,7 @@
 package com.example.a707446.alloetudiant.inscription.presenter;
 
-import com.example.a707446.alloetudiant.general.repository.inscription.repository.InscriptionRepository;
-import com.example.a707446.alloetudiant.general.repository.inscription.repository.InscriptionRepositoryImpl;
+import com.example.a707446.alloetudiant.general.repository.inscription.InscriptionRepository;
+import com.example.a707446.alloetudiant.general.repository.inscription.InscriptionRepositoryImpl;
 import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
 import com.example.a707446.alloetudiant.general.model.payload.RegisterMessage;
 

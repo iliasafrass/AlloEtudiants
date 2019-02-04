@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/navigationActivity_toolbar"
         app:layout_constraintBottom_toTopOf="@+id/navigationActivity_bottomNavigationActivity"
         android:animateLayoutChanges="true"
-        tools:background="@drawable/background1">
+        tools:background="@drawable/background">
     </FrameLayout>
 
 

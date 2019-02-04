@@ -52,7 +52,6 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
         });
     }
 
-
     @Override
     public void startSignup() {
         mView.signup();

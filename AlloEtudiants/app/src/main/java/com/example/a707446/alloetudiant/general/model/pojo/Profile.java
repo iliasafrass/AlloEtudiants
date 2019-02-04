@@ -1,6 +1,6 @@
 package com.example.a707446.alloetudiant.general.model.pojo;
 
-import com.example.a707446.alloetudiant.model.enumeration.Gender;
+import com.example.a707446.alloetudiant.general.model.enumeration.Gender;
 
 import java.util.Date;
 import java.util.List;

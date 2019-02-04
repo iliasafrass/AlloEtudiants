@@ -4,11 +4,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 
-import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
-import com.example.a707446.alloetudiant.recherche.tabFragments.RechercheDemandeFragment;
-import com.example.a707446.alloetudiant.recherche.tabFragments.RechercheEvenementFragment;
-import com.example.a707446.alloetudiant.recherche.tabFragments.RecherchePropositionFragment;
+import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.recherche.tabFragments.demande.RechercheDemandeFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.RechercheEvenementFragment;
+import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.RecherchePropositionFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
@@ -21,7 +23,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
         switch (position) {
             case 0:
                 return new RechercheDemandeFragment();

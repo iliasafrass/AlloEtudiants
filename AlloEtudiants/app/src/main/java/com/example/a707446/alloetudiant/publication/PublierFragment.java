@@ -1,6 +1,5 @@
 package com.example.a707446.alloetudiant.publication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,8 +9,7 @@ import android.widget.Button;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.publierService.PublierService;
-import com.example.a707446.alloetudiant.publierService.pageFragments.PageFragment;
+import com.example.a707446.alloetudiant.publication.proposition.StartPublierServiceFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +33,7 @@ public class PublierFragment extends AbstractFragment {
 //        Intent i = new Intent(getActivity().getApplicationContext(), PublierService.class);
 //        startActivity(i);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.navigationActivity_fragmentContainer,new PageFragment())
+                .replace(R.id.navigationActivity_fragmentContainer,new StartPublierServiceFragment())
                 .addToBackStack(null)
                 .commit();
     }

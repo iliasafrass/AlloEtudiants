@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".publierService.pageFragments.PageFragment">
+    tools:context=".publication.proposition.pageFragments.PageFragment">
 
     <TextView
         android:id="@+id/lbl_page"

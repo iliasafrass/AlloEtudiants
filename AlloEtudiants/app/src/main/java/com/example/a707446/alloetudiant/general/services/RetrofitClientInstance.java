@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-    private static final String BASE_URL ="https://alloetudiantapi.herokuapp.com";
+    private static final String BASE_URL ="http://192.168.1.94:5000";
     private static Retrofit retrofit = null;
 
     static OkHttpClient httpClient = new OkHttpClient.Builder()

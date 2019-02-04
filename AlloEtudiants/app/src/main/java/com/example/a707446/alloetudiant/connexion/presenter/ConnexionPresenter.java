@@ -1,18 +1,10 @@
 package com.example.a707446.alloetudiant.connexion.presenter;
 
-import android.content.SharedPreferences;
-
-import com.example.a707446.alloetudiant.connexion.repository.LoginRepository;
-import com.example.a707446.alloetudiant.connexion.repository.LoginRepositoryImpl;
-import com.example.a707446.alloetudiant.connexion.webservice.LoginWebService;
+import com.example.a707446.alloetudiant.general.repository.connexion.repository.LoginRepository;
+import com.example.a707446.alloetudiant.general.repository.connexion.repository.LoginRepositoryImpl;
 import com.example.a707446.alloetudiant.general.SharedPreferencesHelper;
-import com.example.a707446.alloetudiant.general.webservice.RetrofitClientInstance;
-import com.example.a707446.alloetudiant.model.payload.LoginRequest;
-import com.example.a707446.alloetudiant.model.pojo.Event;
+import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 
-import java.util.List;
-
-import okhttp3.Headers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

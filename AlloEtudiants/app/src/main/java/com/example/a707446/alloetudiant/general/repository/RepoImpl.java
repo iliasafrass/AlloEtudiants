@@ -3,7 +3,6 @@ package com.example.a707446.alloetudiant.general.repository;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
-import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.services.AlloEtudiantRestClient;
 import com.example.a707446.alloetudiant.general.services.RetrofitClientInstance;
 

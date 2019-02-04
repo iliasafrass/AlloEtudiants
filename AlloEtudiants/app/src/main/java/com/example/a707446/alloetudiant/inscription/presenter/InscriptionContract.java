@@ -1,8 +1,6 @@
 package com.example.a707446.alloetudiant.inscription.presenter;
 
-import com.example.a707446.alloetudiant.model.dto.ProfileDto;
-import com.example.a707446.alloetudiant.model.dto.RegisterProfileDto;
-import com.example.a707446.alloetudiant.model.pojo.Profile;
+import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
 
 public interface InscriptionContract {
     interface View {

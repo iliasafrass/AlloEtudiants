@@ -1,13 +1,8 @@
 package com.example.a707446.alloetudiant.connexion;
 
-import android.arch.lifecycle.LiveData;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,10 +10,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +21,6 @@ import com.example.a707446.alloetudiant.connexion.presenter.ConnexionContract;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionPresenter;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.inscription.Inscription;
-import com.example.a707446.alloetudiant.model.pojo.Event;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,11 +30,7 @@ import butterknife.Unbinder;
 public class Login extends AppCompatActivity implements ConnexionContract.View {
 
 
-    //Views
-    @BindView(R.id.Email)
-    public EditText emailEditText;
-    @BindView(R.id.password)
-    public EditText passwordEditText;
+
 
     // Globals
     private ConnexionContract.Presenter mPresenter;
@@ -72,7 +58,11 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     public void onSignupClick(){mPresenter.startSignup();}
 
     @OnClick(R.id.login)
-    public void onLoginClick(){mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());}
+    public void onLoginClick(){
+        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
+        startActivity(i);
+//        mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());
+    }
 
     @OnClick(R.id.forgetPassword)
     public void  onForgetPasswordClick(){mPresenter.startForgetPassword();}

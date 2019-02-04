@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.model.payload;
+package com.example.a707446.alloetudiant.general.model.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

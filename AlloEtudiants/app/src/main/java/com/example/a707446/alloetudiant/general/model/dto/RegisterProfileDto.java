@@ -1,6 +1,6 @@
-package com.example.a707446.alloetudiant.model.dto;
+package com.example.a707446.alloetudiant.general.model.dto;
 
-import com.example.a707446.alloetudiant.model.enumeration.Gender;
+import com.example.a707446.alloetudiant.general.model.enumeration.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -13,12 +13,10 @@ import android.widget.Toast;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.Login;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.home.HomeFragment;
 import com.example.a707446.alloetudiant.inscription.presenter.InscriptionContract;
 import com.example.a707446.alloetudiant.inscription.presenter.InscriptionPresenter;
-import com.example.a707446.alloetudiant.model.dto.ProfileDto;
-import com.example.a707446.alloetudiant.model.dto.RegisterProfileDto;
-import com.example.a707446.alloetudiant.model.enumeration.Gender;
+import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.Gender;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

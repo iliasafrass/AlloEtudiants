@@ -56,7 +56,7 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
 
         mPresenter = new PropositionPresenter(this);
 
-        //creation de l'adapter on lui passant la liste des evenemnts.
+        //creation de l'adapter on lui passant la liste des propositions.
         mAdapter = new OffersAdapter(getActivity().getBaseContext(), offerList);
 
         //Définir le layoutManager pour positionner les éléments

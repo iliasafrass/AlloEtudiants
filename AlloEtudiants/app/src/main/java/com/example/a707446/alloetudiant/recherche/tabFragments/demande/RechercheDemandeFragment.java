@@ -77,15 +77,8 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         mAdapter.setRequestsList(requests);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mPresenter.sendRequestsToView();
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mPresenter.sendRequestsToView();
-    }
+
+
+
 }

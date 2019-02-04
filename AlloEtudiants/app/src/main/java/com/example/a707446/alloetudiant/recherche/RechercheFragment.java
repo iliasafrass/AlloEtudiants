@@ -8,10 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -85,5 +85,10 @@ public class RechercheFragment extends AbstractFragment {
         return view;
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        Toast.makeText(getContext(), "onResume", Toast.LENGTH_SHORT).show();
+//        mPresenter.sendRequestsToView();
+    }
 }

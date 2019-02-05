@@ -34,4 +34,19 @@ public class RepoImpl implements Repo {
     public Call<List<Event>> getEvents() {
         return retrofit.create(AlloEtudiantRestClient.class).getEvents();
     }
+
+    @Override
+    public Call<Event> getEventById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getEventById(id);
+    }
+
+    @Override
+    public Call<Request> getRequestById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getRequestById(id);
+    }
+
+    @Override
+    public Call<Offer> getOfferById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getOfferById(id);
+    }
 }

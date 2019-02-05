@@ -12,6 +12,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface AlloEtudiantRestClient {
 
@@ -30,4 +31,13 @@ public interface AlloEtudiantRestClient {
 
     @GET("/requests")
     Call<List<Request>> getRequests();
+
+    @GET("/events/{id}")
+    Call<Event> getEventById(@Path("id")String id);
+
+    @GET("/requests/{id}")
+    Call<Request> getRequestById(@Path("id")String id);
+
+    @GET("/offers/{id}")
+    Call<Offer> getOfferById(@Path("id")String id);
 }

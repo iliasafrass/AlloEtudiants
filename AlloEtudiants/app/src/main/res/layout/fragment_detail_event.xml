@@ -103,7 +103,7 @@
         style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/background_login"
         android:clickable="true"
         android:padding="16dp"
@@ -112,7 +112,7 @@
         android:textColor="#759dbf"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/description_event_detail"
+        app:layout_constraintBottom_toTopOf="@+id/annuler"
         tools:layout_editor_absoluteX="7dp" />
 
     <Button
@@ -120,7 +120,7 @@
         style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/background_signup"
         android:clickable="true"
         android:padding="16dp"
@@ -129,7 +129,7 @@
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/participer"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="7dp" />
 
 

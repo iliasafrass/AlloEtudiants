@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidadvance.topsnackbar.TSnackbar;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -24,7 +29,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailEventFragment extends AbstractFragment {
+public class DetailEventFragment extends AbstractFragment implements DetailEvenementContract.View {
 
     //Views
     @BindView(R.id.title_event_detail)
@@ -42,12 +47,14 @@ public class DetailEventFragment extends AbstractFragment {
     @BindView(R.id.address_event_detail)
     public TextView address;
 
-    private Event event;
+    private DetailEvenementContract.Presenter mPresenter;
+    private Event mEvent;
     private String idEvent;
-
     public BottomBar.EnableBottomBar enableBottomBar;
+
     public DetailEventFragment() {
         // Required empty public constructor
+
     }
 
     @Override
@@ -65,13 +72,19 @@ public class DetailEventFragment extends AbstractFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_event,null);
         mUnbinder = ButterKnife.bind(this,view);
-/*
-        title.setText(event.getTitle());
-        icon.setImageResource(R.drawable.ic_events);
-        date.setText(event.getDates().toString());
-        description.setText(event.getDescription());
-        address.setText(event.getAddress());*/
+        mPresenter = new DetailEvenementpresenter(this);
 
+        mEvent = new Event();
+
+        mPresenter.StartgetEventById(idEvent);
+
+    /*
+        title.setText(mEvent.getTitle());
+        icon.setImageResource(R.drawable.ic_events);
+        date.setText(mEvent.getDates().toString());
+        description.setText(mEvent.getDescription());
+        address.setText(mEvent.getAddress());
+*/
         getActivity().setTitle(R.string.toolbar_details);
 
         return view;
@@ -81,7 +94,6 @@ public class DetailEventFragment extends AbstractFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavigationActivity.firstChildFragment = false;
-        Toast.makeText(view.getContext(), idEvent, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -90,4 +102,21 @@ public class DetailEventFragment extends AbstractFragment {
         enableBottomBar = (BottomBar.EnableBottomBar)getContext();
         enableBottomBar.enableBottomBar();
     }
+
+    @Override
+    public void getEventById(Event event) {
+        Log.d("event", event.getId());
+        this.mEvent = event;
+
+        if(mEvent != null) {
+            Toast.makeText(this.getView().getContext(), mEvent.getId(), Toast.LENGTH_LONG).show();
+            Log.d("mEvent", mEvent.getId());
+        }
+        else{
+            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
+            Log.d("mEvent", "null");
+        }
+    }
+
+
 }

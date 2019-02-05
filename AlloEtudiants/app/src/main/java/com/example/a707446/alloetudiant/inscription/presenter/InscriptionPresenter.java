@@ -28,7 +28,7 @@ public class InscriptionPresenter implements InscriptionContract.Presenter {
         .enqueue(new Callback<RegisterMessage>() {
             @Override
             public void onResponse(Call<RegisterMessage> call, Response<RegisterMessage> response) {
-                mView.toast("Code : "+response.code());;
+                mView.toast("Code : "+response.code());
             }
 
             @Override

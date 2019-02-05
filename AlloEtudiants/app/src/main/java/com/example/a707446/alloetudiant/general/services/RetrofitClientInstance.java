@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-    private static final String BASE_URL ="http://192.168.43.219:5000";
+    private static final String BASE_URL ="http://10.0.2.2:5000";
     private static Retrofit retrofit = null;
 
     static OkHttpClient httpClient = new OkHttpClient.Builder()

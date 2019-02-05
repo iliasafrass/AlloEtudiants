@@ -90,5 +90,8 @@ public class RechercheFragment extends AbstractFragment {
         super.onResume();
         Toast.makeText(getContext(), "onResume", Toast.LENGTH_SHORT).show();
 //        mPresenter.sendRequestsToView();
+        viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setupWithViewPager(viewPager);
     }
 }

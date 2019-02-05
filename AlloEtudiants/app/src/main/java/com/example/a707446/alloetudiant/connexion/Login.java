@@ -58,9 +58,9 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @OnClick(R.id.login)
     public void onLoginClick(){
-//        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
-//        startActivity(i);
-        mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());
+        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
+        startActivity(i);
+      //  mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());
     }
 
     @OnClick(R.id.forgetPassword)

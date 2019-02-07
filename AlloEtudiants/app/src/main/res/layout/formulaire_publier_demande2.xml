@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,7 +11,8 @@
         android:id="@+id/suivant_demande2"
         style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="228dp"
-        android:layout_height="58dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -42,19 +44,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="325dp"
-        android:layout_height="90dp"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/adresse_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+
+        <EditText
+            android:id="@+id/adresse"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="180dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
 
     <ImageView
         android:id="@+id/imageView5"
@@ -62,48 +78,58 @@
         android:layout_height="39dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/ic_adresse_postal_24dp" />
 
-    <EditText
-        android:id="@+id/prix-heure"
-        android:layout_width="152dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/prix-heure_text"
+        android:layout_width="192dp"
+        android:layout_height="64dp"
         android:layout_marginTop="44dp"
-        android:ems="10"
-        android:hint="Prix heure"
-        android:inputType="numberSigned"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/adresse_text"
+        tools:layout_editor_absoluteX="0dp">
+
+        <EditText
+            android:id="@+id/prix-heure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="44dp"
+            android:ems="10"
+            android:hint="Prix heure"
+            android:inputType="numberSigned"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adresse_text" />
+    </android.support.design.widget.TextInputLayout>
+
 
     <EditText
         android:id="@+id/nombre-heure"
         android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="76dp"
         android:ems="10"
         android:hint="nombre d'heure"
         android:inputType="numberSigned"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/adresse_text" />
 
     <EditText
         android:id="@+id/total"
         android:layout_width="150dp"
-        android:layout_height="61dp"
+        android:layout_height="59dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="Total"
         android:inputType="numberSigned"
@@ -111,8 +137,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/nombre-heure"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/prix-heure"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toEndOf="@+id/prix-heure_text"
+        app:layout_constraintTop_toBottomOf="@+id/adresse_text" />
 
 </android.support.constraint.ConstraintLayout>

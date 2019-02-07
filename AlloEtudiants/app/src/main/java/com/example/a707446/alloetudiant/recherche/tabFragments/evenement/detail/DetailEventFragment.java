@@ -5,23 +5,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.androidadvance.topsnackbar.TSnackbar;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementContract;
+import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementpresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -74,18 +72,7 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
         mUnbinder = ButterKnife.bind(this,view);
         mPresenter = new DetailEvenementpresenter(this);
 
-        mEvent = new Event();
-
-        mPresenter.StartgetEventById(idEvent);
-
-    /*
-        title.setText(mEvent.getTitle());
-        icon.setImageResource(R.drawable.ic_events);
-        date.setText(mEvent.getDates().toString());
-        description.setText(mEvent.getDescription());
-        address.setText(mEvent.getAddress());
-*/
-        getActivity().setTitle(R.string.toolbar_details);
+        mPresenter.startgetEventById(idEvent);
 
         return view;
     }
@@ -110,7 +97,13 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
 
         if(mEvent != null) {
             Toast.makeText(this.getView().getContext(), mEvent.getId(), Toast.LENGTH_LONG).show();
-            Log.d("mEvent", mEvent.getId());
+            Log.d("mEvent", mEvent.toString());
+            title.setText(mEvent.getTitle());
+            icon.setImageResource(R.drawable.ic_events);
+            date.setText(mEvent.getDates().toString());
+            description.setText(mEvent.getDescription());
+            address.setText(mEvent.getAddress());
+            getActivity().setTitle(R.string.toolbar_details);
         }
         else{
             Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();

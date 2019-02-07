@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail;
+package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter;
 
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 
@@ -9,7 +9,7 @@ public interface DetailEvenementContract {
 
     interface Presenter {
 
-        void StartgetEventById(String id);
+        void startgetEventById(String id);
     }
 
 }

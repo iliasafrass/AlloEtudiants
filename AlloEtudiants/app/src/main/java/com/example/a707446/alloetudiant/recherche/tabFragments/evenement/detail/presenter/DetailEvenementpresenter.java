@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail;
+package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter;
 
 import android.util.Log;
 
@@ -25,7 +25,7 @@ public class DetailEvenementpresenter implements DetailEvenementContract.Present
 
     }
     @Override
-    public void StartgetEventById(String id) {
+    public void startgetEventById(String id) {
         mRepo.getEventById(id).enqueue(
                new Callback<Event>() {
                     @Override
@@ -33,7 +33,7 @@ public class DetailEvenementpresenter implements DetailEvenementContract.Present
                         if(response.body() != null)
                            mView.getEventById(response.body());
                         else
-                            Log.d("response", "response is null");
+                            Log.d("response", " is null");
                        }
 
                    @Override

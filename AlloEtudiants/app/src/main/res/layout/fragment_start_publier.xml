@@ -29,4 +29,44 @@
         app:stpi_indicatorColor="@color/blueBarColor"
         app:stpi_labels="@array/stepLabels" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:background="@color/blueBodyColor">
+
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:background="@color/blueBodyColor"
+            android:text="Previous"
+            android:layout_gravity="bottom|start"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blueBodyColor"
+            android:text="Next"
+            android:layout_weight="0.5"
+            android:layout_gravity="bottom"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blueBodyColor"
+            android:text="Create"
+            android:layout_weight="0.5"
+            android:visibility="gone"
+            android:layout_gravity="bottom"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
 </FrameLayout>

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.auth0.android.jwt.JWT;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.Login;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.splash.Splash;
 
@@ -18,7 +19,7 @@ import java.util.Date;
 
 public class StartActivity extends Activity {
 
-    SharedPreferences preferences;
+//    SharedPreferences preferences;
     String token;
 
     @Override
@@ -26,8 +27,8 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        preferences = getSharedPreferences("token",MODE_PRIVATE);
-        token = preferences.getString("token","");
+//        preferences = getSharedPreferences("token",MODE_PRIVATE);
+        token = SharedPreferencesSingleton.getToken(getApplicationContext());
 
 
         // Need to check if token is valid or not

@@ -3,7 +3,8 @@ package com.example.a707446.alloetudiant.general.services;
 import android.content.SharedPreferences;
 import android.util.JsonReader;
 
-import com.example.a707446.alloetudiant.general.SharedPreferencesHelper;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -19,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-    private static final String BASE_URL ="http://192.168.1.94:5000";
+    private static final String BASE_URL ="http://192.168.43.219:5000";
     private static Retrofit retrofit = null;
 
     static OkHttpClient httpClient = new OkHttpClient.Builder()
@@ -29,7 +30,7 @@ public class RetrofitClientInstance {
                     Request original = chain.request();
                     // Request customization: add request headers
                     Request.Builder requestBuilder = original.newBuilder()
-                            .header("Authorization", "Bearer " + SharedPreferencesHelper.getToken());
+                            .header("Authorization", "Bearer " + SharedPreferencesSingleton.getToken(BaseApplication.getAppContext()));
                     Request request = requestBuilder.build();
                     return chain.proceed(request);
                 }

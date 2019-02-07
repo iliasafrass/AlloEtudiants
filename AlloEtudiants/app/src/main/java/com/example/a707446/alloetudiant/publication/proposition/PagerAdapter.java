@@ -1,14 +1,13 @@
 package com.example.a707446.alloetudiant.publication.proposition;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.a707446.alloetudiant.publication.proposition.pageFragments.PageFragment;
+import com.example.a707446.alloetudiant.publication.proposition.pageFragments.PropositionStep1;
+import com.example.a707446.alloetudiant.publication.proposition.pageFragments.PropositionStep2;
 
 public class PagerAdapter extends FragmentPagerAdapter {
-    Context ctxt = null;
 
     public PagerAdapter(FragmentManager fm) {
         super(fm);
@@ -21,7 +20,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position + 1, position == getCount() - 1);
+        // TODO replace with switch case for all the steps
+        if(position==1){
+            return PropositionStep2.newInstance(position + 1, position == getCount() - 1);
+        }
+        return PropositionStep1.newInstance(position + 1, position == getCount() - 1);
     }
 
     @Override

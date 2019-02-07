@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.connexion;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,8 @@ import com.androidadvance.topsnackbar.TSnackbar;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionContract;
 import com.example.a707446.alloetudiant.connexion.presenter.ConnexionPresenter;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.inscription.Inscription;
 
@@ -29,13 +32,9 @@ import butterknife.Unbinder;
 
 public class Login extends AppCompatActivity implements ConnexionContract.View {
 
-
-
-
     // Globals
     private ConnexionContract.Presenter mPresenter;
     private Unbinder mUnbinder;
-    public static SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
         mUnbinder = ButterKnife.bind(this);
         mPresenter = new ConnexionPresenter(this);
 
-        preferences = getSharedPreferences("token",MODE_PRIVATE);
+        SharedPreferencesSingleton.setToken(BaseApplication.getAppContext(),"");
 
     }
 
@@ -90,9 +89,12 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     }
 
     @Override
+    public Context applicationContext() {
+        return getApplicationContext();
+    }
+
+    @Override
     public void login(String token, String profileId){
-        preferences.edit().putString("token",token).apply();
-        preferences.edit().putString("profileId",profileId);
         Toast.makeText(getApplication(), "Bienvenu "+profileId, Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
         startActivity(i);

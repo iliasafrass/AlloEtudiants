@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.home.HomeFragment;
 import com.example.a707446.alloetudiant.notifications.NotificationFragment;
 import com.example.a707446.alloetudiant.publication.PublierFragment;
@@ -42,7 +43,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
     private Unbinder mUnbinder;
     public static boolean inHome;
     public static boolean firstChildFragment = false;
-    private SharedPreferences preferences;
+//    private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +52,9 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         inHome = true;
-        preferences = getSharedPreferences("token",MODE_PRIVATE);
+//        preferences = getSharedPreferences("token",MODE_PRIVATE);
 //        preferences.edit().clear().apply();
+//        SharedPreferencesSingleton.clear(getApplicationContext());
 
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();

@@ -10,6 +10,9 @@
     <string name="toolbar_recherche_evenement">rechercher un evenement</string>
     <string name="allo">allo</string>
     <string name="étudiant">étudiants</string>
+    <string name="partager_evenement">partager un événement</string>
+    <string name="demande_aide">demander de l\'aide</string>
+    <string name="proposer_service">proposer un service</string>
 
     <string-array name="stepLabels">
         <item>Step1</item>

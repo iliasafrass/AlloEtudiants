@@ -11,16 +11,16 @@ import android.widget.TextView;
 import com.example.a707446.alloetudiant.R;
 
 
-public class PageFragment extends Fragment {
+public class PropositionStep1 extends Fragment {
 
     private TextView lblPage;
 
-    public static PageFragment newInstance(int page, boolean isLast) {
+    public static PropositionStep1 newInstance(int page, boolean isLast) {
         Bundle args = new Bundle();
         args.putInt("page", page);
         if (isLast)
             args.putBoolean("isLast", true);
-        final PageFragment fragment = new PageFragment();
+        final PropositionStep1 fragment = new PropositionStep1();
         fragment.setArguments(args);
         return fragment;
     }
@@ -28,7 +28,7 @@ public class PageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_page, container, false);
+        final View view = inflater.inflate(R.layout.fragment_proposition_step1, container, false);
         lblPage = (TextView) view.findViewById(R.id.lbl_page);
         return view;
     }
@@ -36,7 +36,6 @@ public class PageFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        // TODO : PROBLEM
         if(getArguments() != null){
             final int page = getArguments().getInt("page", 0);
             if (getArguments().containsKey("isLast"))

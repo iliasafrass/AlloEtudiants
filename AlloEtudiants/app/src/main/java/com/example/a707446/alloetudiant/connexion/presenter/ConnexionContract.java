@@ -1,5 +1,7 @@
 package com.example.a707446.alloetudiant.connexion.presenter;
 
+import android.content.Context;
+
 public interface ConnexionContract {
     interface View {
         void login(String token, String profileId);
@@ -7,6 +9,7 @@ public interface ConnexionContract {
         void forgetPassword();
         void toast(String message);
         void showError(String error);
+        Context applicationContext();
     }
 
     interface Presenter  {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferContract;
+import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +27,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailOfferFragment extends AbstractFragment {
+public class DetailOfferFragment extends AbstractFragment implements DetailOfferContract.View{
     //Views
     @BindView(R.id.title_offer_detail)
     public TextView title;
@@ -41,7 +44,8 @@ public class DetailOfferFragment extends AbstractFragment {
     @BindView(R.id.address_offer_detail)
     public TextView address;
 
-    private Offer offer;
+    private DetailOfferContract.Presenter mPresenter;
+    private Offer mOffer;
     private String idOffer;
 
     public BottomBar.EnableBottomBar enableBottomBar;
@@ -66,7 +70,9 @@ public class DetailOfferFragment extends AbstractFragment {
         mUnbinder = ButterKnife.bind(this,view);
 
         getActivity().setTitle(R.string.toolbar_details);
+        mPresenter = new DetailOfferPresenter(this);
 
+        mPresenter.startgetOfferById(idOffer);
         return view;
     }
     @Override
@@ -80,5 +86,26 @@ public class DetailOfferFragment extends AbstractFragment {
         super.onPause();
         enableBottomBar = (BottomBar.EnableBottomBar)getContext();
         enableBottomBar.enableBottomBar();
+    }
+
+    @Override
+    public void getOfferById(Offer offer) {
+        Log.d("event", offer.getId());
+        this.mOffer = offer;
+
+        if(mOffer != null) {
+            Toast.makeText(this.getView().getContext(), mOffer.getId(), Toast.LENGTH_LONG).show();
+            Log.d("mOffer", mOffer.toString());
+            title.setText(mOffer.getTitle());
+            icon.setImageResource(R.drawable.ic_events);
+            date.setText(mOffer.getDays().toString());
+            description.setText(mOffer.getDescription());
+            address.setText(mOffer.getAddress());
+            getActivity().setTitle(R.string.toolbar_details);
+        }
+        else{
+            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
+            Log.d("mOffer", "null");
+        }
     }
 }

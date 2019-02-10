@@ -7,9 +7,12 @@ import java.util.List;
 public interface RequestContract {
     interface View {
         void receiveRequestsFromPresenter(List<Request> requests);
+
+        void getRequestsBySubject(List<Request> requests);
     }
 
     interface Presenter {
         void sendRequestsToView();
+        void startgetRequestsBySubject(String subject);
     }
 }

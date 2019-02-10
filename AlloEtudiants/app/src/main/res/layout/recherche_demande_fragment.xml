@@ -8,39 +8,38 @@
     android:background="@color/blueBodyColor">
 
     <fr.ganfra.materialspinner.MaterialSpinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:ms_arrowColor="#0000FF"
+        app:ms_arrowColor="@color/colorPrimaryDark"
         app:ms_arrowSize="16dp"
-        app:ms_floatingLabelColor="#A9A9A9"
+        app:ms_floatingLabelColor="#000"
         app:ms_floatingLabelText="Select your Subject"
         app:ms_hint="Please Choose"
-        app:ms_hintColor="#000000"
-        app:ms_multiline="true">
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
 
-    </fr.ganfra.materialspinner.MaterialSpinner>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_demande"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@color/blueBodyColor"
+        android:clipToPadding="false"
+        android:paddingBottom="73dp"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_request" />
 
     <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progress_bar"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"

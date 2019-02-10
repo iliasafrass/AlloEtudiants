@@ -7,13 +7,32 @@
     android:layout_height="match_parent"
     android:background="@color/blueBodyColor">
 
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spinner_offer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_proposition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/blueBodyColor"
+        android:clipToPadding="false"
+        android:paddingBottom="73dp"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_offer" />
 
 </android.support.constraint.ConstraintLayout>

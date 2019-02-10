@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.general.services;
 
+import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
@@ -40,4 +41,10 @@ public interface AlloEtudiantRestClient {
 
     @GET("/offers/{id}")
     Call<Offer> getOfferById(@Path("id")String id);
+
+    @GET("/requests/subjects/{subject}")
+    Call<List<Request>> getRequestsBySubject(@Path("subject") Subject subject);
+
+    @GET("/offers/subjects/{subject}")
+    Call<List<Offer>> getOffersBySubject(@Path("subject")Subject subject);
 }

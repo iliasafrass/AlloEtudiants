@@ -37,7 +37,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     public RecyclerView recyclerView;
     @BindView(R.id.progress_bar)
     public ProgressBar progressBar;
-    @BindView(R.id.spinner)
+    @BindView(R.id.spinner_request)
     public MaterialSpinner spinner;
 
     //variable
@@ -87,27 +87,10 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 if(position != -1)// -1 hint choose..
                 {
                     String selected = spinner.getItemAtPosition(position).toString();
-                    switch (selected){
-                        case "MATHS" :
-                            Toast.makeText(getContext(), "selected = "+selected+" (case MATHS)", Toast.LENGTH_LONG).show();
-                            break;
-                        case "PHYSICS" :
-                            Toast.makeText(getContext(), "selected = "+selected+" (case PHYSICS)", Toast.LENGTH_LONG).show();
-                            break;
-                        case "CHEMISTRY" :
-                            Toast.makeText(getContext(), "selected = "+selected+" (case CHEMISTRY)", Toast.LENGTH_LONG).show();
-                            break;
-                        case "MECHANICS" :
-                            Toast.makeText(getContext(), "selected = "+selected+" (case MECHANICS)", Toast.LENGTH_LONG).show();
-                            break;
-                        case "COMPUTER_SCIENCE" :
-                            Toast.makeText(getContext(), "selected = "+selected+" (case COMPUTER_SCIENCE)", Toast.LENGTH_LONG).show();
-                            break;
-                    }
+                    mPresenter.startgetRequestsBySubject(selected);
                 }
                 else{
-                    Toast.makeText(getContext(), " choose your subject ", Toast.LENGTH_LONG).show();
-
+                    mPresenter.sendRequestsToView();
                 }
             }
 
@@ -183,8 +166,10 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         mAdapter.setRequestsList(requests);
     }
 
-
-
+    @Override
+    public void getRequestsBySubject(List<Request> requests) {
+        mAdapter.setRequestsList(requests);
+    }
 
 
 }

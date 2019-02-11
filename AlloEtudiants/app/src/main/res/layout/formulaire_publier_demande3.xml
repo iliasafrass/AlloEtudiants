@@ -21,34 +21,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Spinner
+    <fr.ganfra.materialspinner.MaterialSpinner
         android:id="@+id/jours"
-        android:layout_width="317dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
 
-    <Spinner
-        android:id="@+id/heure-debut"
-        android:layout_width="128dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
-    <Spinner
-        android:id="@+id/heure-fin"
-        android:layout_width="131dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="32dp"
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/heure_debut"
+        android:layout_width="126dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/heure_fin"
+        android:layout_width="126dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
 
     <Button
 
@@ -56,7 +80,10 @@
         style="@style/Base.TextAppearance.AppCompat.Body1"
         android:layout_width="228dp"
         android:layout_height="58dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_signup"
         android:clickable="true"
         android:padding="16dp"
@@ -66,29 +93,29 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/heure-fin"
-        app:layout_constraintHorizontal_bias="0.519"
-        app:layout_constraintStart_toEndOf="@+id/heure-debut" />
+        app:layout_constraintEnd_toStartOf="@+id/heure_debut"
+        app:layout_constraintStart_toEndOf="@+id/heure_fin"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="59dp"
         android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/besoin"
         app:srcCompat="@drawable/ic_data_demande_daide_24dp" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="257dp"
+        android:layout_width="291dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
         android:text="Créneau possible"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -98,7 +125,7 @@
         android:id="@+id/imageView6"
         android:layout_width="52dp"
         android:layout_height="47dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jours"
@@ -106,12 +133,14 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="257dp"
+        android:layout_width="291dp"
         android:layout_height="43dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="36dp"
         android:text="Plage horaire souhaitée"
         android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/jours" />
 
@@ -121,12 +150,11 @@
         android:layout_height="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="76dp"
         android:text="à"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/heure-fin"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/heure-debut"
+        app:layout_constraintEnd_toStartOf="@+id/heure_debut"
+        app:layout_constraintStart_toEndOf="@+id/heure_fin"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 

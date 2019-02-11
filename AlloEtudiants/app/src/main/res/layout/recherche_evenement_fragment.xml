@@ -7,44 +7,37 @@
     android:layout_height="match_parent"
     android:background="@color/blueBodyColor">
 
-    <!--<android.support.design.widget.TextInputLayout
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputTitre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:counterMaxLength="15"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:counterMaxLength="15"
-        app:errorEnabled="true">
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="titre"
-            android:inputType="textAutoComplete"/>
+            android:focusableInTouchMode="false"
+            android:hint="chercher par titre"
+            android:inputType="textAutoComplete" />
 
-    </android.support.design.widget.TextInputLayout>-->
+    </android.support.design.widget.TextInputLayout>
 
-    <com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView
-        android:id="@+id/hidden_search_with_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:scrollToBottomBeforeHide="true"
-        app:scrollToTopBeforeShow="true"
-        app:filterWhileTyping="false"
-        app:visibleAtInit="true">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_evenement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="@color/blueBodyColor"
         android:clipToPadding="false"
-
         android:paddingBottom="73dp"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputTitre" />
 
-    </com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView>
 </android.support.constraint.ConstraintLayout>

@@ -68,8 +68,8 @@ dependencies {
 
     //spinner
     implementation 'com.github.ganfra:material-spinner:2.0.0'
+    //spinner rechercher evenement
+    implementation 'com.github.MdFarhanRaja:SearchableSpinner:1.9'
 
-    //search view 'rechercher evenement'
-    implementation 'com.nicolettilu:hiddensearchwithrecyclerview:0.0.2'
 
 }

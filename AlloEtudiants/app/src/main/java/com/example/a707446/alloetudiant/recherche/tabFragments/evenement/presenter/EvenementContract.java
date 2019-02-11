@@ -8,10 +8,12 @@ public interface EvenementContract {
 
     interface View {
         void receiveEventsFromPresenter(List<Event> events);
+        void getEventsByTitle(List<Event> events);
     }
 
     interface Presenter {
         void sendEventsToView();
+        void startgetEventsByTitle(String title);
     }
 
 }

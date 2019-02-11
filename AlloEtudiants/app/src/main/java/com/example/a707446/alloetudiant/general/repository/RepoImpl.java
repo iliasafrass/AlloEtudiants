@@ -60,4 +60,9 @@ public class RepoImpl implements Repo {
     public Call<List<Offer>> getOffersBySubject(String subject) {
         return  retrofit.create(AlloEtudiantRestClient.class).getOffersBySubject(Subject.valueOf(subject));
     }
+
+    @Override
+    public Call<List<Event>> getEventsByTitle(String title) {
+        return retrofit.create(AlloEtudiantRestClient.class).getEventsByTitle(title);
+    }
 }

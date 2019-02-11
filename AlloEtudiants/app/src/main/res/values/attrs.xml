@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<declare-styleable name="com.example.a707446.alloetudiant.recherche.tabFragments.evenement.RechercheEvenementFragment">
+    <attr name="filterWhileTyping" format="boolean"/> <!-- default value: true -->
+    <attr name="scrollToTopBeforeShow" format="boolean" /> <!-- default value: false -->
+    <attr name="scrollToBottomBeforeHide" format="boolean" /> <!-- default value: false -->
+    <attr name="visibleAtInit" format="boolean" /> <!-- default value: false -->
+    <attr name="hideAtScroll" format="boolean" /> <!-- default value: true -->
+</declare-styleable>
+</resources>

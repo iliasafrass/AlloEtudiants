@@ -2,6 +2,7 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +31,8 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
     //Views
     @BindView(R.id.recycler_view_evenement)
     public RecyclerView recyclerView;
+    @BindView(R.id.hidden_search_with_recycler)
+    public TextInputEditText hiddenSearchWithInRecycler;
 
     //variable
     private EvenementContract.Presenter mPresenter;
@@ -55,6 +58,8 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
         mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new EvenementPresenter(this);
 
+
+
         //creation de l'adapter on lui passant la liste des evenemnts.
         mAdapter = new EventsAdapter(getActivity().getBaseContext(), eventList);
 
@@ -77,6 +82,10 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
         mAdapter.setEventsList(events);
     }
 
+    @Override
+    public void getEventsByTitle(List<Event> events) {
+        mAdapter.setEventsList(events);
+    }
 
 
 }

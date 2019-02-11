@@ -47,4 +47,7 @@ public interface AlloEtudiantRestClient {
 
     @GET("/offers/subjects/{subject}")
     Call<List<Offer>> getOffersBySubject(@Path("subject")Subject subject);
+
+    @GET("/events/title/{title}")
+    Call<List<Event>> getEventsByTitle(@Path("title")String title);
 }

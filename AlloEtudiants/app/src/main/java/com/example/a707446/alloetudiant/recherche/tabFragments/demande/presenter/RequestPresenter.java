@@ -1,5 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter;
 
+import android.util.Log;
+
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
@@ -41,5 +43,25 @@ public class RequestPresenter implements RequestContract.Presenter {
                     }
                 }
         );
+    }
+
+    @Override
+    public void startgetRequestsBySubject(String subject) {
+        mRepo.getRequestsBySubject(subject).enqueue(
+                new Callback<List<Request>>() {
+                    @Override
+                    public void onResponse(Call<List<Request>> call, Response<List<Request>> response) {
+                        if(response.body() != null)
+                            mView.getRequestsBySubject(response.body());
+                        else
+                            Log.d("response", " is null");
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Request>> call, Throwable t) {
+                        System.out.println("#########");
+                        System.out.println("Something went wrong in  Request presenter ! :(");
+                    }
+                });
     }
 }

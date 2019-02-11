@@ -14,6 +14,22 @@
     <string name="demande_aide">demander de l\'aide</string>
     <string name="proposer_service">proposer un service</string>
 
+    <!-- Fragments titles-->
+    <string name="title_description">Description</string>
+    <string name="title_details">Détails</string>
+
+    <!-- Form hints-->
+    <string name="form_title">Titre</string>
+    <string name="form_description">Description</string>
+    <string name="form_subject">Matière</string>
+    <string name="form_address">Adresse</string>
+    <string name="form_price">Prix</string>
+    <string name="form_days">Jours de disponiblités</string>
+
+    <!-- Errors messages-->
+    <string name="err"></string>
+
+
     <string-array name="stepLabels">
         <item>Step1</item>
         <item>Step2</item>

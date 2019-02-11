@@ -19,14 +19,14 @@ public class StartPublierServiceFragment extends AbstractFragment {
 
     StepperIndicator indicator;
 
-    @BindView(R.id.btn_next)
-    Button btnNext;
-
-    @BindView(R.id.btn_prev)
-    Button btnPrev;
-
-    @BindView(R.id.btn_submit)
-    Button btnSubmit;
+//    @BindView(R.id.btn_next)
+//    Button btnNext;
+//
+//    @BindView(R.id.btn_prev)
+//    Button btnPrev;
+//
+//    @BindView(R.id.btn_submit)
+//    Button btnSubmit;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,34 +51,34 @@ public class StartPublierServiceFragment extends AbstractFragment {
             }
         });
 
-        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (position == 0) {
-                    btnPrev.setVisibility(View.GONE);
-                    btnNext.setVisibility(View.VISIBLE);
-                    btnSubmit.setVisibility(View.GONE);
-                } else if (position == 1) {
-                    btnPrev.setVisibility(View.VISIBLE);
-                    btnNext.setVisibility(View.VISIBLE);
-                    btnSubmit.setVisibility(View.GONE);
-                } else if (position == 2) {
-                    btnPrev.setVisibility(View.VISIBLE);
-                    btnNext.setVisibility(View.GONE);
-                    btnSubmit.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
+//        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                if (position == 0) {
+//                    btnPrev.setVisibility(View.GONE);
+//                    btnNext.setVisibility(View.VISIBLE);
+//                    btnSubmit.setVisibility(View.GONE);
+//                } else if (position == 1) {
+//                    btnPrev.setVisibility(View.VISIBLE);
+//                    btnNext.setVisibility(View.VISIBLE);
+//                    btnSubmit.setVisibility(View.GONE);
+//                } else if (position == 2) {
+//                    btnPrev.setVisibility(View.VISIBLE);
+//                    btnNext.setVisibility(View.GONE);
+//                    btnSubmit.setVisibility(View.VISIBLE);
+//                }
+//            }
+//
+//            @Override
+//            public void onPageSelected(int i) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int i) {
+//
+//            }
+//        });
 
         getActivity().setTitle(R.string.toolbar_publier);
 

@@ -41,4 +41,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detail">details</string>
     <string name="toolbar_details">details</string>
+
+    <string name="competence">Compétence recherchée</string>
+    <string name="creneau_propose">Créneau proposé</string>
+    <string name="locality_demande">Lieu</string>
+    <string name="Duree_demande">Durée</string>
+    <string name="Niveau_demande">Niveau</string>
+    <string name="jours_proposition">Jours</string>
+    <string name="catégorie_proposition">Catégorie</string>
+    <string name="matiére_proposition">matiére</string>
+
 </resources>

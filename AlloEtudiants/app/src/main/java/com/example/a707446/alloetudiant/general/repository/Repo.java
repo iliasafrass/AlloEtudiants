@@ -11,4 +11,14 @@ public interface Repo {
     Call<List<Request>> getRequests();
     Call<List<Offer>> getOffers();
     Call<List<Event>> getEvents();
+
+    Call<Event> getEventById(String id);
+    Call<Request> getRequestById(String id);
+    Call<Offer> getOfferById(String id);
+
+    Call<List<Request>> getRequestsBySubject(String subject);
+    Call<List<Offer>> getOffersBySubject(String subject);
+
+    Call<List<Event>> getEventsByTitle(String title);
+
 }

@@ -10,8 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.presenter.PropositionContract;
@@ -22,6 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fr.ganfra.materialspinner.MaterialSpinner;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,11 +35,16 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     //Views
     @BindView(R.id.recycler_view_proposition)
     public RecyclerView recyclerView;
+    @BindView(R.id.spinner_offer)
+    public MaterialSpinner spinner;
 
     //variable
     private PropositionContract.Presenter mPresenter;
     private List<Offer> offerList = new ArrayList<>();
     private OffersAdapter mAdapter;
+
+    ArrayAdapter<String> spinnerAdapter;
+    List<String> listItems = new ArrayList<>();
 
     public RecherchePropositionFragment() {
         // Required empty public constructor
@@ -59,6 +68,34 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
         //creation de l'adapter on lui passant la liste des propositions.
         mAdapter = new OffersAdapter(getActivity().getBaseContext(), offerList);
 
+        /*
+         *filter with spinner
+         */
+        initSpinnerItems();
+        spinnerAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_dropdown_item,listItems);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position != -1)// -1 hint choose..
+                {
+                    String selected = spinner.getItemAtPosition(position).toString();
+                    mPresenter.startgetOffersBySubject(selected);
+                }
+                else{
+                    mPresenter.sendOffersToView();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        /*************************************************************/
+
+
         //Définir le layoutManager pour positionner les éléments
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -75,8 +112,20 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
         return view;
     }
 
+    private void initSpinnerItems() {
+        listItems.add(Subject.MATHS.toString());
+        listItems.add(Subject.PHYSICS.toString());
+        listItems.add(Subject.CHEMISTRY.toString());
+        listItems.add(Subject.MECHANICS.toString());
+        listItems.add(Subject.COMPUTER_SCIENCE.toString());
+    }
     @Override
     public void receiveOffersFromPresenter(List<Offer> offers) {
+        mAdapter.setOffersList(offers);
+    }
+
+    @Override
+    public void getOffersBySubject(List<Offer> offers) {
         mAdapter.setOffersList(offers);
     }
 }

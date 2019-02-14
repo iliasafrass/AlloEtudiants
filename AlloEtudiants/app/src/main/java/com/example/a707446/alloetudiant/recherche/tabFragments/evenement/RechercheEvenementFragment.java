@@ -2,6 +2,7 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
+import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +33,10 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
     //Views
     @BindView(R.id.recycler_view_evenement)
     public RecyclerView recyclerView;
-
+    @BindView(R.id.textInputTitre)
+    public TextInputLayout textInputTitle;
+    ArrayList<String> items = new ArrayList<>();
+    SpinnerDialog spinnerDialog;
     //variable
     private EvenementContract.Presenter mPresenter;
     private List<Event> eventList = new ArrayList<>();
@@ -69,14 +75,53 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
         recyclerView.setAdapter(mAdapter);
 
         mPresenter.sendEventsToView();
+
+
         return view;
+    }
+
+    private void initItems() {
+        items.add("Tous");
+        for (Event event : eventList) {
+            if (!items.contains(event.getTitle()))
+                items.add(event.getTitle());
+        }
     }
 
     @Override
     public void receiveEventsFromPresenter(List<Event> events) {
+        eventList = events;
         mAdapter.setEventsList(events);
+        /*
+         *search by title
+         */
+        initItems();
+        spinnerDialog = new SpinnerDialog(getActivity(), items, "chercher par le titre");
+        spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
+            @Override
+            public void onClick(String item, int position) {
+                if (!item.equals("Tous"))
+                    mPresenter.startgetEventsByTitle(item);
+                else
+                    mPresenter.sendEventsToView();
+            }
+        });
+
+        textInputTitle.getEditText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spinnerDialog.showSpinerDialog();
+            }
+        });
+
+        /*************************************************************************/
+
     }
 
+    @Override
+    public void getEventsByTitle(List<Event> events) {
+        mAdapter.setEventsList(events);
+    }
 
 
 }

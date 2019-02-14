@@ -1,5 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter;
 
+import android.util.Log;
+
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
@@ -43,6 +45,26 @@ public class EvenementPresenter implements EvenementContract.Presenter {
                     }
                 }
         );
+    }
+
+    @Override
+    public void startgetEventsByTitle(String title) {
+        mRepo.getEventsByTitle(title).enqueue(
+                new Callback<List<Event>>() {
+                    @Override
+                    public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
+                        if(response.body() != null)
+                            mView.getEventsByTitle(response.body());
+                        else
+                            Log.d("response", " is null");
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Event>> call, Throwable t) {
+                        System.out.println("#########");
+                        System.out.println("Something went wrong in  event presenter ! :(");
+                    }
+                });
     }
 
 }

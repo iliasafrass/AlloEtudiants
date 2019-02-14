@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.general.repository;
 
+import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
@@ -33,5 +34,35 @@ public class RepoImpl implements Repo {
     @Override
     public Call<List<Event>> getEvents() {
         return retrofit.create(AlloEtudiantRestClient.class).getEvents();
+    }
+
+    @Override
+    public Call<Event> getEventById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getEventById(id);
+    }
+
+    @Override
+    public Call<Request> getRequestById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getRequestById(id);
+    }
+
+    @Override
+    public Call<Offer> getOfferById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getOfferById(id);
+    }
+
+    @Override
+    public Call<List<Request>> getRequestsBySubject(String subject) {
+        return  retrofit.create(AlloEtudiantRestClient.class).getRequestsBySubject(Subject.valueOf(subject));
+    }
+
+    @Override
+    public Call<List<Offer>> getOffersBySubject(String subject) {
+        return  retrofit.create(AlloEtudiantRestClient.class).getOffersBySubject(Subject.valueOf(subject));
+    }
+
+    @Override
+    public Call<List<Event>> getEventsByTitle(String title) {
+        return retrofit.create(AlloEtudiantRestClient.class).getEventsByTitle(title);
     }
 }

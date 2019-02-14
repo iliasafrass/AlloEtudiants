@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueBodyColor">
+
+    <TextView
+        android:id="@+id/besoin"
+        android:layout_width="419dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="40dp"
+        android:text="Créneau"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/jours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/heure_debut"
+        android:layout_width="126dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/heure_fin"
+        android:layout_width="126dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Please Choose"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
+
+    <Button
+
+        android:id="@+id/suivant_form3"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:layout_width="228dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_signup"
+        android:clickable="true"
+        android:padding="16dp"
+        android:text="Suivant"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/heure_debut"
+        app:layout_constraintStart_toEndOf="@+id/heure_fin"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="59dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/besoin"
+        app:srcCompat="@drawable/ic_data_demande_daide_24dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="291dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Créneau possible"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/besoin" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="52dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jours"
+        app:srcCompat="@drawable/ic_heure_demande24dp" />
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/title_demande"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_below="@id/besoin"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/besoin"
+        app:passwordToggleEnabled="true">
+
+
+        <TextView
+            android:id="@+id/matiere_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/besoin" />
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="291dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="36dp"
+        android:text="Plage horaire souhaitée"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/jours" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="40dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
+        android:text="à"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/heure_debut"
+        app:layout_constraintStart_toEndOf="@+id/heure_fin"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+
+</android.support.constraint.ConstraintLayout>

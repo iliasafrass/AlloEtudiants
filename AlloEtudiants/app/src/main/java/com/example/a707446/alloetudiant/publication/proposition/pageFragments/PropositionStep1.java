@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.view.BottomBar;
 
 
 public class PropositionStep1 extends Fragment {
@@ -44,4 +45,5 @@ public class PropositionStep1 extends Fragment {
                 lblPage.setText(Integer.toString(page));
         }
     }
+
 }

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#759dbf</color>
+    <color name="colorPrimaryDark">#81a4c2</color>
     <color name="colorAccent">#D81B60</color>
     <color name="redLogo">#EF4136</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="login_edit_border">#EFEFF4</color>
-    <color name="blueBarColor">#759dbf</color>
-    <color name="blueBodyColor">#dce6ef</color>
+    <color name="blueBarColor">#81a4c2</color>
+    <color name="blueBodyColor">#F3F4F2</color>
+    <color name="errorSnackBarBackground">#f2cdcd</color>
+    <color name="errorSnackBarText">#b41a1a</color>
     <color name="blueBodyColor2">#c4d5e6</color>
     <color name="snackBarBackground">#f2cdcd</color>
     <color name="snackBarText">#b41a1a</color>
+    <color name="notSoBlack">#454545</color>
     <color name="background">#f5f5f5</color>
-
     <color name="title">#797e83</color>
-
 </resources>

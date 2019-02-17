@@ -70,10 +70,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:sunday_first_day="false" />
+        app:sunday_first_day="true" />
+
+
+
+
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/adresse_text-demande"
+        android:id="@+id/adresse_text_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/besoin"
@@ -102,17 +106,17 @@
 
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/prix_heure_text"
+        android:id="@+id/prix_heure_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/besoin"
-        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adresse_text-demande"
+        app:layout_constraintTop_toBottomOf="@+id/adresse_text_offer"
         app:passwordToggleEnabled="true">
 
         <EditText

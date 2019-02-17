@@ -43,6 +43,7 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
     public static String titreInput;
     public static String descriptionInput;
 
+
     public PropositionStep0() {
         // Required empty public constructor
     }

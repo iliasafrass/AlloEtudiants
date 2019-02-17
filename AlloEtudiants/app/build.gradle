@@ -72,8 +72,9 @@ dependencies {
     //spinner rechercher evenement
     implementation 'com.github.MdFarhanRaja:SearchableSpinner:1.9'
 
-
-
     // Weekdays
     implementation 'com.github.DavidProdinger:weekdays-selector:1.1.0'
+
+
+    implementation 'com.stepstone.stepper:material-stepper:3.2.3'
 }

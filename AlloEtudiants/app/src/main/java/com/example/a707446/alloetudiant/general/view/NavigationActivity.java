@@ -189,7 +189,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
     @Override
     protected void onPause() {
         super.onPause();
-        finish();
+        //finish();
 
     }
 

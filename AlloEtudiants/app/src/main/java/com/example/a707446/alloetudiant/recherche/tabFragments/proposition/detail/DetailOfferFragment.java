@@ -38,7 +38,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     @BindView(R.id.date_offer_detail)
     public TextView date;
 
-    @BindView(R.id.description_offer_detail)
+    @BindView(R.id.description_offer_recap)
     public TextView description;
 
     @BindView(R.id.address_offer_detail)
@@ -97,7 +97,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
             Toast.makeText(this.getView().getContext(), mOffer.getId(), Toast.LENGTH_LONG).show();
             Log.d("mOffer", mOffer.toString());
             title.setText(mOffer.getTitle());
-            icon.setImageResource(R.drawable.ic_events);
+            icon.setImageResource(R.drawable.ic_offers);
             date.setText(mOffer.getDays().toString());
             description.setText(mOffer.getDescription());
             address.setText(mOffer.getAddress());

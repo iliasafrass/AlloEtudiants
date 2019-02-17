@@ -27,6 +27,9 @@
         <activity android:name=".connexion.Login" />
         <activity android:name=".inscription.Inscription" />
 
+        <activity android:name=".publication.demande.StartDemande" />
+        <activity android:name=".publication.proposition.StartPublierService" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

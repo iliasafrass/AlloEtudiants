@@ -107,7 +107,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
             Toast.makeText(this.getView().getContext(), mRequest.getId(), Toast.LENGTH_LONG).show();
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
-            icon.setImageResource(R.drawable.ic_events);
+            icon.setImageResource(R.drawable.ic_requests);
             date.setText(mRequest.getSlots().toString());
             description.setText(mRequest.getDescription());
             address.setText(mRequest.getAddress());

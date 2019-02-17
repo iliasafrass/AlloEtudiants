@@ -71,7 +71,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new RequestPresenter(this);
         manager = new LinearLayoutManager(getContext());
-        //creation de l'adapter on lui passant la liste des evenemnts.
+        //creation de l'adapter on lui passant la liste des demandes.
         mAdapter = new RequestsAdapter(getActivity().getBaseContext(), requestList);
 
         /*

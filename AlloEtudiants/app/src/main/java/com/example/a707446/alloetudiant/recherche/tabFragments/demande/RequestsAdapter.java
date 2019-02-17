@@ -52,7 +52,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
 
 
         final Request request = requestsList.get(position);
-        holder.title.setText(request.getSubject().toString());
+        holder.title.setText(request.getTitle().toString());
         holder.address.setText(request.getAddress());
         holder.description.setText(request.getDescription());
         holder.icon.setImageResource(R.drawable.ic_requests);

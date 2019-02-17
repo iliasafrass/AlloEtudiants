@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
+package com.example.a707446.alloetudiant.publication.demande.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,28 +8,30 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
 import com.stepstone.stepper.VerificationError;
 
-public class PropositionStep1 extends Fragment implements BlockingStep {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class DemandeStep1 extends Fragment implements BlockingStep {
 
-    public PropositionStep1() {
+
+    public DemandeStep1() {
         // Required empty public constructor
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.formulaire_publier_proposition1, container, false);
-
+        return inflater.inflate(R.layout.fragment_demande_step1, container, false);
     }
-
 
     @Override
     public void onNextClicked(final StepperLayout.OnNextClickedCallback callback) {
@@ -45,7 +47,7 @@ public class PropositionStep1 extends Fragment implements BlockingStep {
 
     @Override
     public void onCompleteClicked(StepperLayout.OnCompleteClickedCallback callback) {
-
+        Toast.makeText(getContext(), "onCompleted!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

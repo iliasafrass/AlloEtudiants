@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
@@ -42,6 +43,9 @@ public class NotificationFragment extends AbstractFragment implements Notificati
     @BindView(R.id.notification_recycler_view)
     public RecyclerView recyclerView;
 
+    @BindView(R.id.progressBar2)
+    public ProgressBar progressBar;
+
     private NotificationsAdapter mAdapter;
     private NotificationsContract.Presenter mPresenter;
     private List<NotificationProfileDto> notifications = new ArrayList<>();
@@ -52,8 +56,13 @@ public class NotificationFragment extends AbstractFragment implements Notificati
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.notification_fragment,null);
+        getActivity().setTitle(R.string.toolbar_notifications);
         mUnbinder = ButterKnife.bind(this,view);
         mPresenter = new NotificationsPresenter(this);
+
+        if(progressBar != null){
+            progressBar.setVisibility(View.VISIBLE);
+        }
 
         mPresenter.getNotifications();
 
@@ -64,7 +73,7 @@ public class NotificationFragment extends AbstractFragment implements Notificati
 
         recyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnButtonClickListener(new NotificationsAdapter.OnButtonClickListener() {
+        /*mAdapter.setOnButtonClickListener(new NotificationsAdapter.OnButtonClickListener() {
             @Override
             public void onAcceptBtnClick(int position) {
 //                showMessage("Accepted");
@@ -79,9 +88,8 @@ public class NotificationFragment extends AbstractFragment implements Notificati
                 notifications.get(position).getNotification().setAnswer(NotificationAnswer.DECLINED);
                 mPresenter.sendNotificationAnswer(notifications.get(position), position);
             }
-        });
+        });*/
 
-        getActivity().setTitle(R.string.toolbar_notifications);
 
         return view;
     }
@@ -98,15 +106,12 @@ public class NotificationFragment extends AbstractFragment implements Notificati
 
     @Override
     public void showNotifications(List<NotificationProfileDto> _notifications) {
+        if (progressBar != null){
+            progressBar.setVisibility(View.GONE);
+        }
         notifications = _notifications;
         mAdapter.setNotificationsList(_notifications);
         mAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void showNotificationsAfterAnswer(List<NotificationProfileDto> _notifications, int position) {
-        notifications = _notifications;
-        mAdapter.setNotificationsList(_notifications);
-        mAdapter.notifyItemRemoved(position);
-    }
 }

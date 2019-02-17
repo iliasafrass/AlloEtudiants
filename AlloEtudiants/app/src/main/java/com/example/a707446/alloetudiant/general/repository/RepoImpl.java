@@ -70,8 +70,8 @@ public class RepoImpl implements Repo {
     }
 
     @Override
-    public Call<List<NotificationProfileDto>> getNotificationsByProfileId(String id) {
-        return retrofit.create(AlloEtudiantRestClient.class).getNotificationsByProfileId(id);
+    public Call<List<NotificationProfileDto>> getNotificationsByProfileId(String id, boolean done) {
+        return retrofit.create(AlloEtudiantRestClient.class).getNotificationsByProfileId(id, done);
     }
 
     @Override

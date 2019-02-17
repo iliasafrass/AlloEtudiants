@@ -77,7 +77,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.navigationActivity_fragmentContainer, selectedFragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
                 return true;
             }
         });

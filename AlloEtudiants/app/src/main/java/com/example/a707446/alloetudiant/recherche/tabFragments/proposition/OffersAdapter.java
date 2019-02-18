@@ -31,7 +31,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     private List<Offer> offersList;
     private String offerId;
 
-    public BottomBar.DisableBottomBar disableBottomBar;
+//    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public OffersAdapter(Context context, List<Offer> offersList) {
@@ -64,8 +64,8 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
 
                 offerId = offer.getId();
 
-                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
-                disableBottomBar.disableBottomBar();
+/*                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
+                disableBottomBar.disableBottomBar();*/
 
                 Fragment detailFragment = new DetailOfferFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();

@@ -12,7 +12,7 @@
         android:layout_width="384dp"
         android:layout_height="53dp"
         android:layout_marginTop="44dp"
-        android:text="D'écris ta proposition"
+        android:text="Décris ta proposition"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"

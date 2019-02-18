@@ -48,7 +48,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     private Offer mOffer;
     private String idOffer;
 
-    public BottomBar.EnableBottomBar enableBottomBar;
+//    public BottomBar.EnableBottomBar enableBottomBar;
 
     public DetailOfferFragment() {
         // Required empty public constructor
@@ -84,8 +84,8 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     @Override
     public void onPause() {
         super.onPause();
-        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();
+/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
+        enableBottomBar.enableBottomBar();*/
     }
 
     @Override

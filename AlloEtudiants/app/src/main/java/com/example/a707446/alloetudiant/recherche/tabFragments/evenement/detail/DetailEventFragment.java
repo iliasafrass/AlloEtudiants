@@ -48,7 +48,7 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     private DetailEvenementContract.Presenter mPresenter;
     private Event mEvent;
     private String idEvent;
-    public BottomBar.EnableBottomBar enableBottomBar;
+//    public BottomBar.EnableBottomBar enableBottomBar;
 
     public DetailEventFragment() {
         // Required empty public constructor
@@ -86,8 +86,8 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     @Override
     public void onPause() {
         super.onPause();
-        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();
+/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
+        enableBottomBar.enableBottomBar();*/
     }
 
     @Override

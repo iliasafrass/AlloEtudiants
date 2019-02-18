@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.general.services;
 
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
@@ -21,6 +22,10 @@ public interface AlloEtudiantRestClient {
     Call<Void> login(
             @Body LoginRequest loginRequest
     );
+
+    @POST("/offer")
+    Call<Offer> postOffer(@Body OfferDto offerDto);
+
 
     @GET("/events")
     Call<List<Event>> getEvents();

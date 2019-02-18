@@ -50,7 +50,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     private Request mRequest;
     private String idRequest;
 
-    public BottomBar.EnableBottomBar enableBottomBar;
+//    public BottomBar.EnableBottomBar enableBottomBar;
 
     public DetailRequestFragment() {
         // Required empty public constructor
@@ -94,8 +94,8 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     @Override
     public void onPause() {
         super.onPause();
-        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();
+/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
+        enableBottomBar.enableBottomBar();*/
     }
 
     @Override

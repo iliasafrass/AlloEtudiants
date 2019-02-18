@@ -16,6 +16,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.google.gson.Gson;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
@@ -36,11 +40,15 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
     TextView matiere;
     TextView prix;
     TextView description;
+
+    //variables
     String days = "";
+    List<WeekDay> listDays;
     private String mTitre, mDescription, mMatiere, mAddress, mPrix, dispoStr;
     private DataManager dataManager;
     private List<Integer> listDispo;
     private List<Double> listDispoTmp;
+    private OfferDto mOffer;
 
     public RecapOfferFragment() {
         // Required empty public constructor
@@ -99,6 +107,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
 
     @Override
     public void onBackClicked(StepperLayout.OnBackClickedCallback callback) {
+        listDays.clear();
         days = "";
         callback.goToPrevStep();
     }
@@ -120,7 +129,11 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
         dispoStr = dataManager.getDispo();
         listDispoTmp = new Gson().fromJson(dispoStr, ArrayList.class);
 
+
         listDispo = new ArrayList<>();
+        listDays = new ArrayList<>();
+
+        mOffer = new OfferDto("profileid", AnnounceType.OFFER,mTitre,mAddress,mDescription, Subject.valueOf(mMatiere),Float.parseFloat(mPrix),listDays);
 
         for (Double d : listDispoTmp) {
             Log.d("listDispo", " : " + d);
@@ -164,30 +177,37 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
         for (Integer i : listDispo) {
             switch (i) {
                 case 1:
+                    listDays.add(WeekDay.SUNDAY);
                     days = days.concat("Dimanche");
                     break;
 
                 case 2:
+                    listDays.add(WeekDay.MONDAY);
                     days = days.concat("-Lundi");
                     break;
 
                 case 3:
+                    listDays.add(WeekDay.TUESDAY);
                     days = days.concat("-Mardi");
                     break;
 
                 case 4:
+                    listDays.add(WeekDay.WEDNESDAY);
                     days = days.concat("-Mercredi");
                     break;
 
                 case 5:
+                    listDays.add(WeekDay.THURSDAY);
                     days = days.concat("-Jeudi");
                     break;
 
                 case 6:
+                    listDays.add(WeekDay.FRIDAY);
                     days = days.concat("-Vendredi");
                     break;
 
                 case 7:
+                    listDays.add(WeekDay.SATURDAY);
                     days = days.concat("-Samedi");
                     break;
             }

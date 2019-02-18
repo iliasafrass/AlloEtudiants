@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,11 +9,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.google.gson.Gson;
@@ -23,12 +24,10 @@ import com.stepstone.stepper.VerificationError;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecapOfferFragment extends Fragment implements BlockingStep{
+public class RecapOfferFragment extends Fragment implements BlockingStep {
 
     //Views
     TextView titre;
@@ -37,42 +36,27 @@ public class RecapOfferFragment extends Fragment implements BlockingStep{
     TextView matiere;
     TextView prix;
     TextView description;
-
-    private static final String CURRENT_STEP_POSITION_KEY = "messageResourceId";
-
-    private static final String TITRE = "titre";
-    private static final String DESCRIPTION = "description";
-    private static final String MATIERE = "matiere";
-    private static final String ADDRESS = "address";
-    private static final String PRIX = "prix";
-    private static final String DISPO = "dispo";
-
-
-    private String mTitre,mDescription,mMatiere,mAddress,mPrix,dispoStr;
-
-
-    private List<Integer> mDispo;
+    String days = "";
+    private String mTitre, mDescription, mMatiere, mAddress, mPrix, dispoStr;
+    private DataManager dataManager;
+    private List<Integer> listDispo;
+    private List<Double> listDispoTmp;
 
     public RecapOfferFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        dataManager = (DataManager) context;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Get back arguments
-        if (getArguments() != null) {
-            mTitre = getArguments().getString(TITRE, "titre");
-            mDescription = getArguments().getString(DESCRIPTION, "description");
-            mMatiere = getArguments().getString(MATIERE, "matiere");
-
-/*            mAddress = getArguments().getString(ADDRESS, "adresse_default");
-            mPrix = getArguments().getString(PRIX, "prix_default");
-            dispoStr = getArguments().getString(DISPO, "dispo");
-            //mDispo = new Gson().fromJson(dispoStr, ArrayList.class);*/
-        }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,14 +75,6 @@ public class RecapOfferFragment extends Fragment implements BlockingStep{
         matiere = (TextView) view.findViewById(R.id.matiere_offer_recap);
         prix = (TextView) view.findViewById(R.id.prix_offer_recap);
         description = (TextView) view.findViewById(R.id.description_offer_recap);
-
-        titre.setText(mTitre);
-        description.setText(mDescription);
-        matiere.setText(mMatiere);
-
-        address.setText(mAddress);
-        date.setText(dispoStr);
-        prix.setText(mPrix);
 
 
     }
@@ -123,6 +99,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep{
 
     @Override
     public void onBackClicked(StepperLayout.OnBackClickedCallback callback) {
+        days = "";
         callback.goToPrevStep();
     }
 
@@ -134,7 +111,28 @@ public class RecapOfferFragment extends Fragment implements BlockingStep{
 
     @Override
     public void onSelected() {
-//        Toast.makeText(getContext(), dispoStr+";"+mAddress+";"+mPrix, Toast.LENGTH_SHORT).show();
+        mTitre = dataManager.getTitre();
+        mDescription = dataManager.getDescription();
+        mMatiere = dataManager.getMatiere();
+
+        mAddress = dataManager.getAddress();
+        mPrix = dataManager.getPrix();
+        dispoStr = dataManager.getDispo();
+        listDispoTmp = new Gson().fromJson(dispoStr, ArrayList.class);
+
+        listDispo = new ArrayList<>();
+
+        for (Double d : listDispoTmp) {
+            Log.d("listDispo", " : " + d);
+            listDispo.add(d.intValue());
+        }
+        titre.setText(mTitre);
+        description.setText(mDescription);
+        matiere.setText(mMatiere);
+
+        address.setText(mAddress);
+        date.setText(getDays());
+        prix.setText(mPrix);
     }
 
     @Override
@@ -161,4 +159,39 @@ public class RecapOfferFragment extends Fragment implements BlockingStep{
                 .show();
     }
 
+    private String getDays() {
+
+        for (Integer i : listDispo) {
+            switch (i) {
+                case 1:
+                    days = days.concat("Dimanche");
+                    break;
+
+                case 2:
+                    days = days.concat("-Lundi");
+                    break;
+
+                case 3:
+                    days = days.concat("-Mardi");
+                    break;
+
+                case 4:
+                    days = days.concat("-Mercredi");
+                    break;
+
+                case 5:
+                    days = days.concat("-Jeudi");
+                    break;
+
+                case 6:
+                    days = days.concat("-Vendredi");
+                    break;
+
+                case 7:
+                    days = days.concat("-Samedi");
+                    break;
+            }
+        }
+        return days;
+    }
 }

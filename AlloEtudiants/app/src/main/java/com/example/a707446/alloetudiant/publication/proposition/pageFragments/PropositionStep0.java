@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
@@ -23,7 +23,6 @@ import com.stepstone.stepper.VerificationError;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class PropositionStep0 extends Fragment implements BlockingStep {
@@ -31,18 +30,15 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
     //views
     TextInputLayout titre;
     TextInputLayout description;
-
     MaterialSpinner spinner;
-
+    private String selectedSpinner;
+    private String titreInput;
+    private String descriptionInput;
     //variables
     private ArrayAdapter<String> spinnerAdapter;
     private List<String> listItems = new ArrayList<>();
 
-
-    public static String selectedSpinner;
-    public static String titreInput;
-    public static String descriptionInput;
-
+    private DataManager dataManager;
 
     public PropositionStep0() {
         // Required empty public constructor
@@ -60,19 +56,19 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
         titre = (TextInputLayout) getView().findViewById(R.id.title_proposition);
         description = (TextInputLayout) getView().findViewById(R.id.description_proposition);
 
+        clearSpinnerItems();
         initSpinnerItems();
-        spinnerAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_dropdown_item,listItems);
+        spinnerAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_dropdown_item, listItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position != -1)// -1 hint choose..
+                if (position != -1)// -1 hint choose..
                 {
                     selectedSpinner = spinner.getItemAtPosition(position).toString();
 
-                }
-                else{
+                } else {
 
                 }
             }
@@ -85,7 +81,6 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
         /*************************************************************/
 
 
-
     }
 
     @Override
@@ -94,6 +89,10 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.formulaire_publier_proposition0, container, false);
 
+    }
+
+    private void clearSpinnerItems() {
+        listItems.clear();
     }
 
     private void initSpinnerItems() {
@@ -111,30 +110,39 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
             @Override
             public void run() {
                 //you can do anythings you want
-
                 titreInput = titre.getEditText().getText().toString();
                 descriptionInput = description.getEditText().getText().toString();
-                if(titreInput.isEmpty() || titreInput == null){
+                if (titreInput.isEmpty() || titreInput == null) {
                     titre.setError("titre est obligatoire! ");
-                }else
+                } else
                     titre.setError(null);
 
-                if(descriptionInput.isEmpty() || descriptionInput == null){
+                if (descriptionInput.isEmpty() || descriptionInput == null) {
                     description.setError("description est obligatoire! ");
-                }else
+                } else
                     description.setError(null);
 
-                if(selectedSpinner.isEmpty() || selectedSpinner == null){
+                if (selectedSpinner.isEmpty() || selectedSpinner == null) {
                     spinner.setError("matiere est obligatoire! ");
-                }else
+                } else
                     spinner.setError(null);
 
-                if( !titreInput.isEmpty() && titreInput != null && !selectedSpinner.isEmpty() && selectedSpinner != null && !descriptionInput.isEmpty() && descriptionInput != null) {
+                if (!titreInput.isEmpty() && titreInput != null && !selectedSpinner.isEmpty() && selectedSpinner != null && !descriptionInput.isEmpty() && descriptionInput != null) {
+                    dataManager.saveTitle(titreInput);
+                    dataManager.saveDescription(descriptionInput);
+                    dataManager.saveMatiere(selectedSpinner);
                     callback.goToNextStep();
                 }
+
             }
         }, 0L);// delay open another fragment,
 
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        dataManager = (DataManager) context;
     }
 
     @Override
@@ -160,6 +168,6 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
 
     @Override
     public void onError(@NonNull VerificationError error) {
-            Toast.makeText(getContext(), "onError! -> " + error.getErrorMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "onError! -> " + error.getErrorMessage(), Toast.LENGTH_SHORT).show();
     }
 }

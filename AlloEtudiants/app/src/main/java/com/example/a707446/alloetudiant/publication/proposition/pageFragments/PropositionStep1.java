@@ -1,12 +1,13 @@
 package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,15 +31,12 @@ public class PropositionStep1 extends Fragment implements BlockingStep {
     private TextInputLayout address;
     private TextInputLayout prix;
 
-    public static List<Integer> selected_days;
-    public static String addressInput;
-    public static String prixInput;
-    String dispo;
+    private List<Integer> selected_days;
+    private String addressInput;
+    private String prixInput;
+    private String dispo;
 
-    private static final String ADDRESS = "address";
-    private static final String PRIX = "prix";
-    private static final String DISPO = "dispo";
-
+    private DataManager dataManager;
 
     public PropositionStep1() {
         // Required empty public constructor
@@ -50,14 +48,13 @@ public class PropositionStep1 extends Fragment implements BlockingStep {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.formulaire_publier_proposition1, container, false);
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        selected_days = Arrays.asList(Calendar.MONDAY,Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY);
+        selected_days = Arrays.asList(Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY);
 
 
         widget = (WeekdaysPicker) getView().findViewById(R.id.weekdays);
@@ -71,53 +68,47 @@ public class PropositionStep1 extends Fragment implements BlockingStep {
                 selected_days = selectedDays;
             }
         });
-
-
     }
 
-
-
     @Override
+    @UiThread
     public void onNextClicked(final StepperLayout.OnNextClickedCallback callback) {
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 //you can do anythings you want
                 addressInput = address.getEditText().getText().toString();
                 prixInput = prix.getEditText().getText().toString();
-                dispo = new Gson().toJson(PropositionStep1.selected_days);
+                dispo = new Gson().toJson(selected_days);
 
-                if(addressInput.isEmpty() || address == null){
+                if (addressInput.isEmpty() || address == null) {
                     address.setError("adresse est obligatoire! ");
-                }else
+                } else
                     address.setError(null);
-                if(prixInput.isEmpty() || prixInput== null){
+                if (prixInput.isEmpty() || prixInput == null) {
                     prix.setError("prix est obligatoire! ");
-                }else
+                } else
                     prix.setError(null);
 
-                if(selected_days.isEmpty() || selected_days == null){
+                if (selected_days.isEmpty() || selected_days == null) {
                     Toast.makeText(getContext(), "disponibilité est obligatoire!", Toast.LENGTH_SHORT).show();
                 }
-                if( !addressInput.isEmpty() && addressInput != null && !selected_days.isEmpty() && selected_days != null && !prixInput.isEmpty() && prixInput != null) {
+                if (!addressInput.isEmpty() && addressInput != null && !selected_days.isEmpty() && selected_days != null && !prixInput.isEmpty() && prixInput != null) {
 
+                    dataManager.saveAddress(addressInput);
+                    dataManager.savePrix(prixInput);
+                    dataManager.saveDispo(dispo);
                     callback.goToNextStep();
-
-                    RecapOfferFragment step3 = new RecapOfferFragment();
-                    Bundle b3 = new Bundle();
-
-                    Log.d("addressInput", " adresse is " + PropositionStep1.addressInput);
-                    b3.putString(ADDRESS, PropositionStep1.addressInput);
-                    b3.putString(PRIX, PropositionStep1.prixInput);
-                    b3.putString(DISPO, dispo);
-                    step3.setArguments(b3);
                 }
             }
         }, 0L);// delay open another fragment,
-        RecapOfferFragment step3 = new RecapOfferFragment();
-        Bundle b3 = new Bundle();
 
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        dataManager = (DataManager) context;
     }
 
     @Override
@@ -146,5 +137,4 @@ public class PropositionStep1 extends Fragment implements BlockingStep {
     public void onError(@NonNull VerificationError error) {
 
     }
-
 }

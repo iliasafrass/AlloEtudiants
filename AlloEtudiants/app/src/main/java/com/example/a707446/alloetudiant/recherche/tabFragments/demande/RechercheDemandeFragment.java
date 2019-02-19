@@ -158,7 +158,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 mPresenter.sendRequestsToView();
                 progressBar.setVisibility(View.GONE);
             }
-        },3000);
+        },1000);
     }
 
     @Override

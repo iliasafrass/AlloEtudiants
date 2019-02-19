@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.general.repository;
 
+import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
@@ -20,5 +21,8 @@ public interface Repo {
     Call<List<Offer>> getOffersBySubject(String subject);
 
     Call<List<Event>> getEventsByTitle(String title);
+
+
+    Call<Offer> createOffer(OfferDto offerDto);
 
 }

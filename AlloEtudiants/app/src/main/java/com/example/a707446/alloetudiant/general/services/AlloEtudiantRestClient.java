@@ -12,6 +12,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -23,8 +24,8 @@ public interface AlloEtudiantRestClient {
             @Body LoginRequest loginRequest
     );
 
-    @POST("/offer")
-    Call<Offer> postOffer(@Body OfferDto offerDto);
+    @POST("/offers")
+    Call<Offer> createOffer(@Body OfferDto offerDto);
 
 
     @GET("/events")

@@ -1,141 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:backgroundTint="@color/blueBodyColor"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".publication.proposition.pageFragments.RecapOfferFragment"
-    >
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout"
+
+    <TextView
+        android:id="@+id/title_offer_recap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="title"
+        android:textColor="#000"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#759dbf"
+        app:layout_constraintTop_toBottomOf="@+id/title_offer_recap"
+        tools:layout_editor_absoluteX="7dp" />
+
+
+    <TextView
+        android:id="@+id/description_offer_recap"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="80"
+        android:gravity="left"
+        android:lines="4"
+        android:maxLines="4"
+        android:minLines="2"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="description"
+        android:textColor="@color/title"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/offer_image_recap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <ImageView
+        android:id="@+id/offer_image_recap"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/ic_offers" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="32dp"
+        android:background="#759dbf"
+        app:layout_constraintTop_toBottomOf="@+id/offer_image_recap"
+        tools:layout_editor_absoluteX="7dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/background"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="@id/view2">
 
         <TextView
-            android:id="@+id/title_offer_recap"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:text="title"
+            android:layout_weight="30"
+            android:gravity="left"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="Date :"
             android:textColor="#000"
-            android:textSize="35dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#759dbf"
-            app:layout_constraintBottom_toTopOf="@+id/offer_image_recap"
-            app:layout_constraintTop_toBottomOf="@+id/title_offer_recap"
-            tools:layout_editor_absoluteX="7dp" />
-
-
-        <ImageView
-            android:id="@+id/offer_image_recap"
-            android:layout_width="97dp"
-            android:layout_height="100dp"
-            android:layout_alignParentLeft="true"
-
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:srcCompat="@drawable/ic_offers" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/date_offer_recap"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_weight="70"
+            android:gravity="left"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
             android:text="Date"
+            android:textColor="@color/title"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:gravity="left"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="adresse :"
             android:textColor="#000"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/offer_image_recap" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/address_offer_recap"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_weight="70"
+            android:gravity="left"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
             android:text="address"
+            android:textColor="@color/title"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:gravity="left"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="Matière :"
             android:textColor="#000"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date_offer_recap" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/matiere_offer_recap"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_weight="70"
+            android:gravity="left"
+            android:inputType="textImeMultiLine"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
             android:text="matiere"
-            android:textColor="#000"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_offer_recap" />
+            android:textColor="@color/title"
+            android:textSize="18dp" />
 
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="24dp"
-            android:background="#759dbf"
-            app:layout_constraintTop_toBottomOf="@+id/matiere_offer_recap"
-            tools:layout_editor_absoluteX="7dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:gravity="left"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="Prix (€) :"
+            android:textColor="#000"
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/prix_offer_recap"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/view2"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_weight="70"
+            android:gravity="left"
+            android:inputType="textImeMultiLine"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
             android:text="prix"
-            android:textColor="#000"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-        <TextView
-            android:id="@+id/description_offer_recap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view2"
-            android:layout_marginStart="8dp"
-            android:text="description"
-            android:textColor="#000"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prix_offer_recap" />
-
-    </android.support.constraint.ConstraintLayout>
+            android:textColor="@color/title"
+            android:textSize="18dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/complete_offer"
@@ -143,13 +264,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Verifiez votre proposition et cliquez sur 'complete' pour la poster. "
         android:textColor="#000"
-        android:textStyle="italic"
         android:textSize="15dp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
 </android.support.constraint.ConstraintLayout>

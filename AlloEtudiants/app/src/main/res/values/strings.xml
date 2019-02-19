@@ -3,7 +3,7 @@
     <string name="toolbar_recherche">Rechercher</string>
     <string name="toolbar_publier">Publication</string>
     <string name="toolbar_annonce">Vos annonces</string>
-    <string name="toolbar_home">alloétudiants</string>
+    <string name="toolbar_home">accueil</string>
     <string name="toolbar_notifications">Notifications</string>
     <string name="toolbar_recherche_demande">rechercher une demande</string>
     <string name="toolbar_recherche_proposition">rechercher une proposition</string>

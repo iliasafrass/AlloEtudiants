@@ -14,12 +14,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
+import com.example.a707446.alloetudiant.publication.proposition.presenter.PropositionContract;
+import com.example.a707446.alloetudiant.publication.proposition.presenter.PropositionPresenter;
 import com.google.gson.Gson;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
@@ -31,7 +36,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecapOfferFragment extends Fragment implements BlockingStep {
+public class RecapOfferFragment extends Fragment implements BlockingStep, PropositionContract.View {
 
     //Views
     TextView titre;
@@ -42,6 +47,8 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
     TextView description;
 
     //variables
+
+    private PropositionContract.Presenter mPresenter;
     String days = "";
     List<WeekDay> listDays;
     private String mTitre, mDescription, mMatiere, mAddress, mPrix, dispoStr;
@@ -49,6 +56,9 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
     private List<Integer> listDispo;
     private List<Double> listDispoTmp;
     private OfferDto mOffer;
+
+    //private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
+    private final String profileId = "5c3d00eb349dbb2908cbaf99";
 
     public RecapOfferFragment() {
         // Required empty public constructor
@@ -70,6 +80,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        mPresenter = new PropositionPresenter(this);
         return inflater.inflate(R.layout.fragment_recap_offer, container, false);
     }
 
@@ -102,7 +113,9 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
     @Override
     public void onCompleteClicked(StepperLayout.OnCompleteClickedCallback callback) {
         //Toast.makeText(getActivity(), "onCompleted!", Toast.LENGTH_SHORT).show();
-        mydialog();
+        Log.d("POST_OFFER", " mOffer = "+mOffer.toString());
+        createOffer(mOffer);
+//        mydialog();
     }
 
     @Override
@@ -133,19 +146,28 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
         listDispo = new ArrayList<>();
         listDays = new ArrayList<>();
 
-        mOffer = new OfferDto("profileid", AnnounceType.OFFER,mTitre,mAddress,mDescription, Subject.valueOf(mMatiere),Float.parseFloat(mPrix),listDays);
+
+        mOffer = new OfferDto(profileId, AnnounceType.OFFER,mTitre,mAddress,mDescription, Subject.valueOf(mMatiere),Float.parseFloat(mPrix),listDays);
 
         for (Double d : listDispoTmp) {
             Log.d("listDispo", " : " + d);
             listDispo.add(d.intValue());
         }
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(mDescription);
+
+
+
         titre.setText(mTitre);
-        description.setText(mDescription);
+        description.setText(stringBuilder.toString());
         matiere.setText(mMatiere);
+
 
         address.setText(mAddress);
         date.setText(getDays());
-        prix.setText(mPrix);
+        prix.setText(mPrix+" €");
     }
 
     @Override
@@ -213,5 +235,15 @@ public class RecapOfferFragment extends Fragment implements BlockingStep {
             }
         }
         return days;
+    }
+
+    @Override
+    public void createOffer(OfferDto offerDto) {
+        mPresenter.startCreateOffer(offerDto);
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }

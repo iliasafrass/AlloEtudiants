@@ -59,7 +59,7 @@ public class NavigationActivity extends AppCompatActivity{
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_account_circle_black_24dp);
+        actionbar.setHomeAsUpIndicator(R.drawable.selector_profile);
 
         getSupportActionBar().setElevation(0);
 

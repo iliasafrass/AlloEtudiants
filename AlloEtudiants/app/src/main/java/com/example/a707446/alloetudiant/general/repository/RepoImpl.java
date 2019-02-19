@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.general.repository;
 
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
@@ -64,5 +65,10 @@ public class RepoImpl implements Repo {
     @Override
     public Call<List<Event>> getEventsByTitle(String title) {
         return retrofit.create(AlloEtudiantRestClient.class).getEventsByTitle(title);
+    }
+
+    @Override
+    public Call<Offer> createOffer(OfferDto offerDto) {
+        return retrofit.create(AlloEtudiantRestClient.class).createOffer(offerDto);
     }
 }

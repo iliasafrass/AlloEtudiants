@@ -1,13 +1,11 @@
-package com.example.a707446.alloetudiant.notifications.presenter;
+package com.example.a707446.alloetudiant.home.presenter;
 
 import com.example.a707446.alloetudiant.general.BaseApplication;
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
-import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
-import com.example.a707446.alloetudiant.inscription.presenter.InscriptionContract;
-import com.example.a707446.alloetudiant.inscription.presenter.InscriptionPresenter;
+import com.example.a707446.alloetudiant.notifications.presenter.NotificationsContract;
 
 import java.util.List;
 
@@ -15,23 +13,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NotificationsPresenter implements NotificationsContract.Presenter {
-
-    // Constants
-    private static final String TAG = InscriptionPresenter.class.getSimpleName();
+public class HomePresenter implements HomeContract.Presenter{
 
     // Globals
-    private NotificationsContract.View mView;
+    private HomeContract.View mView;
     private Repo mRepo;
 
-    public NotificationsPresenter(NotificationsContract.View mView) {
+    public HomePresenter(HomeContract.View mView) {
         this.mView = mView;
         mRepo = new RepoImpl();
     }
 
     @Override
     public void getNotifications() {
-        mRepo.getNotificationsByProfileId(SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()),true)
+        mRepo.getNotificationsByProfileId(SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()),false)
                 .enqueue(
                         new Callback<List<NotificationProfileDto>>() {
                             @Override
@@ -51,4 +46,23 @@ public class NotificationsPresenter implements NotificationsContract.Presenter {
                 );
     }
 
+    @Override
+    public void sendNotificationAnswer(NotificationProfileDto dto, final int position) {
+        mRepo.sendNotificationAnswer(dto.getNotification().getId(), SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()),dto)
+                .enqueue(new Callback<List<NotificationProfileDto>>() {
+                    @Override
+                    public void onResponse(Call<List<NotificationProfileDto>> call, Response<List<NotificationProfileDto>> response) {
+                        if(response.isSuccessful()){
+                            mView.showNotificationsAfterAnswer(response.body(), position);
+                        } else {
+                            mView.showError("Internal server error");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<NotificationProfileDto>> call, Throwable t) {
+                        mView.showError(t.toString());
+                    }
+                });
+    }
 }

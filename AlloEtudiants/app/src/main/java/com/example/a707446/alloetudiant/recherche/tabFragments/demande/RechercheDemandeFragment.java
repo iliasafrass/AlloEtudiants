@@ -133,11 +133,13 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 {
                     //data fetch
                     isScrolling = false;
-                    getData();
+//                    getData();
                 }
             }
         });
-        getData();
+        progressBar.setVisibility(View.VISIBLE);
+        mPresenter.sendRequestsToView();
+//        getData();
 
         return view;
     }
@@ -158,12 +160,13 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 mPresenter.sendRequestsToView();
                 progressBar.setVisibility(View.GONE);
             }
-        },3000);
+        },1000);
     }
 
     @Override
     public void receiveRequestsFromPresenter(List<Request> requests) {
         mAdapter.setRequestsList(requests);
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override

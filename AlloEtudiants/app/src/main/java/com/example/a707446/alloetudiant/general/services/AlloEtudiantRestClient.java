@@ -18,6 +18,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface AlloEtudiantRestClient {
 
@@ -29,10 +30,8 @@ public interface AlloEtudiantRestClient {
     @GET("/events")
     Call<List<Event>> getEvents();
 
-
     @GET("/offers")
     Call<List<Offer>> getOffers();
-
 
     @GET("/requests")
     Call<List<Request>> getRequests();
@@ -56,7 +55,7 @@ public interface AlloEtudiantRestClient {
     Call<List<Event>> getEventsByTitle(@Path("title")String title);
 
     @GET("/notifications/asked/{id}")
-    Call<List<NotificationProfileDto>> getNotificationsByProfileId(@Path("id") String id);
+    Call<List<NotificationProfileDto>> getNotificationsByProfileId(@Path("id") String id, @Query("done") boolean done);
 
     @POST("/notifications")
     Call<Notification> askForAnnounce(@Body NotificationDto notificationDto);

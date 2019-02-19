@@ -19,7 +19,7 @@ public interface Repo {
     Call<Request> getRequestById(String id);
     Call<Offer> getOfferById(String id);
 
-    Call<List<NotificationProfileDto>> getNotificationsByProfileId(String id);
+    Call<List<NotificationProfileDto>> getNotificationsByProfileId(String id, boolean done);
     Call<Notification> askForAnnounce(NotificationDto notificationDto);
     Call<List<NotificationProfileDto>> sendNotificationAnswer(String id, String profileId, NotificationProfileDto dto);
 

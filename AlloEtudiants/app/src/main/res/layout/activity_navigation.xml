@@ -6,11 +6,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+    <!--android:layout_height="?attr/actionBarSize"-->
     <android.support.v7.widget.Toolbar
 
         android:id="@+id/navigationActivity_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/blueBarColor"
         android:elevation="4dp"
         app:titleTextColor="@color/white"
@@ -39,11 +40,11 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigationActivity_bottomNavigationActivity"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         app:itemIconTint="@drawable/selector4"
-        app:labelVisibilityMode="unlabeled"
         app:itemTextColor="@drawable/selector4"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation_bottom" />
 

@@ -133,7 +133,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 {
                     //data fetch
                     isScrolling = false;
-                    getData();
+//                    getData();
                 }
             }
         });
@@ -165,6 +165,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     @Override
     public void receiveRequestsFromPresenter(List<Request> requests) {
         mAdapter.setRequestsList(requests);
+//        progressBar.setVisibility(View.GONE);
     }
 
     @Override

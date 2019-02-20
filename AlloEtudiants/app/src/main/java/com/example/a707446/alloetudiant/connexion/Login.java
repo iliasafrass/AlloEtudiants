@@ -3,7 +3,6 @@ package com.example.a707446.alloetudiant.connexion;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -60,7 +59,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     public void onLoginClick(){
         Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
         startActivity(i);
-     //   mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());
+//        mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());
     }
 
     @OnClick(R.id.forgetPassword)
@@ -130,15 +129,15 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     private void errorSnackbar(String error){
         TSnackbar errorSnackBar = TSnackbar.make(findViewById(android.R.id.content),error,TSnackbar.LENGTH_LONG);
-        errorSnackBar.setActionTextColor(ContextCompat.getColor(getApplicationContext(),R.color.snackBarText));
+        errorSnackBar.setActionTextColor(ContextCompat.getColor(getApplicationContext(),R.color.errorSnackBarText));
         View snackBarView = errorSnackBar.getView();
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) snackBarView.getLayoutParams();
         params.height = 80;
         snackBarView.setPadding(0,-20,0,-15);
         snackBarView.setLayoutParams(params);
-        snackBarView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.snackBarBackground));
+        snackBarView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.errorSnackBarBackground));
         TextView textView = (TextView) snackBarView.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-        textView.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.snackBarText));
+        textView.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.errorSnackBarText));
         textView.setTextSize(12);
         textView.setGravity(Gravity.CENTER);
         errorSnackBar.show();

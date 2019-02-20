@@ -2,6 +2,11 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.p
 
 import android.util.Log;
 
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
+import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
+import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
@@ -41,5 +46,32 @@ public class DetailRequestPresenter implements DetailRequestConstract.Presenter 
                         System.out.println("Something went wrong in detail Request presenter ! :(");
                     }
                 });
+    }
+
+    @Override
+    public void startAskingRequest(Request request) {
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setAnnounceId(request.getId());
+        notificationDto.setAnnounceTitle(request.getTitle());
+        notificationDto.setAskerProfileId(SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()));
+        notificationDto.setAnnounceType(AnnounceType.REQUEST);
+        notificationDto.setAskedProfileId(request.getProfileId());
+        mRepo.askForAnnounce(notificationDto).enqueue(
+                new Callback<Notification>() {
+                    @Override
+                    public void onResponse(Call<Notification> call, Response<Notification> response) {
+                        if(response.code() == 200){
+                            mView.showToast("Notification created with id : " + response.body().getId());
+                        } else {
+                            mView.showError(response.code()+" A notification has been already sent");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Notification> call, Throwable t) {
+                        mView.showError(t.toString());
+                    }
+                }
+        );
     }
 }

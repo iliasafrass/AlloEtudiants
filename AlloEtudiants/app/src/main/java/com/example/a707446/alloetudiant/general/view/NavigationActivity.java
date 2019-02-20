@@ -77,7 +77,7 @@ public class NavigationActivity extends AppCompatActivity{
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.navigationActivity_fragmentContainer, selectedFragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
                 return true;
             }
         });
@@ -124,6 +124,7 @@ public class NavigationActivity extends AppCompatActivity{
                     }
                 });
 
+        //BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
         // Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());

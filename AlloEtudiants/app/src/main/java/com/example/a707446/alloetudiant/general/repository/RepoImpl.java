@@ -1,8 +1,11 @@
 package com.example.a707446.alloetudiant.general.repository;
 
+import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
+import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
+import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.services.AlloEtudiantRestClient;
@@ -71,4 +74,21 @@ public class RepoImpl implements Repo {
     public Call<Offer> createOffer(OfferDto offerDto) {
         return retrofit.create(AlloEtudiantRestClient.class).createOffer(offerDto);
     }
+
+    @Override
+    public Call<List<NotificationProfileDto>> getNotificationsByProfileId(String id, boolean done) {
+        return retrofit.create(AlloEtudiantRestClient.class).getNotificationsByProfileId(id, done);
+    }
+
+    @Override
+    public Call<Notification> askForAnnounce(NotificationDto notificationDto) {
+        return retrofit.create(AlloEtudiantRestClient.class).askForAnnounce(notificationDto);
+    }
+
+    @Override
+    public Call<List<NotificationProfileDto>> sendNotificationAnswer(String id, String profileId, NotificationProfileDto dto) {
+        return retrofit.create(AlloEtudiantRestClient.class).sendNotificationAnswer(id, profileId, dto);
+    }
+
+
 }

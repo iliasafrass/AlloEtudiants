@@ -107,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <Button
-                android:id="@+id/participer"
+                android:id="@+id/reserver_demande"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/participer"
+                app:layout_constraintTop_toBottomOf="@+id/reserver_demande"
                 tools:layout_editor_absoluteX="0dp" />
 
 

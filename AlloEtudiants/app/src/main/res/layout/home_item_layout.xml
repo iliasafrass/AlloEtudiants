@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    card_view:cardCornerRadius="8dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgHomeNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:srcCompat="@drawable/ic_requests" />
+
+        <TextView
+            android:id="@+id/txtHomeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="11/02/2019 11:15"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="10sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtHomeInvitation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/cabin"
+            android:text="Invitation pour votre demande d'aide"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toEndOf="@+id/imgHomeNotification"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeDate" />
+
+        <TextView
+            android:id="@+id/txtHomeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/cabin"
+            android:text="Mini-projetAndroid"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/txtHomeInvitation"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeInvitation" />
+
+        <TextView
+            android:id="@+id/txtHomeSender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Mohamed Amine Waray \nM1, Informatique"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtHomeTitle"
+            card_view:layout_constraintStart_toStartOf="@+id/txtHomeTitle"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeView" />
+
+        <TextView
+            android:id="@+id/txtHomeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Envoyée par"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/txtHomeTitle"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeTitle" />
+
+        <ImageButton
+            android:id="@+id/btnHomeAccept"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_check_green_24dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtHomeSender"
+            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintStart_toEndOf="@+id/btnHomeDecline"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeSender" />
+
+        <ImageButton
+            android:id="@+id/btnHomeDecline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_close_red_24dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toStartOf="@+id/btnHomeAccept"
+            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintStart_toStartOf="@+id/txtHomeSender"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeSender" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

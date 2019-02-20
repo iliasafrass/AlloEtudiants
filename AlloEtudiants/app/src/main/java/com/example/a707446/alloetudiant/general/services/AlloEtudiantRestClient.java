@@ -1,9 +1,12 @@
 package com.example.a707446.alloetudiant.general.services;
 
+import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
+import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
+import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 
@@ -15,7 +18,9 @@ import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface AlloEtudiantRestClient {
 
@@ -31,10 +36,8 @@ public interface AlloEtudiantRestClient {
     @GET("/events")
     Call<List<Event>> getEvents();
 
-
     @GET("/offers")
     Call<List<Offer>> getOffers();
-
 
     @GET("/requests")
     Call<List<Request>> getRequests();
@@ -56,4 +59,13 @@ public interface AlloEtudiantRestClient {
 
     @GET("/events/title/{title}")
     Call<List<Event>> getEventsByTitle(@Path("title")String title);
+
+    @GET("/notifications/asked/{id}")
+    Call<List<NotificationProfileDto>> getNotificationsByProfileId(@Path("id") String id, @Query("done") boolean done);
+
+    @POST("/notifications")
+    Call<Notification> askForAnnounce(@Body NotificationDto notificationDto);
+
+    @PUT("/notifications/{id}/{profileId}")
+    Call<List<NotificationProfileDto>> sendNotificationAnswer(@Path("id") String id, @Path("profileId") String profileId, @Body NotificationProfileDto dto);
 }

@@ -1,15 +1,18 @@
 package com.example.a707446.alloetudiant.publication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.publication.proposition.StartPublierServiceFragment;
+import com.example.a707446.alloetudiant.publication.demande.StartDemande;
+import com.example.a707446.alloetudiant.publication.evenement.Start_publier_evenement;
+import com.example.a707446.alloetudiant.publication.proposition.StartPublierService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,17 +28,31 @@ public class PublierFragment extends AbstractFragment {
         return new PublierFragment();
     }
 
-    @BindView(R.id.publier_service)
-    public Button btn_service;
+    @BindView(R.id.button_proposition)
+    public ImageButton btn_proposition;
 
-    @OnClick(R.id.publier_service)
+    @OnClick(R.id.button_proposition)
     void goToServiceActivity(){
-//        Intent i = new Intent(getActivity().getApplicationContext(), PublierService.class);
-//        startActivity(i);
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.navigationActivity_fragmentContainer,new StartPublierServiceFragment())
-                .addToBackStack(null)
-                .commit();
+        Intent i = new Intent(getContext(),StartPublierService.class);
+        startActivity(i);
+    }
+
+    @BindView(R.id.button_demande)
+    public ImageButton btn_demande;
+
+    @OnClick(R.id.button_demande)
+    void goToDemande(){
+        Intent i = new Intent(getContext(),StartDemande.class);
+        startActivity(i);
+    }
+
+    @BindView(R.id.button_evenement)
+    public ImageButton btn_evenement;
+
+    @OnClick(R.id.button_evenement)
+    void goToEvenement(){
+        Intent i = new Intent(getContext(), Start_publier_evenement.class);
+        startActivity(i);
     }
 
 

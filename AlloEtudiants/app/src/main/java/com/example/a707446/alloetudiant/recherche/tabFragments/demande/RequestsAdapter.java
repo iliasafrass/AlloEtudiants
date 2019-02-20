@@ -29,7 +29,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
 
     private String requestId;
 
-    public BottomBar.DisableBottomBar disableBottomBar;
+//    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public RequestsAdapter(Context context, List<Request> requestsList) {
@@ -52,7 +52,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
 
 
         final Request request = requestsList.get(position);
-        holder.title.setText(request.getSubject().toString());
+        holder.title.setText(request.getTitle().toString());
         holder.address.setText(request.getAddress());
         holder.description.setText(request.getDescription());
         holder.icon.setImageResource(R.drawable.ic_requests);
@@ -64,8 +64,8 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
             public void onClick(View view) {
                 requestId = request.getId();
 
-                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
-                disableBottomBar.disableBottomBar();
+     /*           disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
+                disableBottomBar.disableBottomBar();*/
 
                 Fragment detailFragment = new DetailRequestFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();

@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_rechercher"
-        android:icon="@drawable/search"
+        android:icon="@drawable/selector"
         android:title="TEST"/>
 
     <item
         android:id="@+id/action_annonce"
-        android:icon="@drawable/annonce"
+        android:icon="@drawable/ic_annonce"
         android:title="TEST"/>
     <item
         android:id="@+id/action_publier"
-        android:icon="@drawable/publier"
+        android:icon="@drawable/ic_publier"
         android:title="TEST"/>
 </menu>

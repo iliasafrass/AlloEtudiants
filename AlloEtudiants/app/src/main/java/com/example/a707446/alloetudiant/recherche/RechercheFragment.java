@@ -88,8 +88,5 @@ public class RechercheFragment extends AbstractFragment {
     @Override
     public void onResume() {
         super.onResume();
-        viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setupWithViewPager(viewPager);
     }
 }

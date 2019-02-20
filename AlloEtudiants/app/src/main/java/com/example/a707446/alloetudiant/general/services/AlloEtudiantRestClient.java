@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.general.services;
 
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -21,6 +23,10 @@ public interface AlloEtudiantRestClient {
     Call<Void> login(
             @Body LoginRequest loginRequest
     );
+
+    @POST("/offers")
+    Call<Offer> createOffer(@Body OfferDto offerDto);
+
 
     @GET("/events")
     Call<List<Event>> getEvents();

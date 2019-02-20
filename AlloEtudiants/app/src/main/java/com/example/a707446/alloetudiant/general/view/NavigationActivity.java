@@ -30,7 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class NavigationActivity extends AppCompatActivity implements BottomBar.DisableBottomBar , BottomBar.EnableBottomBar{
+public class NavigationActivity extends AppCompatActivity{
 
     // Views
     @BindView(R.id.navigationActivity_toolbar)
@@ -59,7 +59,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_account_circle_black_24dp);
+        actionbar.setHomeAsUpIndicator(R.drawable.selector_profile);
 
         getSupportActionBar().setElevation(0);
 
@@ -91,7 +91,15 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         AbstractFragment selectedFragment = null;
                         switch (item.getItemId()) {
+                            case R.id.action_accueil:
+                                fragmentManager.popBackStack();
+                                selectedFragment = HomeFragment.newInstance();
+                                inHome = true;
+                                firstChildFragment = false;
+                                break;
+
                             case R.id.action_rechercher:
+
                                 fragmentManager.popBackStack();
                                 selectedFragment = RechercheFragment.newInstance();
                                 inHome = false;
@@ -172,7 +180,8 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                if (inHome) {
+                mydialog();
+               /* if (inHome) {
                     mydialog();
                 } else if(firstChildFragment){
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -181,7 +190,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
                     inHome = true;
                     firstChildFragment = false;
                     return true;
-                }
+                }*/
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -189,11 +198,11 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
     @Override
     protected void onPause() {
         super.onPause();
-        finish();
+        //finish();
 
     }
 
-    @Override
+/*    @Override
     public void disableBottomBar() {
         mBottomNavigationView.setVisibility(View.GONE);
     }
@@ -202,5 +211,5 @@ public class NavigationActivity extends AppCompatActivity implements BottomBar.D
     @Override
     public void enableBottomBar() {
         mBottomNavigationView.setVisibility(View.VISIBLE);
-    }
+    }*/
 }

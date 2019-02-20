@@ -23,11 +23,10 @@
             android:visibility="visible"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:tabGravity="center"
-            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorColor="@drawable/selector4"
             app:tabMode="fixed"
-
             app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:tabTextColor="@color/white" />
+            app:tabTextColor="@drawable/selector4" />
 
         <FrameLayout
             android:id="@+id/viewPager_fragmentContainer"

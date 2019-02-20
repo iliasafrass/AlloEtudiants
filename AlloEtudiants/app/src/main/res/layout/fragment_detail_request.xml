@@ -7,6 +7,7 @@
         tools:layout_editor_absoluteY="8dp"
         xmlns:android="http://schemas.android.com/apk/res/android"
         tools:context=".recherche.tabFragments.demande.detail.DetailRequestFragment"
+    android:background="@color/blueBodyColor"
         >
 
         <android.support.constraint.ConstraintLayout
@@ -110,7 +111,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/background_login"
                 android:clickable="true"
                 android:padding="16dp"
@@ -123,7 +124,7 @@
                 tools:layout_editor_absoluteX="7dp" />
 
             <Button
-                android:id="@+id/annuler"
+                android:id="@+id/annuler_detail"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"

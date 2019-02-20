@@ -35,8 +35,8 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     //Views
     @BindView(R.id.recycler_view_demande)
     public RecyclerView recyclerView;
-    @BindView(R.id.progress_bar)
-    public ProgressBar progressBar;
+/*    @BindView(R.id.progress_bar)
+    public ProgressBar progressBar;*/
     @BindView(R.id.spinner_request)
     public MaterialSpinner spinner;
 
@@ -48,10 +48,10 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     ArrayAdapter<String> spinnerAdapter;
     List<String> listItems = new ArrayList<>();
 
-    Boolean isScrolling = false;
+/*    Boolean isScrolling = false;
     int currentItems,totalItems, scrollOutItems;
 
-    LinearLayoutManager manager;
+    LinearLayoutManager manager;*/
 
     public RechercheDemandeFragment() {
         // Required empty public constructor
@@ -70,8 +70,8 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         View view = inflater.inflate(R.layout.recherche_demande_fragment, null);
         mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new RequestPresenter(this);
-        manager = new LinearLayoutManager(getContext());
-        //creation de l'adapter on lui passant la liste des evenemnts.
+        // = new LinearLayoutManager(getContext());
+        //creation de l'adapter on lui passant la liste des demandes.
         mAdapter = new RequestsAdapter(getActivity().getBaseContext(), requestList);
 
         /*
@@ -113,7 +113,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         recyclerView.setAdapter(mAdapter);
 
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+/*        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -137,8 +137,9 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 }
             }
         });
-        getData();
+        getData();*/
 
+        mPresenter.sendRequestsToView();
         return view;
     }
 
@@ -150,7 +151,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         listItems.add(Subject.COMPUTER_SCIENCE.toString());
     }
 
-    private void getData() {
+/*    private void getData() {
         progressBar.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -158,8 +159,8 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
                 mPresenter.sendRequestsToView();
                 progressBar.setVisibility(View.GONE);
             }
-        },3000);
-    }
+        },1000);
+    }*/
 
     @Override
     public void receiveRequestsFromPresenter(List<Request> requests) {

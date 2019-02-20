@@ -31,7 +31,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     private List<Event> eventsList;
     private String eventId;
 
-    public BottomBar.DisableBottomBar disableBottomBar;
+//    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public EventsAdapter(Context context, List<Event> eventsList) {
@@ -66,8 +66,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
             public void onClick(View view) {
                 eventId = event.getId();
 
-                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
-                disableBottomBar.disableBottomBar();
+              /*  disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
+                disableBottomBar.disableBottomBar();*/
 
                 Fragment detailFragment = new DetailEventFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();

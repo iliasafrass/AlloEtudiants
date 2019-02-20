@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +19,13 @@ import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementpresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,7 +51,16 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     private DetailEvenementContract.Presenter mPresenter;
     private Event mEvent;
     private String idEvent;
-    public BottomBar.EnableBottomBar enableBottomBar;
+//    public BottomBar.EnableBottomBar enableBottomBar;
+
+    @OnClick(R.id.annuler_detail_event)
+    public void onAnnulerClick(){annuler();}
+
+    private void annuler() {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.navigationActivity_fragmentContainer, RechercheFragment.newInstance());
+        transaction.commit();
+    }
 
     public DetailEventFragment() {
         // Required empty public constructor
@@ -86,8 +98,8 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     @Override
     public void onPause() {
         super.onPause();
-        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();
+/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
+        enableBottomBar.enableBottomBar();*/
     }
 
     @Override

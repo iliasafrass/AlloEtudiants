@@ -30,5 +30,4 @@ public class OfferDto {
     private float price;
 
     private List<WeekDay> days;
-
 }

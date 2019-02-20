@@ -14,6 +14,7 @@
         android:background="@color/blueBarColor"
         android:elevation="4dp"
         app:titleTextColor="@color/white"
+        app:itemIconTint="@color/white"
         android:textAlignment="center"
         android:gravity="center"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
@@ -39,10 +40,11 @@
         android:id="@+id/navigationActivity_bottomNavigationActivity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/blueBarColor"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@drawable/selector4"
+        app:itemTextColor="@drawable/selector4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation_bottom" />
+
 
 </android.support.constraint.ConstraintLayout>

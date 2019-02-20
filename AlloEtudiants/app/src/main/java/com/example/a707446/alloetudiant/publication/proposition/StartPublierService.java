@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.publication.proposition.pageFragments.DataManager;
 import com.stepstone.stepper.StepperLayout;
 
 
@@ -32,6 +31,7 @@ public class StartPublierService extends AppCompatActivity implements DataManage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_proposition);
+
         mStepperLayout = (StepperLayout) findViewById(R.id.stepperLayout_proposition);
         mStepperAdapter = new StepperAdapter(getSupportFragmentManager(), this);
         mStepperLayout.setAdapter(mStepperAdapter);

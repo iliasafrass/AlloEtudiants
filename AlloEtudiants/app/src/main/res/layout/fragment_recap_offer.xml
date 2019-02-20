@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/blueBodyColor"
-    tools:context=".publication.proposition.pageFragments.RecapOfferFragment"
+    tools:context=".publication.proposition.fragments.RecapOfferFragment"
     tools:layout_editor_absoluteX="8dp"
     tools:layout_editor_absoluteY="8dp">
 

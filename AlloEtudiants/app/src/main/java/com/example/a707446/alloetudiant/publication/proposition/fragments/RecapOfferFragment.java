@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
+package com.example.a707446.alloetudiant.publication.proposition.fragments;
 
 
 import android.content.Context;
@@ -14,15 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.BaseApplication;
-import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
+import com.example.a707446.alloetudiant.publication.proposition.DataManager;
 import com.example.a707446.alloetudiant.publication.proposition.presenter.PropositionContract;
 import com.example.a707446.alloetudiant.publication.proposition.presenter.PropositionPresenter;
 import com.google.gson.Gson;
@@ -38,27 +36,25 @@ import java.util.List;
  */
 public class RecapOfferFragment extends Fragment implements BlockingStep, PropositionContract.View {
 
+    //private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
+    private final String profileId = "5c3d00eb349dbb2908cbaf99";
     //Views
     TextView titre;
     TextView date;
     TextView address;
     TextView matiere;
     TextView prix;
-    TextView description;
 
     //variables
-
-    private PropositionContract.Presenter mPresenter;
+    TextView description;
     String days = "";
     List<WeekDay> listDays;
+    private PropositionContract.Presenter mPresenter;
     private String mTitre, mDescription, mMatiere, mAddress, mPrix, dispoStr;
     private DataManager dataManager;
     private List<Integer> listDispo;
     private List<Double> listDispoTmp;
     private OfferDto mOffer;
-
-    //private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
-    private final String profileId = "5c3d00eb349dbb2908cbaf99";
 
     public RecapOfferFragment() {
         // Required empty public constructor
@@ -113,9 +109,9 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
     @Override
     public void onCompleteClicked(StepperLayout.OnCompleteClickedCallback callback) {
         //Toast.makeText(getActivity(), "onCompleted!", Toast.LENGTH_SHORT).show();
-        Log.d("POST_OFFER", " mOffer = "+mOffer.toString());
+        Log.d("POST_OFFER", " mOffer = " + mOffer.toString());
         createOffer(mOffer);
-//        mydialog();
+
     }
 
     @Override
@@ -147,7 +143,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
         listDays = new ArrayList<>();
 
 
-        mOffer = new OfferDto(profileId, AnnounceType.OFFER,mTitre,mAddress,mDescription, Subject.valueOf(mMatiere),Float.parseFloat(mPrix),listDays);
+        mOffer = new OfferDto(profileId, AnnounceType.OFFER, mTitre, mAddress, mDescription, Subject.valueOf(mMatiere), Float.parseFloat(mPrix), listDays);
 
         for (Double d : listDispoTmp) {
             Log.d("listDispo", " : " + d);
@@ -159,7 +155,6 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
         stringBuilder.append(mDescription);
 
 
-
         titre.setText(mTitre);
         description.setText(stringBuilder.toString());
         matiere.setText(mMatiere);
@@ -167,7 +162,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
 
         address.setText(mAddress);
         date.setText(getDays());
-        prix.setText(mPrix+" €");
+        prix.setText(mPrix + " €");
     }
 
     @Override
@@ -175,7 +170,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
 
     }
 
-    private void mydialog() {
+    private void mydialogOK() {
         AlertDialog alertDialog = new AlertDialog.Builder(getContext())
                 //set icon
                 .setIcon(R.drawable.ic_thankful)
@@ -188,6 +183,25 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what would happen when positive button is clicked
+                        getActivity().finish();
+                    }
+                })
+                .show();
+    }
+
+    private void mydialogKO() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                //set icon
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                //set title
+                .setTitle("Attention!")
+                //set message
+                .setMessage("Le service publier proposition semble interrompue. Veuillez réessayer.")
+                //set negative button
+                .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //set what should happen when negative button is clicked
                         getActivity().finish();
                     }
                 })
@@ -243,7 +257,13 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
     }
 
     @Override
-    public void showMsg(String msg) {
-        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+    public void showSuccessMsg() {
+        mydialogOK();
     }
+
+    @Override
+    public void showFailedMsg() {
+        mydialogKO();
+    }
+
 }

@@ -5,7 +5,9 @@ import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 public interface PropositionContract {
     interface View {
         void createOffer(OfferDto offerDto);
-        void showMsg(String msg);
+        void showSuccessMsg();
+        void showFailedMsg();
+
     }
 
     interface Presenter {

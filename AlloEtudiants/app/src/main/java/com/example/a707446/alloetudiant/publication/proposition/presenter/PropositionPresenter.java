@@ -32,9 +32,9 @@ public class PropositionPresenter implements PropositionContract.Presenter {
                     @Override
                     public void onResponse(Call<Offer> call, Response<Offer> response) {
                         if(response.body() != null)
-                            mView.showMsg("id =  "+response.body().getId());
+                            mView.showSuccessMsg();
                         else
-                            mView.showMsg("failure : Offer not created");
+                            mView.showFailedMsg();
                             Log.d("POST_OFFER", " response = "+response.body());
                         }
 
@@ -42,7 +42,7 @@ public class PropositionPresenter implements PropositionContract.Presenter {
                     public void onFailure(Call<Offer> call, Throwable t) {
 
                         Log.d("POST_OFFER", " Error = "+t.toString());
-                        mView.showMsg("failure : Offer not created");
+                        mView.showFailedMsg();
                     }
                 }
         );

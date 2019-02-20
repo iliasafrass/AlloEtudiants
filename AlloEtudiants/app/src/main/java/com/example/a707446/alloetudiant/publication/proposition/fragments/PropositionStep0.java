@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
+package com.example.a707446.alloetudiant.publication.proposition.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.publication.proposition.DataManager;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
 import com.stepstone.stepper.VerificationError;

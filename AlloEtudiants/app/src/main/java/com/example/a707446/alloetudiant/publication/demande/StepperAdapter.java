@@ -13,7 +13,7 @@ import com.stepstone.stepper.adapter.AbstractFragmentStepAdapter;
 import com.stepstone.stepper.viewmodel.StepViewModel;
 
 public class StepperAdapter extends AbstractFragmentStepAdapter {
-    private static final String CURRENT_STEP_POSITION_KEY = "messageResourceId";
+
     public StepperAdapter(FragmentManager fm, Context context) {
         super(fm, context);
     }
@@ -22,15 +22,9 @@ public class StepperAdapter extends AbstractFragmentStepAdapter {
         switch (position){
             case 0:
                 final DemandeStep0 step0 = new DemandeStep0();
-                Bundle b1 = new Bundle();
-                b1.putInt(CURRENT_STEP_POSITION_KEY, position);
-                step0.setArguments(b1);
                 return step0;
             case 1:
                 final DemandeStep1 step1 = new DemandeStep1();
-                Bundle b2 = new Bundle();
-                b2.putInt(CURRENT_STEP_POSITION_KEY, position);
-                step1.setArguments(b2);
                 return step1;
         }
         return null;

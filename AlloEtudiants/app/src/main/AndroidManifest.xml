@@ -4,6 +4,7 @@
     package="com.example.a707446.alloetudiant">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".general.BaseApplication"
         android:allowBackup="true"
@@ -14,6 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".publication.evenement.Start_publier_evenement"></activity>
         <activity android:name=".general.view.NavigationActivity">
             <intent-filter>
                 <action android:name="com.example.a707446.alloetudiant.NAVIGATIONACTIVITY" />
@@ -23,10 +25,9 @@
         </activity>
         <activity
             android:name=".splash.Splash"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme" />
         <activity android:name=".connexion.Login" />
         <activity android:name=".inscription.Inscription" />
-
         <activity android:name=".publication.demande.StartDemande" />
         <activity android:name=".publication.proposition.StartPublierService" />
 
@@ -44,7 +45,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.a707446.alloetudiant.publication.proposition.pageFragments;
+package com.example.a707446.alloetudiant.publication.proposition.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.dpro.widgets.OnWeekdaysChangeListener;
 import com.dpro.widgets.WeekdaysPicker;
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.publication.proposition.DataManager;
 import com.google.gson.Gson;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;

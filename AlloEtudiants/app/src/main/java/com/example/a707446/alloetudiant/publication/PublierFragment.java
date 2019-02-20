@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.publication.demande.StartDemande;
+import com.example.a707446.alloetudiant.publication.evenement.Start_publier_evenement;
 import com.example.a707446.alloetudiant.publication.proposition.StartPublierService;
 
 import butterknife.BindView;
@@ -42,6 +43,15 @@ public class PublierFragment extends AbstractFragment {
     @OnClick(R.id.button_demande)
     void goToDemande(){
         Intent i = new Intent(getContext(),StartDemande.class);
+        startActivity(i);
+    }
+
+    @BindView(R.id.button_evenement)
+    public ImageButton btn_evenement;
+
+    @OnClick(R.id.button_evenement)
+    void goToEvenement(){
+        Intent i = new Intent(getContext(), Start_publier_evenement.class);
         startActivity(i);
     }
 

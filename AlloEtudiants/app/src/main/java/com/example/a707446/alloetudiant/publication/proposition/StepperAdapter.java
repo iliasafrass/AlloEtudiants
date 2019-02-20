@@ -5,9 +5,9 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 
-import com.example.a707446.alloetudiant.publication.proposition.pageFragments.PropositionStep0;
-import com.example.a707446.alloetudiant.publication.proposition.pageFragments.PropositionStep1;
-import com.example.a707446.alloetudiant.publication.proposition.pageFragments.RecapOfferFragment;
+import com.example.a707446.alloetudiant.publication.proposition.fragments.PropositionStep0;
+import com.example.a707446.alloetudiant.publication.proposition.fragments.PropositionStep1;
+import com.example.a707446.alloetudiant.publication.proposition.fragments.RecapOfferFragment;
 import com.stepstone.stepper.Step;
 import com.stepstone.stepper.adapter.AbstractFragmentStepAdapter;
 import com.stepstone.stepper.viewmodel.StepViewModel;

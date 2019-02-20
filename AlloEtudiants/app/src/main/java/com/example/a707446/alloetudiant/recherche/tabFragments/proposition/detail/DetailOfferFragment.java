@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +19,13 @@ import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
+import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +50,16 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     private DetailOfferContract.Presenter mPresenter;
     private Offer mOffer;
     private String idOffer;
+
+
+    @OnClick(R.id.annuler_detail_offer)
+    public void onAnnulerClick(){annuler();}
+
+    private void annuler() {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.navigationActivity_fragmentContainer, RechercheFragment.newInstance());
+        transaction.commit();
+    }
 
 //    public BottomBar.EnableBottomBar enableBottomBar;
 

@@ -8,22 +8,21 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.Login;
 
 public class Splash extends AppCompatActivity {
 
-    TextView animatedTextView1;
-    TextView animatedTextView2;
+    ImageView image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_splash);
-        animatedTextView1 = findViewById(R.id.text1);
-        animatedTextView2 = findViewById(R.id.text2);
+
+        image = (ImageView) findViewById(R.id.imageView2);
 
         startAnimation();
 
@@ -36,15 +35,15 @@ public class Splash extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        }, 4000);
+        }, 3000);
 
     }
     private void startAnimation(){
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim);
         Animation animation2 = AnimationUtils.loadAnimation(this, R.anim.anim2);
+        image.startAnimation(animation);
+        //image.startAnimation(animation2);
 
-        animatedTextView1.startAnimation(animation);
-        animatedTextView2.startAnimation(animation2);
     }
 
 }

@@ -22,4 +22,10 @@
         android:id="@+id/action_publier"
         android:icon="@drawable/selector3"
         android:title="@string/navigation_publier"/>
+
+    <item
+        android:id="@+id/menu_none"
+        android:title=""
+        android:visible="false"/>
+
 </menu>

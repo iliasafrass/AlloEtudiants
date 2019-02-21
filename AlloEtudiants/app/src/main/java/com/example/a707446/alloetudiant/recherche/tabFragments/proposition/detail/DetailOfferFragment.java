@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferContract;
@@ -61,7 +60,6 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         transaction.commit();
     }
 
-//    public BottomBar.EnableBottomBar enableBottomBar;
 
     public DetailOfferFragment() {
         // Required empty public constructor
@@ -81,7 +79,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_offer,null);
         mUnbinder = ButterKnife.bind(this,view);
-
+        NavigationActivity.inDetail = true;
         getActivity().setTitle(R.string.toolbar_details);
         mPresenter = new DetailOfferPresenter(this);
 
@@ -97,8 +95,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     @Override
     public void onPause() {
         super.onPause();
-/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();*/
+        NavigationActivity.inDetail = false;
     }
 
     @Override

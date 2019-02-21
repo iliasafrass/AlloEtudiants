@@ -1,7 +1,6 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,13 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
-import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.DetailEventFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.DetailOfferFragment;
 
 import java.util.List;
@@ -31,7 +27,6 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     private List<Offer> offersList;
     private String offerId;
 
-//    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public OffersAdapter(Context context, List<Offer> offersList) {
@@ -64,8 +59,6 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
 
                 offerId = offer.getId();
 
-/*                disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
-                disableBottomBar.disableBottomBar();*/
 
                 Fragment detailFragment = new DetailOfferFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();

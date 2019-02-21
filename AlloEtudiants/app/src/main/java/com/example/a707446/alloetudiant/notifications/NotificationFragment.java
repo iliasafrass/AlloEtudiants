@@ -17,6 +17,7 @@ import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto
 import com.example.a707446.alloetudiant.general.model.enumeration.NotificationAnswer;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.notifications.presenter.NotificationsContract;
 import com.example.a707446.alloetudiant.notifications.presenter.NotificationsPresenter;
 
@@ -59,6 +60,8 @@ public class NotificationFragment extends AbstractFragment implements Notificati
         getActivity().setTitle(R.string.toolbar_notifications);
         mUnbinder = ButterKnife.bind(this,view);
         mPresenter = new NotificationsPresenter(this);
+
+        disableItemsBottomBarChecked();
 
         if(progressBar != null){
             progressBar.setVisibility(View.VISIBLE);
@@ -113,5 +116,17 @@ public class NotificationFragment extends AbstractFragment implements Notificati
         mAdapter.setNotificationsList(_notifications);
         mAdapter.notifyDataSetChanged();
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        disableItemsBottomBarChecked();
 
+    }
+
+    private void disableItemsBottomBarChecked(){
+        int size =  NavigationActivity.mBottomNavigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            NavigationActivity.mBottomNavigationView.getMenu().getItem(i).setChecked(false);
+        }
+    }
 }

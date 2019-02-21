@@ -17,6 +17,7 @@ import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.presenter.PropositionContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.presenter.PropositionPresenter;
 
@@ -63,6 +64,7 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
         View view = inflater.inflate(R.layout.recherche_proposition_fragment, null);
         mUnbinder = ButterKnife.bind(this, view);
 
+        NavigationActivity.inDetail = false;
         mPresenter = new PropositionPresenter(this);
 
         //creation de l'adapter on lui passant la liste des propositions.
@@ -127,5 +129,10 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     @Override
     public void getOffersBySubject(List<Offer> offers) {
         mAdapter.setOffersList(offers);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        NavigationActivity.inDetail = false;
     }
 }

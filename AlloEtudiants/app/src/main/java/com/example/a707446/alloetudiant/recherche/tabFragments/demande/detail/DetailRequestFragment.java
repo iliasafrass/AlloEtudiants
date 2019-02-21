@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,17 +22,11 @@ import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.model.pojo.Slot;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.presenter.DetailRequestConstract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.presenter.DetailRequestPresenter;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,7 +58,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     private Request mRequest;
     private String idRequest;
 
-//    public BottomBar.EnableBottomBar enableBottomBar;
+
 
 
 
@@ -92,7 +85,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detail_request,null);
         mUnbinder = ButterKnife.bind(this,view);
-
+        NavigationActivity.inDetail = true;
         getActivity().setTitle(R.string.toolbar_details);
 
         mPresenter = new DetailRequestPresenter(this);
@@ -116,8 +109,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     @Override
     public void onPause() {
         super.onPause();
-/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();*/
+        NavigationActivity.inDetail = false;
     }
 
     @Override
@@ -194,4 +186,5 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         textView.setGravity(Gravity.CENTER);
         errorSnackBar.show();
     }
+
 }

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter.EvenementContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.presenter.EvenementPresenter;
 
@@ -74,6 +75,7 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
         // Attachez l'adaptateur au recyclerview .
         recyclerView.setAdapter(mAdapter);
 
+        NavigationActivity.inDetail = false;
         mPresenter.sendEventsToView();
 
 
@@ -123,5 +125,9 @@ public class RechercheEvenementFragment extends AbstractFragment implements Even
         mAdapter.setEventsList(events);
     }
 
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        NavigationActivity.inDetail = false;
+    }
 }

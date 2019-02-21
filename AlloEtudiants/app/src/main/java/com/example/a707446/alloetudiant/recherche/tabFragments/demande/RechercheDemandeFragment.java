@@ -20,6 +20,7 @@ import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter.RequestContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter.RequestPresenter;
 
@@ -73,7 +74,6 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         // = new LinearLayoutManager(getContext());
         //creation de l'adapter on lui passant la liste des demandes.
         mAdapter = new RequestsAdapter(getActivity().getBaseContext(), requestList);
-
         /*
         *filter with spinner
          */

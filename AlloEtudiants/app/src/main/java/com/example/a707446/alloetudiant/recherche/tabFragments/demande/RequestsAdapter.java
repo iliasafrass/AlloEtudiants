@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
-import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.DetailRequestFragment;
 
@@ -29,7 +28,6 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
 
     private String requestId;
 
-//    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public RequestsAdapter(Context context, List<Request> requestsList) {
@@ -64,8 +62,6 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
             public void onClick(View view) {
                 requestId = request.getId();
 
-     /*           disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
-                disableBottomBar.disableBottomBar();*/
 
                 Fragment detailFragment = new DetailRequestFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();

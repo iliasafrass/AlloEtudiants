@@ -1,7 +1,6 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,11 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
-import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.DetailEventFragment;
 
@@ -31,7 +28,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     private List<Event> eventsList;
     private String eventId;
 
-//    public BottomBar.DisableBottomBar disableBottomBar;
 
     //construceteur
     public EventsAdapter(Context context, List<Event> eventsList) {
@@ -65,9 +61,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 eventId = event.getId();
-
-              /*  disableBottomBar = (BottomBar.DisableBottomBar)view.getContext();
-                disableBottomBar.disableBottomBar();*/
 
                 Fragment detailFragment = new DetailEventFragment();
                 NavigationActivity fm = (NavigationActivity) view.getContext();

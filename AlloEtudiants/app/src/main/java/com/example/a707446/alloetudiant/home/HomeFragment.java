@@ -2,6 +2,8 @@ package com.example.a707446.alloetudiant.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -175,5 +177,10 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
         } else {
             txtNotifications.setText("Vous avez " + notifications.size() +" notifications à consulter");
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+            NavigationActivity.mBottomNavigationView.getMenu().getItem(0).setChecked(true);
     }
 }

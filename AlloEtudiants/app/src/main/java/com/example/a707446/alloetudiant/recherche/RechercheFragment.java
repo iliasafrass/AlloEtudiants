@@ -3,6 +3,7 @@ package com.example.a707446.alloetudiant.recherche;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -88,5 +90,9 @@ public class RechercheFragment extends AbstractFragment {
     @Override
     public void onResume() {
         super.onResume();
+        viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setupWithViewPager(viewPager);
+        NavigationActivity.mBottomNavigationView.getMenu().getItem(1).setChecked(true);
     }
 }

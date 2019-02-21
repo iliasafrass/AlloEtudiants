@@ -26,7 +26,7 @@ public class HomePresenter implements HomeContract.Presenter{
 
     @Override
     public void getNotifications() {
-        mRepo.getNotificationsByProfileId(/*SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext())*/"5c3d00eb349dbb2908cbaf99",false)
+        mRepo.getNotificationsByProfileId(/*SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext())*/"5c52008b9c184a1b3f724309",false)
                 .enqueue(
                         new Callback<List<NotificationProfileDto>>() {
                             @Override

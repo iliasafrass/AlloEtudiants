@@ -1,7 +1,6 @@
 package com.example.a707446.alloetudiant.general.view;
 
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,12 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
-import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.home.HomeFragment;
 import com.example.a707446.alloetudiant.notifications.NotificationFragment;
 import com.example.a707446.alloetudiant.publication.PublierFragment;
@@ -30,28 +28,32 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class NavigationActivity extends AppCompatActivity{
+public class NavigationActivity extends AppCompatActivity {
 
+    public static boolean inHome;
+    public static boolean inDetail;
+    public static boolean firstChildFragment = false;
     // Views
     @BindView(R.id.navigationActivity_toolbar)
     public Toolbar mToolbar;
-    @BindView(R.id.navigationActivity_bottomNavigationActivity)
-    public  BottomNavigationView mBottomNavigationView;
 
+    public static BottomNavigationView mBottomNavigationView;
 
+    @BindView(R.id.navigationActivity_fragmentContainer)
+    public FrameLayout frameLayout;
     // Globals
     private Unbinder mUnbinder;
-    public static boolean inHome;
-    public static boolean firstChildFragment = false;
-//    private SharedPreferences preferences;
+
+    //    private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         mUnbinder = ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        mBottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationActivity_bottomNavigationActivity) ;
         inHome = true;
+        inDetail = false;
 //        preferences = getSharedPreferences("token",MODE_PRIVATE);
 //        preferences.edit().clear().apply();
 //        SharedPreferencesSingleton.clear(getApplicationContext());
@@ -92,7 +94,7 @@ public class NavigationActivity extends AppCompatActivity{
                         AbstractFragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_accueil:
-                                fragmentManager.popBackStack();
+//                                fragmentManager.popBackStack();
                                 selectedFragment = HomeFragment.newInstance();
                                 inHome = true;
                                 firstChildFragment = false;
@@ -100,19 +102,19 @@ public class NavigationActivity extends AppCompatActivity{
 
                             case R.id.action_rechercher:
 
-                                fragmentManager.popBackStack();
+//                                fragmentManager.popBackStack();
                                 selectedFragment = RechercheFragment.newInstance();
                                 inHome = false;
                                 firstChildFragment = true;
                                 break;
                             case R.id.action_annonce:
-                                fragmentManager.popBackStack();
+//                                fragmentManager.popBackStack();
                                 selectedFragment = AnnonceFragment.newInstance();
                                 firstChildFragment = true;
                                 inHome = false;
                                 break;
                             case R.id.action_publier:
-                                fragmentManager.popBackStack();
+//                                fragmentManager.popBackStack();
                                 selectedFragment = PublierFragment.newInstance();
                                 firstChildFragment = true;
                                 inHome = false;
@@ -124,11 +126,10 @@ public class NavigationActivity extends AppCompatActivity{
                     }
                 });
 
-        //BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
         // Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
-        transaction.commit();
+        transaction.addToBackStack(null).commit();
     }
 
     @Override
@@ -181,13 +182,13 @@ public class NavigationActivity extends AppCompatActivity{
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                mydialog();
-               /* if (inHome) {
+
+                if (inHome) {
                     mydialog();
-                } else if(firstChildFragment){
+                } /*else if(firstChildFragment){
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
-                    transaction.commit();
+                    transaction.addToBackStack(null).commit();
                     inHome = true;
                     firstChildFragment = false;
                     return true;
@@ -199,18 +200,7 @@ public class NavigationActivity extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-        //finish();
-
-    }
-
-/*    @Override
-    public void disableBottomBar() {
-        mBottomNavigationView.setVisibility(View.GONE);
     }
 
 
-    @Override
-    public void enableBottomBar() {
-        mBottomNavigationView.setVisibility(View.VISIBLE);
-    }*/
 }

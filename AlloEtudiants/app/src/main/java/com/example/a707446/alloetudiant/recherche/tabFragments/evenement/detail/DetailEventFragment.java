@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.general.view.BottomBar;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementContract;
@@ -51,7 +50,6 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     private DetailEvenementContract.Presenter mPresenter;
     private Event mEvent;
     private String idEvent;
-//    public BottomBar.EnableBottomBar enableBottomBar;
 
     @OnClick(R.id.annuler_detail_event)
     public void onAnnulerClick(){annuler();}
@@ -83,7 +81,7 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
         View view = inflater.inflate(R.layout.fragment_detail_event,null);
         mUnbinder = ButterKnife.bind(this,view);
         mPresenter = new DetailEvenementpresenter(this);
-
+        NavigationActivity.inDetail = true;
         mPresenter.startgetEventById(idEvent);
 
         return view;
@@ -98,8 +96,7 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     @Override
     public void onPause() {
         super.onPause();
-/*        enableBottomBar = (BottomBar.EnableBottomBar)getContext();
-        enableBottomBar.enableBottomBar();*/
+        NavigationActivity.inDetail = false;
     }
 
     @Override

@@ -15,17 +15,17 @@
         android:background="@color/blueBarColor"
         android:elevation="4dp"
         app:titleTextColor="@color/white"
-        app:itemIconTint="@color/white"
+        app:itemIconTint="@drawable/selector4"
         android:textAlignment="center"
         android:gravity="center"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/navigation_top"
         />
 
+<!--    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
     <FrameLayout
         android:id="@+id/navigationActivity_fragmentContainer"
         android:layout_width="match_parent"

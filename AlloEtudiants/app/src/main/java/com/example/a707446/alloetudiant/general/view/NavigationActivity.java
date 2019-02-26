@@ -183,9 +183,9 @@ public class NavigationActivity extends AppCompatActivity {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
 
-                if (inHome) {
+              /*  if (inHome) {
                     mydialog();
-                } /*else if(firstChildFragment){
+                } else if(firstChildFragment){
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
                     transaction.addToBackStack(null).commit();

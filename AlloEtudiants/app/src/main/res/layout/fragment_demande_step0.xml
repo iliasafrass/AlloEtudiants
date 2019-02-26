@@ -6,19 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".publication.demande.fragments.DemandeStep0">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="STEP 0 "
-        android:gravity="center"
-        android:textSize="30dp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/besoin"
+        android:layout_width="384dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="44dp"
+        android:text="Besoin"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/title_demande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/besoin"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:outlineSpotShadowColor="@color/blueBarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/besoin"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Titre"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/besoin" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/description-demande"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_below="@id/besoin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_demande"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/demande"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Description"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/besoin" />
+    </android.support.design.widget.TextInputLayout>
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/matiere_demande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description-demande"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Matiere"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/niveau_demande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matiere_demande"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="16dp"
+        app:ms_floatingLabelColor="#000"
+        app:ms_floatingLabelText="Select your Subject"
+        app:ms_hint="Niveau"
+        app:ms_hintColor="#000"
+        app:ms_multiline="true" />
+
+
 
 </android.support.constraint.ConstraintLayout>

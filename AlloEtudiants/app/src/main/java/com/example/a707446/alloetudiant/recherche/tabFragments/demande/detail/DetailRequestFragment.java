@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.androidadvance.topsnackbar.TSnackbar;
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.model.pojo.Slot;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -122,10 +123,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            for (Slot slot: mRequest.getSlots()
-                 ) {
-                date.append(slot.getDay() + " de " + sdf.format(slot.getStartTime()) + " à " + sdf.format(slot.getEndTime()) + "\n" );
-            }
+            date.setText(mRequest.getDays().toString());
 
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());

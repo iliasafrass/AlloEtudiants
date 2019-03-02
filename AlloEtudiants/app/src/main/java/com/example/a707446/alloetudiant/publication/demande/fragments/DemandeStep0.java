@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.publication.demande.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.enumeration.Grade;
+import com.example.a707446.alloetudiant.publication.demande.DataManager;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
 import com.stepstone.stepper.VerificationError;
@@ -44,6 +46,9 @@ public class DemandeStep0 extends Fragment  implements BlockingStep {
     TextInputLayout description;
     private String titreInput;
     private String descriptionInput;
+
+
+    private DataManager dataManager;
 
     public DemandeStep0() {
         // Required empty public constructor
@@ -146,14 +151,48 @@ public class DemandeStep0 extends Fragment  implements BlockingStep {
         return inflater.inflate(R.layout.fragment_demande_step0, container, false);
     }
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        dataManager = (DataManager) context;
+    }
+
     @Override
     public void onNextClicked(final StepperLayout.OnNextClickedCallback callback) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                titreInput = titre.getEditText().getText().toString();
+                descriptionInput = description.getEditText().getText().toString();
 
-                //you can do anythings you want
-                callback.goToNextStep();
+                if (titreInput.isEmpty() || titreInput == null) {
+                    titre.setError("titre est obligatoire! ");
+                } else
+                    titre.setError(null);
+
+                if (descriptionInput.isEmpty() || descriptionInput == null) {
+                    description.setError("description est obligatoire! ");
+                } else
+                    description.setError(null);
+
+                if (selectedSpinner.isEmpty() || selectedSpinner == null) {
+                    spinner.setError("matiere est obligatoire! ");
+                } else
+                    spinner.setError(null);
+
+                if (selectedSpinnerNiveau.isEmpty() || selectedSpinnerNiveau == null) {
+                    spinnerNiveau.setError("niveau est obligatoire! ");
+                } else
+                    spinnerNiveau.setError(null);
+
+                if (!titreInput.isEmpty() && titreInput != null && !selectedSpinner.isEmpty() && selectedSpinner != null && !selectedSpinnerNiveau.isEmpty() && selectedSpinnerNiveau != null && !descriptionInput.isEmpty() && descriptionInput != null) {
+                    dataManager.saveTitle(titreInput);
+                    dataManager.saveDescription(descriptionInput);
+                    dataManager.saveMatiere(selectedSpinner);
+                    dataManager.saveGrade(selectedSpinnerNiveau);
+                    callback.goToNextStep();
+                }
             }
         }, 0L);// delay open another fragment,
     }

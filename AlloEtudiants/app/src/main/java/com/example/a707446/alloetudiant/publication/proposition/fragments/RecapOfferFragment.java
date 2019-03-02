@@ -44,9 +44,10 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
     TextView address;
     TextView matiere;
     TextView prix;
+    TextView description;
 
     //variables
-    TextView description;
+
     String days = "";
     List<WeekDay> listDays;
     private PropositionContract.Presenter mPresenter;

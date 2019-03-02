@@ -1,9 +1,11 @@
 package com.example.a707446.alloetudiant.general.services;
 
+import com.example.a707446.alloetudiant.general.model.dto.EventDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
+import com.example.a707446.alloetudiant.general.model.dto.RequestDto;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
@@ -31,6 +33,12 @@ public interface AlloEtudiantRestClient {
 
     @POST("/offers")
     Call<Offer> createOffer(@Body OfferDto offerDto);
+
+    @POST("/requests")
+    Call<Request> createRequest(@Body RequestDto requestDto);
+
+    @POST("/events")
+    Call<Event> createEvent(@Body EventDto eventDto);
 
 
     @GET("/events")

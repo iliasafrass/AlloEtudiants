@@ -123,8 +123,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            //date.setText(mRequest.getDays().toString());
-            date.setText("Samedi-Dimanche");
+            date.setText(mRequest.getDays().toString());
 
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());

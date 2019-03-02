@@ -39,6 +39,7 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
@@ -52,6 +53,7 @@
     <fr.ganfra.materialspinner.MaterialSpinner
         android:id="@+id/matiere_proposition"
         android:layout_width="match_parent"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -90,6 +92,7 @@
         <EditText
             android:id="@+id/description"
             android:layout_width="match_parent"
+            android:textSize="16sp"
             android:layout_height="70dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -97,7 +100,6 @@
             android:hint="Description"
 
             android:theme="@style/MyEditText"
-            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/besoin" />
     </android.support.design.widget.TextInputLayout>

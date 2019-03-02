@@ -265,7 +265,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="Verifiez votre proposition et cliquez sur 'complete' pour la poster. "
+        android:text="Verifiez votre proposition et cliquez sur 'publier' pour la publier. "
         android:textColor="#000"
         android:textSize="15dp"
         android:textStyle="italic"

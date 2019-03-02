@@ -40,6 +40,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:text="Créneau possible"
+        android:textColor="@color/ms_black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
@@ -51,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="16dp"
+        android:textColor="@color/black"
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="@string/form_days"
@@ -66,6 +68,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        app:border_color="@color/blueBarColor"
+        app:background_color="@color/ms_material_grey_400"
+        app:highlight_color="@color/blueBarColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +85,7 @@
         android:id="@+id/adresse_text_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyHintText"
         android:layout_below="@id/besoin"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -92,6 +98,7 @@
 
         <EditText
             android:id="@+id/adresse"
+            android:theme="@style/MyEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -101,7 +108,7 @@
             android:inputType="textPostalAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/jours" />
+            app:layout_constraintTop_toBottomOf="@+id/weekdays" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -109,6 +116,7 @@
         android:id="@+id/prix_heure_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyHintText"
         android:layout_below="@id/besoin"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
@@ -125,6 +133,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Prix par heure"
+            android:theme="@style/MyEditText"
             android:inputType="numberDecimal"
             android:textAlignment="center"
             android:textSize="18sp"

@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.publication.demande.fragments;
 
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -18,17 +19,19 @@ import com.stepstone.stepper.VerificationError;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DemandeStep1 extends Fragment implements BlockingStep {
+public class RecapRequestFragment extends Fragment implements BlockingStep {
 
-    public DemandeStep1() {
+
+    public RecapRequestFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_demande_step1, container, false);
+        return inflater.inflate(R.layout.fragment_recap_request, container, false);
     }
 
     @Override
@@ -45,6 +48,7 @@ public class DemandeStep1 extends Fragment implements BlockingStep {
 
     @Override
     public void onCompleteClicked(StepperLayout.OnCompleteClickedCallback callback) {
+        Toast.makeText(getContext(), "onCompleted!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

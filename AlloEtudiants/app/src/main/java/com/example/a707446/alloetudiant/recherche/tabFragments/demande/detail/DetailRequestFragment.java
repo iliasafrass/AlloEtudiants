@@ -104,7 +104,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavigationActivity.firstChildFragment = false;
-        Toast.makeText(view.getContext(), idRequest, Toast.LENGTH_LONG).show();
+//        Toast.makeText(view.getContext(), idRequest, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -119,11 +119,12 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         this.mRequest = request;
 
         if(mRequest != null) {
-            Toast.makeText(this.getView().getContext(), mRequest.getId(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(this.getView().getContext(), mRequest.getId(), Toast.LENGTH_LONG).show();
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            date.setText(mRequest.getDays().toString());
+            //date.setText(mRequest.getDays().toString());
+            date.setText("Samedi-Dimanche");
 
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());
@@ -139,13 +140,13 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     @Override
     public void showError(String error) {
         Toast.makeText(getActivity().getApplicationContext(),"ERROR : " + error,Toast.LENGTH_LONG).show();
-        errorSnackbar(error);
+//        errorSnackbar(error);
     }
 
     @Override
     public void showToast(String message) {
         Toast.makeText(getActivity().getApplicationContext(),message,Toast.LENGTH_LONG).show();
-        snackbar(message);
+//        snackbar(message);
     }
 
     @Override

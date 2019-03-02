@@ -27,6 +27,7 @@
         android:layout_below="@id/besoin"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        app:hintTextAppearance="@style/MyHintText"
         android:layout_marginEnd="16dp"
         android:outlineSpotShadowColor="@color/blueBarColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +39,7 @@
         <EditText
             android:id="@+id/title"
             android:layout_width="match_parent"
+            android:theme="@style/MyEditText"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -48,9 +50,10 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/description-demande"
+        android:id="@+id/description_demande"
         android:layout_width="match_parent"
         android:layout_height="84dp"
+        app:hintTextAppearance="@style/MyHintText"
         android:layout_below="@id/besoin"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
@@ -65,6 +68,7 @@
             android:id="@+id/demande"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:theme="@style/MyEditText"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
@@ -79,19 +83,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-
+        android:outlineSpotShadowColor="@color/blueBarColor"
+        android:theme="@style/MyEditText"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description-demande"
+        app:layout_constraintTop_toBottomOf="@+id/description_demande"
         app:ms_arrowColor="@color/colorPrimaryDark"
         app:ms_arrowSize="16dp"
-        app:ms_floatingLabelColor="#000"
-        app:ms_floatingLabelText="Select your Subject"
+        app:ms_floatingLabelColor="@color/colorPrimaryDark"
+        app:ms_floatingLabelText="choisir votre matière"
         app:ms_hint="Matiere..."
-        app:ms_hintColor="#000"
+        app:ms_hintColor="@color/ms_material_grey_400"
         app:ms_multiline="true" />
 
     <fr.ganfra.materialspinner.MaterialSpinner
@@ -99,7 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-
+        android:theme="@style/MyEditText"
+        android:outlineSpotShadowColor="@color/blueBarColor"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,10 +114,10 @@
         app:layout_constraintTop_toBottomOf="@+id/matiere_demande"
         app:ms_arrowColor="@color/colorPrimaryDark"
         app:ms_arrowSize="16dp"
-        app:ms_floatingLabelColor="#000"
-        app:ms_floatingLabelText="Select your Subject"
+        app:ms_floatingLabelColor="@color/blueBarColor"
+        app:ms_floatingLabelText="choisir votre niveau"
         app:ms_hint="Niveau..."
-        app:ms_hintColor="#000"
+        app:ms_hintColor="@color/ms_material_grey_400"
         app:ms_multiline="true" />
 
 

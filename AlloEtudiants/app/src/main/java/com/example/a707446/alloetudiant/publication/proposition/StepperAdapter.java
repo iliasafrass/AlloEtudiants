@@ -30,8 +30,8 @@ public class StepperAdapter extends AbstractFragmentStepAdapter {
                 final PropositionStep1 step1 = new PropositionStep1();
                 return step1;
             case 2:
-                final RecapOfferFragment step3 = new RecapOfferFragment();
-                return step3;
+                final RecapOfferFragment step2 = new RecapOfferFragment();
+                return step2;
         }
         return null;
     }

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 
 import com.example.a707446.alloetudiant.publication.demande.fragments.DemandeStep0;
 import com.example.a707446.alloetudiant.publication.demande.fragments.DemandeStep1;
+import com.example.a707446.alloetudiant.publication.demande.fragments.RecapRequestFragment;
 import com.stepstone.stepper.Step;
 import com.stepstone.stepper.adapter.AbstractFragmentStepAdapter;
 import com.stepstone.stepper.viewmodel.StepViewModel;
@@ -26,12 +27,15 @@ public class StepperAdapter extends AbstractFragmentStepAdapter {
             case 1:
                 final DemandeStep1 step1 = new DemandeStep1();
                 return step1;
+            case 2:
+                final RecapRequestFragment step3 = new RecapRequestFragment();
+                return step3;
         }
         return null;
     }
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
     @NonNull
     @Override
@@ -43,6 +47,10 @@ public class StepperAdapter extends AbstractFragmentStepAdapter {
                         .setTitle("") //can be a CharSequence instead
                         .create();
             case 1:
+                return new StepViewModel.Builder(context)
+                        .setTitle("") //can be a CharSequence instead
+                        .create();
+            case 2:
                 return new StepViewModel.Builder(context)
                         .setTitle("") //can be a CharSequence instead
                         .create();

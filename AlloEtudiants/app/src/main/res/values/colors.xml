@@ -7,7 +7,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="login_edit_border">#EFEFF4</color>
-    <color name="blueBarColor">#81a4c2</color>
+    <color name="blueBarColor">#81A4C2</color>
     <color name="blueBodyColor">#F3F4F2</color>
     <color name="errorSnackBarBackground">#f2cdcd</color>
     <color name="errorSnackBarText">#b41a1a</color>

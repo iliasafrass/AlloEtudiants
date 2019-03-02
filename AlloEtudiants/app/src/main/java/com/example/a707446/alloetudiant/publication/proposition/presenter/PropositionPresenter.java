@@ -35,13 +35,13 @@ public class PropositionPresenter implements PropositionContract.Presenter {
                             mView.showSuccessMsg();
                         else
                             mView.showFailedMsg();
-                            Log.d("POST_OFFER", " response = "+response.body());
+                            Log.d("POST_REQUEST", " response = "+response.body());
                         }
 
                     @Override
                     public void onFailure(Call<Offer> call, Throwable t) {
 
-                        Log.d("POST_OFFER", " Error = "+t.toString());
+                        Log.d("POST_REQUEST", " Error = "+t.toString());
                         mView.showFailedMsg();
                     }
                 }

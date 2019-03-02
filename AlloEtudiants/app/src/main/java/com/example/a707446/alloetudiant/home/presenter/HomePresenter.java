@@ -48,7 +48,7 @@ public class HomePresenter implements HomeContract.Presenter{
 
     @Override
     public void sendNotificationAnswer(NotificationProfileDto dto, final int position) {
-        mRepo.sendNotificationAnswer(dto.getNotification().getId(), SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()),dto)
+        mRepo.sendNotificationAnswer(dto.getNotification().getId(), /*SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext())*/"5c52008b9c184a1b3f724309",dto)
                 .enqueue(new Callback<List<NotificationProfileDto>>() {
                     @Override
                     public void onResponse(Call<List<NotificationProfileDto>> call, Response<List<NotificationProfileDto>> response) {

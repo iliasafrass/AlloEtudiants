@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/besoin"
         android:layout_marginStart="16dp"
+        app:hintTextAppearance="@style/MyHintText"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,9 +39,12 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
+
+            android:theme="@style/MyEditText"
             android:hint="Titre"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/besoin" />
@@ -49,9 +53,9 @@
     <fr.ganfra.materialspinner.MaterialSpinner
         android:id="@+id/matiere_proposition"
         android:layout_width="match_parent"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,10 +64,12 @@
         app:layout_constraintTop_toBottomOf="@+id/description-proposition"
         app:ms_arrowColor="@color/colorPrimaryDark"
         app:ms_arrowSize="16dp"
-        app:ms_floatingLabelColor="#000"
-        app:ms_floatingLabelText="Select your Subject"
-        app:ms_hint="Please Choose"
-        app:ms_hintColor="#000"
+        app:ms_floatingLabelColor="@color/blueBarColor"
+
+        android:theme="@style/MyEditText"
+        app:ms_floatingLabelText="choisir votre matiere"
+        app:ms_hint="Matiere..."
+        app:ms_hintColor="@color/ms_material_grey_400"
         app:ms_multiline="true" />
 
 
@@ -74,6 +80,7 @@
         android:layout_height="84dp"
         android:layout_below="@id/besoin"
         android:layout_marginEnd="16dp"
+        app:hintTextAppearance="@style/MyHintText"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,12 +92,14 @@
         <EditText
             android:id="@+id/description"
             android:layout_width="match_parent"
+            android:textSize="16sp"
             android:layout_height="70dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
             android:hint="Description"
-            android:textSize="24sp"
+
+            android:theme="@style/MyEditText"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/besoin" />
     </android.support.design.widget.TextInputLayout>

@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.publication.demande;
 
 public interface DataManager {
+
     void saveAddress(String a);
     void savePrix(Float p);
     void saveDispo(String d);

@@ -52,6 +52,8 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
         /*
          * spinner of subjects
          */
+
+        //region sppiner
         selectedSpinner = "";
         spinner = (MaterialSpinner) getView().findViewById(R.id.matiere_proposition);
         titre = (TextInputLayout) getView().findViewById(R.id.title_proposition);
@@ -79,8 +81,7 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
 
             }
         });
-        /*************************************************************/
-
+        //endregion
 
     }
 

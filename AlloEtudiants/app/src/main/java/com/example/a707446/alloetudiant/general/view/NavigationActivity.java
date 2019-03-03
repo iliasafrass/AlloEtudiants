@@ -21,6 +21,7 @@ import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
 import com.example.a707446.alloetudiant.home.HomeFragment;
 import com.example.a707446.alloetudiant.notifications.NotificationFragment;
+import com.example.a707446.alloetudiant.profil.ProfilFragment;
 import com.example.a707446.alloetudiant.publication.PublierFragment;
 import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 
@@ -71,8 +72,7 @@ public class NavigationActivity extends AppCompatActivity {
                 AbstractFragment selectedFragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.notification:
-                        Toast.makeText(getApplication(), "notification", Toast.LENGTH_SHORT).show();
-                        selectedFragment = NotificationFragment.newInstance();
+                       selectedFragment = NotificationFragment.newInstance();
                         inHome = false;
                         break;
                 }
@@ -142,9 +142,14 @@ public class NavigationActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                Toast.makeText(this, "mon compte", Toast.LENGTH_SHORT).show();
+                AbstractFragment selectedFragment = ProfilFragment.newInstance();
+                inHome = false;
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.navigationActivity_fragmentContainer, selectedFragment);
+                fragmentTransaction.addToBackStack(null).commit();
                 return true;
-            }
+                }
         }
         return super.onOptionsItemSelected(item);
     }

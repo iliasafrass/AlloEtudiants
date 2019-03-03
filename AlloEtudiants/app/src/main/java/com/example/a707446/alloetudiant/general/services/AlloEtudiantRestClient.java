@@ -1,9 +1,11 @@
 package com.example.a707446.alloetudiant.general.services;
 
+import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
@@ -15,6 +17,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -68,4 +71,10 @@ public interface AlloEtudiantRestClient {
 
     @PUT("/notifications/{id}/{profileId}")
     Call<List<NotificationProfileDto>> sendNotificationAnswer(@Path("id") String id, @Path("profileId") String profileId, @Body NotificationProfileDto dto);
+
+    @GET("/announcements/{profileId}")
+    Call<List<AnnouncementDto>> getMyAnnouncements(@Path("profileId") String profileId);
+
+    @DELETE("/announcements/{id}/{type}")
+    Call<List<AnnouncementDto>> deleteAnnouncement(@Path("id") String id, @Path("type") AnnounceType type);
 }

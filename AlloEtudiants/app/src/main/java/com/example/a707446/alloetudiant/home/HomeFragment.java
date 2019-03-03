@@ -60,9 +60,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
     @BindView(R.id.txtHomeHint)
     public TextView txtHomeHint;
 
-    @BindView(R.id.btnHomeTryAgain)
-    public Button btnHomeTryAgain;
-
     private HomeAdapter mAdapter;
     private HomeContract.Presenter mPresenter;
     private List<NotificationProfileDto> notifications = new ArrayList<>();
@@ -85,7 +82,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
             txtNotifications.setVisibility(View.GONE);
             imgError.setVisibility(View.GONE);
             txtError.setVisibility(View.GONE);
-            btnHomeTryAgain.setVisibility(View.GONE);
         }
 
         mPresenter.getNotifications();
@@ -134,7 +130,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
             progressBar.setVisibility(View.GONE);
             imgError.setVisibility(View.VISIBLE);
             txtError.setVisibility(View.VISIBLE);
-            btnHomeTryAgain.setVisibility(View.VISIBLE);
         }
         Toast.makeText(getContext(),"ERROR " + error,Toast.LENGTH_LONG).show();
     }

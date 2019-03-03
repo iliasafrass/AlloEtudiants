@@ -3,6 +3,7 @@ package com.example.a707446.alloetudiant.general.model.dto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.enumeration.Grade;
 import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Slot;
 
 import java.util.List;
@@ -36,6 +37,6 @@ public class RequestDto {
 
     private float total;
 
-    private List<Slot> slots;
+    private List<WeekDay> days;
 
 }

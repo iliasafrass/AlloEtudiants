@@ -3,6 +3,7 @@ package com.example.a707446.alloetudiant.general.model.pojo;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.enumeration.Grade;
 import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 
 import java.util.Date;
 import java.util.List;
@@ -42,7 +43,7 @@ public class Request {
 
     private float total;
 
-    private List<Slot> slots;
+    private List<WeekDay> days;
 
     private String icon;
 }

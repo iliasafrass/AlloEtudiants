@@ -1,9 +1,11 @@
 package com.example.a707446.alloetudiant.general.repository;
 
+import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
@@ -73,6 +75,16 @@ public class RepoImpl implements Repo {
     @Override
     public Call<Offer> createOffer(OfferDto offerDto) {
         return retrofit.create(AlloEtudiantRestClient.class).createOffer(offerDto);
+    }
+
+    @Override
+    public Call<List<AnnouncementDto>> getMyAnnouncements(String profileId) {
+        return retrofit.create(AlloEtudiantRestClient.class).getMyAnnouncements(profileId);
+    }
+
+    @Override
+    public Call<List<AnnouncementDto>> deleteAnnouncement(String id, AnnounceType announceType) {
+        return retrofit.create(AlloEtudiantRestClient.class).deleteAnnouncement(id, announceType);
     }
 
     @Override

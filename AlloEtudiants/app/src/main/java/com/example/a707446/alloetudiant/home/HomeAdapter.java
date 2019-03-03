@@ -46,8 +46,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
         myViewHolder.txtTitle.setText(notifications.get(i).getNotification().getAnnounceTitle());
         myViewHolder.txtDate.setText(sdf.format(notifications.get(i).getNotification().getLastModifiedDate()));
         myViewHolder.txtSender.setText(notifications.get(i).getProfile().getLastName() + " " + notifications.get(i).getProfile().getFirstName());
-        // TODO: IL FAUT TESTER SI USER EST ASKER OR ASKED
-        // TODO: COMME çA ON CHANGE LE txtInvitation
+
         switch (notifications.get(i).getNotification().getAnnounceType()) {
             case REQUEST: {
                 myViewHolder.txtInvitation.setText("Une réservation pour la demande d'aide");

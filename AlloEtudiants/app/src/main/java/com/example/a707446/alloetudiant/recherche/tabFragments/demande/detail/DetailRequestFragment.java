@@ -122,10 +122,11 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            for (Slot slot: mRequest.getSlots()
+            // TODO : Show days and price
+            /*for (Slot slot: mRequest.getSlots()
                  ) {
                 date.append(slot.getDay() + " de " + sdf.format(slot.getStartTime()) + " à " + sdf.format(slot.getEndTime()) + "\n" );
-            }
+            }*/
 
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());

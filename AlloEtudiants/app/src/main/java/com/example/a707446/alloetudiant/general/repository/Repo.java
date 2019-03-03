@@ -1,8 +1,10 @@
 package com.example.a707446.alloetudiant.general.repository;
 
+import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
@@ -32,4 +34,6 @@ public interface Repo {
 
     Call<Offer> createOffer(OfferDto offerDto);
 
+    Call<List<AnnouncementDto>> getMyAnnouncements(String profileId);
+    Call<List<AnnouncementDto>> deleteAnnouncement(String id, AnnounceType announceType);
 }

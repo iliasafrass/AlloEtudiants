@@ -1,5 +1,7 @@
 package com.example.a707446.alloetudiant.home;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -16,12 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.Dialogs;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.NotificationAnswer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.home.presenter.HomeContract;
 import com.example.a707446.alloetudiant.home.presenter.HomePresenter;
+import com.example.a707446.alloetudiant.start.StartActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,8 +101,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
         mAdapter.setOnButtonClickListener(new HomeAdapter.OnButtonClickListener() {
             @Override
             public void onAcceptBtnClick(int position) {
-//                showMessage("Accepted");
-                // TODO: remov notification from the list, remove it from api, notifiyItemRemoved
                 notifications.get(position).getNotification().setAnswer(NotificationAnswer.ACCEPTED);
                 mPresenter.sendNotificationAnswer(notifications.get(position), position);
 
@@ -162,6 +165,25 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
         displayNotificationsCountMessage();
         mAdapter.setNotificationsList(_notifications);
         mAdapter.notifyItemRemoved(position);
+    }
+
+    @Override
+    public void goToStartActivity() {
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(getContext(), StartActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        };
+        Dialogs.showOneOptionDialog(
+                getContext(),
+                "Authentification",
+                "Vous serez redirigé vers la page de connexion, connectez vous pour continuer.",
+                "Ok",
+                listener);
     }
 
     private void displayNotificationsCountMessage(){

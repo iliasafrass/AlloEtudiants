@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.annonces;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.annonces.presenter.AnnonceContract;
 import com.example.a707446.alloetudiant.annonces.presenter.AnnoncePresenter;
+import com.example.a707446.alloetudiant.general.Dialogs;
 import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -88,8 +90,23 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
 
         mAdapter.setOnButtonClickListener(new AnnonceAdapter.OnButtonClickListener() {
             @Override
-            public void onDeleteBtnClick(int position) {
-                showDeleteDialog(position);
+            public void onDeleteBtnClick(final int position) {
+                DialogInterface.OnClickListener acceptListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mPresenter.deleteAnnouncement(announcements.get(position), position);
+                        deleteProgressBar.setVisibility(View.VISIBLE);
+                    }
+                };
+                Dialogs.showTwoOptionsDialog(
+                        getContext(),
+                        "Supprimer l'annonce ?",
+                        "Cet annonce ne sera plus visible aux autres étudiants.",
+                        "Supprimer",
+                        "Annuler",
+                        acceptListener,
+                        null
+                        );
             }
 
             @Override
@@ -144,22 +161,4 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
         mAdapter.notifyItemRemoved(position);
     }
 
-    public void showDeleteDialog(final int position) {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Supprimer l'annonce ?");
-        builder.setMessage("Cet annonce ne sera plus visible aux autres étudiants.");
-
-        builder.setPositiveButton("Supprimer", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                mPresenter.deleteAnnouncement(announcements.get(position), position);
-                deleteProgressBar.setVisibility(View.VISIBLE);
-            }
-        });
-        builder.setNegativeButton("Annuler", null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
 }

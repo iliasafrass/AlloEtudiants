@@ -28,7 +28,7 @@
             android:theme="@style/SplashTheme" />
         <activity android:name=".connexion.Login" />
         <activity android:name=".inscription.Inscription" />
-        <activity android:name=".publication.demande.StartDemande" />
+        <activity android:name=".publication.demande.StartPublierDemande" />
         <activity android:name=".publication.proposition.StartPublierService" />
 
         <meta-data

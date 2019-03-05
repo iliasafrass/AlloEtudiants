@@ -90,7 +90,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavigationActivity.firstChildFragment = false;
-        Toast.makeText(view.getContext(), idOffer, Toast.LENGTH_LONG).show();
+//        Toast.makeText(view.getContext(), idOffer, Toast.LENGTH_LONG).show();
     }
     @Override
     public void onPause() {
@@ -104,7 +104,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         this.mOffer = offer;
 
         if(mOffer != null) {
-            Toast.makeText(this.getView().getContext(), mOffer.getId(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(this.getView().getContext(), mOffer.getId(), Toast.LENGTH_LONG).show();
             Log.d("mOffer", mOffer.toString());
             title.setText(mOffer.getTitle());
             icon.setImageResource(R.drawable.ic_offers);
@@ -114,7 +114,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{
-            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mOffer", "null");
         }
     }

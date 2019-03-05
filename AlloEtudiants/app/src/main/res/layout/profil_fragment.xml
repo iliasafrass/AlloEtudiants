@@ -11,6 +11,7 @@
     tools:context=".recherche.tabFragments.proposition.detail.DetailOfferFragment"
     >
 
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,14 +26,27 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
-            android:text="Profil"
-            android:textColor="#000"
-            android:textSize="35dp"
-            android:textStyle="bold"
+            android:text="Profile"
+            android:textColor="@color/notSoBlack"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#dadcde"
+            app:layout_constraintBottom_toTopOf="@+id/event_image_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_profil" />
 
         <ImageView
             android:id="@+id/offer_image_detail"
@@ -41,13 +55,13 @@
             android:layout_alignParentLeft="true"
 
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_profil"
+            app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/ic_profil_user" />
 
         <TextView
@@ -57,13 +71,16 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
-            android:text="address"
-            android:textColor="#000"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/notSoBlack"
             android:textSize="20dp"
+            android:text="address"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toBottomOf="@+id/mail_user" />
+
+
 
         <TextView
             android:id="@+id/mail_user"
@@ -72,9 +89,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="44dp"
-            android:text="mail"
-            android:textColor="#000"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/notSoBlack"
             android:textSize="20dp"
+            android:text="mail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -90,9 +108,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="description"
-            android:textColor="#000"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/notSoBlack"
             android:textSize="20dp"
+            android:text="description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.029"
@@ -100,19 +119,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView14"
             app:layout_constraintVertical_bias="0.0" />
 
+
         <TextView
             android:id="@+id/name_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_below="@+id/view2"
+            android:gravity="center"
             android:text="Nom"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/notSoBlack"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/offer_image_detail"
+            app:layout_constraintStart_toStartOf="@+id/offer_image_detail"
             app:layout_constraintTop_toBottomOf="@+id/offer_image_detail" />
 
         <ImageView
@@ -159,8 +178,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:text="niveau"
-            android:textColor="#000"
-            android:textSize="20sp"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/notSoBlack"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -174,12 +194,27 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:text="specialite"
-            android:textColor="#000"
-            android:textSize="20sp"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/notSoBlack"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#dadcde"
+            app:layout_constraintBottom_toTopOf="@+id/event_image_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -208,15 +243,26 @@
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
             android:scaleType="fitCenter"
+            android:background="@color/blueBodyColor"
             android:src="@drawable/ic_edit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/title_profil"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_logout"
+            android:background="@color/blueBodyColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </android.support.constraint.ConstraintLayout>
 

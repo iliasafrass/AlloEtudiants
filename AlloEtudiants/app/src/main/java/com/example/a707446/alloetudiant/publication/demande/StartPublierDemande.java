@@ -11,7 +11,7 @@ import com.stepstone.stepper.StepperLayout;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StartDemande extends AppCompatActivity implements DataManager {
+public class StartPublierDemande extends AppCompatActivity implements DataManager {
 
     private static final String CURRENT_STEP_POSITION_KEY = "position";
     private static final String TITRE = "titre";
@@ -34,7 +34,7 @@ public class StartDemande extends AppCompatActivity implements DataManager {
     private String mGrade;
     private int mHours;
 
-    public StartDemande() {
+    public StartPublierDemande() {
         // Required empty public constructor
     }
 

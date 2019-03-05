@@ -3,13 +3,11 @@ package com.example.a707446.alloetudiant.recherche;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -86,6 +84,7 @@ public class RechercheFragment extends AbstractFragment {
 
         return view;
     }
+
 
     @Override
     public void onResume() {

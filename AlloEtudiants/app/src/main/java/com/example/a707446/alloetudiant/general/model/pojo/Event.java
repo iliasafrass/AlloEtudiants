@@ -3,11 +3,12 @@ package com.example.a707446.alloetudiant.general.model.pojo;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 
 import java.util.Date;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
 
 @Data
 @AllArgsConstructor
@@ -32,5 +33,5 @@ public class Event {
 
     private String imgUrl;
 
-    private List<Date> dates;
+    private String dates;
 }

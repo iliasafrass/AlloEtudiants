@@ -105,17 +105,17 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
         this.mEvent = event;
 
         if(mEvent != null) {
-            Toast.makeText(this.getView().getContext(), mEvent.getId(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(this.getView().getContext(), mEvent.getId(), Toast.LENGTH_LONG).show();
             Log.d("mEvent", mEvent.toString());
             title.setText(mEvent.getTitle());
             icon.setImageResource(R.drawable.ic_events);
-            date.setText(mEvent.getDates().toString());
+            date.setText(mEvent.getDates());
             description.setText(mEvent.getDescription());
             address.setText(mEvent.getAddress());
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{
-            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mEvent", "null");
         }
     }

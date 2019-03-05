@@ -3,7 +3,6 @@ package com.example.a707446.alloetudiant.publication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import android.widget.ImageButton;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.publication.demande.StartDemande;
+import com.example.a707446.alloetudiant.publication.demande.StartPublierDemande;
 import com.example.a707446.alloetudiant.publication.evenement.Start_publier_evenement;
 import com.example.a707446.alloetudiant.publication.proposition.StartPublierService;
 
@@ -44,7 +43,7 @@ public class PublierFragment extends AbstractFragment {
 
     @OnClick(R.id.button_demande)
     void goToDemande(){
-        Intent i = new Intent(getContext(),StartDemande.class);
+        Intent i = new Intent(getContext(), StartPublierDemande.class);
         startActivity(i);
     }
 

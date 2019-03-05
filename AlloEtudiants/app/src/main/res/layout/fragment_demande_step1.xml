@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".publication.demande.fragments.DemandeStep0">
 
 
@@ -51,8 +52,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        app:background_color="@color/ms_material_grey_400"
-        app:border_color="@color/blueBarColor"
+        app:background_color="@color/background"
+        app:border_color="@color/blueBodyColor"
         app:highlight_color="@color/blueBarColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

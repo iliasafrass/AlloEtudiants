@@ -2,9 +2,6 @@ package com.example.a707446.alloetudiant.general.model.dto;
 
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 
-import java.util.Date;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,7 @@ public class EventDto {
 
     private String description;
 
-    private List<Date> dates;
+    private String dates;
+
 
 }

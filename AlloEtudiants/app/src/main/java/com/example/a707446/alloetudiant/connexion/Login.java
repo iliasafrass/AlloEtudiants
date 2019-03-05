@@ -67,14 +67,14 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public void signup(){
-        Toast.makeText(getApplication(), "Inscription", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplication(), "Inscription", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),Inscription.class);
         startActivity(i);
     }
 
     @Override
     public void forgetPassword() {
-        Toast.makeText(getApplication(), "mot de passe oublié !", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplication(), "mot de passe oublié !", Toast.LENGTH_SHORT).show();
     }
 
     @Override

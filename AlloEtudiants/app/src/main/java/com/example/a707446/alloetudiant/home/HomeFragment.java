@@ -136,7 +136,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
             txtError.setVisibility(View.VISIBLE);
             btnHomeTryAgain.setVisibility(View.VISIBLE);
         }
-        Toast.makeText(getContext(),"ERROR " + error,Toast.LENGTH_LONG).show();
     }
 
     @Override

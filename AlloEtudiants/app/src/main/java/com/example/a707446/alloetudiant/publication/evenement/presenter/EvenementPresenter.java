@@ -7,6 +7,8 @@ import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,9 +35,16 @@ public class EvenementPresenter implements EvenementContract.Presenter {
                     public void onResponse(Call<Event> call, Response<Event> response) {
                         if(response.body() != null)
                             mView.showSuccessMsg();
-                        else
+                        else{
                             mView.showFailedMsg();
+                            try {
+                                Log.d("POST_EVENT_ERROR", " response = "+response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
                         Log.d("POST_EVENT", " response = "+response.body());
+
                     }
 
                     @Override

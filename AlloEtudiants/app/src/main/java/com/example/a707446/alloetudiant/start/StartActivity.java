@@ -36,16 +36,16 @@ public class StartActivity extends Activity {
             JWT jwt = new JWT(token);
             Date expiresAt = jwt.getExpiresAt();
             if(expiresAt.after(new Date())){
-                Toast.makeText(getApplicationContext(),expiresAt.toString(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),expiresAt.toString(),Toast.LENGTH_LONG).show();
                 Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
                 startActivity(i);
             } else {
-                Toast.makeText(getApplicationContext(),"token n'est plus valable",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"token n'est plus valable",Toast.LENGTH_LONG).show();
                 Intent i = new Intent(getApplicationContext(),Splash.class);
                 startActivity(i);
             }
         } else {
-            Toast.makeText(getApplicationContext(),"token n'existe pas",Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(),"token n'existe pas",Toast.LENGTH_LONG).show();
             Intent i = new Intent(getApplicationContext(),Splash.class);
             startActivity(i);
         }

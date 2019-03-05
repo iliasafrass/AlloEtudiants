@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.example.a707446.alloetudiant.R;
 import com.stepstone.stepper.StepperLayout;
 
-public class Start_publier_evenement extends AppCompatActivity {
+public class Start_publier_evenement extends AppCompatActivity implements DataManager {
     private static final String CURRENT_STEP_POSITION_KEY = "position";
     private static final String TITRE = "titre";
     private static final String ADRESSE = "adresse";
@@ -23,7 +23,7 @@ public class Start_publier_evenement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_publier_evenement);
 
-        mStepperLayout = (StepperLayout) findViewById(R.id.stepperLayout_demande);
+        mStepperLayout = (StepperLayout) findViewById(R.id.stepperLayout_evenement);
         mStepperAdapter = new StepperAdapter(getSupportFragmentManager(), this);
         mStepperLayout.setAdapter(mStepperAdapter);
 
@@ -56,4 +56,45 @@ public class Start_publier_evenement extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void saveAddress(String a) {
+        mAdresse = a;
+    }
+
+    @Override
+    public void saveDates(String d) {
+        mDates = d;
+    }
+
+
+
+    @Override
+    public void saveTitle(String t) {
+        mTitle = t;
+    }
+
+    @Override
+    public void saveDescription(String d) {
+        mDescription = d;
+    }
+
+    @Override
+    public String getAddress() {
+        return mAdresse;
+    }
+
+    @Override
+    public String getDates() {
+        return mDates;
+    }
+
+    @Override
+    public String getTitre() {
+        return mTitle;
+    }
+
+    @Override
+    public String getDescription() {
+        return mDescription;
+    }
 }

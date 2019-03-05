@@ -131,7 +131,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{
-            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mRrequest", "null");
         }
     }

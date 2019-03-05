@@ -35,6 +35,7 @@ public class PropositionStep0 extends Fragment implements BlockingStep {
     private String selectedSpinner;
     private String titreInput;
     private String descriptionInput;
+
     //variables
     private ArrayAdapter<String> spinnerAdapter;
     private List<String> listItems = new ArrayList<>();

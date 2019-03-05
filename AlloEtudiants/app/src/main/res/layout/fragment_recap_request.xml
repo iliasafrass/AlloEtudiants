@@ -237,7 +237,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Publie ta demande gratuitement. "
+            android:text="Publie votre demande gratuitement. "
             android:textColor="#000"
             android:textSize="15dp"
             android:textStyle="italic"

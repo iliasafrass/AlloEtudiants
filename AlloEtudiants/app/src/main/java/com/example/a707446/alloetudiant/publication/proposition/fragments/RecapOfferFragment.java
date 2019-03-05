@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
@@ -36,8 +38,8 @@ import java.util.List;
  */
 public class RecapOfferFragment extends Fragment implements BlockingStep, PropositionContract.View {
 
-    //private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
-    private final String profileId = "5c3d00eb349dbb2908cbaf99";
+    private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
+//    private final String profileId = "5c3d00eb349dbb2908cbaf99";
     //Views
     TextView titre;
     TextView date;

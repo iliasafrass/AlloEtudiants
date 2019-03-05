@@ -4,7 +4,6 @@ package com.example.a707446.alloetudiant.publication.evenement.fragments;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,41 +15,27 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.EventDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.publication.evenement.DataManager;
 import com.example.a707446.alloetudiant.publication.evenement.presenter.EvenementContract;
 import com.example.a707446.alloetudiant.publication.evenement.presenter.EvenementPresenter;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
 import com.stepstone.stepper.VerificationError;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeConstants;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class EventStep1 extends Fragment implements BlockingStep, EvenementContract.View {
 
-    //private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
-    private final String profileId = "5c3d00eb349dbb2908cbaf99";
+    private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
+//    private final String profileId = "5c3d00eb349dbb2908cbaf99";
     //Views
     TextView titre;
     TextView date;

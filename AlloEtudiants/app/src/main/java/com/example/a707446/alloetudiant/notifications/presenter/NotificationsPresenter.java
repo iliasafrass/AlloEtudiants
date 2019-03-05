@@ -31,7 +31,7 @@ public class NotificationsPresenter implements NotificationsContract.Presenter {
 
     @Override
     public void getNotifications() {
-        mRepo.getNotificationsByProfileId(/*SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext())*/"5c52008b9c184a1b3f724309",true)
+        mRepo.getNotificationsByProfileId(SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()),true)
                 .enqueue(
                         new Callback<List<NotificationProfileDto>>() {
                             @Override

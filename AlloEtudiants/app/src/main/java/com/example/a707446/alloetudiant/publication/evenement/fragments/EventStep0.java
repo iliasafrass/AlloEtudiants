@@ -106,7 +106,6 @@ public class EventStep0 extends Fragment implements BlockingStep {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                month = month + 1;
                 Log.d("Select Date", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
                 String date = day + "/" + month + "/" + year ;

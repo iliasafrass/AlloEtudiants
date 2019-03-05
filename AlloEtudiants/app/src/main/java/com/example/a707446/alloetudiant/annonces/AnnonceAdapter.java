@@ -62,6 +62,7 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 } else {
                     myViewHolder.txtPrice.setText(offer.getPrice()+" € par heure");
                 }
+                myViewHolder.txtAnnounceDatesLabel.setText("Dates");
                 for (WeekDay weekDay: offer.getDays()
                         ) {
                     myViewHolder.txtDays.append(weekDay.name()+" ");
@@ -81,6 +82,7 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 } else {
                     myViewHolder.txtPrice.setText(request.getTotal()+" € pour "+request.getHours()+" heure(s)");
                 }
+                myViewHolder.txtAnnounceDatesLabel.setText("Dates");
                 for (WeekDay weekDay: request.getDays()
                         ) {
                     myViewHolder.txtDays.append(weekDay.name()+"\n");
@@ -97,11 +99,12 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtAnnounceInvitation.setText("Événement");
                 myViewHolder.txtPrice.setVisibility(View.GONE);
                 myViewHolder.txtAnnouncePriceLabel.setVisibility(View.GONE);
-                myViewHolder.txtAnnounceDatesLabel.setText("Dates");
-                for (Date date: event.getDates()
+                myViewHolder.txtAnnounceDatesLabel.setText("Date");
+                myViewHolder.txtDays.setText(event.getDates());
+                /*for (Date date: event.getDates()
                         ) {
                     myViewHolder.txtDays.append(sdf2.format(date)+"\n");
-                }
+                }*/
                 myViewHolder.icon.setImageResource(R.drawable.ic_events);
                 break;
             default:

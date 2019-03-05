@@ -1,11 +1,14 @@
 package com.example.a707446.alloetudiant.home.presenter;
 
+import android.content.Intent;
+
 import com.example.a707446.alloetudiant.general.BaseApplication;
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
 import com.example.a707446.alloetudiant.notifications.presenter.NotificationsContract;
+import com.example.a707446.alloetudiant.start.StartActivity;
 
 import java.util.List;
 
@@ -31,6 +34,11 @@ public class HomePresenter implements HomeContract.Presenter{
                         new Callback<List<NotificationProfileDto>>() {
                             @Override
                             public void onResponse(Call<List<NotificationProfileDto>> call, Response<List<NotificationProfileDto>> response) {
+                                if(response.code() == 403){
+                                    SharedPreferencesSingleton.clear(BaseApplication.getAppContext());
+                                    System.out.print(response.errorBody());
+                                    mView.goToStartActivity();
+                                }
                                 if(response.isSuccessful()){
                                     mView.showNotifications(response.body());
                                 } else {

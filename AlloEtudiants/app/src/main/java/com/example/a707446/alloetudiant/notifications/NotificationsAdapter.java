@@ -90,7 +90,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
 
         public ImageView icon;
 
-//        public ImageButton btnAccept, btnDecline;
+//        public ImageButton btnAccept, btnDelete;
 
         public RelativeLayout parentLayout;
 
@@ -103,7 +103,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             txtStatus = (TextView) view.findViewById(R.id.txtStatus);
             icon = (ImageView) view.findViewById(R.id.imgNotification);
             /*btnAccept = (ImageButton) view.findViewById(R.id.btnAccept);
-            btnDecline = (ImageButton) view.findViewById(R.id.btnDecline);
+            btnDelete = (ImageButton) view.findViewById(R.id.btnDelete);
 
             btnAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -118,7 +118,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             });
 
 
-            btnDecline.setOnClickListener(new View.OnClickListener() {
+            btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(listener!=null){

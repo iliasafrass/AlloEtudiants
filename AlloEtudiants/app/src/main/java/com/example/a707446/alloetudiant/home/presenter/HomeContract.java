@@ -11,6 +11,7 @@ public interface HomeContract {
         void showError(String error);
         void showNotifications(List<NotificationProfileDto> notifications);
         void showNotificationsAfterAnswer(List<NotificationProfileDto> notifications, int position);
+        void goToStartActivity();
     }
 
     interface Presenter {

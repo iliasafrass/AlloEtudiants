@@ -113,10 +113,10 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
         String day = parts[0];
         String hour = parts[1];
 
-        String[] parts2 = day.split("-");
-        int YY = Integer.parseInt(parts2[0]);
+        String[] parts2 = day.split("/");
+        int DD = Integer.parseInt(parts2[0]);
         int MM = Integer.parseInt(parts2[1]);
-        int DD = Integer.parseInt(parts2[2]);
+        int YY = Integer.parseInt(parts2[2]);
 
         String[] parts3 = hour.split(":");
         int HH = Integer.parseInt(parts3[0]);

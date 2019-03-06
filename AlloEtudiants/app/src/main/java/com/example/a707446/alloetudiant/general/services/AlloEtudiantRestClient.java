@@ -12,6 +12,7 @@ import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
+import com.example.a707446.alloetudiant.general.model.pojo.Profile;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 
 import java.lang.ref.Reference;
@@ -85,4 +86,7 @@ public interface AlloEtudiantRestClient {
 
     @DELETE("/announcements/{id}/{type}")
     Call<List<AnnouncementDto>> deleteAnnouncement(@Path("id") String id, @Path("type") AnnounceType type);
+
+    @GET("/profiles/{id}")
+    Call<Profile> getProfileById(@Path("id")String id);
 }

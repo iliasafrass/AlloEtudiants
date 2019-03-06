@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.recherche;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -86,10 +87,19 @@ public class RechercheFragment extends AbstractFragment {
     }
 
 
+
     @Override
     public void onResume() {
         super.onResume();
-        viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
+        Handler handler = new Handler();
+        handler.post(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
+            }
+        });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setupWithViewPager(viewPager);
         NavigationActivity.mBottomNavigationView.getMenu().getItem(1).setChecked(true);

@@ -1,13 +1,17 @@
 package com.example.a707446.alloetudiant.profil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.connexion.Login;
 import com.example.a707446.alloetudiant.general.BaseApplication;
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.pojo.Profile;
@@ -17,6 +21,7 @@ import com.example.a707446.alloetudiant.profil.presenter.ProfilePresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ProfilFragment extends AbstractFragment implements ProfileContract.View {
 
@@ -36,10 +41,23 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
     @BindView(R.id.textView12)
     public TextView mSexe;
 
+
     private ProfileContract.Presenter mPresenter;
 
 
 
+    @OnClick(R.id.imageButton2)
+    public void logOut(){
+        SharedPreferencesSingleton.clear(getContext());
+        Intent i = new Intent(getContext(), Login.class);
+        startActivity(i);
+        getActivity().finish();
+    }
+
+    @OnClick(R.id.imageButton)
+    public void edit(){
+        Toast.makeText(getContext(),"RAF",Toast.LENGTH_LONG).show();
+    }
 
     public ProfilFragment() {
         // Requires empty public constructor

@@ -72,6 +72,7 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
         else
             profileDto.setGender(Gender.FEMALE);
         mPresenter.startInscrire(profileDto);
+
     }
 
     @OnClick(R.id.annuler)
@@ -88,20 +89,18 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
         Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show();
     }
 
+
+
     @Override
     public void endInscrire(String message, int code) {
         if(code == 200){
             Toast.makeText(getApplication(), "Un email vous a été envoyé pour confirmation", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
-            startActivity(i);
+
         } else {
-            Toast.makeText(getApplication(), code+message, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplication(), "code !=200 :"+code+message, Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void onRadioButtonClicked(View view) {
-        sexe=((RadioButton) view).getText().toString();
-    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -117,5 +116,26 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
         super.onPause();
         finish();
 
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.homme:
+                if (checked) {
+                    sexe = "homme";
+                    radioFemme.setChecked(false);
+                }
+                break;
+            case R.id.femme:
+                if (checked) {
+                    sexe = "femme";
+                    radioHomme.setChecked(false);
+                }
+                // Ninjas rule
+                break;
+        }
     }
 }

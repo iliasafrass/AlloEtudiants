@@ -1,5 +1,7 @@
 package com.example.a707446.alloetudiant.inscription.presenter;
 
+import android.util.Log;
+
 import com.example.a707446.alloetudiant.general.repository.inscription.InscriptionRepository;
 import com.example.a707446.alloetudiant.general.repository.inscription.InscriptionRepositoryImpl;
 import com.example.a707446.alloetudiant.general.model.dto.RegisterProfileDto;
@@ -29,13 +31,16 @@ public class InscriptionPresenter implements InscriptionContract.Presenter {
             @Override
             public void onResponse(Call<RegisterMessage> call, Response<RegisterMessage> response) {
                 mView.toast("Code : "+response.code());
+                if(response.code() == 200){
+                    startAnnuler();
+                }
             }
 
             @Override
             public void onFailure(Call<RegisterMessage> call, Throwable t) {
                 mView.toast("Failure : " + t.toString());
             }
-        });;
+        });
     }
 
     @Override

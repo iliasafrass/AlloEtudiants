@@ -11,6 +11,7 @@ import com.example.a707446.alloetudiant.general.model.dto.RequestDto;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
+import com.example.a707446.alloetudiant.general.model.pojo.Profile;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.services.AlloEtudiantRestClient;
 import com.example.a707446.alloetudiant.general.services.RetrofitClientInstance;
@@ -97,6 +98,11 @@ public class RepoImpl implements Repo {
     @Override
     public Call<List<AnnouncementDto>> deleteAnnouncement(String id, AnnounceType announceType) {
         return retrofit.create(AlloEtudiantRestClient.class).deleteAnnouncement(id, announceType);
+    }
+
+    @Override
+    public Call<Profile> getProfileById(String id) {
+        return retrofit.create(AlloEtudiantRestClient.class).getProfileById(id);
     }
 
     @Override

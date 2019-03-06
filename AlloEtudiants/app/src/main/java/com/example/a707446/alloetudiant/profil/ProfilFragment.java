@@ -1,19 +1,63 @@
 package com.example.a707446.alloetudiant.profil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.annonces.AnnonceFragment;
+import com.example.a707446.alloetudiant.connexion.Login;
+import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
+import com.example.a707446.alloetudiant.general.model.pojo.Profile;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
+import com.example.a707446.alloetudiant.profil.presenter.ProfileContract;
+import com.example.a707446.alloetudiant.profil.presenter.ProfilePresenter;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class ProfilFragment extends AbstractFragment {
+public class ProfilFragment extends AbstractFragment implements ProfileContract.View {
 
+    //Views
+    @BindView(R.id.mail_user)
+    public TextView mEmail;
+
+    @BindView(R.id.description_profil)
+    public TextView mBio;
+
+    @BindView(R.id.name_user)
+    public TextView mNom;
+
+    @BindView(R.id.textView11)
+    public TextView mTelephone;
+
+    @BindView(R.id.textView12)
+    public TextView mSexe;
+
+
+    private ProfileContract.Presenter mPresenter;
+
+
+
+    @OnClick(R.id.imageButton2)
+    public void logOut(){
+        SharedPreferencesSingleton.clear(getContext());
+        Intent i = new Intent(getContext(), Login.class);
+        startActivity(i);
+        getActivity().finish();
+    }
+
+    @OnClick(R.id.imageButton)
+    public void edit(){
+        Toast.makeText(getContext(),"RAF",Toast.LENGTH_LONG).show();
+    }
 
     public ProfilFragment() {
         // Requires empty public constructor
@@ -30,7 +74,18 @@ public class ProfilFragment extends AbstractFragment {
         mUnbinder = ButterKnife.bind(this,view);
 
         getActivity().setTitle(R.string.toolbar_profil);
+        mPresenter = new ProfilePresenter(this);
 
+        mPresenter.startgetProfileById(SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext()));
         return view;
+    }
+
+    @Override
+    public void getProfileById(Profile profile) {
+        mNom.setText(profile.getFirstName()+" "+profile.getLastName());
+        mEmail.setText(profile.getEmail());
+        mTelephone.setText(profile.getPhoneNumber());
+        mSexe.setText(profile.getGender().toString());
+        mBio.setText(profile.getBio());
     }
 }

@@ -38,6 +38,10 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
     @BindView(R.id.textView12)
     public TextView mSexe;
 
+    @BindView(R.id.textView13)
+    public TextView mNiveau;
+
+
     private ProfileContract.Presenter mPresenter;
 
     @OnClick(R.id.imageButton2)
@@ -80,5 +84,6 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
         mEmail.setText(profile.getEmail());
         mTelephone.setText(profile.getPhoneNumber());
         mSexe.setText(profile.getGender().toString());
+        mNiveau.setText(profile.getGrade().name());
     }
 }

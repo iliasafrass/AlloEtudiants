@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.general.model.pojo;
 
 import com.example.a707446.alloetudiant.general.model.enumeration.Gender;
+import com.example.a707446.alloetudiant.general.model.enumeration.Grade;
 
 import java.util.Date;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Profile {
     private String lastName;
 
     private String password;
+    private Grade grade;
 
     private String email;
 

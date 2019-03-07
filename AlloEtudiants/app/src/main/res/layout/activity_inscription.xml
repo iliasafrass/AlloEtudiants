@@ -196,7 +196,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:ems="10"
-                android:hint="saisir votre mot de passe"
+                android:hint="mot de passe"
                 android:inputType="textPassword"
                 android:textSize="16sp"
                 android:textStyle="bold"

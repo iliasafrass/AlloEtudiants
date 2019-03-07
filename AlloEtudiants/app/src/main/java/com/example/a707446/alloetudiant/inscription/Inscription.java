@@ -162,7 +162,7 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
             Toast.makeText(this,"sexe est obligatoire! ",Toast.LENGTH_LONG);
         }
 
-        if (!passwordInput.isEmpty() && passwordInput != null && !sexeInput.name().isEmpty() && sexeInput.name() != null && !telInput.isEmpty() && telInput != null && !!selectedSpinnerNiveau.isEmpty() && selectedSpinnerNiveau != null && !prenomInput.isEmpty() && prenomInput != null && !nomInput.isEmpty() && nomInput != null && !emailInput.isEmpty() && emailInput != null) {
+        if (!passwordInput.isEmpty() && passwordInput != null && !sexeInput.name().isEmpty() && sexeInput.name() != null && !telInput.isEmpty() && telInput != null && !selectedSpinnerNiveau.isEmpty() && selectedSpinnerNiveau != null && !prenomInput.isEmpty() && prenomInput != null && !nomInput.isEmpty() && nomInput != null && !emailInput.isEmpty() && emailInput != null) {
             Grade niveauInput = Grade.valueOf(selectedSpinnerNiveau);
             profileDto.setEmail(emailInput);
             profileDto.setFirstName(prenomInput);

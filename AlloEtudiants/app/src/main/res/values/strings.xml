@@ -51,5 +51,14 @@
     <string name="catégorie_proposition">Catégorie</string>
     <string name="matiére_proposition">matiére</string>
     <string name="toolbar_profil">Profile</string>
+    <string name="description">Description</string>
+    <string name="adresse">Adresse</string>
+    <string name="jours_de_disponibilit_s">Jours de disponibilités</string>
+    <string name="les_p_riodes">Les périodes</string>
+    <string name="adresse_demande">Adresse</string>
+    <string name="prix">Prix</string>
+    <string name="description_demande">Description</string>
+    <string name="une_demande_d_aide_titre">Une demande d\'aide</string>
+    <string name="d_cris_votre_proposition">Décris votre proposition ...</string>
 
 </resources>

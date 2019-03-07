@@ -96,12 +96,13 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
-            android:hint="Décris votre proposition ..."
+            android:hint="@string/d_cris_votre_proposition"
             android:textSize="16sp"
 
             android:textStyle="bold"
             android:theme="@style/MyEditText"
-            app:layout_constraintTop_toBottomOf="@+id/besoin" />
+            app:layout_constraintTop_toBottomOf="@+id/besoin"
+            android:inputType="" />
     </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -51,14 +51,11 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     private Event mEvent;
     private String idEvent;
 
-    @OnClick(R.id.annuler_detail_event)
-    public void onAnnulerClick(){annuler();}
-
-    private void annuler() {
+    /*private void annuler() {
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.navigationActivity_fragmentContainer, RechercheFragment.newInstance());
         transaction.commit();
-    }
+    }*/
 
     public DetailEventFragment() {
         // Required empty public constructor

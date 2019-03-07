@@ -54,6 +54,9 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     @BindView(R.id.address_request_detail)
     public TextView address;
 
+    @BindView(R.id.prix_request_detail)
+    public TextView price;
+
     private DetailRequestConstract.Presenter mPresenter;
 
     private Request mRequest;
@@ -122,12 +125,18 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
 //            Toast.makeText(this.getView().getContext(), mRequest.getId(), Toast.LENGTH_LONG).show();
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            date.setText(mRequest.getDays().toString());
-
+            for (WeekDay day: mRequest.getDays()
+                 ) {
+                date.append(day.name()+"\n");
+            }
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());
             address.setText(mRequest.getAddress());
+            if(request.getTotal() == 0){
+                price.setText("Gratuit");
+            } else {
+                price.setText(request.getTotal()+" € pour "+request.getHours()+" heure(s)");
+            }
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{

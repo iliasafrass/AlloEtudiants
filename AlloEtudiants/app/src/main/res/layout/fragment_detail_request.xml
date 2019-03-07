@@ -22,8 +22,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
-            android:textColor="@color/notSoBlack"
+            android:fontFamily="@font/cabin"
             android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:textColor="@color/notSoBlack"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +70,7 @@
             android:fontFamily="@font/cabin"
             android:textAlignment="viewStart"
             android:textColor="@color/notSoBlack"
-            android:textSize="16dp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -83,7 +84,7 @@
             android:fontFamily="@font/cabin"
             android:textAlignment="viewStart"
             android:textColor="@color/notSoBlack"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -100,7 +101,7 @@
             android:fontFamily="@font/cabin"
             android:textAlignment="viewStart"
             android:textColor="@color/notSoBlack"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,14 +112,14 @@
             style="@style/Base.TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
             android:background="@drawable/background_login"
             android:clickable="true"
             android:padding="16dp"
-            android:text="Envoyer un invitation"
+            android:text="Envoyer une invitation"
             android:textAllCaps="false"
             android:textColor="@color/notSoBlack"
             android:textSize="18sp"
@@ -126,7 +127,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date_request_detail"
+            app:layout_constraintTop_toBottomOf="@+id/prix_request_detail"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
@@ -136,7 +137,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/cabin"
-            android:text="Lieu"
+            android:text="Adresse"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_request_detail" />
@@ -148,10 +149,36 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/cabin"
-            android:text="Disponibilités"
+            android:text="Jours de disponibilités"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_request_detail" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/cabin"
+            android:text="Prix"
+            android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_request_detail" />
+
+        <TextView
+            android:id="@+id/prix_request_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:fontFamily="@font/cabin"
+            android:text="Gratuit"
+            android:textColor="@color/notSoBlack"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
 
     </android.support.constraint.ConstraintLayout>

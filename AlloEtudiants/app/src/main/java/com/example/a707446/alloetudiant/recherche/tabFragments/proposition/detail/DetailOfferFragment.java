@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
@@ -46,19 +47,22 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     @BindView(R.id.address_offer_detail)
     public TextView address;
 
+    @BindView(R.id.price_offer_detail)
+    public TextView price;
+
     private DetailOfferContract.Presenter mPresenter;
     private Offer mOffer;
     private String idOffer;
 
 
-    @OnClick(R.id.annuler_detail_offer)
+    /*@OnClick(R.id.annuler_detail_offer)
     public void onAnnulerClick(){annuler();}
 
     private void annuler() {
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.navigationActivity_fragmentContainer, RechercheFragment.newInstance());
         transaction.commit();
-    }
+    }*/
 
 
     public DetailOfferFragment() {
@@ -108,14 +112,32 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
             Log.d("mOffer", mOffer.toString());
             title.setText(mOffer.getTitle());
             icon.setImageResource(R.drawable.ic_offers);
-            date.setText(mOffer.getDays().toString());
+            for (WeekDay day: mOffer.getDays()
+                    ) {
+                date.append(day.name()+"\n");
+            }
             description.setText(mOffer.getDescription());
             address.setText(mOffer.getAddress());
+            if(offer.getPrice() == 0){
+                price.setText("Gratuit");
+            } else {
+                price.setText(offer.getPrice()+" € par heure");
+            }
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{
 //            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mOffer", "null");
         }
+    }
+
+    @OnClick(R.id.reserver_proposition)
+    public void askOffer(){
+        mPresenter.startAskingOffer(this.mOffer);
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this.getContext(),message,Toast.LENGTH_LONG).show();
     }
 }

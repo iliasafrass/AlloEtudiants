@@ -62,15 +62,15 @@ public class DetailRequestPresenter implements DetailRequestConstract.Presenter 
                     public void onResponse(Call<Notification> call, Response<Notification> response) {
                         if(response.code() == 200){
                            // mView.showToast("Notification created with id : " + response.body().getId());
-                            mView.showToast("Vous avez bien envoyé une invitation");
+                            mView.showToast("Vous avez bien envoyé une invitation.");
                         } else {
-                            mView.showError("Vous avez déja envoyé cette demande !");
+                            mView.showError("Vous avez déja envoyé cette invitation !");
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Notification> call, Throwable t) {
-                     //   mView.showError(t.toString());
+                        mView.showToast("Erreur inconnue. Veuillez réessayer plus tard.");
                     }
                 }
         );

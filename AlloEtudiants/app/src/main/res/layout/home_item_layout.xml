@@ -5,9 +5,7 @@
     android:id="@+id/card_view_2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:elevation="4dp"
-    card_view:cardCornerRadius="8dp">
+    android:layout_margin="4dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

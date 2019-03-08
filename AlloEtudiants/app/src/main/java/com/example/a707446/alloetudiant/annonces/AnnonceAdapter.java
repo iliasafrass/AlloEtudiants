@@ -23,11 +23,9 @@ import java.util.List;
 public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHolder>{
 
     private List<AnnouncementDto> announcements;
-    private String announcementId;
     private AnnonceAdapter.OnButtonClickListener onButtonClickListener;
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-    SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
 
     public AnnonceAdapter(List<AnnouncementDto> announcementsList){
         this.announcements = announcementsList;
@@ -101,10 +99,6 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtAnnouncePriceLabel.setVisibility(View.GONE);
                 myViewHolder.txtAnnounceDatesLabel.setText("Date");
                 myViewHolder.txtDays.setText(event.getDates());
-                /*for (Date date: event.getDates()
-                        ) {
-                    myViewHolder.txtDays.append(sdf2.format(date)+"\n");
-                }*/
                 myViewHolder.icon.setImageResource(R.drawable.ic_events);
                 break;
             default:

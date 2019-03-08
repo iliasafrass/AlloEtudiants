@@ -45,7 +45,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         myViewHolder.txtTitle.setText(notifications.get(i).getNotification().getAnnounceTitle());
         myViewHolder.txtDate.setText(sdf.format(notifications.get(i).getNotification().getLastModifiedDate()));
-        myViewHolder.txtSender.setText(notifications.get(i).getProfile().getLastName() + " " + notifications.get(i).getProfile().getFirstName());
+        myViewHolder.txtSender.setText(notifications.get(i).getProfile().getLastName() + " " + notifications.get(i).getProfile().getFirstName() + " - " + notifications.get(i).getProfile().getGrade().name());
 
         switch (notifications.get(i).getNotification().getAnnounceType()) {
             case REQUEST: {

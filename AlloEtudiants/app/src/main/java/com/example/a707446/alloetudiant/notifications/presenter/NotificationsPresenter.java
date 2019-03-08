@@ -39,7 +39,7 @@ public class NotificationsPresenter implements NotificationsContract.Presenter {
                                 if(response.isSuccessful()){
                                     mView.showNotifications(response.body());
                                 } else {
-                                    mView.showError("Internal server error");
+                                    mView.showError("Erreur inconnue. Veuillez réessayer plus tard.");
                                 }
                             }
 

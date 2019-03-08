@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -54,16 +55,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     private Offer mOffer;
     private String idOffer;
 
-
-    /*@OnClick(R.id.annuler_detail_offer)
-    public void onAnnulerClick(){annuler();}
-
-    private void annuler() {
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.navigationActivity_fragmentContainer, RechercheFragment.newInstance());
-        transaction.commit();
-    }*/
-
+    private ProgressDialog progressDialog;
 
     public DetailOfferFragment() {
         // Required empty public constructor
@@ -86,6 +78,9 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         NavigationActivity.inDetail = true;
         getActivity().setTitle(R.string.toolbar_details);
         mPresenter = new DetailOfferPresenter(this);
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Chargement");
 
         mPresenter.startgetOfferById(idOffer);
         return view;
@@ -133,11 +128,13 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
 
     @OnClick(R.id.reserver_proposition)
     public void askOffer(){
+        progressDialog.show();
         mPresenter.startAskingOffer(this.mOffer);
     }
 
     @Override
     public void showMessage(String message) {
+        progressDialog.dismiss();
         Toast.makeText(this.getContext(),message,Toast.LENGTH_LONG).show();
     }
 }

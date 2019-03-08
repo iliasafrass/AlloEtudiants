@@ -4,7 +4,7 @@ import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.EventDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
-import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.dto.RequestDto;
@@ -15,13 +15,11 @@ import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Profile;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 
-import java.lang.ref.Reference;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;

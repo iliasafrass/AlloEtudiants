@@ -203,22 +203,5 @@
         app:layout_constraintTop_toBottomOf="@+id/prix_offer_recap" />
 
 
-    <TextView
-        android:id="@+id/complete_offer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Verifiez votre proposition et cliquez sur 'publier' pour la publier. "
-        android:textColor="#000"
-        android:textSize="15dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
 </android.support.constraint.ConstraintLayout>
 </ScrollView>

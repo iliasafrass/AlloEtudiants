@@ -1,8 +1,6 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.demande;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,17 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
-import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter.RequestContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter.RequestPresenter;
 
@@ -144,11 +138,12 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     }
 
     private void initSpinnerItems() {
-        listItems.add(Subject.MATHS.toString());
-        listItems.add(Subject.PHYSICS.toString());
-        listItems.add(Subject.CHEMISTRY.toString());
-        listItems.add(Subject.MECHANICS.toString());
-        listItems.add(Subject.COMPUTER_SCIENCE.toString());
+        listItems.add(Subject.MATHEMATIQUES.toString());
+        listItems.add(Subject.PHYSIQUE.toString());
+        listItems.add(Subject.CHIMIE.toString());
+        listItems.add(Subject.MECANIQUE.toString());
+        listItems.add(Subject.INFORMATIQUE.toString());
+        listItems.add(Subject.ELECTRONIQUE.toString());
     }
 
 /*    private void getData() {

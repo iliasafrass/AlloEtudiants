@@ -7,28 +7,24 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.androidadvance.topsnackbar.TSnackbar;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
-import com.example.a707446.alloetudiant.general.model.pojo.Slot;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.presenter.DetailRequestConstract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.presenter.DetailRequestPresenter;
 
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +58,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
 
     private Request mRequest;
     private String idRequest;
+
 
     private ProgressDialog progressDialog;
 
@@ -110,6 +107,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavigationActivity.firstChildFragment = false;
+
     }
 
     @Override
@@ -126,10 +124,40 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         if(mRequest != null) {
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
-            for (WeekDay day: mRequest.getDays()
-                 ) {
-                date.append(day.name()+"\n");
+            String listDays = "";
+            String myDay = "";
+            for (WeekDay day: mRequest.getDays()) {
+                myDay = day.name();
+                switch (day){
+                    case MONDAY:
+                        myDay = "Lundi";
+                        break;
+                    case TUESDAY:
+                        myDay = "Mardi";
+                        break;
+
+                    case WEDNESDAY:
+                        myDay = "Mercredi";
+                        break;
+
+                    case THURSDAY:
+                        myDay = "Jeudi";
+                        break;
+                    case FRIDAY:
+                        myDay = "Vendredi";
+                        break;
+
+                    case SATURDAY:
+                        myDay = "Samedi";
+                        break;
+                    case SUNDAY:
+                        myDay = "Dimanche";
+                        break;
+                }
+                listDays += myDay+", ";
             }
+
+            date.setText(listDays);
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());
             address.setText(mRequest.getAddress());

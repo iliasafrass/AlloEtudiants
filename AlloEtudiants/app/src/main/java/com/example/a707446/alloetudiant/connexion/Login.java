@@ -76,8 +76,6 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
         }
     }
 
-    @OnClick(R.id.forgetPassword)
-    public void  onForgetPasswordClick(){mPresenter.startForgetPassword();}
 
     @Override
     public void signup(){

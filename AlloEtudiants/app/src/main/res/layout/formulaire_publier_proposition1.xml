@@ -7,59 +7,37 @@
     android:layout_height="match_parent"
     android:background="@color/blueBodyColor">
 
+
     <TextView
         android:id="@+id/besoin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="384dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
-        android:text="Créneau"
+        android:text="Détails"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="59dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/besoin"
-        app:srcCompat="@drawable/ic_data_demande_daide_24dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="16dp"
-        android:text="Créneau possible"
-        android:textColor="@color/ms_black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/besoin" />
-
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:gravity="center_horizontal"
         android:text="@string/form_days"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/besoin" />
 
     <com.dpro.widgets.WeekdaysPicker
         android:id="@+id/weekdays"
@@ -78,18 +56,15 @@
         app:sunday_first_day="true" />
 
 
-
-
-
     <android.support.design.widget.TextInputLayout
         android:id="@+id/adresse_text_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hintTextAppearance="@style/MyHintText"
         android:layout_below="@id/besoin"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        app:hintTextAppearance="@style/MyHintText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,15 +73,15 @@
 
         <EditText
             android:id="@+id/adresse"
-            android:theme="@style/MyEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textSize="16sp"
             android:ems="10"
             android:hint="Adresse"
             android:inputType="textPostalAddress"
+            android:textSize="16sp"
+            android:theme="@style/MyEditText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weekdays" />
@@ -117,11 +92,11 @@
         android:id="@+id/prix_heure_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hintTextAppearance="@style/MyHintText"
         android:layout_below="@id/besoin"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        app:hintTextAppearance="@style/MyHintText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,12 +108,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textSize="16sp"
             android:hint="Prix par heure"
-            android:theme="@style/MyEditText"
             android:inputType="numberDecimal"
             android:textAlignment="center"
+            android:textSize="16sp"
             android:textStyle="bold"
+            android:theme="@style/MyEditText"
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="440dp" />
     </android.support.design.widget.TextInputLayout>

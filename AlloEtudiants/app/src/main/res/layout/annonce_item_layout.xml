@@ -147,7 +147,7 @@
         <TextView
             android:id="@+id/txtAnnonceDays"
             android:layout_width="0dp"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/cabin"
             android:text="Les périodes"
             android:textAppearance="@android:style/TextAppearance.Holo.Medium"

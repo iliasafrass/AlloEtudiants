@@ -30,8 +30,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     //Views
     @BindView(R.id.recycler_view_demande)
     public RecyclerView recyclerView;
-    /*    @BindView(R.id.progress_bar)
-        public ProgressBar progressBar;*/
+
     @BindView(R.id.spinner_request)
     public MaterialSpinner spinner;
     ArrayAdapter<String> spinnerAdapter;
@@ -41,10 +40,7 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     private List<Request> requestList = new ArrayList<>();
     private RequestsAdapter mAdapter;
 
-/*    Boolean isScrolling = false;
-    int currentItems,totalItems, scrollOutItems;
 
-    LinearLayoutManager manager;*/
 
     public RechercheDemandeFragment() {
         // Required empty public constructor
@@ -63,7 +59,6 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         View view = inflater.inflate(R.layout.recherche_demande_fragment, null);
         mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new RequestPresenter(this);
-        // = new LinearLayoutManager(getContext());
         //creation de l'adapter on lui passant la liste des demandes.
         mAdapter = new RequestsAdapter(getActivity().getBaseContext(), requestList);
         /*
@@ -103,33 +98,6 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         // Attachez l'adaptateur au recyclerview .
         recyclerView.setAdapter(mAdapter);
 
-
-/*        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL)
-                {
-                    isScrolling = true;
-                }
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                currentItems = manager.getChildCount();
-                totalItems = manager.getItemCount();
-                scrollOutItems = manager.findFirstVisibleItemPosition();
-                if(isScrolling && (currentItems + scrollOutItems == totalItems))
-                {
-                    //data fetch
-                    isScrolling = false;
-//                    getData();
-                }
-            }
-        });
-        getData();*/
-
         mPresenter.sendRequestsToView();
         return view;
     }
@@ -143,21 +111,11 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         listItems.add(Subject.ELECTRONIQUE.toString());
     }
 
-/*    private void getData() {
-        progressBar.setVisibility(View.VISIBLE);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mPresenter.sendRequestsToView();
-                progressBar.setVisibility(View.GONE);
-            }
-        },1000);
-    }*/
+
 
     @Override
     public void receiveRequestsFromPresenter(List<Request> requests) {
-        mAdapter.setRequestsList(requests);
-//        progressBar.setVisibility(View.GONE);
+        mAdapter.setRequestsList(requests);;
     }
 
     @Override

@@ -32,14 +32,6 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         notifications = _notifications;
     }
 
-    /*public interface OnButtonClickListener {
-        void onAcceptBtnClick(int position);
-        void onDeclineBtnClick(int position);
-    }*/
-
-    /*public void setOnButtonClickListener(OnButtonClickListener listener){
-        onButtonClickListener = listener;
-    }*/
 
     @NonNull
     @Override
@@ -100,33 +92,6 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             txtSender = (TextView) view.findViewById(R.id.txtSender);
             txtStatus = (TextView) view.findViewById(R.id.txtStatus);
             icon = (ImageView) view.findViewById(R.id.imgNotification);
-            /*btnAccept = (ImageButton) view.findViewById(R.id.btnAccept);
-            btnDelete = (ImageButton) view.findViewById(R.id.btnDelete);
-
-            btnAccept.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(listener!=null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION) {
-                            listener.onAcceptBtnClick(position);
-                        }
-                    }
-                }
-            });
-
-
-            btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(listener!=null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION) {
-                            listener.onDeclineBtnClick(position);
-                        }
-                    }
-                }
-            });*/
         }
 
     }

@@ -39,7 +39,6 @@ import java.util.List;
 public class RecapOfferFragment extends Fragment implements BlockingStep, PropositionContract.View {
 
     private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
-//    private final String profileId = "5c3d00eb349dbb2908cbaf99";
     //Views
     TextView titre;
     TextView date;
@@ -165,7 +164,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
 
         address.setText(mAddress);
         date.setText(getDays());
-        prix.setText(mPrix + " €");
+        prix.setText(mPrix + " € par heure");
     }
 
     @Override

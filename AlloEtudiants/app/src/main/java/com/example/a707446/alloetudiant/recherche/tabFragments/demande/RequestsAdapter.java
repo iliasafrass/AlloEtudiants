@@ -77,13 +77,11 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                //Toast.makeText(myContext, request.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
             }
         });
     }
 
-    // Retourne le nombre total d'éléments dans la liste
     @Override
     public int getItemCount() {
         return requestsList.size();

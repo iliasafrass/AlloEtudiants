@@ -56,7 +56,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
         holder.description.setText(offer.getDescription());
         holder.date.setText(sdf.format(offer.getCreatedDate()));
         holder.icon.setImageResource(R.drawable.ic_offers);
-        holder.prix.setText(String.valueOf(offer.getPrice())+" €");
+        holder.prix.setText(String.valueOf(offer.getPrice())+" € par heure");
 
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {

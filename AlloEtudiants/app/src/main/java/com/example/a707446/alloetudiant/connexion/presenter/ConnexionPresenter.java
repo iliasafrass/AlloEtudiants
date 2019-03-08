@@ -59,9 +59,7 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
                     public void onResponse(Call<String> call, Response<String> response) {
                         if(response.isSuccessful()){
                             SharedPreferencesSingleton.setProfileId(mView.applicationContext(),response.body());
-//                            SharedPreferencesHelper.setProfileId(response.body());
-//                            SharedPreferencesSingleton.getInstance(mView.applicationContext()).setProfileId(response.body());
-                            mView.login(token,response.body());
+                           mView.login(token,response.body());
                         }
                     }
 

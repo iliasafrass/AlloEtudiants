@@ -8,40 +8,60 @@
     tools:context=".publication.demande.fragments.DemandeStep0">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="59dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="55dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_data_demande_daide_24dp" />
-
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
-        android:text="Créneau possible"
+        android:layout_width="384dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:text="Détails"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/heure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_weight="50"
+        android:outlineSpotShadowColor="@color/blueBarColor"
+        app:hintTextAppearance="@style/MyHintText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prix"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Heures"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:theme="@style/MyEditText" />
+    </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="@string/form_days"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -59,125 +79,66 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:sunday_first_day="true" />
+        app:sunday_first_day="true" >
+
+    </com.dpro.widgets.WeekdaysPicker>
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/adresse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_weight="70"
+        android:outlineSpotShadowColor="@color/blueBarColor"
+        app:hintTextAppearance="@style/MyHintText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weekdays"
+        app:passwordToggleEnabled="true">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Adresse"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:theme="@style/MyEditText" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/prix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
+        android:layout_weight="50"
+        android:outlineSpotShadowColor="@color/blueBarColor"
+        app:hintTextAppearance="@style/MyHintText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weekdays">
+        app:layout_constraintTop_toBottomOf="@+id/adresse"
+        app:passwordToggleEnabled="true">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="0dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="15"
-            app:srcCompat="@drawable/ic_adresse_postal_24dp" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/adresse"
-            android:layout_width="0dp"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="70"
-            android:outlineSpotShadowColor="@color/blueBarColor"
-            app:hintTextAppearance="@style/MyHintText"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:passwordToggleEnabled="true">
-
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:ems="10"
-                android:hint="Adresse"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:theme="@style/MyEditText" />
-        </android.support.design.widget.TextInputLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/prix"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="50"
-            android:outlineSpotShadowColor="@color/blueBarColor"
-            app:hintTextAppearance="@style/MyHintText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:ems="10"
-                android:hint="Prix par heure"
-                android:inputType="numberDecimal"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:theme="@style/MyEditText" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/heure"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="50"
-            android:outlineSpotShadowColor="@color/blueBarColor"
-            app:hintTextAppearance="@style/MyHintText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:ems="10"
-                android:hint="Heures"
-                android:inputType="numberDecimal"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:theme="@style/MyEditText" />
-        </android.support.design.widget.TextInputLayout>
-
-
-    </LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Prix par heure"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:theme="@style/MyEditText" />
+    </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>

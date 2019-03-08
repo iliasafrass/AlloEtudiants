@@ -76,8 +76,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-
-                //Toast.makeText(myContext, event.getDescription(), Toast.LENGTH_LONG).show();
                 Log.d("TOAST", "########################");
 
             }

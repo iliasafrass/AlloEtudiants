@@ -59,10 +59,43 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                     myViewHolder.txtPrice.setText(offer.getPrice() + " € par heure");
                 }
                 myViewHolder.txtAnnounceDatesLabel.setText("Dates");
-                for (WeekDay weekDay : offer.getDays()
-                ) {
-                    myViewHolder.txtDays.append(weekDay.name() + " ");
+
+                String listDays = "";
+                String myDay = "";
+                for (WeekDay day : offer.getDays()) {
+                    myDay = day.name();
+                    switch (day) {
+                        case MONDAY:
+                            myDay = "Lundi";
+                            break;
+                        case TUESDAY:
+                            myDay = "Mardi";
+                            break;
+
+                        case WEDNESDAY:
+                            myDay = "Mercredi";
+                            break;
+
+                        case THURSDAY:
+                            myDay = "Jeudi";
+                            break;
+                        case FRIDAY:
+                            myDay = "Vendredi";
+                            break;
+
+                        case SATURDAY:
+                            myDay = "Samedi";
+                            break;
+                        case SUNDAY:
+                            myDay = "Dimanche";
+                            break;
+                    }
+                    listDays += myDay + ", ";
                 }
+
+                myViewHolder.txtDays.setText(listDays);
+
+
                 myViewHolder.icon.setImageResource(R.drawable.ic_offers);
                 break;
             case REQUEST:
@@ -79,10 +112,42 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                     myViewHolder.txtPrice.setText(request.getTotal() + " € pour " + request.getHours() + " heure(s)");
                 }
                 myViewHolder.txtAnnounceDatesLabel.setText("Dates");
-                for (WeekDay weekDay : request.getDays()
-                ) {
-                    myViewHolder.txtDays.append(weekDay.name() + "\n");
+
+                String listDays2 = "";
+                String myDay2 = "";
+                for (WeekDay day : request.getDays()) {
+                    myDay2 = day.name();
+                    switch (day) {
+                        case MONDAY:
+                            myDay2 = "Lundi";
+                            break;
+                        case TUESDAY:
+                            myDay2 = "Mardi";
+                            break;
+
+                        case WEDNESDAY:
+                            myDay2 = "Mercredi";
+                            break;
+
+                        case THURSDAY:
+                            myDay2 = "Jeudi";
+                            break;
+                        case FRIDAY:
+                            myDay2 = "Vendredi";
+                            break;
+
+                        case SATURDAY:
+                            myDay2 = "Samedi";
+                            break;
+                        case SUNDAY:
+                            myDay2 = "Dimanche";
+                            break;
+                    }
+                    listDays2 += myDay2 + ", ";
                 }
+
+                myViewHolder.txtDays.setText(listDays2);
+
                 myViewHolder.icon.setImageResource(R.drawable.ic_requests);
                 break;
             case EVENT:

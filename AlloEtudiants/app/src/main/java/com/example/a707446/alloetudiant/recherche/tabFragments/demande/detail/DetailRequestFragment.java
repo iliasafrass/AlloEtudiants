@@ -1,6 +1,7 @@
 package com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -62,9 +63,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     private Request mRequest;
     private String idRequest;
 
-
-
-
+    private ProgressDialog progressDialog;
 
     public DetailRequestFragment() {
         // Required empty public constructor
@@ -92,6 +91,9 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         NavigationActivity.inDetail = true;
         getActivity().setTitle(R.string.toolbar_details);
 
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Chargement");
+
         mPresenter = new DetailRequestPresenter(this);
 
         mPresenter.startgetRequestById(idRequest);
@@ -100,6 +102,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
 
     @OnClick(R.id.reserver_demande)
     public void askRequest(){
+        progressDialog.show();
         mPresenter.startAskingRequest(this.mRequest);
     }
 
@@ -107,7 +110,6 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavigationActivity.firstChildFragment = false;
-//        Toast.makeText(view.getContext(), idRequest, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -122,7 +124,6 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         this.mRequest = request;
 
         if(mRequest != null) {
-//            Toast.makeText(this.getView().getContext(), mRequest.getId(), Toast.LENGTH_LONG).show();
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             for (WeekDay day: mRequest.getDays()
@@ -140,21 +141,20 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{
-//            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mRrequest", "null");
         }
     }
 
     @Override
     public void showError(String error) {
-        Toast.makeText(getActivity().getApplicationContext(),"ERROR : " + error,Toast.LENGTH_LONG).show();
-//        errorSnackbar(error);
+        progressDialog.dismiss();
+        Toast.makeText(getActivity().getApplicationContext(),error,Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showToast(String message) {
+        progressDialog.dismiss();
         Toast.makeText(getActivity().getApplicationContext(),message,Toast.LENGTH_LONG).show();
-//        snackbar(message);
     }
 
     @Override
@@ -162,36 +162,5 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         return getActivity().getApplicationContext();
     }
 
-    private void errorSnackbar(String error){
-        TSnackbar errorSnackBar = TSnackbar.make(getActivity().findViewById(R.id.navigationActivity_toolbar),error,TSnackbar.LENGTH_LONG);
-        errorSnackBar.setActionTextColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.errorSnackBarText));
-        View snackBarView = errorSnackBar.getView();
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) snackBarView.getLayoutParams();
-        params.height = 80;
-        snackBarView.setPadding(0,-20,0,-15);
-        snackBarView.setLayoutParams(params);
-        snackBarView.setBackgroundColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.errorSnackBarBackground));
-        TextView textView = (TextView) snackBarView.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-        textView.setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.errorSnackBarText));
-        textView.setTextSize(12);
-        textView.setGravity(Gravity.CENTER);
-        errorSnackBar.show();
-    }
-
-    private void snackbar(String message){
-        TSnackbar errorSnackBar = TSnackbar.make(getActivity().findViewById(R.id.navigationActivity_toolbar),message,TSnackbar.LENGTH_LONG);
-        errorSnackBar.setActionTextColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.snackBarText));
-        View snackBarView = errorSnackBar.getView();
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) snackBarView.getLayoutParams();
-        params.height = 80;
-        snackBarView.setPadding(0,-20,0,-15);
-        snackBarView.setLayoutParams(params);
-        snackBarView.setBackgroundColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.snackBarBackground));
-        TextView textView = (TextView) snackBarView.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-        textView.setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.snackBarText));
-        textView.setTextSize(12);
-        textView.setGravity(Gravity.CENTER);
-        errorSnackBar.show();
-    }
 
 }

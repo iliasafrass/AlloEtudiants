@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.annonces;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -62,6 +63,7 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
     private AnnonceContract.Presenter mPresenter;
 
     private List<AnnouncementDto> announcements = new ArrayList<>();
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -72,6 +74,9 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
         mUnbinder = ButterKnife.bind(this,view);
         getActivity().setTitle(R.string.toolbar_annonce);
         mPresenter = new AnnoncePresenter(this);
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Chargement");
 
         if (progressBar != null && imgError != null && txtError != null) {
             progressBar.setVisibility(View.VISIBLE);
@@ -95,7 +100,7 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         mPresenter.deleteAnnouncement(announcements.get(position), position);
-                        deleteProgressBar.setVisibility(View.VISIBLE);
+                        progressDialog.show();
                     }
                 };
                 Dialogs.showTwoOptionsDialog(
@@ -153,7 +158,9 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
     public void showAnnouncementsAfterDelete(List<AnnouncementDto> _announcements, int position) {
         if (progressBar != null){
             progressBar.setVisibility(View.GONE);
-            deleteProgressBar.setVisibility(View.GONE);
+        }
+        if (progressDialog != null){
+            progressDialog.dismiss();
         }
 
         announcements = _announcements;

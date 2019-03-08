@@ -29,28 +29,19 @@ public class PublierFragment extends AbstractFragment {
         return new PublierFragment();
     }
 
-    @BindView(R.id.button_proposition)
-    public ImageButton btn_proposition;
-
-    @OnClick(R.id.button_proposition)
+    @OnClick(R.id.cardOffer)
     void goToServiceActivity(){
         Intent i = new Intent(getContext(),StartPublierService.class);
         startActivity(i);
     }
 
-    @BindView(R.id.button_demande)
-    public ImageButton btn_demande;
-
-    @OnClick(R.id.button_demande)
+    @OnClick(R.id.cardRequest)
     void goToDemande(){
         Intent i = new Intent(getContext(), StartPublierDemande.class);
         startActivity(i);
     }
 
-    @BindView(R.id.button_evenement)
-    public ImageButton btn_evenement;
-
-    @OnClick(R.id.button_evenement)
+    @OnClick(R.id.cardEvent)
     void goToEvenement(){
         Intent i = new Intent(getContext(), Start_publier_evenement.class);
         startActivity(i);

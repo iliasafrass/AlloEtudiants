@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.home;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -68,6 +69,7 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
     private HomeAdapter mAdapter;
     private HomeContract.Presenter mPresenter;
     private List<NotificationProfileDto> notifications = new ArrayList<>();
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -79,6 +81,9 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
         getActivity().setTitle(R.string.toolbar_home);
         mUnbinder = ButterKnife.bind(this,view);
         mPresenter = new HomePresenter(this);
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Chargement");
 
         if (progressBar != null && imgError != null && txtError != null){
             progressBar.setVisibility(View.VISIBLE);
@@ -101,13 +106,14 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
         mAdapter.setOnButtonClickListener(new HomeAdapter.OnButtonClickListener() {
             @Override
             public void onAcceptBtnClick(int position) {
+                progressDialog.show();
                 notifications.get(position).getNotification().setAnswer(NotificationAnswer.ACCEPTED);
                 mPresenter.sendNotificationAnswer(notifications.get(position), position);
-
             }
 
             @Override
             public void onDeclineBtnClick(int position) {
+                progressDialog.show();
                 notifications.get(position).getNotification().setAnswer(NotificationAnswer.DECLINED);
                 mPresenter.sendNotificationAnswer(notifications.get(position), position);
             }
@@ -134,6 +140,9 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
             imgError.setVisibility(View.VISIBLE);
             txtError.setVisibility(View.VISIBLE);
         }
+        if (progressDialog != null){
+            progressDialog.dismiss();
+        }
     }
 
     @Override
@@ -143,6 +152,9 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
             imgNotifCount.setVisibility(View.VISIBLE);
             txtNotifications.setVisibility(View.VISIBLE);
             txtHomeHint.setVisibility(View.VISIBLE);
+        }
+        if (progressDialog != null){
+            progressDialog.dismiss();
         }
         notifications = _notifications;
         if(txtNotifications != null){
@@ -159,6 +171,9 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
             imgNotifCount.setVisibility(View.VISIBLE);
             txtNotifications.setVisibility(View.VISIBLE);
             txtHomeHint.setVisibility(View.VISIBLE);
+        }
+        if(progressDialog != null){
+            progressDialog.dismiss();
         }
         notifications = _notifications;
         displayNotificationsCountMessage();

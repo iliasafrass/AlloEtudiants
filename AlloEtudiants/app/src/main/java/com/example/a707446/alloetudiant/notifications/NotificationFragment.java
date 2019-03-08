@@ -79,24 +79,6 @@ public class NotificationFragment extends AbstractFragment implements Notificati
 
         recyclerView.setAdapter(mAdapter);
 
-        /*mAdapter.setOnButtonClickListener(new NotificationsAdapter.OnButtonClickListener() {
-            @Override
-            public void onAcceptBtnClick(int position) {
-//                showMessage("Accepted");
-                // TODO: remov notification from the list, remove it from api, notifiyItemRemoved
-                notifications.get(position).getNotification().setAnswer(NotificationAnswer.ACCEPTED);
-                mPresenter.sendNotificationAnswer(notifications.get(position), position);
-
-            }
-
-            @Override
-            public void onDeclineBtnClick(int position) {
-                notifications.get(position).getNotification().setAnswer(NotificationAnswer.DECLINED);
-                mPresenter.sendNotificationAnswer(notifications.get(position), position);
-            }
-        });*/
-
-
         return view;
     }
 

@@ -2,6 +2,7 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.proposition;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.DetailOfferFragment;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHolder> {
@@ -27,6 +29,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     private List<Offer> offersList;
     private String offerId;
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     //construceteur
     public OffersAdapter(Context context, List<Offer> offersList) {
@@ -51,7 +54,10 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
         holder.title.setText(offer.getTitle());
         holder.address.setText(offer.getAddress());
         holder.description.setText(offer.getDescription());
+        holder.date.setText(sdf.format(offer.getCreatedDate()));
         holder.icon.setImageResource(R.drawable.ic_offers);
+        holder.prix.setText(String.valueOf(offer.getPrice())+" €");
+
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,19 +93,21 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description;
+        public TextView title, address, description,prix,date;
 
         public ImageView icon;
         // le layout  de l'item
-        public RelativeLayout parentLayout;
+        public ConstraintLayout parentLayout;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title_offer);
             address = (TextView) view.findViewById(R.id.address_offer);
             description = (TextView) view.findViewById(R.id.description_offer);
-            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_offer);
+            date = (TextView) view.findViewById(R.id.date);
+            parentLayout = (ConstraintLayout) view.findViewById(R.id.parent_layout_offer);
             icon = (ImageView) view.findViewById(R.id.offer_image);
+            prix = (TextView) view.findViewById(R.id.prix);
         }
     }
     public void setOffersList(List<Offer> list){

@@ -2,6 +2,7 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.evenement;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.DetailEventFragment;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
@@ -27,7 +29,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     //Liste des evenements
     private List<Event> eventsList;
     private String eventId;
-
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     //construceteur
     public EventsAdapter(Context context, List<Event> eventsList) {
@@ -54,6 +56,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         holder.title.setText(event.getTitle());
         holder.address.setText(event.getAddress());
         holder.description.setText(event.getDescription());
+        holder.date.setText(sdf.format(event.getCreatedDate()));
         holder.icon.setImageResource(R.drawable.ic_events);
         //on ajoute un OnClickListener sur le layout de l'item
 
@@ -99,18 +102,19 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description;
+        public TextView title, address, description,date;
 
         public ImageView icon;
         // le layout  de l'item
-        public RelativeLayout parentLayout;
+        public ConstraintLayout parentLayout;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title_event);
             address = (TextView) view.findViewById(R.id.address_event);
             description = (TextView) view.findViewById(R.id.description_event);
-            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_event);
+            date = (TextView) view.findViewById(R.id.date);
+            parentLayout = (ConstraintLayout) view.findViewById(R.id.parent_layout_event);
             icon = (ImageView) view.findViewById(R.id.event_image_detail);
         }
     }

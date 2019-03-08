@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/card_view"
@@ -13,53 +14,89 @@
     android:foreground="?selectableItemBackground"
     android:clickable="true" >
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:id="@+id/parent_layout_offer">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             android:id="@+id/offer_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp"
-            />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:textStyle="bold"
             android:id="@+id/title_offer"
-            android:layout_toRightOf="@+id/offer_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@+id/offer_image"
+            android:text="titre"
+            android:textColor="#000"
             android:textSize="16dp"
-            />
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/offer_image"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/address_offer"
-            android:textColor="#929292"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:layout_toRightOf="@+id/offer_image"
-            android:layout_below="@+id/title_offer"
-            />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:id="@+id/description_offer"
-            android:textColor="#929292"
-            android:textStyle="bold"
+            android:layout_below="@+id/title_offer"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
             android:layout_toRightOf="@+id/offer_image"
-            android:layout_below="@+id/address_offer"
-            />
+            android:gravity="left"
+            android:textColor="#929292"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/offer_image"
+            card_view:layout_constraintTop_toBottomOf="@+id/title_offer"
+            tools:text="adress" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/description_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address_offer"
+            android:layout_marginStart="24dp"
+            android:layout_toRightOf="@+id/offer_image"
+            android:gravity="left"
+            android:textColor="#929292"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/offer_image"
+            card_view:layout_constraintTop_toBottomOf="@+id/address_offer"
+            tools:text="@string/form_description" />
+
+        <TextView
+            android:id="@+id/prix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textSize="16dp"
+            android:text="prix"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/offer_image"
+            card_view:layout_constraintTop_toBottomOf="@+id/description_offer" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textSize="10sp"
+            android:text="date"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>

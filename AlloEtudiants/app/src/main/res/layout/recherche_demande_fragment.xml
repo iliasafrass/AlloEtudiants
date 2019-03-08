@@ -11,12 +11,15 @@
         android:id="@+id/spinner_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:ms_arrowColor="@color/colorPrimaryDark"
         app:ms_arrowSize="16dp"
+        app:ms_baseColor="@color/blueBarColor"
         app:ms_floatingLabelColor="#000"
         app:ms_floatingLabelText="Select your Subject"
         app:ms_hint="Matiere..."
@@ -24,14 +27,14 @@
         app:ms_multiline="true" />
 
 
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_demande"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blueBodyColor"
-        android:clipToPadding="false"
-        android:paddingBottom="73dp"
-        android:scrollbars="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_request" />

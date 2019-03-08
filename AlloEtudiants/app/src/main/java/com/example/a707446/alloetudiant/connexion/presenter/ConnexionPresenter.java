@@ -31,6 +31,7 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
                 if(response.code() == 200) {
                     SharedPreferencesSingleton.setToken(mView.applicationContext(),response.headers().get("Authorization"));
                     getProfileIdByEmail(response.headers().get("Authorization"),email);
+
                 } else {
                     mView.showError("Adresse e-mail ou mot de passe incorrect");
                 }
@@ -38,7 +39,7 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                mView.toast("Failure : " + t.toString());
+                mView.toast("Erreur inconnue. Veuillez réessayer plus tard");
             }
         });
     }

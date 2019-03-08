@@ -76,6 +76,7 @@ public class AnnonceFragment extends AbstractFragment implements AnnonceContract
         mPresenter = new AnnoncePresenter(this);
 
         progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
         progressDialog.setMessage("Chargement");
 
         if (progressBar != null && imgError != null && txtError != null) {

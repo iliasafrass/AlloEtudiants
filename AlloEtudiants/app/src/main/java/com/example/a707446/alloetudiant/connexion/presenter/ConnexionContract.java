@@ -10,6 +10,7 @@ public interface ConnexionContract {
         void toast(String message);
         void showError(String error);
         Context applicationContext();
+        void endLogin();
     }
 
     interface Presenter  {

@@ -83,6 +83,7 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
         mPresenter = new HomePresenter(this);
 
         progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
         progressDialog.setMessage("Chargement");
 
         if (progressBar != null && imgError != null && txtError != null){

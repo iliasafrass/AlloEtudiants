@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.connexion;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,6 +36,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     // Globals
     private ConnexionContract.Presenter mPresenter;
     private Unbinder mUnbinder;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,10 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
         setContentView(R.layout.activity_login);
         mUnbinder = ButterKnife.bind(this);
         mPresenter = new ConnexionPresenter(this);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Chargement");
 
         SharedPreferencesSingleton.setToken(BaseApplication.getAppContext(),"");
 
@@ -58,6 +64,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @OnClick(R.id.login)
     public void onLoginClick(){
+        progressDialog.show();
         String emailInput = edtEmail.getEditText().getText().toString();
         String passwordInput = edtPassword.getEditText().getText().toString();
         if (emailInput.isEmpty() || emailInput == null) {
@@ -81,23 +88,25 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public void signup(){
-//        Toast.makeText(getApplication(), "Inscription", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),Inscription.class);
         startActivity(i);
     }
 
     @Override
     public void forgetPassword() {
-//        Toast.makeText(getApplication(), "mot de passe oublié !", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void toast(String message) {
+        if(progressDialog!=null){
+            progressDialog.dismiss();
+        }
         Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showError(String error) {
+        progressDialog.dismiss();
         errorSnackbar(error);
     }
 
@@ -107,8 +116,14 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     }
 
     @Override
+    public void endLogin() {
+        if (progressDialog!=null) {
+            progressDialog.dismiss();
+        }
+    }
+
+    @Override
     public void login(String token, String profileId){
-        Toast.makeText(getApplication(), "Bienvenu "+profileId, Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
         startActivity(i);
     }

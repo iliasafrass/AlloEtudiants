@@ -80,6 +80,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         mPresenter = new DetailOfferPresenter(this);
 
         progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
         progressDialog.setMessage("Chargement");
 
         mPresenter.startgetOfferById(idOffer);

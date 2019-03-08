@@ -30,7 +30,6 @@ public class InscriptionPresenter implements InscriptionContract.Presenter {
         .enqueue(new Callback<RegisterMessage>() {
             @Override
             public void onResponse(Call<RegisterMessage> call, Response<RegisterMessage> response) {
-                mView.toast("Code : "+response.code());
                 if(response.code() == 200){
                     startAnnuler();
                 }
@@ -38,7 +37,7 @@ public class InscriptionPresenter implements InscriptionContract.Presenter {
 
             @Override
             public void onFailure(Call<RegisterMessage> call, Throwable t) {
-                mView.toast("Failure : " + t.toString());
+                mView.toast("Erreur inconnue. Veuillez réssayer plus tard.");
             }
         });
     }

@@ -92,6 +92,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         getActivity().setTitle(R.string.toolbar_details);
 
         progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
         progressDialog.setMessage("Chargement");
 
         mPresenter = new DetailRequestPresenter(this);

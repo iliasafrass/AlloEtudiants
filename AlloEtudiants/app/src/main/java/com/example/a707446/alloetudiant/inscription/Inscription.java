@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.inscription;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -60,6 +61,7 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
     MaterialSpinner spinnerNiveau;
     // Globals
     private InscriptionContract.Presenter mPresenter;
+    private ProgressDialog progressDialog;
     private Unbinder mUnbinder;
 
     @Override
@@ -70,7 +72,11 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
         mUnbinder = ButterKnife.bind(this);
         mPresenter = new InscriptionPresenter(this);
 
-        //region sppiner niveau
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Chargement");
+
+        //region spinner niveau
         selectedSpinnerNiveau = "";
         spinnerNiveau  = (MaterialSpinner)findViewById(R.id.niveau);
 
@@ -85,8 +91,6 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
                 if (position != -1)// -1 hint choose..
                 {
                     selectedSpinnerNiveau = spinnerNiveau.getItemAtPosition(position).toString();
-                } else {
-
                 }
             }
 
@@ -113,6 +117,8 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
 
     @OnClick(R.id.inscrire)
     public void onInscrireClick(){
+
+        progressDialog.show();
 
         RegisterProfileDto profileDto = new RegisterProfileDto();
 
@@ -181,12 +187,15 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
 
     @Override
     public void annuler() {
+        progressDialog.dismiss();
+        Toast.makeText(getApplication(), "Un email vous a été envoyé pour confirmation", Toast.LENGTH_LONG).show();
         Intent i = new Intent(getApplicationContext(),Login.class);
         startActivity(i);
     }
 
     @Override
     public void toast(String message) {
+        progressDialog.dismiss();
         Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show();
     }
 

@@ -1,5 +1,6 @@
 package com.example.a707446.alloetudiant.profil;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.connexion.Login;
 import com.example.a707446.alloetudiant.general.BaseApplication;
+import com.example.a707446.alloetudiant.general.Dialogs;
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.pojo.Profile;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -46,15 +48,29 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
 
     @OnClick(R.id.imageButton2)
     public void logOut(){
-        SharedPreferencesSingleton.clear(getContext());
-        Intent i = new Intent(getContext(), Login.class);
-        startActivity(i);
-        getActivity().finish();
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                SharedPreferencesSingleton.clear(getContext());
+                Intent intent = new Intent(getContext(), Login.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        };
+        Dialogs.showTwoOptionsDialog(
+                getContext(),
+                "Déconnexion",
+                "Vous allez vous déconnecter de l'application.",
+                "Déconnecter",
+                "Annuler",
+                listener,
+                null
+        );
     }
 
     @OnClick(R.id.imageButton)
     public void edit(){
-        Toast.makeText(getContext(),"RAF",Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(),"Cette fonctionnalité sera disponible prochainement",Toast.LENGTH_LONG).show();
     }
 
     public ProfilFragment() {

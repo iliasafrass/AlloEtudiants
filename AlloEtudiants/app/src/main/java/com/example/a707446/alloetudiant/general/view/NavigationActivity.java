@@ -160,15 +160,15 @@ public class NavigationActivity extends AppCompatActivity {
                 //set icon
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 //set title
-                .setTitle("Attention!")
+                .setTitle(R.string.warning)
                 //set message
-                .setMessage("Etes-vous sûr de vouloir quitter l'application ?")
+                .setMessage(R.string.quitApplication)
                 //set positive button
                 .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what would happen when positive button is clicked
-                        Toast.makeText(getApplicationContext(), "Au revoir!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.aurevoir, Toast.LENGTH_LONG).show();
                         finish();
                     }
                 })

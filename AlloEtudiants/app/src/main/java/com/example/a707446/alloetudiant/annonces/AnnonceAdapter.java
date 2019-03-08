@@ -54,15 +54,16 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtTitle.setText(offer.getTitle());
                 myViewHolder.txtDate.setText(sdf.format(offer.getCreatedDate()));
                 myViewHolder.txtAdresse.setText(offer.getAddress());
+
                 myViewHolder.txtDescription.setText(offer.getDescription());
                 myViewHolder.txtDays.setText("");
-                myViewHolder.txtAnnounceInvitation.setText("Proposition d'aide");
+                myViewHolder.txtAnnounceInvitation.setText(R.string.proposition_daide);
                 if(offer.getPrice() == 0){
-                    myViewHolder.txtPrice.setText("Gratuit");
+                    myViewHolder.txtPrice.setText(R.string.free);
                 } else {
                     myViewHolder.txtPrice.setText(offer.getPrice()+" € par heure");
                 }
-                myViewHolder.txtAnnounceDatesLabel.setText("Dates");
+                myViewHolder.txtAnnounceDatesLabel.setText(R.string.dates);
                 for (WeekDay weekDay: offer.getDays()
                         ) {
                     myViewHolder.txtDays.append(weekDay.name()+" ");
@@ -76,13 +77,13 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtAdresse.setText(request.getAddress());
                 myViewHolder.txtDescription.setText(request.getDescription());
                 myViewHolder.txtDays.setText("");
-                myViewHolder.txtAnnounceInvitation.setText("Demande d'aide");
+                myViewHolder.txtAnnounceInvitation.setText(R.string.demande_daide);
                 if(request.getTotal() == 0){
-                    myViewHolder.txtPrice.setText("Gratuit");
+                    myViewHolder.txtPrice.setText(R.string.free);
                 } else {
                     myViewHolder.txtPrice.setText(request.getTotal()+" € pour "+request.getHours()+" heure(s)");
                 }
-                myViewHolder.txtAnnounceDatesLabel.setText("Dates");
+                myViewHolder.txtAnnounceDatesLabel.setText(R.string.dates);
                 for (WeekDay weekDay: request.getDays()
                         ) {
                     myViewHolder.txtDays.append(weekDay.name()+"\n");
@@ -96,10 +97,10 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtAdresse.setText(event.getAddress());
                 myViewHolder.txtDescription.setText(event.getDescription());
                 myViewHolder.txtDays.setText("");
-                myViewHolder.txtAnnounceInvitation.setText("Événement");
+                myViewHolder.txtAnnounceInvitation.setText(R.string.event);
                 myViewHolder.txtPrice.setVisibility(View.GONE);
                 myViewHolder.txtAnnouncePriceLabel.setVisibility(View.GONE);
-                myViewHolder.txtAnnounceDatesLabel.setText("Date");
+                myViewHolder.txtAnnounceDatesLabel.setText(R.string.dates);
                 myViewHolder.txtDays.setText(event.getDates());
                 /*for (Date date: event.getDates()
                         ) {

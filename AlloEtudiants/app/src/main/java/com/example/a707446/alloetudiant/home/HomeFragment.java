@@ -187,9 +187,9 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
 
     private void displayNotificationsCountMessage(){
         if(notifications.size() == 0){
-            txtNotifications.setText("Vous n'avez aucune notification");
+            txtNotifications.setText(R.string.alert_notif_nope);
         } else if(notifications.size() == 1) {
-            txtNotifications.setText("Vous avez 1 notification à consulter");
+            txtNotifications.setText(R.string.alert_notif);
         } else {
             txtNotifications.setText("Vous avez " + notifications.size() +" notifications à consulter");
         }

@@ -25,7 +25,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
-        android:text="Créneau possible"
+        android:text="@string/cr_neau_possible_demande_step1"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,10 +100,11 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:ems="10"
-                android:hint="Adresse"
+                android:hint="@string/adresse_demande_step1"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:theme="@style/MyEditText" />
+                android:theme="@style/MyEditText"
+                android:inputType="" />
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
@@ -142,7 +143,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:ems="10"
-                android:hint="Prix par heure"
+                android:hint="@string/prix_par_heure_demande_step1"
                 android:inputType="numberDecimal"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -170,7 +171,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:ems="10"
-                android:hint="Heures"
+                android:hint="@string/heures_demande_step1"
                 android:inputType="numberDecimal"
                 android:textSize="16sp"
                 android:textStyle="bold"

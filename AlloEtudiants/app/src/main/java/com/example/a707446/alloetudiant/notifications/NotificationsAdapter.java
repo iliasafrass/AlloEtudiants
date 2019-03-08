@@ -69,11 +69,11 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         // TODO: COMME çA ON CHANGE LE txtInvitation
         switch (notifications.get(i).getNotification().getAnnounceType()) {
             case REQUEST: {
-                myViewHolder.txtInvitation.setText("Une réservation pour la demande d'aide");
+                myViewHolder.txtInvitation.setText(R.string.demande_daide_reservation);
                 break;
             }
             case OFFER: {
-                myViewHolder.txtInvitation.setText("Une réservation pour la proposition de service");
+                myViewHolder.txtInvitation.setText(R.string.proposition_daide_reservation);
                 break;
             }
         }

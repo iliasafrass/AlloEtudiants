@@ -60,5 +60,110 @@
     <string name="description_demande">Description</string>
     <string name="une_demande_d_aide_titre">Une demande d\'aide</string>
     <string name="d_cris_votre_proposition">Décris votre proposition ...</string>
+    <string name="d_cris_ta_proposition">Décris ta proposition</string>
+    <string name="titre_proposition">Titre</string>
+    <string name="cr_neau">Créneau</string>
+    <string name="cr_neau_possible_proposition">Créneau possible</string>
+    <string name="adresse_proposition">Adresse</string>
+    <string name="prix_par_heure_proposition">Prix par heure</string>
+    <string name="besoin_demande_aide">Besoin</string>
+    <string name="titre_demande_aide_step0">Titre</string>
+    <string name="d_cris_votre_demande_aide">Décris votre demande</string>
+    <string name="cr_neau_possible_demande_step1">Créneau possible</string>
+    <string name="adresse_demande_step1">Adresse</string>
+    <string name="prix_par_heure_demande_step1">Prix par heure</string>
+    <string name="heures_demande_step1">Heures</string>
+    <string name="title_detaisl_event">title</string>
+    <string name="date_details_event">Date</string>
+    <string name="address_details_event">address</string>
+    <string name="descriptiondetails_event">description</string>
+    <string name="adresse_title_event">Adresse</string>
+    <string name="date_title_event">Date</string>
+    <string name="date_details_proposition">Date</string>
+    <string name="address_details_proposition">address</string>
+    <string name="description_details_proposition">description</string>
+    <string name="prix_details_proposition">prix</string>
+    <string name="prix_title_details_proposition">Prix</string>
+    <string name="jours_de_disponibilit_s_details_proposition">Jours de disponibilités</string>
+    <string name="adresse_title_details_proposition">Adresse</string>
+    <string name="adresse_details_request">Adresse</string>
+    <string name="jours_dispo_details_request">Jours de disponibilités</string>
+    <string name="prix_details_request">Prix</string>
+    <string name="gratuit_details_request">Gratuit</string>
+    <string name="evenement_step0">Evenement</string>
+    <string name="titre_evenements_step0">Titre</string>
+    <string name="d_cris_votre_evenement">Décris votre evenement</string>
+    <string name="adresse_evenement_step0">Adresse</string>
+    <string name="selectionner_la_date_event">Selectionner la date</string>
+    <string name="selectionner_heure_event">Selectionner l\'heure</string>
+    <string name="titre_details_event">titre</string>
+    <string name="description_details_event">description</string>
+    <string name="lieu_details_event">Lieu</string>
+    <string name="adress_details_event">adress</string>
+    <string name="date_details_">Date :</string>
+    <string name="date_event_step1">date</string>
+    <string name="message_pub_event">Publie votre evenement gratuitement.</string>
+    <string name="title_offer">title</string>
+    <string name="titre_rec_request">titre</string>
+    <string name="descr_rec_request">description</string>
+    <string name="adress_rec_request">adress</string>
+    <string name="lieu_rec_request">Lieu</string>
+    <string name="dispo_rec_request">Disponibilités</string>
+    <string name="date_rec_request">date</string>
+    <string name="matiere_rec_request">Matiere</string>
+    <string name="mat_rec_request">matiere</string>
+    <string name="niveau_rec_request">Niveau</string>
+    <string name="niveau_rec">niveau</string>
+    <string name="total_rec_req">Total</string>
+    <string name="total_rec_request">total</string>
+    <string name="msg_rec_request">Publie votre demande gratuitement.</string>
+    <string name="error_home">Impossible de récupérer les données. Veuillez réessayer plus tard.</string>
+    <string name="accept_home_msg">Acceptez pour recevoir un email contenant l\'adresse mail de l\'autre personne.</string>
+    <string name="notif_msg_home">Invitation pour votre demande d\'aide</string>
+    <string name="sender_notif">Envoyée par</string>
+    <string name="story_notif_msg">Votre historique des notifications reçues</string>
+    <string name="rec_notif_invi">Invitation pour votre demande d\'aide</string>
+    <string name="sended_msg">Envoyée par</string>
+    <string name="profile_title">Profile</string>
+    <string name="description_profil">description</string>
+    <string name="tel">telephone</string>
+    <string name="proposition_daide">Proposition d\aide</string>
+    <string name="free">Gratuit</string>
+    <string name="dates">Dates</string>
+    <string name="demande_daide">Demande d\aide</string>
+    <string name="event">Événement</string>
+    <string name="quitApplication">Etes-vous sûr de vouloir quitter l\'application ?</string>
+    <string name="warning">Attetion!</string>
+    <string name="format_date">yyyy-MM-dd HH:mm</string>
+    <string name="aurevoir">Aurevoir</string>
+    <string name="error_server">Internal server error</string>
+    <string name="demande_daide_reservation">Une réservation pour la demande d\'aide</string>
+    <string name="proposition_daide_reservation">Une réservation pour la proposition d\'aide</string>
+    <string name="alert_notif_nope">Vous n\'avez aucune notification</string>
+    <string name="alert_notif">Vous avez 1 notification à consulter"</string>
+    <string name="confirm_mail">Un email vous a été envoyé pour confirmation"</string>
+    <string name="titre_obligation">titre est obligatoire!</string>
+    <string name="annonce_thx">Merci pour votre annonce</string>
+    <string name="confirm_sent">Votre demande est bien publié</string>
+    <string name="error_demande_server">Le service publier une demande semble interrompue. Veuillez réessayer.</string>
+    <string name="confirm_sent_event">Votre évenement est bien publié</string>
+    <string name="error_event_server">Le service publier evenement semble interrompue. Veuillez réessayer.</string>
+    <string name="confirm_sent_proposition">Votre proposition est bien publié</string>
+    <string name="error_propo_server">Le service publier proposition semble interrompue. Veuillez réessayer.</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>

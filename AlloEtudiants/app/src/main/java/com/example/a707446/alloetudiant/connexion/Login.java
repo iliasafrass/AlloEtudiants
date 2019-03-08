@@ -104,9 +104,9 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
                 //set icon
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 //set title
-                .setTitle("Attention!")
+                .setTitle(R.string.warning)
                 //set message
-                .setMessage("Etes-vous sûr de vouloir quitter l'application ?")
+                .setMessage(R.string.quitApplication)
                 //set positive button
                 .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override

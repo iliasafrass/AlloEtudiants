@@ -50,7 +50,6 @@
             android:layout_width="97dp"
             android:layout_height="100dp"
             android:layout_alignParentLeft="true"
-
             android:layout_alignParentTop="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -137,7 +136,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/cabin"
-            android:text="Adresse"
+            android:text="@string/adresse_details_request"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_request_detail" />
@@ -149,7 +148,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/cabin"
-            android:text="Jours de disponibilités"
+            android:text="@string/jours_dispo_details_request"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_request_detail" />
@@ -161,7 +160,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/cabin"
-            android:text="Prix"
+            android:text="@string/prix_details_request"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date_request_detail" />
@@ -173,7 +172,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
             android:fontFamily="@font/cabin"
-            android:text="Gratuit"
+            android:text="@string/gratuit_details_request"
             android:textColor="@color/notSoBlack"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"

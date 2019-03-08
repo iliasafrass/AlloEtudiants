@@ -183,9 +183,9 @@ public class RecapRequestFragment extends Fragment implements BlockingStep,Deman
                 //set icon
                 .setIcon(R.drawable.ic_thankful)
                 //set title
-                .setTitle("Merci pour votre annonce !")
+                .setTitle(R.string.annonce_thx)
                 //set message
-                .setMessage("Votre demande est bien publiée !")
+                .setMessage(R.string.confirm_sent)
                 //set positive button
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -204,7 +204,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep,Deman
                 //set title
                 .setTitle("Attention!")
                 //set message
-                .setMessage("Le service publier une demande semble interrompue. Veuillez réessayer.")
+                .setMessage(R.string.error_demande_server)
                 //set negative button
                 .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                     @Override

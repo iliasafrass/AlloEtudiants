@@ -178,9 +178,9 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
                 //set icon
                 .setIcon(R.drawable.ic_thankful)
                 //set title
-                .setTitle("Merci pour votre annonce !")
+                .setTitle(R.string.annonce_thx)
                 //set message
-                .setMessage("Votre proposition est bien publiée !")
+                .setMessage(R.string.confirm_sent_proposition)
                 //set positive button
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -199,7 +199,7 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
                 //set title
                 .setTitle("Attention!")
                 //set message
-                .setMessage("Le service publier proposition semble interrompue. Veuillez réessayer.")
+                .setMessage(R.string.error_propo_server)
                 //set negative button
                 .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                     @Override

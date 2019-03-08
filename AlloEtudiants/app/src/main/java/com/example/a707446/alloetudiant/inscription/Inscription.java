@@ -94,7 +94,7 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
     @Override
     public void endInscrire(String message, int code) {
         if(code == 200){
-            Toast.makeText(getApplication(), "Un email vous a été envoyé pour confirmation", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplication(), R.string.confirm_mail, Toast.LENGTH_LONG).show();
 
         } else {
             Toast.makeText(getApplication(), "code !=200 :"+code+message, Toast.LENGTH_SHORT).show();

@@ -17,7 +17,7 @@
         android:layout_width="384dp"
         android:layout_height="53dp"
         android:layout_marginTop="44dp"
-        android:text="Evenement"
+        android:text="@string/evenement_step0"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -48,11 +48,12 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
-            android:hint="Titre"
+            android:hint="@string/titre_evenements_step0"
             android:textSize="16sp"
             android:textStyle="bold"
             android:theme="@style/MyEditText"
-            app:layout_constraintTop_toBottomOf="@+id/event" />
+            app:layout_constraintTop_toBottomOf="@+id/event"
+            android:inputType="" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -76,10 +77,11 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
-            android:hint="Décris votre evenement"
+            android:hint="@string/d_cris_votre_evenement"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:theme="@style/MyEditText" />
+            android:theme="@style/MyEditText"
+            android:inputType="" />
     </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
@@ -120,10 +122,11 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:ems="10"
-                android:hint="Adresse"
+                android:hint="@string/adresse_evenement_step0"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:theme="@style/MyEditText" />
+                android:theme="@style/MyEditText"
+                android:inputType="" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -169,10 +172,11 @@
                 android:layout_centerVertical="true"
                 android:ems="10"
                 android:focusableInTouchMode="false"
-                android:hint="Selectionner la date "
+                android:hint="@string/selectionner_la_date_event"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:theme="@style/MyEditText" />
+                android:theme="@style/MyEditText"
+                android:inputType="" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -218,10 +222,11 @@
                 android:layout_centerVertical="true"
                 android:ems="10"
                 android:focusableInTouchMode="false"
-                android:hint="Selectionner l'heure"
+                android:hint="@string/selectionner_heure_event"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:theme="@style/MyEditText" />
+                android:theme="@style/MyEditText"
+                android:inputType="" />
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>

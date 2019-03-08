@@ -164,9 +164,9 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
                 //set icon
                 .setIcon(R.drawable.ic_thankful)
                 //set title
-                .setTitle("Merci pour votre annonce !")
+                .setTitle(R.string.annonce_thx)
                 //set message
-                .setMessage("Votre evenement est bien publiée !")
+                .setMessage(R.string.confirm_sent_event)
                 //set positive button
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -183,9 +183,9 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
                 //set icon
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 //set title
-                .setTitle("Attention!")
+                .setTitle(R.string.warning)
                 //set message
-                .setMessage("Le service publier evenement semble interrompue. Veuillez réessayer.")
+                .setMessage(R.string.error_event_server)
                 //set negative button
                 .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                     @Override

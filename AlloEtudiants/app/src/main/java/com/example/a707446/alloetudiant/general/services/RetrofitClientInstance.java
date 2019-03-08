@@ -3,6 +3,7 @@ package com.example.a707446.alloetudiant.general.services;
 import android.content.SharedPreferences;
 import android.util.JsonReader;
 
+import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.BaseApplication;
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.google.gson.Gson;
@@ -41,7 +42,7 @@ public class RetrofitClientInstance {
     }).build();
 
     static Gson gson = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd HH:mm")
+            .setDateFormat(R.string.format_date)
             .setLenient()
             .create();
 

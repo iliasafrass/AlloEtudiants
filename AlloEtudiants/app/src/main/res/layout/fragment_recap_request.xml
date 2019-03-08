@@ -79,6 +79,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/request_image_detail" />
 
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/cabin"
+            android:text="Lieu"
+            android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_request_detail" />
         <TextView
             android:id="@+id/address_request_detail"
             android:layout_width="0dp"
@@ -96,17 +109,6 @@
 
 
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/cabin"
-            android:text="Lieu"
-            android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_request_detail" />
 
         <TextView
             android:id="@+id/textView4"

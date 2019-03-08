@@ -15,8 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.enumeration.Grade;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.publication.demande.DataManager;
 import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
@@ -31,19 +31,19 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DemandeStep0 extends Fragment  implements BlockingStep {
+public class DemandeStep0 extends Fragment implements BlockingStep {
 
+    MaterialSpinner spinner;
+    MaterialSpinner spinnerNiveau;
+    TextInputLayout titre;
+    TextInputLayout description;
     //variables
     private ArrayAdapter<String> spinnerAdapter;
     private ArrayAdapter<String> spinnerNiveauAdapter;
     private List<String> listItems = new ArrayList<>();
     private List<String> listItemsNiveau = new ArrayList<>();
-    MaterialSpinner spinner;
-    MaterialSpinner spinnerNiveau;
     private String selectedSpinner;
     private String selectedSpinnerNiveau;
-    TextInputLayout titre;
-    TextInputLayout description;
     private String titreInput;
     private String descriptionInput;
 
@@ -90,7 +90,7 @@ public class DemandeStep0 extends Fragment  implements BlockingStep {
 
         //region sppiner niveau
         selectedSpinnerNiveau = "";
-        spinnerNiveau  = (MaterialSpinner) getView().findViewById(R.id.niveau_demande);
+        spinnerNiveau = (MaterialSpinner) getView().findViewById(R.id.niveau_demande);
 
         clearSpinnerNiveauItems();
         initSpinnerNiveauItems();
@@ -142,7 +142,6 @@ public class DemandeStep0 extends Fragment  implements BlockingStep {
         listItems.add(Subject.INFORMATIQUE.toString());
         listItems.add(Subject.ELECTRONIQUE.toString());
     }
-
 
 
     @Override

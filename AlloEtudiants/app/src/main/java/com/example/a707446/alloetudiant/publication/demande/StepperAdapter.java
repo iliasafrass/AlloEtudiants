@@ -1,7 +1,6 @@
 package com.example.a707446.alloetudiant.publication.demande;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -18,9 +17,10 @@ public class StepperAdapter extends AbstractFragmentStepAdapter {
     public StepperAdapter(FragmentManager fm, Context context) {
         super(fm, context);
     }
+
     @Override
     public Step createStep(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 final DemandeStep0 step0 = new DemandeStep0();
                 return step0;
@@ -33,15 +33,17 @@ public class StepperAdapter extends AbstractFragmentStepAdapter {
         }
         return null;
     }
+
     @Override
     public int getCount() {
         return 3;
     }
+
     @NonNull
     @Override
     public StepViewModel getViewModel(@IntRange(from = 0) int position) {
         //Override this method to set Step title for the Tabs, not necessary for other stepper types
-        switch (position){
+        switch (position) {
             case 0:
                 return new StepViewModel.Builder(context)
                         .setTitle("") //can be a CharSequence instead

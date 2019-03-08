@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
@@ -25,11 +24,11 @@ import java.util.List;
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
 
     public Context myContext;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     private RechercheEvenementFragment mFragmentParent;
     //Liste des evenements
     private List<Event> eventsList;
     private String eventId;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     //construceteur
     public EventsAdapter(Context context, List<Event> eventsList) {
@@ -86,15 +85,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     }
 
 
-
     // Retourne le nombre total d'éléments dans la liste
     @Override
     public int getItemCount() {
         return eventsList.size();
     }
 
-    public void setEventsList(List<Event> list){
-        this.eventsList=list;
+    public void setEventsList(List<Event> list) {
+        this.eventsList = list;
         notifyDataSetChanged();
     }
 
@@ -102,7 +100,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description,date;
+        public TextView title, address, description, date;
 
         public ImageView icon;
         // le layout  de l'item

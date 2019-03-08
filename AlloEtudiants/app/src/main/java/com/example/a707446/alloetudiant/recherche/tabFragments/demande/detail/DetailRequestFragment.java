@@ -23,9 +23,6 @@ import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.presenter.DetailRequestConstract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.presenter.DetailRequestPresenter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -33,7 +30,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailRequestFragment extends AbstractFragment implements DetailRequestConstract.View{
+public class DetailRequestFragment extends AbstractFragment implements DetailRequestConstract.View {
 
     //Views
     @BindView(R.id.title_request_detail)
@@ -83,8 +80,8 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_detail_request,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_detail_request, null);
+        mUnbinder = ButterKnife.bind(this, view);
         NavigationActivity.inDetail = true;
         getActivity().setTitle(R.string.toolbar_details);
 
@@ -99,7 +96,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     }
 
     @OnClick(R.id.reserver_demande)
-    public void askRequest(){
+    public void askRequest() {
         progressDialog.show();
         mPresenter.startAskingRequest(this.mRequest);
     }
@@ -122,14 +119,14 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
         Log.d("event", request.getId());
         this.mRequest = request;
 
-        if(mRequest != null) {
+        if (mRequest != null) {
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             String listDays = "";
             String myDay = "";
-            for (WeekDay day: mRequest.getDays()) {
+            for (WeekDay day : mRequest.getDays()) {
                 myDay = day.name();
-                switch (day){
+                switch (day) {
                     case MONDAY:
                         myDay = "Lundi";
                         break;
@@ -155,21 +152,20 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
                         myDay = "Dimanche";
                         break;
                 }
-                listDays += myDay+", ";
+                listDays += myDay + ", ";
             }
 
             date.setText(listDays);
             icon.setImageResource(R.drawable.ic_requests);
             description.setText(mRequest.getDescription());
             address.setText(mRequest.getAddress());
-            if(request.getTotal() == 0){
+            if (request.getTotal() == 0) {
                 price.setText("Gratuit");
             } else {
-                price.setText(request.getTotal()+" € pour "+request.getHours()+" heure(s)");
+                price.setText(request.getTotal() + " € pour " + request.getHours() + " heure(s)");
             }
             getActivity().setTitle(R.string.toolbar_details);
-        }
-        else{
+        } else {
             Log.d("mRrequest", "null");
         }
     }
@@ -177,13 +173,13 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     @Override
     public void showError(String error) {
         progressDialog.dismiss();
-        Toast.makeText(getActivity().getApplicationContext(),error,Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity().getApplicationContext(), error, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showToast(String message) {
         progressDialog.dismiss();
-        Toast.makeText(getActivity().getApplicationContext(),message,Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override

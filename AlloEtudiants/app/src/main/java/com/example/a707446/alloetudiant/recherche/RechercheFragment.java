@@ -87,16 +87,13 @@ public class RechercheFragment extends AbstractFragment {
     }
 
 
-
     @Override
     public void onResume() {
         super.onResume();
         Handler handler = new Handler();
-        handler.post(new Runnable()
-        {
+        handler.post(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 viewPager.setAdapter(new PagerAdapter(getFragmentManager(), tabLayout.getTabCount()));
             }
         });

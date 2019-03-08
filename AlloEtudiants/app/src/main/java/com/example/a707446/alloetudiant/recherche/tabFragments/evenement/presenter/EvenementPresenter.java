@@ -53,7 +53,7 @@ public class EvenementPresenter implements EvenementContract.Presenter {
                 new Callback<List<Event>>() {
                     @Override
                     public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.getEventsByTitle(response.body());
                         else
                             Log.d("response", " is null");

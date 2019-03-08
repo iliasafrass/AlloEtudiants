@@ -51,7 +51,7 @@ public class RequestPresenter implements RequestContract.Presenter {
                 new Callback<List<Request>>() {
                     @Override
                     public void onResponse(Call<List<Request>> call, Response<List<Request>> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.getRequestsBySubject(response.body());
                         else
                             Log.d("response", " is null");

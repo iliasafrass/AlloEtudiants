@@ -30,18 +30,16 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     //Views
     @BindView(R.id.recycler_view_demande)
     public RecyclerView recyclerView;
-/*    @BindView(R.id.progress_bar)
-    public ProgressBar progressBar;*/
+    /*    @BindView(R.id.progress_bar)
+        public ProgressBar progressBar;*/
     @BindView(R.id.spinner_request)
     public MaterialSpinner spinner;
-
+    ArrayAdapter<String> spinnerAdapter;
+    List<String> listItems = new ArrayList<>();
     //variable
     private RequestContract.Presenter mPresenter;
     private List<Request> requestList = new ArrayList<>();
     private RequestsAdapter mAdapter;
-
-    ArrayAdapter<String> spinnerAdapter;
-    List<String> listItems = new ArrayList<>();
 
 /*    Boolean isScrolling = false;
     int currentItems,totalItems, scrollOutItems;
@@ -69,21 +67,20 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
         //creation de l'adapter on lui passant la liste des demandes.
         mAdapter = new RequestsAdapter(getActivity().getBaseContext(), requestList);
         /*
-        *filter with spinner
+         *filter with spinner
          */
         initSpinnerItems();
-        spinnerAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_dropdown_item,listItems);
+        spinnerAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_dropdown_item, listItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position != -1)// -1 hint choose..
+                if (position != -1)// -1 hint choose..
                 {
                     String selected = spinner.getItemAtPosition(position).toString();
                     mPresenter.startgetRequestsBySubject(selected);
-                }
-                else{
+                } else {
                     mPresenter.sendRequestsToView();
                 }
             }

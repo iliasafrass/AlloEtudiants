@@ -31,7 +31,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
                 new Callback<Profile>() {
                     @Override
                     public void onResponse(Call<Profile> call, Response<Profile> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.getProfileById(response.body());
                         else
                             Log.d("response", " is null");

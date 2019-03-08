@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -15,7 +14,6 @@ import com.example.a707446.alloetudiant.publication.demande.StartPublierDemande;
 import com.example.a707446.alloetudiant.publication.evenement.Start_publier_evenement;
 import com.example.a707446.alloetudiant.publication.proposition.StartPublierService;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -30,19 +28,19 @@ public class PublierFragment extends AbstractFragment {
     }
 
     @OnClick(R.id.cardOffer)
-    void goToServiceActivity(){
-        Intent i = new Intent(getContext(),StartPublierService.class);
+    void goToServiceActivity() {
+        Intent i = new Intent(getContext(), StartPublierService.class);
         startActivity(i);
     }
 
     @OnClick(R.id.cardRequest)
-    void goToDemande(){
+    void goToDemande() {
         Intent i = new Intent(getContext(), StartPublierDemande.class);
         startActivity(i);
     }
 
     @OnClick(R.id.cardEvent)
-    void goToEvenement(){
+    void goToEvenement() {
         Intent i = new Intent(getContext(), Start_publier_evenement.class);
         startActivity(i);
     }
@@ -53,17 +51,18 @@ public class PublierFragment extends AbstractFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.publier_fragment,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.publier_fragment, null);
+        mUnbinder = ButterKnife.bind(this, view);
 
         getActivity().setTitle(R.string.toolbar_publier);
 
         return view;
     }
+
     @Override
     public void onResume() {
         super.onResume();
-            NavigationActivity.mBottomNavigationView.getMenu().getItem(3).setChecked(true);
+        NavigationActivity.mBottomNavigationView.getMenu().getItem(3).setChecked(true);
 
     }
 }

@@ -1,14 +1,11 @@
 package com.example.a707446.alloetudiant.annonces.presenter;
 
-import android.widget.Toast;
-
 import com.example.a707446.alloetudiant.general.BaseApplication;
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.repository.Repo;
 import com.example.a707446.alloetudiant.general.repository.RepoImpl;
-import com.example.a707446.alloetudiant.recherche.tabFragments.demande.presenter.RequestPresenter;
 
 import java.util.List;
 
@@ -16,14 +13,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AnnoncePresenter implements AnnonceContract.Presenter{
+public class AnnoncePresenter implements AnnonceContract.Presenter {
 
     private static final String TAG = AnnoncePresenter.class.getSimpleName();
 
     private AnnonceContract.View mView;
     private Repo mRepo;
 
-    public AnnoncePresenter(AnnonceContract.View view){
+    public AnnoncePresenter(AnnonceContract.View view) {
         this.mView = view;
         mRepo = new RepoImpl();
     }
@@ -34,7 +31,7 @@ public class AnnoncePresenter implements AnnonceContract.Presenter{
                 .enqueue(new Callback<List<AnnouncementDto>>() {
                     @Override
                     public void onResponse(Call<List<AnnouncementDto>> call, Response<List<AnnouncementDto>> response) {
-                        if(response.isSuccessful()){
+                        if (response.isSuccessful()) {
                             mView.showAnnouncements(response.body());
                         } else {
                             mView.showError();
@@ -72,8 +69,8 @@ public class AnnoncePresenter implements AnnonceContract.Presenter{
                 .enqueue(new Callback<List<AnnouncementDto>>() {
                     @Override
                     public void onResponse(Call<List<AnnouncementDto>> call, Response<List<AnnouncementDto>> response) {
-                        if(response.isSuccessful()){
-                            mView.showAnnouncementsAfterDelete(response.body(),position);
+                        if (response.isSuccessful()) {
+                            mView.showAnnouncementsAfterDelete(response.body(), position);
                         } else {
                             mView.showError();
                         }

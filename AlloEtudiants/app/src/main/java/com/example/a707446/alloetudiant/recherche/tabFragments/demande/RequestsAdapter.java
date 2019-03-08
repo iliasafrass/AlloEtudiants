@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
@@ -25,12 +24,10 @@ import java.util.List;
 public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyViewHolder> {
 
     public Context myContext;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     //Liste des demandes d'aide
     private List<Request> requestsList;
-
     private String requestId;
-
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     //construceteur
     public RequestsAdapter(Context context, List<Request> requestsList) {
@@ -57,7 +54,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
         holder.address.setText(request.getAddress());
         holder.description.setText(request.getDescription());
         holder.date.setText(sdf.format(request.getCreatedDate()));
-        holder.prix.setText(String.valueOf(request.getPricePerHour()*request.getHours())+" €");
+        holder.prix.setText(String.valueOf(request.getPricePerHour() * request.getHours()) + " €");
         holder.icon.setImageResource(R.drawable.ic_requests);
 
 
@@ -92,11 +89,16 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
         return requestsList.size();
     }
 
+    public void setRequestsList(List<Request> list) {
+        this.requestsList = list;
+        notifyDataSetChanged();
+    }
+
     //cette class permet de fournir une référence directe à chacune des vues dans un élément de données
     public class MyViewHolder extends RecyclerView.ViewHolder {
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description,prix,date;
+        public TextView title, address, description, prix, date;
 
         public ImageView icon;
         // le layout  de l'item
@@ -113,10 +115,6 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
             icon = (ImageView) view.findViewById(R.id.request_image);
 
         }
-    }
-    public void setRequestsList(List<Request> list){
-        this.requestsList = list;
-        notifyDataSetChanged();
     }
 
 }

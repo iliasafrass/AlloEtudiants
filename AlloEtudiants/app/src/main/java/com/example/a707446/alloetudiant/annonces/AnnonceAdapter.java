@@ -17,21 +17,19 @@ import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
-public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHolder>{
+public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHolder> {
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     private List<AnnouncementDto> announcements;
     private AnnonceAdapter.OnButtonClickListener onButtonClickListener;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-    public AnnonceAdapter(List<AnnouncementDto> announcementsList){
+    public AnnonceAdapter(List<AnnouncementDto> announcementsList) {
         this.announcements = announcementsList;
     }
 
-    public void setAnnouncements(List<AnnouncementDto> announcementsList){
+    public void setAnnouncements(List<AnnouncementDto> announcementsList) {
         this.announcements = announcementsList;
     }
 
@@ -46,7 +44,7 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        switch (announcements.get(i).getAnnounceType()){
+        switch (announcements.get(i).getAnnounceType()) {
             case OFFER:
                 Offer offer = announcements.get(i).getOffer();
                 myViewHolder.txtTitle.setText(offer.getTitle());
@@ -55,15 +53,15 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtDescription.setText(offer.getDescription());
                 myViewHolder.txtDays.setText("");
                 myViewHolder.txtAnnounceInvitation.setText("Proposition d'aide");
-                if(offer.getPrice() == 0){
+                if (offer.getPrice() == 0) {
                     myViewHolder.txtPrice.setText("Gratuit");
                 } else {
-                    myViewHolder.txtPrice.setText(offer.getPrice()+" € par heure");
+                    myViewHolder.txtPrice.setText(offer.getPrice() + " € par heure");
                 }
                 myViewHolder.txtAnnounceDatesLabel.setText("Dates");
-                for (WeekDay weekDay: offer.getDays()
-                        ) {
-                    myViewHolder.txtDays.append(weekDay.name()+" ");
+                for (WeekDay weekDay : offer.getDays()
+                ) {
+                    myViewHolder.txtDays.append(weekDay.name() + " ");
                 }
                 myViewHolder.icon.setImageResource(R.drawable.ic_offers);
                 break;
@@ -75,15 +73,15 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                 myViewHolder.txtDescription.setText(request.getDescription());
                 myViewHolder.txtDays.setText("");
                 myViewHolder.txtAnnounceInvitation.setText("Demande d'aide");
-                if(request.getTotal() == 0){
+                if (request.getTotal() == 0) {
                     myViewHolder.txtPrice.setText("Gratuit");
                 } else {
-                    myViewHolder.txtPrice.setText(request.getTotal()+" € pour "+request.getHours()+" heure(s)");
+                    myViewHolder.txtPrice.setText(request.getTotal() + " € pour " + request.getHours() + " heure(s)");
                 }
                 myViewHolder.txtAnnounceDatesLabel.setText("Dates");
-                for (WeekDay weekDay: request.getDays()
-                        ) {
-                    myViewHolder.txtDays.append(weekDay.name()+"\n");
+                for (WeekDay weekDay : request.getDays()
+                ) {
+                    myViewHolder.txtDays.append(weekDay.name() + "\n");
                 }
                 myViewHolder.icon.setImageResource(R.drawable.ic_requests);
                 break;
@@ -111,13 +109,14 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
         return announcements.size();
     }
 
+    public void setOnButtonClickListener(AnnonceAdapter.OnButtonClickListener listener) {
+        onButtonClickListener = listener;
+    }
 
     public interface OnButtonClickListener {
         void onDeleteBtnClick(int position);
+
         void onEditBtnClick(int position);
-    }
-    public void setOnButtonClickListener(AnnonceAdapter.OnButtonClickListener listener){
-        onButtonClickListener = listener;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -146,9 +145,9 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
             btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener!=null){
+                    if (listener != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION) {
+                        if (position != RecyclerView.NO_POSITION) {
                             listener.onDeleteBtnClick(position);
                         }
                     }
@@ -158,9 +157,9 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
             btnEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener!=null){
+                    if (listener != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION) {
+                        if (position != RecyclerView.NO_POSITION) {
                             listener.onEditBtnClick(position);
                         }
                     }

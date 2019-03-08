@@ -25,6 +25,7 @@ public class RepoImpl implements Repo {
 
     //instance de retrofit builder
     Retrofit retrofit;
+
     //android google simple
     public RepoImpl() {
         this.retrofit = RetrofitClientInstance.getRetrofitInstance();
@@ -34,6 +35,7 @@ public class RepoImpl implements Repo {
     public Call<List<Request>> getRequests() {
         return retrofit.create(AlloEtudiantRestClient.class).getRequests();
     }
+
     @Override
     public Call<List<Offer>> getOffers() {
         return retrofit.create(AlloEtudiantRestClient.class).getOffers();
@@ -62,12 +64,12 @@ public class RepoImpl implements Repo {
 
     @Override
     public Call<List<Request>> getRequestsBySubject(String subject) {
-        return  retrofit.create(AlloEtudiantRestClient.class).getRequestsBySubject(Subject.valueOf(subject));
+        return retrofit.create(AlloEtudiantRestClient.class).getRequestsBySubject(Subject.valueOf(subject));
     }
 
     @Override
     public Call<List<Offer>> getOffersBySubject(String subject) {
-        return  retrofit.create(AlloEtudiantRestClient.class).getOffersBySubject(Subject.valueOf(subject));
+        return retrofit.create(AlloEtudiantRestClient.class).getOffersBySubject(Subject.valueOf(subject));
     }
 
     @Override

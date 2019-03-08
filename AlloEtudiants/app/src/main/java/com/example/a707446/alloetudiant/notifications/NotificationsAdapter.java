@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,18 +18,17 @@ import com.example.a707446.alloetudiant.general.model.enumeration.NotificationAn
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.MyViewHolder>{
-
-    private List<NotificationProfileDto> notifications;
-//    private OnButtonClickListener onButtonClickListener;
+public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.MyViewHolder> {
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    //    private OnButtonClickListener onButtonClickListener;
+    private List<NotificationProfileDto> notifications;
 
-    public NotificationsAdapter(List<NotificationProfileDto> _notifications){
+    public NotificationsAdapter(List<NotificationProfileDto> _notifications) {
         notifications = _notifications;
     }
 
-    public void setNotificationsList(List<NotificationProfileDto> _notifications){
+    public void setNotificationsList(List<NotificationProfileDto> _notifications) {
         notifications = _notifications;
     }
 
@@ -58,7 +56,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         myViewHolder.txtTitle.setText(notifications.get(i).getNotification().getAnnounceTitle());
         myViewHolder.txtDate.setText(sdf.format(notifications.get(i).getNotification().getLastModifiedDate()));
         myViewHolder.txtSender.setText(notifications.get(i).getProfile().getLastName() + " " + notifications.get(i).getProfile().getFirstName());
-        if(notifications.get(i).getNotification().getAnswer() == NotificationAnswer.ACCEPTED){
+        if (notifications.get(i).getNotification().getAnswer() == NotificationAnswer.ACCEPTED) {
             myViewHolder.txtStatus.setTextColor(ContextCompat.getColor(BaseApplication.getAppContext(), R.color.green));
             myViewHolder.txtStatus.setText("Acceptée");
         } else {

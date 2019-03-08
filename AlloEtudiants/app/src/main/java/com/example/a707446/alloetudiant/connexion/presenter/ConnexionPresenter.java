@@ -1,9 +1,9 @@
 package com.example.a707446.alloetudiant.connexion.presenter;
 
 import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
+import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.repository.connexion.LoginRepository;
 import com.example.a707446.alloetudiant.general.repository.connexion.LoginRepositoryImpl;
-import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,23 +25,23 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
     @Override
     public void startLogin(final String email, String password) {
         loginRepository.login(new LoginRequest(email, password))
-        .enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if(response.code() == 200) {
-                    SharedPreferencesSingleton.setToken(mView.applicationContext(),response.headers().get("Authorization"));
-                    getProfileIdByEmail(response.headers().get("Authorization"),email);
+                .enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if(response.code() == 200) {
+                            SharedPreferencesSingleton.setToken(mView.applicationContext(),response.headers().get("Authorization"));
+                            getProfileIdByEmail(response.headers().get("Authorization"),email);
 
-                } else {
-                    mView.showError("Adresse e-mail ou mot de passe incorrect");
-                }
-            }
+                        } else {
+                            mView.showError("Adresse e-mail ou mot de passe incorrect");
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                mView.toast("Erreur inconnue. Veuillez réessayer plus tard");
-            }
-        });
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        mView.toast("Erreur inconnue. Veuillez réessayer plus tard");
+                    }
+                });
     }
 
     @Override

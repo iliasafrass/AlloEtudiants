@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,8 +45,16 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
 
     private ProfileContract.Presenter mPresenter;
 
+    public ProfilFragment() {
+        // Requires empty public constructor
+    }
+
+    public static ProfilFragment newInstance() {
+        return new ProfilFragment();
+    }
+
     @OnClick(R.id.imageButton2)
-    public void logOut(){
+    public void logOut() {
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -69,23 +76,17 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
     }
 
     @OnClick(R.id.imageButton)
-    public void edit(){
-        Toast.makeText(getContext(),"Cette fonctionnalité sera disponible prochainement",Toast.LENGTH_LONG).show();
+    public void edit() {
+        Toast.makeText(getContext(), "Cette fonctionnalité sera disponible prochainement", Toast.LENGTH_LONG).show();
     }
-
-    public ProfilFragment() {
-        // Requires empty public constructor
-    }
-
-    public static  ProfilFragment newInstance() {return  new ProfilFragment();}
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profil_fragment,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.profil_fragment, null);
+        mUnbinder = ButterKnife.bind(this, view);
 
         getActivity().setTitle(R.string.toolbar_profil);
         mPresenter = new ProfilePresenter(this);
@@ -96,7 +97,7 @@ public class ProfilFragment extends AbstractFragment implements ProfileContract.
 
     @Override
     public void getProfileById(Profile profile) {
-        mNom.setText(profile.getFirstName()+" "+profile.getLastName());
+        mNom.setText(profile.getFirstName() + " " + profile.getLastName());
         mEmail.setText(profile.getEmail());
         mTelephone.setText(profile.getPhoneNumber());
         mSexe.setText(profile.getGender().toString());

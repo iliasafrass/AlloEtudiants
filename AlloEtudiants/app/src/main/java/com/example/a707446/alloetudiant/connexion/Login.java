@@ -4,15 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +32,10 @@ import butterknife.Unbinder;
 
 public class Login extends AppCompatActivity implements ConnexionContract.View {
 
+    @BindView(R.id.Email)
+    TextInputLayout edtEmail;
+    @BindView(R.id.password)
+    TextInputLayout edtPassword;
     // Globals
     private ConnexionContract.Presenter mPresenter;
     private Unbinder mUnbinder;
@@ -53,18 +56,12 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     }
 
-    @BindView(R.id.Email)
-    TextInputLayout edtEmail;
-
-    @BindView(R.id.password)
-    TextInputLayout edtPassword;
-
     @OnClick(R.id.signup)
     public void onSignupClick(){mPresenter.startSignup();}
 
     @OnClick(R.id.login)
     public void onLoginClick(){
-        progressDialog.show();
+
         String emailInput = edtEmail.getEditText().getText().toString();
         String passwordInput = edtPassword.getEditText().getText().toString();
         if (emailInput.isEmpty() || emailInput == null) {
@@ -79,6 +76,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
 
         if (!passwordInput.isEmpty() && passwordInput != null && !emailInput.isEmpty() && emailInput != null) {
+            progressDialog.show();
             mPresenter.startLogin(edtEmail.getEditText().getText().toString(), edtPassword.getEditText().getText().toString());
         }
     }

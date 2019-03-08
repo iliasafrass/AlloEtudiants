@@ -33,23 +33,23 @@ public class EvenementPresenter implements EvenementContract.Presenter {
                 new Callback<Event>() {
                     @Override
                     public void onResponse(Call<Event> call, Response<Event> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.showSuccessMsg();
-                        else{
+                        else {
                             mView.showFailedMsg();
                             try {
-                                Log.d("POST_EVENT_ERROR", " response = "+response.errorBody().string());
+                                Log.d("POST_EVENT_ERROR", " response = " + response.errorBody().string());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
-                        Log.d("POST_EVENT", " response = "+response.body());
+                        Log.d("POST_EVENT", " response = " + response.body());
 
                     }
 
                     @Override
                     public void onFailure(Call<Event> call, Throwable t) {
-                        Log.d("POST_EVENT", " Error = "+t.toString());
+                        Log.d("POST_EVENT", " Error = " + t.toString());
                         mView.showFailedMsg();
                     }
                 }

@@ -25,9 +25,7 @@ import com.stepstone.stepper.BlockingStep;
 import com.stepstone.stepper.StepperLayout;
 import com.stepstone.stepper.VerificationError;
 
-import java.util.Date;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +81,7 @@ public class EventStep0 extends Fragment implements BlockingStep {
         description = (TextInputLayout) view.findViewById(R.id.description_event);
         adresse = (TextInputLayout) view.findViewById(R.id.adresse);
 
-    //region DatePicker
+        //region DatePicker
 
         mDisplayDate.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +95,7 @@ public class EventStep0 extends Fragment implements BlockingStep {
                         getContext(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
-                        year,month,day);
+                        year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -108,13 +106,13 @@ public class EventStep0 extends Fragment implements BlockingStep {
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 Log.d("Select Date", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
-                String date = day + "/" + month + "/" + year ;
+                String date = day + "/" + month + "/" + year;
                 mDisplayDate.getEditText().setText(date);
             }
         };
-    //endregion
+        //endregion
 
-    //region HeurePicker
+        //region HeurePicker
         mDisplayHeure.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,7 +135,7 @@ public class EventStep0 extends Fragment implements BlockingStep {
                 timePickerDialog.show();
             }
         });
-    //endregion
+        //endregion
     }
 
     @Override
@@ -181,11 +179,11 @@ public class EventStep0 extends Fragment implements BlockingStep {
                     mDisplayHeure.setError(null);
                 }
 
-                if (!dateInput.isEmpty() && dateInput != null && !heureInput.isEmpty() && heureInput != null && !titreInput.isEmpty() && titreInput != null && !adresseInput.isEmpty() && adresseInput != null  && !descriptionInput.isEmpty() && descriptionInput != null) {
+                if (!dateInput.isEmpty() && dateInput != null && !heureInput.isEmpty() && heureInput != null && !titreInput.isEmpty() && titreInput != null && !adresseInput.isEmpty() && adresseInput != null && !descriptionInput.isEmpty() && descriptionInput != null) {
                     dataManager.saveTitle(titreInput);
                     dataManager.saveDescription(descriptionInput);
                     dataManager.saveAddress(adresseInput);
-                    dataManager.saveDates(dateInput+" "+heureInput);
+                    dataManager.saveDates(dateInput + " " + heureInput);
                     callback.goToNextStep();
                 }
 

@@ -5,26 +5,22 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.evenement.detail.presenter.DetailEvenementpresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,8 +71,8 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail_event,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_detail_event, null);
+        mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new DetailEvenementpresenter(this);
         NavigationActivity.inDetail = true;
         mPresenter.startgetEventById(idEvent);
@@ -101,7 +97,7 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
         Log.d("event", event.getId());
         this.mEvent = event;
 
-        if(mEvent != null) {
+        if (mEvent != null) {
 //            Toast.makeText(this.getView().getContext(), mEvent.getId(), Toast.LENGTH_LONG).show();
             Log.d("mEvent", mEvent.toString());
             title.setText(mEvent.getTitle());
@@ -110,8 +106,7 @@ public class DetailEventFragment extends AbstractFragment implements DetailEvene
             description.setText(mEvent.getDescription());
             address.setText(mEvent.getAddress());
             getActivity().setTitle(R.string.toolbar_details);
-        }
-        else{
+        } else {
 //            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mEvent", "null");
         }

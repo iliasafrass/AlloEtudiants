@@ -31,16 +31,16 @@ public class DemandePresenter implements DemandeContract.Presenter {
                 new Callback<Request>() {
                     @Override
                     public void onResponse(Call<Request> call, Response<Request> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.showSuccessMsg();
                         else
                             mView.showFailedMsg();
-                        Log.d("POST_OFFER", " response = "+response.body());
+                        Log.d("POST_OFFER", " response = " + response.body());
                     }
 
                     @Override
                     public void onFailure(Call<Request> call, Throwable t) {
-                        Log.d("POST_OFFER", " Error = "+t.toString());
+                        Log.d("POST_OFFER", " Error = " + t.toString());
                         mView.showFailedMsg();
                     }
                 }

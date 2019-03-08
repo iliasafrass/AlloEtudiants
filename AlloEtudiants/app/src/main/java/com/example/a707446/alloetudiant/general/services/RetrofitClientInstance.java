@@ -20,10 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-//    private static final String BASE_URL ="http://10.0.2.2:5000";
     private static final String BASE_URL ="http://alloetudiantapi.herokuapp.com";
-//    private static final String BASE_URL ="http://172.20.10.7:5000";
-
 
     private static Retrofit retrofit = null;
 

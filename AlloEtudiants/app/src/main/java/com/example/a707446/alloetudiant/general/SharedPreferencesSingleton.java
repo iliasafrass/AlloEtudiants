@@ -2,8 +2,6 @@ package com.example.a707446.alloetudiant.general;
 
 import android.content.Context;
 
-import lombok.NonNull;
-
 public class SharedPreferencesSingleton {
 
     public static void setToken(Context context, String token) {

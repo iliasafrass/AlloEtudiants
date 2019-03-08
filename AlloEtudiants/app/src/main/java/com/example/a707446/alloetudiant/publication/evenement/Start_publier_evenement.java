@@ -1,7 +1,7 @@
 package com.example.a707446.alloetudiant.publication.evenement;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.a707446.alloetudiant.R;
 import com.stepstone.stepper.StepperLayout;
@@ -16,7 +16,7 @@ public class Start_publier_evenement extends AppCompatActivity implements DataMa
     private StepperLayout mStepperLayout;
     private StepperAdapter mStepperAdapter;
 
-    private String mTitle,mDescription,mAdresse,mDates;
+    private String mTitle, mDescription, mAdresse, mDates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,6 @@ public class Start_publier_evenement extends AppCompatActivity implements DataMa
     public void saveDates(String d) {
         mDates = d;
     }
-
 
 
     @Override

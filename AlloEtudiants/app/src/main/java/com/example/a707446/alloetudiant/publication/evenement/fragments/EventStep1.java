@@ -35,7 +35,7 @@ import java.util.Date;
 public class EventStep1 extends Fragment implements BlockingStep, EvenementContract.View {
 
     private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
-//    private final String profileId = "5c3d00eb349dbb2908cbaf99";
+    //    private final String profileId = "5c3d00eb349dbb2908cbaf99";
     //Views
     TextView titre;
     TextView date;
@@ -45,10 +45,11 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
     //variables
 
     private EvenementContract.Presenter mPresenter;
-    private String mTitre, mDescription, mAddress,mDate;
+    private String mTitre, mDescription, mAddress, mDate;
     private DataManager dataManager;
     private EventDto mEvent;
     private String dateString;
+
     public EventStep1() {
         // Required empty public constructor
     }
@@ -123,15 +124,15 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
         int MIN = Integer.parseInt(parts3[1]);
 
 
-        dateString = DD+"/"+MM+"/"+YY+" "+HH+":"+MIN;
+        dateString = DD + "/" + MM + "/" + YY + " " + HH + ":" + MIN;
 
-        Date myDate = new Date(YY-1900,MM,DD,HH,MIN);
+        Date myDate = new Date(YY - 1900, MM, DD, HH, MIN);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
         dateString = dateFormat.format(myDate);
 
 
-        mEvent = new EventDto(profileId, AnnounceType.EVENT,mTitre,mAddress,mDescription, dateString);
+        mEvent = new EventDto(profileId, AnnounceType.EVENT, mTitre, mAddress, mDescription, dateString);
 
         titre.setText(mTitre);
         description.setText(mDescription);

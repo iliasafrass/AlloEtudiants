@@ -5,21 +5,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.BaseApplication;
 import com.example.a707446.alloetudiant.general.Dialogs;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.NotificationAnswer;
@@ -37,6 +33,24 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends AbstractFragment implements HomeContract.View{
 
+    @BindView(R.id.homeRecycler)
+    public RecyclerView recyclerView;
+    @BindView(R.id.progressBar)
+    public ProgressBar progressBar;
+    @BindView(R.id.txtNotifications)
+    public TextView txtNotifications;
+    @BindView(R.id.imgHomeNotifCount)
+    public ImageView imgNotifCount;
+    @BindView(R.id.txtHomeError)
+    public TextView txtError;
+    @BindView(R.id.imgHomeError)
+    public ImageView imgError;
+    @BindView(R.id.txtHomeHint)
+    public TextView txtHomeHint;
+    private HomeAdapter mAdapter;
+    private HomeContract.Presenter mPresenter;
+    private List<NotificationProfileDto> notifications = new ArrayList<>();
+    private ProgressDialog progressDialog;
     public HomeFragment() {
         // Requires empty public constructor
     }
@@ -44,32 +58,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
-
-    @BindView(R.id.homeRecycler)
-    public RecyclerView recyclerView;
-
-    @BindView(R.id.progressBar)
-    public ProgressBar progressBar;
-
-    @BindView(R.id.txtNotifications)
-    public TextView txtNotifications;
-
-    @BindView(R.id.imgHomeNotifCount)
-    public ImageView imgNotifCount;
-
-    @BindView(R.id.txtHomeError)
-    public TextView txtError;
-
-    @BindView(R.id.imgHomeError)
-    public ImageView imgError;
-
-    @BindView(R.id.txtHomeHint)
-    public TextView txtHomeHint;
-
-    private HomeAdapter mAdapter;
-    private HomeContract.Presenter mPresenter;
-    private List<NotificationProfileDto> notifications = new ArrayList<>();
-    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -213,6 +201,6 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
     @Override
     public void onResume() {
         super.onResume();
-            NavigationActivity.mBottomNavigationView.getMenu().getItem(0).setChecked(true);
+        NavigationActivity.mBottomNavigationView.getMenu().getItem(0).setChecked(true);
     }
 }

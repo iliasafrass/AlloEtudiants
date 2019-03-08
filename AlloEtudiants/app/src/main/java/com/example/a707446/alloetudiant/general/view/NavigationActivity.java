@@ -45,7 +45,6 @@ public class NavigationActivity extends AppCompatActivity {
     // Globals
     private Unbinder mUnbinder;
 
-    //    private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +54,6 @@ public class NavigationActivity extends AppCompatActivity {
         mBottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationActivity_bottomNavigationActivity) ;
         inHome = true;
         inDetail = false;
-//        preferences = getSharedPreferences("token",MODE_PRIVATE);
-//        preferences.edit().clear().apply();
-//        SharedPreferencesSingleton.clear(getApplicationContext());
 
         setSupportActionBar(mToolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -94,27 +90,22 @@ public class NavigationActivity extends AppCompatActivity {
                         AbstractFragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_accueil:
-//                                fragmentManager.popBackStack();
                                 selectedFragment = HomeFragment.newInstance();
                                 inHome = true;
                                 firstChildFragment = false;
                                 break;
 
                             case R.id.action_rechercher:
-
-//                                fragmentManager.popBackStack();
                                 selectedFragment = RechercheFragment.newInstance();
                                 inHome = false;
                                 firstChildFragment = true;
                                 break;
                             case R.id.action_annonce:
-//                                fragmentManager.popBackStack();
                                 selectedFragment = AnnonceFragment.newInstance();
                                 firstChildFragment = true;
                                 inHome = false;
                                 break;
                             case R.id.action_publier:
-//                                fragmentManager.popBackStack();
                                 selectedFragment = PublierFragment.newInstance();
                                 firstChildFragment = true;
                                 inHome = false;
@@ -190,14 +181,7 @@ public class NavigationActivity extends AppCompatActivity {
 
                 if (inHome) {
                     mydialog();
-                }/* else if(firstChildFragment){
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.navigationActivity_fragmentContainer, HomeFragment.newInstance());
-                    transaction.addToBackStack(null).commit();
-                    inHome = true;
-                    firstChildFragment = false;
-                    return true;
-                }*/
+                }
         }
         return super.onKeyDown(keyCode, event);
     }

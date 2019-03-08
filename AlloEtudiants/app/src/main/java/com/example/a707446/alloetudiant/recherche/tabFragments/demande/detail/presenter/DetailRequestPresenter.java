@@ -28,13 +28,14 @@ public class DetailRequestPresenter implements DetailRequestConstract.Presenter 
         mRepo = new RepoImpl();
 
     }
+
     @Override
     public void startgetRequestById(String id) {
         mRepo.getRequestById(id).enqueue(
                 new Callback<Request>() {
                     @Override
                     public void onResponse(Call<Request> call, Response<Request> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.getRequestById(response.body());
                         else
                             Log.d("response", " is null");
@@ -60,8 +61,8 @@ public class DetailRequestPresenter implements DetailRequestConstract.Presenter 
                 new Callback<Notification>() {
                     @Override
                     public void onResponse(Call<Notification> call, Response<Notification> response) {
-                        if(response.code() == 200){
-                           // mView.showToast("Notification created with id : " + response.body().getId());
+                        if (response.code() == 200) {
+                            // mView.showToast("Notification created with id : " + response.body().getId());
                             mView.showToast("Vous avez bien envoyé une invitation.");
                         } else {
                             mView.showError("Vous avez déja envoyé cette invitation !");

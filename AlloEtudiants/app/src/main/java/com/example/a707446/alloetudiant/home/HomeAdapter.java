@@ -12,17 +12,15 @@ import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
-import com.example.a707446.alloetudiant.notifications.NotificationsAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     private List<NotificationProfileDto> notifications;
     private HomeAdapter.OnButtonClickListener onButtonClickListener;
-
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     public HomeAdapter(List<NotificationProfileDto> _notifications){
         notifications = _notifications;
@@ -64,12 +62,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
         return notifications.size();
     }
 
+    public void setOnButtonClickListener(HomeAdapter.OnButtonClickListener listener){
+        onButtonClickListener = listener;
+    }
     public interface OnButtonClickListener {
         void onAcceptBtnClick(int position);
         void onDeclineBtnClick(int position);
-    }
-    public void setOnButtonClickListener(HomeAdapter.OnButtonClickListener listener){
-        onButtonClickListener = listener;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

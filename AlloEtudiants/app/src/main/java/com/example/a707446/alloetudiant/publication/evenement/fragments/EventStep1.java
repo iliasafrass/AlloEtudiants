@@ -173,7 +173,6 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what would happen when positive button is clicked
-                        getActivity().finish();
                     }
                 })
                 .show();

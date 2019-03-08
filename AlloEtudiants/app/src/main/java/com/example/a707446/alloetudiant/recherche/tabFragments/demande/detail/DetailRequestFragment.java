@@ -152,7 +152,7 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
                         myDay = "Dimanche";
                         break;
                 }
-                listDays += myDay + ", ";
+                listDays += myDay + "  ";
             }
 
             date.setText(listDays);

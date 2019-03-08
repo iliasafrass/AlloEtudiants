@@ -90,7 +90,7 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                             myDay = "Dimanche";
                             break;
                     }
-                    listDays += myDay + ", ";
+                    listDays += myDay + "  ";
                 }
 
                 myViewHolder.txtDays.setText(listDays);
@@ -143,7 +143,7 @@ public class AnnonceAdapter extends RecyclerView.Adapter<AnnonceAdapter.MyViewHo
                             myDay2 = "Dimanche";
                             break;
                     }
-                    listDays2 += myDay2 + ", ";
+                    listDays2 += myDay2 + "  ";
                 }
 
                 myViewHolder.txtDays.setText(listDays2);

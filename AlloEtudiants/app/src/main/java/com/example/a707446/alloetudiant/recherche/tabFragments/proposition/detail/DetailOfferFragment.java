@@ -139,7 +139,7 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
                         myDay = "Dimanche";
                         break;
                 }
-                listDays += myDay+", ";
+                listDays += myDay+"  ";
             }
 
             date.setText(listDays);

@@ -204,7 +204,6 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what should happen when negative button is clicked
-                        getActivity().finish();
                     }
                 })
                 .show();
@@ -216,37 +215,37 @@ public class RecapOfferFragment extends Fragment implements BlockingStep, Propos
             switch (i) {
                 case 1:
                     listDays.add(WeekDay.SUNDAY);
-                    days = days.concat("Dimanche");
+                    days = days.concat("Dimanche  ");
                     break;
 
                 case 2:
                     listDays.add(WeekDay.MONDAY);
-                    days = days.concat("-Lundi");
+                    days = days.concat("Lundi  ");
                     break;
 
                 case 3:
                     listDays.add(WeekDay.TUESDAY);
-                    days = days.concat("-Mardi");
+                    days = days.concat("Mardi  ");
                     break;
 
                 case 4:
                     listDays.add(WeekDay.WEDNESDAY);
-                    days = days.concat("-Mercredi");
+                    days = days.concat("Mercredi  ");
                     break;
 
                 case 5:
                     listDays.add(WeekDay.THURSDAY);
-                    days = days.concat("-Jeudi");
+                    days = days.concat("Jeudi  ");
                     break;
 
                 case 6:
                     listDays.add(WeekDay.FRIDAY);
-                    days = days.concat("-Vendredi");
+                    days = days.concat("Vendredi  ");
                     break;
 
                 case 7:
                     listDays.add(WeekDay.SATURDAY);
-                    days = days.concat("-Samedi");
+                    days = days.concat("Samedi  ");
                     break;
             }
         }

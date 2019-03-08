@@ -45,6 +45,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="10"
+            android:drawableRight="@drawable/ic_access_time_black_24dp"
             android:hint="Heures"
             android:inputType="numberDecimal"
             android:textSize="16sp"
@@ -79,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:sunday_first_day="true" >
+        app:sunday_first_day="false" >
 
     </com.dpro.widgets.WeekdaysPicker>
 
@@ -107,6 +108,7 @@
             android:layout_centerVertical="true"
             android:ems="10"
             android:hint="Adresse"
+            android:drawableRight="@drawable/ic_location_24dp"
             android:textSize="16sp"
             android:textStyle="bold"
             android:theme="@style/MyEditText" />
@@ -118,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_weight="50"
         android:outlineSpotShadowColor="@color/blueBarColor"
         app:hintTextAppearance="@style/MyHintText"
@@ -133,6 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:drawableRight="@drawable/ic_euro_symbol_black_24dp"
             android:ems="10"
             android:hint="Prix par heure"
             android:inputType="numberDecimal"

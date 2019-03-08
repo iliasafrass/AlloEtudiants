@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:sunday_first_day="true" />
+        app:sunday_first_day="false" />
 
 
     <android.support.design.widget.TextInputLayout
@@ -61,9 +61,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/besoin"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         app:hintTextAppearance="@style/MyHintText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -79,6 +79,7 @@
             android:layout_centerVertical="true"
             android:ems="10"
             android:hint="Adresse"
+            android:drawableRight="@drawable/ic_location_24dp"
             android:inputType="textPostalAddress"
             android:textSize="16sp"
             android:theme="@style/MyEditText"
@@ -92,10 +93,11 @@
         android:id="@+id/prix_heure_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_below="@id/besoin"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         app:hintTextAppearance="@style/MyHintText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
@@ -108,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:drawableRight="@drawable/ic_euro_symbol_black_24dp"
             android:hint="Prix par heure"
             android:inputType="numberDecimal"
             android:textAlignment="center"

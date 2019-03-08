@@ -3,6 +3,7 @@ package com.example.a707446.alloetudiant.connexion;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -47,19 +48,32 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
     }
 
     @BindView(R.id.Email)
-    EditText edtEmail;
+    TextInputLayout edtEmail;
 
     @BindView(R.id.password)
-    EditText edtPassword;
+    TextInputLayout edtPassword;
 
     @OnClick(R.id.signup)
     public void onSignupClick(){mPresenter.startSignup();}
 
     @OnClick(R.id.login)
     public void onLoginClick(){
-//        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
-//        startActivity(i);
-        mPresenter.startLogin(edtEmail.getText().toString(),edtPassword.getText().toString());
+        String emailInput = edtEmail.getEditText().getText().toString();
+        String passwordInput = edtPassword.getEditText().getText().toString();
+        if (emailInput.isEmpty() || emailInput == null) {
+            edtEmail.setError("email est obligatoire! ");
+        } else
+            edtEmail.setError(null);
+
+        if (passwordInput.isEmpty() || passwordInput == null) {
+            edtPassword.setError("mot de passe est obligatoire! ");
+        } else
+            edtPassword.setError(null);
+
+
+        if (!passwordInput.isEmpty() && passwordInput != null && !emailInput.isEmpty() && emailInput != null) {
+            mPresenter.startLogin(edtEmail.getEditText().getText().toString(), edtPassword.getEditText().getText().toString());
+        }
     }
 
     @OnClick(R.id.forgetPassword)

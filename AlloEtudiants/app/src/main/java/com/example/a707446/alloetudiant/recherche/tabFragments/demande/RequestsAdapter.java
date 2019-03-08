@@ -2,6 +2,7 @@ package com.example.a707446.alloetudiant.recherche.tabFragments.demande;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
 import com.example.a707446.alloetudiant.recherche.tabFragments.demande.detail.DetailRequestFragment;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyViewHolder> {
@@ -28,6 +30,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
 
     private String requestId;
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     //construceteur
     public RequestsAdapter(Context context, List<Request> requestsList) {
@@ -53,6 +56,8 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
         holder.title.setText(request.getTitle().toString());
         holder.address.setText(request.getAddress());
         holder.description.setText(request.getDescription());
+        holder.date.setText(sdf.format(request.getCreatedDate()));
+        holder.prix.setText(String.valueOf(request.getPricePerHour()*request.getHours())+" €");
         holder.icon.setImageResource(R.drawable.ic_requests);
 
 
@@ -91,19 +96,22 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description;
+        public TextView title, address, description,prix,date;
 
         public ImageView icon;
         // le layout  de l'item
-        public RelativeLayout parentLayout;
+        public ConstraintLayout parentLayout;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title_request);
             address = (TextView) view.findViewById(R.id.address_request);
             description = (TextView) view.findViewById(R.id.description_request);
-            parentLayout = (RelativeLayout) view.findViewById(R.id.parent_layout_request);
+            date = (TextView) view.findViewById(R.id.date);
+            prix = (TextView) view.findViewById(R.id.prix);
+            parentLayout = (ConstraintLayout) view.findViewById(R.id.parent_layout_request);
             icon = (ImageView) view.findViewById(R.id.request_image);
+
         }
     }
     public void setRequestsList(List<Request> list){

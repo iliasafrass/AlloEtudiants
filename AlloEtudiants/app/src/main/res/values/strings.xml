@@ -5,9 +5,9 @@
     <string name="toolbar_annonce">Vos annonces</string>
     <string name="toolbar_home">accueil</string>
     <string name="toolbar_notifications">Notifications</string>
-    <string name="toolbar_recherche_demande">rechercher une demande</string>
-    <string name="toolbar_recherche_proposition">rechercher une proposition</string>
-    <string name="toolbar_recherche_evenement">rechercher un evenement</string>
+    <string name="toolbar_recherche_demande">Demande</string>
+    <string name="toolbar_recherche_proposition">Proposition</string>
+    <string name="toolbar_recherche_evenement">Evenement</string>
     <string name="allo">allo</string>
     <string name="étudiant">étudiants</string>
     <string name="partager_evenement">partager un événement</string>

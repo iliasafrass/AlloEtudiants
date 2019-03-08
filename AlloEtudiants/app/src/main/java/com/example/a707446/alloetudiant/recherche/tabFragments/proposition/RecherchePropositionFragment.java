@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.a707446.alloetudiant.R;
-import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
@@ -115,11 +115,12 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     }
 
     private void initSpinnerItems() {
-        listItems.add(Subject.MATHS.toString());
-        listItems.add(Subject.PHYSICS.toString());
-        listItems.add(Subject.CHEMISTRY.toString());
-        listItems.add(Subject.MECHANICS.toString());
-        listItems.add(Subject.COMPUTER_SCIENCE.toString());
+        listItems.add(Subject.MATHEMATIQUES.toString());
+        listItems.add(Subject.PHYSIQUE.toString());
+        listItems.add(Subject.CHIMIE.toString());
+        listItems.add(Subject.MECANIQUE.toString());
+        listItems.add(Subject.INFORMATIQUE.toString());
+        listItems.add(Subject.ELECTRONIQUE.toString());
     }
     @Override
     public void receiveOffersFromPresenter(List<Offer> offers) {

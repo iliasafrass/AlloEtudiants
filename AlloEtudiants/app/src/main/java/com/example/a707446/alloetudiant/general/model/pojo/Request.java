@@ -43,7 +43,6 @@ public class Request {
 
     private float total;
 
-
     private List<WeekDay> days;
 
     private String icon;

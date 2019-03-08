@@ -4,7 +4,7 @@ import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.EventDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
-import com.example.a707446.alloetudiant.general.enumeration.Subject;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
 import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.dto.RequestDto;

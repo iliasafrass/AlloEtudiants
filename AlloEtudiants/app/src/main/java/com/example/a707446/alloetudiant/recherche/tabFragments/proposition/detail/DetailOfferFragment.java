@@ -108,10 +108,42 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
             Log.d("mOffer", mOffer.toString());
             title.setText(mOffer.getTitle());
             icon.setImageResource(R.drawable.ic_offers);
-            for (WeekDay day: mOffer.getDays()
-                    ) {
-                date.append(day.name()+"\n");
+
+            String listDays = "";
+            String myDay = "";
+            for (WeekDay day: mOffer.getDays()) {
+                myDay = day.name();
+                switch (day){
+                    case MONDAY:
+                        myDay = "Lundi";
+                        break;
+                    case TUESDAY:
+                        myDay = "Mardi";
+                        break;
+
+                    case WEDNESDAY:
+                        myDay = "Mercredi";
+                        break;
+
+                    case THURSDAY:
+                        myDay = "Jeudi";
+                        break;
+                    case FRIDAY:
+                        myDay = "Vendredi";
+                        break;
+
+                    case SATURDAY:
+                        myDay = "Samedi";
+                        break;
+                    case SUNDAY:
+                        myDay = "Dimanche";
+                        break;
+                }
+                listDays += myDay+", ";
             }
+
+            date.setText(listDays);
+
             description.setText(mOffer.getDescription());
             address.setText(mOffer.getAddress());
             if(offer.getPrice() == 0){

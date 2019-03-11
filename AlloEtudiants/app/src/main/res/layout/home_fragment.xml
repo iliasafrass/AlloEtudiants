@@ -67,7 +67,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/cabin"
-        android:text="Acceptez pour recevoir un email contenant l'adresse mail de l'autre personne."
+        android:text="Si vous êtes intéressé, acceptez une invitation et vous allez recevoir un email contenant l'adresse mail de l'émetteur de  afin que vous puissiez compléter ou modifer l'accord."
         android:textAlignment="center"
         android:textColor="@color/notSoBlack"
         android:textSize="10sp"

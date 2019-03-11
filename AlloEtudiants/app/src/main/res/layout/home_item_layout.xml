@@ -86,26 +86,51 @@
             card_view:layout_constraintStart_toStartOf="@+id/txtHomeTitle"
             card_view:layout_constraintTop_toBottomOf="@+id/txtHomeTitle" />
 
-        <ImageButton
+<!--        <ImageButton
             android:id="@+id/btnHomeAccept"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="?android:selectableItemBackground"
-            android:src="@drawable/ic_check_green_24dp"
+            android:src="@drawable/ic_communication"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtHomeSender"
+            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintStart_toEndOf="@+id/btnHomeDecline"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeSender" />-->
+
+        <Button
+            android:id="@+id/btnHomeAccept"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:selectableItemBackground"
+            android:drawableLeft="@drawable/ic_check_green_24dp"
+            android:fontFamily="@font/cabin"
+            android:text="Intéressé"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/notSoBlack"
+            android:textSize="16sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/txtHomeSender"
             card_view:layout_constraintHorizontal_bias="0.5"
             card_view:layout_constraintStart_toEndOf="@+id/btnHomeDecline"
             card_view:layout_constraintTop_toBottomOf="@+id/txtHomeSender" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btnHomeDecline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="?android:selectableItemBackground"
-            android:src="@drawable/ic_close_red_24dp"
+            android:drawableLeft="@drawable/ic_close_red_24dp"
+            android:fontFamily="@font/cabin"
+            android:text="Pas Intéressé"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/notSoBlack"
+            android:textSize="16sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toStartOf="@+id/btnHomeAccept"
             card_view:layout_constraintHorizontal_bias="0.5"

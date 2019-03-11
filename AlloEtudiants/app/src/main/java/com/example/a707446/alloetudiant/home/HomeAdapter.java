@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -76,7 +77,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
 
         public ImageView icon;
 
-        public ImageButton btnAccept, btnDecline;
+        public Button btnAccept, btnDecline;
 
         public RelativeLayout parentLayout;
 
@@ -87,8 +88,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
             txtTitle = (TextView) view.findViewById(R.id.txtHomeTitle);
             txtSender = (TextView) view.findViewById(R.id.txtHomeSender);
             icon = (ImageView) view.findViewById(R.id.imgHomeNotification);
-            btnAccept = (ImageButton) view.findViewById(R.id.btnHomeAccept);
-            btnDecline = (ImageButton) view.findViewById(R.id.btnHomeDecline);
+            btnAccept = (Button) view.findViewById(R.id.btnHomeAccept);
+            btnDecline = (Button) view.findViewById(R.id.btnHomeDecline);
 
             btnAccept.setOnClickListener(new View.OnClickListener() {
                 @Override

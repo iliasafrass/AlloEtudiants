@@ -186,7 +186,6 @@ public class Inscription extends AppCompatActivity implements InscriptionContrac
     @Override
     public void annuler() {
         progressDialog.dismiss();
-        Toast.makeText(getApplication(), "Un email vous a été envoyé pour confirmation", Toast.LENGTH_LONG).show();
         Intent i = new Intent(getApplicationContext(), Login.class);
         startActivity(i);
     }

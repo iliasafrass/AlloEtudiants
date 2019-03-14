@@ -11,11 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Request;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -50,6 +52,10 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
 
     @BindView(R.id.prix_request_detail)
     public TextView price;
+
+    @BindView(R.id.reserver_demande)
+    public Button reserver;
+
 
     private DetailRequestConstract.Presenter mPresenter;
 
@@ -116,10 +122,16 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
 
     @Override
     public void getRequestById(Request request) {
+
+
+
         Log.d("event", request.getId());
         this.mRequest = request;
 
         if (mRequest != null) {
+            if(!mRequest.getProfileId().equals(SharedPreferencesSingleton.getProfileId(getContext()))){
+                reserver.setVisibility(View.VISIBLE);
+            }
             Log.d("mEvent", mRequest.toString());
             title.setText(mRequest.getTitle());
             String listDays = "";

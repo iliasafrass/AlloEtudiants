@@ -11,11 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a707446.alloetudiant.R;
+import com.example.a707446.alloetudiant.general.SharedPreferencesSingleton;
 import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
@@ -50,6 +52,9 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
 
     @BindView(R.id.price_offer_detail)
     public TextView price;
+
+    @BindView(R.id.reserver_proposition)
+    public Button reserver;
 
     private DetailOfferContract.Presenter mPresenter;
     private Offer mOffer;
@@ -104,7 +109,9 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         this.mOffer = offer;
 
         if(mOffer != null) {
-//            Toast.makeText(this.getView().getContext(), mOffer.getId(), Toast.LENGTH_LONG).show();
+            if(!mOffer.getProfileId().equals(SharedPreferencesSingleton.getProfileId(getContext()))){
+                reserver.setVisibility(View.VISIBLE);
+            }
             Log.d("mOffer", mOffer.toString());
             title.setText(mOffer.getTitle());
             icon.setImageResource(R.drawable.ic_offers);
@@ -154,7 +161,6 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
             getActivity().setTitle(R.string.toolbar_details);
         }
         else{
-//            Toast.makeText(this.getView().getContext(), "null", Toast.LENGTH_LONG).show();
             Log.d("mOffer", "null");
         }
     }

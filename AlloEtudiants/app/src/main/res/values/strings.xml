@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Allo étudiants</string>
+    <string name="toolbar_recherche">Rechercher</string>
+    <string name="toolbar_publier">Publication</string>
+    <string name="toolbar_annonce">Vos annonces</string>
+    <string name="toolbar_home">accueil</string>
+    <string name="toolbar_notifications">Notifications</string>
+    <string name="toolbar_recherche_demande">Demande</string>
+    <string name="toolbar_recherche_proposition">Proposition</string>
+    <string name="toolbar_recherche_evenement">Evenement</string>
+    <string name="allo">allo</string>
+    <string name="étudiant">étudiants</string>
+    <string name="partager_evenement">partager un événement</string>
+    <string name="demande_aide">demander de l\'aide</string>
+    <string name="proposer_service">proposer un service</string>
+
+    <!-- Fragments titles-->
+    <string name="title_description">Description</string>
+    <string name="title_details">Détails</string>
+
+    <!-- Form hints-->
+    <string name="form_title">Titre</string>
+    <string name="form_description">Description</string>
+    <string name="form_subject">Matière</string>
+    <string name="form_address">Adresse</string>
+    <string name="form_price">Prix</string>
+    <string name="form_days">Jours de disponiblités</string>
+
+    <!-- Errors messages-->
+    <string name="err"></string>
+
+
+    <string-array name="stepLabels">
+        <item>Step1</item>
+        <item>Step2</item>
+        <item>Step3</item>
+        <item>Confirmation</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail">details</string>
+    <string name="toolbar_details">details</string>
+
+    <string name="competence">Compétence recherchée</string>
+    <string name="creneau_propose">Créneau proposé</string>
+    <string name="locality_demande">Lieu</string>
+    <string name="Duree_demande">Durée</string>
+    <string name="Niveau_demande">Niveau</string>
+    <string name="jours_proposition">Jours</string>
+    <string name="catégorie_proposition">Catégorie</string>
+    <string name="matiére_proposition">matiére</string>
+    <string name="toolbar_profil">Profile</string>
+
+</resources>

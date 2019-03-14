@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="navigation_rechercher">rechercher</string>
+    <string name="navigation_vosAnnonces">vos annonces</string>
+    <string name="navigation_publier">publier</string>
+    <string name="navigation_home">accueil</string>
+
+</resources>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgAnnonceNotification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:srcCompat="@drawable/ic_requests" />
+
+        <TextView
+            android:id="@+id/txtAnnonceDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="11/02/2019 11:15"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="10sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtAnnonceInvitation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Une demande d'aide"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toEndOf="@+id/imgAnnonceNotification"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtAnnonceTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/cabin"
+            android:text="Titre"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceInvitation"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnonceInvitation" />
+
+        <TextView
+            android:id="@+id/txtAnnonceDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin"
+            android:text="Description"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtAnnonceTitle"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceTitle"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtHomeView" />
+
+        <TextView
+            android:id="@+id/txtHomeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Description"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceTitle"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnonceTitle" />
+
+        <ImageButton
+            android:id="@+id/btnAnnonceDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_close_red_24dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtAnnonceDays"
+            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintStart_toEndOf="@+id/btnAnnonceEdit" />
+
+        <ImageButton
+            android:id="@+id/btnAnnonceEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_edit_blue_24dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toStartOf="@+id/btnAnnonceDelete"
+            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceDays" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Adresse"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceDescription"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnonceDescription" />
+
+        <TextView
+            android:id="@+id/txtAnnonceAdresse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin"
+            android:text="Adresse"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtAnnonceDescription"
+            card_view:layout_constraintStart_toStartOf="@+id/textView15"
+            card_view:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/txtAnnounceDatesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Jours de disponibilités"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceAdresse"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnonceAdresse" />
+
+        <TextView
+            android:id="@+id/txtAnnonceDays"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin"
+            android:text="Les périodes"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintEnd_toEndOf="@+id/txtAnnonceAdresse"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceAdresse"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnounceDatesLabel" />
+
+        <TextView
+            android:id="@+id/txtAnnouncePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="TextView"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/notSoBlack"
+            card_view:layout_constraintBottom_toTopOf="@+id/btnAnnonceEdit"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnouncePriceLabel"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnouncePriceLabel" />
+
+        <TextView
+            android:id="@+id/txtAnnouncePriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Prix"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/txtAnnonceDays"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtAnnonceDays" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

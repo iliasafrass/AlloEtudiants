@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.a707446.alloetudiant">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".general.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".publication.evenement.Start_publier_evenement"></activity>
+        <activity android:name=".general.view.NavigationActivity">
+            <intent-filter>
+                <action android:name="com.example.a707446.alloetudiant.NAVIGATIONACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".splash.Splash"
+            android:theme="@style/SplashTheme" />
+        <activity android:name=".connexion.Login" />
+        <activity android:name=".inscription.Inscription" />
+        <activity android:name=".publication.demande.StartPublierDemande" />
+        <activity android:name=".publication.proposition.StartPublierService" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".start.StartActivity"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

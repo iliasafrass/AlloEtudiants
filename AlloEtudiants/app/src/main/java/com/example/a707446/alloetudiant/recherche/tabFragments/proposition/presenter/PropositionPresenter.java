@@ -37,6 +37,7 @@ public class PropositionPresenter implements PropositionContract.Presenter {
                     public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
                         mView.receiveOffersFromPresenter(response.body());
                     }
+
                     @Override
                     public void onFailure(Call<List<Offer>> call, Throwable t) {
                         System.out.println("#########");
@@ -51,7 +52,7 @@ public class PropositionPresenter implements PropositionContract.Presenter {
                 new Callback<List<Offer>>() {
                     @Override
                     public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.getOffersBySubject(response.body());
                         else
                             Log.d("response", " is null");

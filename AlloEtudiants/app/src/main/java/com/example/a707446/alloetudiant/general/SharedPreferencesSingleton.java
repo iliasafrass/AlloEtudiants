@@ -8,38 +8,37 @@ public class SharedPreferencesSingleton {
         context
                 .getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
                 .edit()
-                .putString("token",token)
+                .putString("token", token)
                 .commit();
     }
 
-    public static String getToken(Context context){
+    public static String getToken(Context context) {
         return context.getApplicationContext()
                 .getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
-                .getString("token","");
+                .getString("token", "");
     }
 
     public static void setProfileId(Context context, String profileId) {
         context
                 .getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
                 .edit()
-                .putString("profileId",profileId)
+                .putString("profileId", profileId)
                 .commit();
     }
 
-    public static String getProfileId(Context context){
+    public static String getProfileId(Context context) {
         return context
                 .getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
-                .getString("profileId","");
+                .getString("profileId", "");
     }
 
-    public static void clear(Context context){
+    public static void clear(Context context) {
         context
                 .getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
                 .edit()
                 .clear()
                 .commit();
     }
-
 
 
 }

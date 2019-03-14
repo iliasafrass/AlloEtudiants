@@ -49,7 +49,6 @@ public class StartPublierDemande extends AppCompatActivity implements DataManage
         mStepperLayout.setAdapter(mStepperAdapter);
 
 
-
         int startingStepDemande = savedInstanceState != null ? savedInstanceState.getInt(CURRENT_STEP_POSITION_KEY) : 0;
         mAdresse = savedInstanceState != null ? savedInstanceState.getString(ADRESSE) : null;
         mPrix = savedInstanceState != null ? savedInstanceState.getFloat(PRIX) : 0f;

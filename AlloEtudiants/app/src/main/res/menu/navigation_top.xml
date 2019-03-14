@@ -5,8 +5,7 @@
         android:id="@+id/notification"
         android:icon="@drawable/selector_notif"
         android:title=""
-        app:showAsAction="always"
-        />
+        app:showAsAction="always" />
 
 
 </menu>

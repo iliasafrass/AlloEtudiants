@@ -41,7 +41,6 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     private RequestsAdapter mAdapter;
 
 
-
     public RechercheDemandeFragment() {
         // Required empty public constructor
     }
@@ -112,10 +111,10 @@ public class RechercheDemandeFragment extends AbstractFragment implements Reques
     }
 
 
-
     @Override
     public void receiveRequestsFromPresenter(List<Request> requests) {
-        mAdapter.setRequestsList(requests);;
+        mAdapter.setRequestsList(requests);
+        ;
     }
 
     @Override

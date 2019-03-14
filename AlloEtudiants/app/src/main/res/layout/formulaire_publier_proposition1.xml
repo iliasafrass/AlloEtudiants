@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -77,9 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:drawableRight="@drawable/ic_location_24dp"
             android:ems="10"
             android:hint="Adresse"
-            android:drawableRight="@drawable/ic_location_24dp"
             android:inputType="textPostalAddress"
             android:textSize="16sp"
             android:theme="@style/MyEditText"
@@ -109,8 +108,8 @@
             android:id="@+id/prix_heure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:drawableRight="@drawable/ic_euro_symbol_black_24dp"
+            android:ems="10"
             android:hint="Prix par heure"
             android:inputType="numberDecimal"
             android:textAlignment="center"

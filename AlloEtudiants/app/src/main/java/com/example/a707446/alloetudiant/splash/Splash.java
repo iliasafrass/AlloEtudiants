@@ -16,6 +16,7 @@ import com.example.a707446.alloetudiant.connexion.Login;
 public class Splash extends AppCompatActivity {
 
     ImageView image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ public class Splash extends AppCompatActivity {
 
         Handler handler = new Handler();
 
-        final Intent i = new Intent(getApplicationContext(),Login.class);
+        final Intent i = new Intent(getApplicationContext(), Login.class);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -38,7 +39,8 @@ public class Splash extends AppCompatActivity {
         }, 3000);
 
     }
-    private void startAnimation(){
+
+    private void startAnimation() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim);
         Animation animation2 = AnimationUtils.loadAnimation(this, R.anim.anim2);
         image.startAnimation(animation);

@@ -52,15 +52,17 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Chargement");
 
-        SharedPreferencesSingleton.setToken(BaseApplication.getAppContext(),"");
+        SharedPreferencesSingleton.setToken(BaseApplication.getAppContext(), "");
 
     }
 
     @OnClick(R.id.signup)
-    public void onSignupClick(){mPresenter.startSignup();}
+    public void onSignupClick() {
+        mPresenter.startSignup();
+    }
 
     @OnClick(R.id.login)
-    public void onLoginClick(){
+    public void onLoginClick() {
 
         String emailInput = edtEmail.getEditText().getText().toString();
         String passwordInput = edtPassword.getEditText().getText().toString();
@@ -83,8 +85,8 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
 
     @Override
-    public void signup(){
-        Intent i = new Intent(getApplicationContext(),Inscription.class);
+    public void signup() {
+        Intent i = new Intent(getApplicationContext(), Inscription.class);
         startActivity(i);
     }
 
@@ -94,7 +96,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public void toast(String message) {
-        if(progressDialog!=null){
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
         Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show();
@@ -113,14 +115,14 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public void endLogin() {
-        if (progressDialog!=null) {
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
     }
 
     @Override
-    public void login(String token, String profileId){
-        Intent i = new Intent(getApplicationContext(),NavigationActivity.class);
+    public void login(String token, String profileId) {
+        Intent i = new Intent(getApplicationContext(), NavigationActivity.class);
         startActivity(i);
     }
 
@@ -137,7 +139,7 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what would happen when positive button is clicked
-                        Toast.makeText(getApplicationContext(),"Au revoir!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Au revoir!", Toast.LENGTH_LONG).show();
                         finish();
                     }
                 })
@@ -146,23 +148,23 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what should happen when negative button is clicked
-                        Toast.makeText(getApplicationContext()," :) ",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), " :) ", Toast.LENGTH_LONG).show();
                     }
                 })
                 .show();
     }
 
-    private void errorSnackbar(String error){
-        TSnackbar errorSnackBar = TSnackbar.make(findViewById(android.R.id.content),error,TSnackbar.LENGTH_LONG);
-        errorSnackBar.setActionTextColor(ContextCompat.getColor(getApplicationContext(),R.color.errorSnackBarText));
+    private void errorSnackbar(String error) {
+        TSnackbar errorSnackBar = TSnackbar.make(findViewById(android.R.id.content), error, TSnackbar.LENGTH_LONG);
+        errorSnackBar.setActionTextColor(ContextCompat.getColor(getApplicationContext(), R.color.errorSnackBarText));
         View snackBarView = errorSnackBar.getView();
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) snackBarView.getLayoutParams();
         params.height = 80;
-        snackBarView.setPadding(0,-20,0,-15);
+        snackBarView.setPadding(0, -20, 0, -15);
         snackBarView.setLayoutParams(params);
-        snackBarView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.errorSnackBarBackground));
+        snackBarView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.errorSnackBarBackground));
         TextView textView = (TextView) snackBarView.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
-        textView.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.errorSnackBarText));
+        textView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.errorSnackBarText));
         textView.setTextSize(12);
         textView.setGravity(Gravity.CENTER);
         errorSnackBar.show();
@@ -170,8 +172,8 @@ public class Login extends AppCompatActivity implements ConnexionContract.View {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch(keyCode){
-            case KeyEvent.KEYCODE_BACK :
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
                 mydialog();
         }
         return super.onKeyDown(keyCode, event);

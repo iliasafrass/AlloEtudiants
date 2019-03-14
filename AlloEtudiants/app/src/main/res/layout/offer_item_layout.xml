@@ -11,9 +11,9 @@
 
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent_layout_offer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/parent_layout_offer">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/offer_image"
@@ -95,9 +95,9 @@
             android:fontFamily="@font/cabin"
             android:text="prix"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+            android:textColor="@color/notSoBlack"
             android:textSize="12dp"
             android:textStyle="bold"
-            android:textColor="@color/notSoBlack"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/offer_image"
@@ -109,8 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="date"
             android:fontFamily="@font/cabin"
+            android:text="date"
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             android:textSize="10sp"
             card_view:layout_constraintEnd_toEndOf="parent"

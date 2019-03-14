@@ -4,7 +4,7 @@ import com.example.a707446.alloetudiant.general.model.pojo.Event;
 
 public interface DetailEvenementContract {
     interface View {
-         void getEventById(Event event);
+        void getEventById(Event event);
     }
 
     interface Presenter {

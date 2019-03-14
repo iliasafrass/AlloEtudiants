@@ -28,13 +28,14 @@ public class DetailOfferPresenter implements DetailOfferContract.Presenter {
         mRepo = new RepoImpl();
 
     }
+
     @Override
     public void startgetOfferById(String id) {
         mRepo.getOfferById(id).enqueue(
                 new Callback<Offer>() {
                     @Override
                     public void onResponse(Call<Offer> call, Response<Offer> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.getOfferById(response.body());
                         else
                             Log.d("response", " is null");
@@ -60,7 +61,7 @@ public class DetailOfferPresenter implements DetailOfferContract.Presenter {
                 .enqueue(new Callback<Notification>() {
                     @Override
                     public void onResponse(Call<Notification> call, Response<Notification> response) {
-                        if(response.code() == 200){
+                        if (response.code() == 200) {
                             mView.showMessage("Vous avez bien envoyé une invitation.");
                         } else {
                             mView.showMessage("Vous avez déja envoyé cette invitation !");

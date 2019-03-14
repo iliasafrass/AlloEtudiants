@@ -7,11 +7,13 @@ import java.util.List;
 public interface PropositionContract {
     interface View {
         void receiveOffersFromPresenter(List<Offer> offers);
+
         void getOffersBySubject(List<Offer> offers);
     }
 
-    interface Presenter  {
+    interface Presenter {
         void sendOffersToView();
+
         void startgetOffersBySubject(String subject);
     }
 }

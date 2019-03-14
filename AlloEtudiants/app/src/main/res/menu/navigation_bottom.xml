@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/action_accueil"
         android:icon="@drawable/selector1"
 
-        android:title="@string/navigation_home"/>
+        android:title="@string/navigation_home" />
 
     <item
         android:id="@+id/action_rechercher"
         android:icon="@drawable/selector"
-        android:title="@string/navigation_rechercher"/>
+        android:title="@string/navigation_rechercher" />
 
     <item
         android:id="@+id/action_annonce"
         android:icon="@drawable/selector2"
-        android:title="@string/navigation_vosAnnonces"/>
+        android:title="@string/navigation_vosAnnonces" />
     <item
         android:id="@+id/action_publier"
         android:icon="@drawable/selector3"
-        android:title="@string/navigation_publier"/>
+        android:title="@string/navigation_publier" />
 
     <item
         android:id="@+id/menu_none"
         android:title=""
-        android:visible="false"/>
+        android:visible="false" />
 
 </menu>

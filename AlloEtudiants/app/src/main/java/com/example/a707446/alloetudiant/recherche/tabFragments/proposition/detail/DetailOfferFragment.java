@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +21,6 @@ import com.example.a707446.alloetudiant.general.model.enumeration.WeekDay;
 import com.example.a707446.alloetudiant.general.model.pojo.Offer;
 import com.example.a707446.alloetudiant.general.view.AbstractFragment;
 import com.example.a707446.alloetudiant.general.view.NavigationActivity;
-import com.example.a707446.alloetudiant.recherche.RechercheFragment;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferContract;
 import com.example.a707446.alloetudiant.recherche.tabFragments.proposition.detail.presenter.DetailOfferPresenter;
 
@@ -33,7 +31,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailOfferFragment extends AbstractFragment implements DetailOfferContract.View{
+public class DetailOfferFragment extends AbstractFragment implements DetailOfferContract.View {
     //Views
     @BindView(R.id.title_offer_detail)
     public TextView title;
@@ -78,8 +76,8 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail_offer,null);
-        mUnbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_detail_offer, null);
+        mUnbinder = ButterKnife.bind(this, view);
         NavigationActivity.inDetail = true;
         getActivity().setTitle(R.string.toolbar_details);
         mPresenter = new DetailOfferPresenter(this);
@@ -91,12 +89,14 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         mPresenter.startgetOfferById(idOffer);
         return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavigationActivity.firstChildFragment = false;
 //        Toast.makeText(view.getContext(), idOffer, Toast.LENGTH_LONG).show();
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -108,8 +108,8 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
         Log.d("event", offer.getId());
         this.mOffer = offer;
 
-        if(mOffer != null) {
-            if(!mOffer.getProfileId().equals(SharedPreferencesSingleton.getProfileId(getContext()))){
+        if (mOffer != null) {
+            if (!mOffer.getProfileId().equals(SharedPreferencesSingleton.getProfileId(getContext()))) {
                 reserver.setVisibility(View.VISIBLE);
             }
             Log.d("mOffer", mOffer.toString());
@@ -118,9 +118,9 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
 
             String listDays = "";
             String myDay = "";
-            for (WeekDay day: mOffer.getDays()) {
+            for (WeekDay day : mOffer.getDays()) {
                 myDay = day.name();
-                switch (day){
+                switch (day) {
                     case MONDAY:
                         myDay = "Lundi";
                         break;
@@ -146,27 +146,26 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
                         myDay = "Dimanche";
                         break;
                 }
-                listDays += myDay+"  ";
+                listDays += myDay + "  ";
             }
 
             date.setText(listDays);
 
             description.setText(mOffer.getDescription());
             address.setText(mOffer.getAddress());
-            if(offer.getPrice() == 0){
+            if (offer.getPrice() == 0) {
                 price.setText("Gratuit");
             } else {
-                price.setText(offer.getPrice()+" € par heure");
+                price.setText(offer.getPrice() + " € par heure");
             }
             getActivity().setTitle(R.string.toolbar_details);
-        }
-        else{
+        } else {
             Log.d("mOffer", "null");
         }
     }
 
     @OnClick(R.id.reserver_proposition)
-    public void askOffer(){
+    public void askOffer() {
         progressDialog.show();
         mPresenter.startAskingOffer(this.mOffer);
     }
@@ -174,6 +173,6 @@ public class DetailOfferFragment extends AbstractFragment implements DetailOffer
     @Override
     public void showMessage(String message) {
         progressDialog.dismiss();
-        Toast.makeText(this.getContext(),message,Toast.LENGTH_LONG).show();
+        Toast.makeText(this.getContext(), message, Toast.LENGTH_LONG).show();
     }
 }

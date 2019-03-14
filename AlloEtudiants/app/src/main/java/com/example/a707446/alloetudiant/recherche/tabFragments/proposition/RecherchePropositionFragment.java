@@ -38,14 +38,12 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     public RecyclerView recyclerView;
     @BindView(R.id.spinner_offer)
     public MaterialSpinner spinner;
-
+    ArrayAdapter<String> spinnerAdapter;
+    List<String> listItems = new ArrayList<>();
     //variable
     private PropositionContract.Presenter mPresenter;
     private List<Offer> offerList = new ArrayList<>();
     private OffersAdapter mAdapter;
-
-    ArrayAdapter<String> spinnerAdapter;
-    List<String> listItems = new ArrayList<>();
 
     public RecherchePropositionFragment() {
         // Required empty public constructor
@@ -74,18 +72,17 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
          *filter with spinner
          */
         initSpinnerItems();
-        spinnerAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_dropdown_item,listItems);
+        spinnerAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_dropdown_item, listItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position != -1)// -1 hint choose..
+                if (position != -1)// -1 hint choose..
                 {
                     String selected = spinner.getItemAtPosition(position).toString();
                     mPresenter.startgetOffersBySubject(selected);
-                }
-                else{
+                } else {
                     mPresenter.sendOffersToView();
                 }
             }
@@ -122,6 +119,7 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
         listItems.add(Subject.INFORMATIQUE.toString());
         listItems.add(Subject.ELECTRONIQUE.toString());
     }
+
     @Override
     public void receiveOffersFromPresenter(List<Offer> offers) {
         mAdapter.setOffersList(offers);
@@ -131,6 +129,7 @@ public class RecherchePropositionFragment extends AbstractFragment implements Pr
     public void getOffersBySubject(List<Offer> offers) {
         mAdapter.setOffersList(offers);
     }
+
     @Override
     public void onPause() {
         super.onPause();

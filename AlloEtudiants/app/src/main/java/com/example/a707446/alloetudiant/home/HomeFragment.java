@@ -31,7 +31,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeFragment extends AbstractFragment implements HomeContract.View{
+public class HomeFragment extends AbstractFragment implements HomeContract.View {
 
     @BindView(R.id.homeRecycler)
     public RecyclerView recyclerView;
@@ -51,6 +51,7 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
     private HomeContract.Presenter mPresenter;
     private List<NotificationProfileDto> notifications = new ArrayList<>();
     private ProgressDialog progressDialog;
+
     public HomeFragment() {
         // Requires empty public constructor
     }
@@ -65,16 +66,16 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
                              @Nullable Bundle savedInstanceState) {
 
         NavigationActivity.inHome = true;
-        View view = inflater.inflate(R.layout.home_fragment,null);
+        View view = inflater.inflate(R.layout.home_fragment, null);
         getActivity().setTitle(R.string.toolbar_home);
-        mUnbinder = ButterKnife.bind(this,view);
+        mUnbinder = ButterKnife.bind(this, view);
         mPresenter = new HomePresenter(this);
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Chargement");
 
-        if (progressBar != null && imgError != null && txtError != null){
+        if (progressBar != null && imgError != null && txtError != null) {
             progressBar.setVisibility(View.VISIBLE);
             imgNotifCount.setVisibility(View.GONE);
             txtHomeHint.setVisibility(View.GONE);
@@ -119,34 +120,34 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showError(String error) {
-        if (progressBar != null && imgError != null && txtError != null){
+        if (progressBar != null && imgError != null && txtError != null) {
             progressBar.setVisibility(View.GONE);
             imgError.setVisibility(View.VISIBLE);
             txtError.setVisibility(View.VISIBLE);
         }
-        if (progressDialog != null){
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
     }
 
     @Override
     public void showNotifications(List<NotificationProfileDto> _notifications) {
-        if (progressBar != null){
+        if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
             imgNotifCount.setVisibility(View.VISIBLE);
             txtNotifications.setVisibility(View.VISIBLE);
             txtHomeHint.setVisibility(View.VISIBLE);
         }
-        if (progressDialog != null){
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
         notifications = _notifications;
-        if(txtNotifications != null){
+        if (txtNotifications != null) {
             displayNotificationsCountMessage();
         }
         mAdapter.setNotificationsList(_notifications);
@@ -155,13 +156,13 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
 
     @Override
     public void showNotificationsAfterAnswer(List<NotificationProfileDto> _notifications, int position) {
-        if(progressBar != null){
+        if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
             imgNotifCount.setVisibility(View.VISIBLE);
             txtNotifications.setVisibility(View.VISIBLE);
             txtHomeHint.setVisibility(View.VISIBLE);
         }
-        if(progressDialog != null){
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
         notifications = _notifications;
@@ -189,15 +190,16 @@ public class HomeFragment extends AbstractFragment implements HomeContract.View{
                 listener);
     }
 
-    private void displayNotificationsCountMessage(){
-        if(notifications.size() == 0){
+    private void displayNotificationsCountMessage() {
+        if (notifications.size() == 0) {
             txtNotifications.setText("Vous n'avez aucune notification");
-        } else if(notifications.size() == 1) {
+        } else if (notifications.size() == 1) {
             txtNotifications.setText("Vous avez 1 notification à consulter");
         } else {
-            txtNotifications.setText("Vous avez " + notifications.size() +" notifications à consulter");
+            txtNotifications.setText("Vous avez " + notifications.size() + " notifications à consulter");
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();

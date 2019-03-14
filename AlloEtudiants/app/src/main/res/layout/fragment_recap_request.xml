@@ -19,12 +19,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
             android:text="titre"
-            android:textColor="@color/notSoBlack"
             android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:textColor="@color/notSoBlack"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +34,10 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:background="#dadcde"
             app:layout_constraintBottom_toTopOf="@+id/request_image_detail"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +52,9 @@
             android:layout_alignParentLeft="true"
 
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,19 +66,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/view2"
-            android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/cabin"
+            android:text="description"
             android:textAlignment="viewStart"
             android:textColor="@color/notSoBlack"
-            android:text="description"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/request_image_detail" />
-
 
 
         <TextView
@@ -92,12 +91,13 @@
             android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_request_detail" />
+
         <TextView
             android:id="@+id/address_request_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/cabin"
             android:text="adress"
             android:textAlignment="viewStart"
@@ -106,8 +106,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-
 
 
         <TextView
@@ -126,8 +124,8 @@
             android:id="@+id/date_request_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/cabin"
             android:text="date"
             android:textAlignment="viewStart"
@@ -166,16 +164,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="14dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/cabin"
-        android:text="Niveau"
-        android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/matiere_request_detail" />
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cabin"
+            android:text="Niveau"
+            android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/matiere_request_detail" />
 
         <TextView
             android:id="@+id/niveau_request_detail"

@@ -28,9 +28,9 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
                 .enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        if(response.code() == 200) {
-                            SharedPreferencesSingleton.setToken(mView.applicationContext(),response.headers().get("Authorization"));
-                            getProfileIdByEmail(response.headers().get("Authorization"),email);
+                        if (response.code() == 200) {
+                            SharedPreferencesSingleton.setToken(mView.applicationContext(), response.headers().get("Authorization"));
+                            getProfileIdByEmail(response.headers().get("Authorization"), email);
 
                         } else {
                             mView.showError("Adresse e-mail ou mot de passe incorrect");
@@ -50,22 +50,24 @@ public class ConnexionPresenter implements ConnexionContract.Presenter {
     }
 
     @Override
-    public void startForgetPassword(){mView.forgetPassword();}
+    public void startForgetPassword() {
+        mView.forgetPassword();
+    }
 
-    private void getProfileIdByEmail(final String token, String email){
+    private void getProfileIdByEmail(final String token, String email) {
         loginRepository.getProfileIdByEmail(email)
                 .enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-                        if(response.isSuccessful()){
-                            SharedPreferencesSingleton.setProfileId(mView.applicationContext(),response.body());
-                           mView.login(token,response.body());
+                        if (response.isSuccessful()) {
+                            SharedPreferencesSingleton.setProfileId(mView.applicationContext(), response.body());
+                            mView.login(token, response.body());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
-                        mView.showError("Failure: "+t.toString());
+                        mView.showError("Failure: " + t.toString());
                     }
                 });
     }

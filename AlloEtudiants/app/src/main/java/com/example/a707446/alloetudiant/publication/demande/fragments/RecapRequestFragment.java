@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecapRequestFragment extends Fragment implements BlockingStep,DemandeContract.View  {
+public class RecapRequestFragment extends Fragment implements BlockingStep, DemandeContract.View {
 
     private final String profileId = SharedPreferencesSingleton.getProfileId(BaseApplication.getAppContext());
 
@@ -55,7 +55,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep,Deman
     String days = "";
     List<WeekDay> listDays;
     private DemandeContract.Presenter mPresenter;
-    private String mTitre, mDescription, mMatiere, mAddress, dispoStr,mNiveau;
+    private String mTitre, mDescription, mMatiere, mAddress, dispoStr, mNiveau;
     private int mHours;
     private float mPrix;
     private float mTotal;
@@ -147,7 +147,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep,Deman
         mAddress = dataManager.getAddress();
         mPrix = dataManager.getPrix();
         mHours = dataManager.getHours();
-        mTotal = mPrix*mHours;
+        mTotal = mPrix * mHours;
         dispoStr = dataManager.getDispo();
         listDispoTmp = new Gson().fromJson(dispoStr, ArrayList.class);
 
@@ -156,7 +156,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep,Deman
         listDays = new ArrayList<>();
 
 
-        mRequest = new RequestDto(profileId, AnnounceType.REQUEST, mTitre, mAddress, mDescription, Subject.valueOf(mMatiere),Grade.valueOf(mNiveau),mHours,mPrix,mPrix*mHours, listDays);
+        mRequest = new RequestDto(profileId, AnnounceType.REQUEST, mTitre, mAddress, mDescription, Subject.valueOf(mMatiere), Grade.valueOf(mNiveau), mHours, mPrix, mPrix * mHours, listDays);
 
         for (Double d : listDispoTmp) {
             Log.d("listDispo", " : " + d);
@@ -257,6 +257,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep,Deman
         }
         return days;
     }
+
     @Override
     public void onError(@NonNull VerificationError error) {
 

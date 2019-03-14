@@ -124,12 +124,11 @@ public class DetailRequestFragment extends AbstractFragment implements DetailReq
     public void getRequestById(Request request) {
 
 
-
         Log.d("event", request.getId());
         this.mRequest = request;
 
         if (mRequest != null) {
-            if(!mRequest.getProfileId().equals(SharedPreferencesSingleton.getProfileId(getContext()))){
+            if (!mRequest.getProfileId().equals(SharedPreferencesSingleton.getProfileId(getContext()))) {
                 reserver.setVisibility(View.VISIBLE);
             }
             Log.d("mEvent", mRequest.toString());

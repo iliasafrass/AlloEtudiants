@@ -31,17 +31,17 @@ public class PropositionPresenter implements PropositionContract.Presenter {
                 new Callback<Offer>() {
                     @Override
                     public void onResponse(Call<Offer> call, Response<Offer> response) {
-                        if(response.body() != null)
+                        if (response.body() != null)
                             mView.showSuccessMsg();
                         else
                             mView.showFailedMsg();
-                            Log.d("POST_REQUEST", " response = "+response.body());
-                        }
+                        Log.d("POST_REQUEST", " response = " + response.body());
+                    }
 
                     @Override
                     public void onFailure(Call<Offer> call, Throwable t) {
 
-                        Log.d("POST_REQUEST", " Error = "+t.toString());
+                        Log.d("POST_REQUEST", " Error = " + t.toString());
                         mView.showFailedMsg();
                     }
                 }

@@ -167,8 +167,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:ems="10"
-                android:inputType="number"
                 android:hint="Téléphone"
+                android:inputType="number"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:theme="@style/MyEditText" />

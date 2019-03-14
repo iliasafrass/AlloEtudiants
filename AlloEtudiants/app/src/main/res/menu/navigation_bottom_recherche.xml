@@ -3,14 +3,14 @@
     <item
         android:id="@+id/action_rechercher"
         android:icon="@drawable/selector"
-        android:title="TEST"/>
+        android:title="TEST" />
 
     <item
         android:id="@+id/action_annonce"
         android:icon="@drawable/ic_annonce"
-        android:title="TEST"/>
+        android:title="TEST" />
     <item
         android:id="@+id/action_publier"
         android:icon="@drawable/ic_publier"
-        android:title="TEST"/>
+        android:title="TEST" />
 </menu>

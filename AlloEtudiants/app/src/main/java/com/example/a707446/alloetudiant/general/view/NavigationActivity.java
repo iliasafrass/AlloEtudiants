@@ -34,12 +34,10 @@ public class NavigationActivity extends AppCompatActivity {
     public static boolean inHome;
     public static boolean inDetail;
     public static boolean firstChildFragment = false;
+    public static BottomNavigationView mBottomNavigationView;
     // Views
     @BindView(R.id.navigationActivity_toolbar)
     public Toolbar mToolbar;
-
-    public static BottomNavigationView mBottomNavigationView;
-
     @BindView(R.id.navigationActivity_fragmentContainer)
     public FrameLayout frameLayout;
     // Globals
@@ -51,7 +49,7 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
         mUnbinder = ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        mBottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationActivity_bottomNavigationActivity) ;
+        mBottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationActivity_bottomNavigationActivity);
         inHome = true;
         inDetail = false;
 
@@ -68,7 +66,7 @@ public class NavigationActivity extends AppCompatActivity {
                 AbstractFragment selectedFragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.notification:
-                       selectedFragment = NotificationFragment.newInstance();
+                        selectedFragment = NotificationFragment.newInstance();
                         inHome = false;
                         break;
                 }
@@ -140,7 +138,7 @@ public class NavigationActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.navigationActivity_fragmentContainer, selectedFragment);
                 fragmentTransaction.addToBackStack(null).commit();
                 return true;
-                }
+            }
         }
         return super.onOptionsItemSelected(item);
     }

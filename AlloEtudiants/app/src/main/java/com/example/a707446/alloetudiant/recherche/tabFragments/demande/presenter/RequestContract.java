@@ -13,6 +13,7 @@ public interface RequestContract {
 
     interface Presenter {
         void sendRequestsToView();
+
         void startgetRequestsBySubject(String subject);
     }
 }

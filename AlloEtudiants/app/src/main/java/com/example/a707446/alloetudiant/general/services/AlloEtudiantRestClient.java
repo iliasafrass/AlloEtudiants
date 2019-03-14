@@ -4,10 +4,10 @@ import com.example.a707446.alloetudiant.general.model.dto.AnnouncementDto;
 import com.example.a707446.alloetudiant.general.model.dto.EventDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationDto;
 import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto;
-import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.dto.OfferDto;
-import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
 import com.example.a707446.alloetudiant.general.model.dto.RequestDto;
+import com.example.a707446.alloetudiant.general.model.enumeration.AnnounceType;
+import com.example.a707446.alloetudiant.general.model.enumeration.Subject;
 import com.example.a707446.alloetudiant.general.model.payload.LoginRequest;
 import com.example.a707446.alloetudiant.general.model.pojo.Event;
 import com.example.a707446.alloetudiant.general.model.pojo.Notification;
@@ -53,22 +53,22 @@ public interface AlloEtudiantRestClient {
     Call<List<Request>> getRequests();
 
     @GET("/events/{id}")
-    Call<Event> getEventById(@Path("id")String id);
+    Call<Event> getEventById(@Path("id") String id);
 
     @GET("/requests/{id}")
-    Call<Request> getRequestById(@Path("id")String id);
+    Call<Request> getRequestById(@Path("id") String id);
 
     @GET("/offers/{id}")
-    Call<Offer> getOfferById(@Path("id")String id);
+    Call<Offer> getOfferById(@Path("id") String id);
 
     @GET("/requests/subjects/{subject}")
     Call<List<Request>> getRequestsBySubject(@Path("subject") Subject subject);
 
     @GET("/offers/subjects/{subject}")
-    Call<List<Offer>> getOffersBySubject(@Path("subject")Subject subject);
+    Call<List<Offer>> getOffersBySubject(@Path("subject") Subject subject);
 
     @GET("/events/title/{title}")
-    Call<List<Event>> getEventsByTitle(@Path("title")String title);
+    Call<List<Event>> getEventsByTitle(@Path("title") String title);
 
     @GET("/notifications/asked/{id}")
     Call<List<NotificationProfileDto>> getNotificationsByProfileId(@Path("id") String id, @Query("done") boolean done);
@@ -86,5 +86,5 @@ public interface AlloEtudiantRestClient {
     Call<List<AnnouncementDto>> deleteAnnouncement(@Path("id") String id, @Path("type") AnnounceType type);
 
     @GET("/profiles/{id}")
-    Call<Profile> getProfileById(@Path("id")String id);
+    Call<Profile> getProfileById(@Path("id") String id);
 }

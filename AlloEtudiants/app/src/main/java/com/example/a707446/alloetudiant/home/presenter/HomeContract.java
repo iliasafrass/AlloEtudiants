@@ -8,14 +8,19 @@ public interface HomeContract {
 
     interface View {
         void showMessage(String message);
+
         void showError(String error);
+
         void showNotifications(List<NotificationProfileDto> notifications);
+
         void showNotificationsAfterAnswer(List<NotificationProfileDto> notifications, int position);
+
         void goToStartActivity();
     }
 
     interface Presenter {
         void getNotifications();
+
         void sendNotificationAnswer(NotificationProfileDto dto, int position);
     }
 

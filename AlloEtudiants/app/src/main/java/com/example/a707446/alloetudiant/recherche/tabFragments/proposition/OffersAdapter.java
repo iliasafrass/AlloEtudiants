@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.a707446.alloetudiant.R;
@@ -25,11 +24,10 @@ import java.util.List;
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHolder> {
 
     public Context myContext;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     //Liste des propositions
     private List<Offer> offersList;
     private String offerId;
-
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     //construceteur
     public OffersAdapter(Context context, List<Offer> offersList) {
@@ -56,7 +54,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
         holder.description.setText(offer.getDescription());
         holder.date.setText(sdf.format(offer.getCreatedDate()));
         holder.icon.setImageResource(R.drawable.ic_offers);
-        holder.prix.setText(String.valueOf(offer.getPrice())+" € par heure");
+        holder.prix.setText(String.valueOf(offer.getPrice()) + " € par heure");
 
         //on ajoute un OnClickListener sur le layout de l'item
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
@@ -89,11 +87,16 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
         return offersList.size();
     }
 
+    public void setOffersList(List<Offer> list) {
+        this.offersList = list;
+        notifyDataSetChanged();
+    }
+
     //cette class permet de fournir une référence directe à chacune des vues dans un élément de données
     public class MyViewHolder extends RecyclerView.ViewHolder {
         // Votre holder doit contenir une variable membre
         // pour toute vue qui sera définie lors du rendu de l'item
-        public TextView title, address, description,prix,date;
+        public TextView title, address, description, prix, date;
 
         public ImageView icon;
         // le layout  de l'item
@@ -109,9 +112,5 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.MyViewHold
             icon = (ImageView) view.findViewById(R.id.offer_image);
             prix = (TextView) view.findViewById(R.id.prix);
         }
-    }
-    public void setOffersList(List<Offer> list){
-        this.offersList=list;
-        notifyDataSetChanged();
     }
 }

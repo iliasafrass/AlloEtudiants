@@ -1,18 +1,15 @@
 <com.stepstone.stepper.StepperLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stepperLayout_proposition"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/stepperLayout_proposition"
+    android:backgroundTint="@color/background"
     app:ms_activeStepColor="@color/blueBarColor"
     app:ms_backButtonColor="@color/blueBarColor"
-    app:ms_nextButtonText="Suivant"
     app:ms_backButtonText="Précedant"
-    app:ms_completeButtonText="Publier"
     app:ms_completeButtonColor="@color/blueBarColor"
+    app:ms_completeButtonText="Publier"
     app:ms_inactiveStepColor="@color/blueBodyColor"
     app:ms_nextButtonColor="@color/blueBarColor"
-    android:backgroundTint="@color/background"
-    app:ms_stepperType="tabs"
-    >
-</com.stepstone.stepper.StepperLayout>
+    app:ms_nextButtonText="Suivant"
+    app:ms_stepperType="tabs"></com.stepstone.stepper.StepperLayout>

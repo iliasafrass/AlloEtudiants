@@ -7,13 +7,13 @@ public class BaseApplication extends Application {
 
     private static Context context;
 
+    public static Context getAppContext() {
+        return BaseApplication.context;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         BaseApplication.context = getApplicationContext();
-    }
-
-    public static Context getAppContext(){
-        return BaseApplication.context;
     }
 }

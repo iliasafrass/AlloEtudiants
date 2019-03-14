@@ -160,6 +160,7 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
         mydialogKO();
     }
 
+
     private void mydialogOK() {
         AlertDialog alertDialog = new AlertDialog.Builder(getContext())
                 //set icon
@@ -173,6 +174,7 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what would happen when positive button is clicked
+                        getActivity().finish();
                     }
                 })
                 .show();
@@ -185,13 +187,12 @@ public class EventStep1 extends Fragment implements BlockingStep, EvenementContr
                 //set title
                 .setTitle("Attention!")
                 //set message
-                .setMessage("Le service publier evenement semble interrompue. Veuillez réessayer.")
+                .setMessage("Le service publier un evenement semble interrompue. Veuillez réessayer.")
                 //set negative button
                 .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //set what should happen when negative button is clicked
-                        getActivity().finish();
                     }
                 })
                 .show();

@@ -5,7 +5,9 @@ import com.example.a707446.alloetudiant.general.model.dto.RequestDto;
 public interface DemandeContract {
     interface View {
         void createRequest(RequestDto requestDto);
+
         void showSuccessMsg();
+
         void showFailedMsg();
     }
 

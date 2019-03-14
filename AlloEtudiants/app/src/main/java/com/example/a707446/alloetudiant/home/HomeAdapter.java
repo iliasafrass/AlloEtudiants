@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,17 +16,17 @@ import com.example.a707446.alloetudiant.general.model.dto.NotificationProfileDto
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     private List<NotificationProfileDto> notifications;
     private HomeAdapter.OnButtonClickListener onButtonClickListener;
 
-    public HomeAdapter(List<NotificationProfileDto> _notifications){
+    public HomeAdapter(List<NotificationProfileDto> _notifications) {
         notifications = _notifications;
     }
 
-    public void setNotificationsList(List<NotificationProfileDto> _notifications){
+    public void setNotificationsList(List<NotificationProfileDto> _notifications) {
         notifications = _notifications;
     }
 
@@ -63,11 +62,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
         return notifications.size();
     }
 
-    public void setOnButtonClickListener(HomeAdapter.OnButtonClickListener listener){
+    public void setOnButtonClickListener(HomeAdapter.OnButtonClickListener listener) {
         onButtonClickListener = listener;
     }
+
     public interface OnButtonClickListener {
         void onAcceptBtnClick(int position);
+
         void onDeclineBtnClick(int position);
     }
 
@@ -94,9 +95,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
             btnAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener!=null){
+                    if (listener != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION) {
+                        if (position != RecyclerView.NO_POSITION) {
                             listener.onAcceptBtnClick(position);
                         }
                     }
@@ -107,9 +108,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
             btnDecline.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener!=null){
+                    if (listener != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION) {
+                        if (position != RecyclerView.NO_POSITION) {
                             listener.onDeclineBtnClick(position);
                         }
                     }

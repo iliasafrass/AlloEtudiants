@@ -46,7 +46,7 @@
             android:layout_centerVertical="true"
             android:drawableRight="@drawable/ic_access_time_black_24dp"
             android:ems="10"
-            android:hint="Heures"
+            android:hint="Nombre d'heures total"
             android:inputType="numberDecimal"
             android:textSize="16sp"
             android:textStyle="bold"

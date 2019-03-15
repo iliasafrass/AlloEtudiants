@@ -49,6 +49,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep, Dema
     TextView matiere;
     TextView niveau;
     TextView total;
+    TextView heure;
 
     //variables
 
@@ -99,6 +100,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep, Dema
         matiere = (TextView) view.findViewById(R.id.matiere_request_detail);
         total = (TextView) view.findViewById(R.id.total_request_detail);
         description = (TextView) view.findViewById(R.id.description_request_detail);
+        heure = (TextView) view.findViewById(R.id.heure_request_detail);
 
 
     }
@@ -172,7 +174,7 @@ public class RecapRequestFragment extends Fragment implements BlockingStep, Dema
         description.setText(stringBuilder.toString());
         matiere.setText(mMatiere);
         niveau.setText(mNiveau);
-
+        heure.setText(String.valueOf(mHours));
         address.setText(mAddress);
         date.setText(getDays());
         total.setText(mTotal + " €");
